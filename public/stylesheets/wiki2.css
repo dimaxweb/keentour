@@ -1,0 +1,136 @@
+.navbox-group {
+    white-space: nowrap;
+    text-align: right;
+    font-weight: bold;
+    padding-left: 1em;
+    padding-right: 1em
+}
+
+.navbox, .navbox-subgroup {
+    background: #fdfdfd;
+}
+
+.navbox-list {
+    border-color: #fdfdfd;
+}
+
+.navbox-title, table.navbox th {
+    background: #ccccff;
+}
+
+.navbox-abovebelow, .navbox-group, .navbox-subgroup .navbox-title {
+    background: #ddddff;
+}
+
+.navbox-subgroup .navbox-group, .navbox-subgroup .navbox-abovebelow {
+    background: #e6e6ff;
+}
+
+.navbox-even {
+    background: #f7f7f7;
+}
+
+.navbox-odd {
+    background: transparent;
+}
+
+.navbox .hlist dl, .navbox .hlist ol, .navbox .hlist ul {
+    padding: 0.125em 0;
+}
+
+.navbox .hlist dd, .navbox .hlist dt, .navbox .hlist li {
+    white-space: nowrap;
+    white-space: normal ! ie;
+}
+
+.navbox .hlist dd dl, .navbox .hlist dt dl, .navbox .hlist li ol, .navbox .hlist li ul {
+    white-space: normal;
+}
+
+ol + table.navbox, ul + table.navbox {
+    margin-top: 0.5em;
+}
+
+.navbar {
+    display: inline;
+    font-size: 88%;
+    font-weight: normal;
+    padding-right: 0.25em;
+    word-spacing: -0.125em
+}
+
+.navbar ul {
+    display: inline;
+    white-space: nowrap
+}
+
+.navbox .navbar {
+    display: block;
+    float: left;
+    font-size: 100%;
+    text-align: left;
+    width: 6em
+}
+
+.navbox .navbar ul {
+    display: block
+}
+
+.collapseButton {
+    float: right;
+    font-weight: normal;
+    margin-left: 0.5em;
+    text-align: right;
+    width: auto
+}
+.infobox {
+    border: 1px solid #aaa;
+    background-color: #f9f9f9;
+    color: black;
+    margin: 0.5em 0 0.5em 1em;
+    padding: 0.2em;
+    float: right;
+    clear: right;
+    text-align: left;
+    font-size: 88%;
+    line-height: 1.5em
+}
+
+div.thumb
+{
+    float:right;
+    margin-left:10px;
+
+    
+}
+
+.tright
+{
+    clear:right;
+}
+
+.breadTitle
+{
+    margin-right:15px;
+    margin-bottom:15px;
+    margin-top:15px;
+    color: #31A5CD;
+    font-size: 16px;
+    text-align:left;
+    font-family:Arial;
+}
+.breadSeparator
+{
+    color:#33506E;
+    font-weight:bold;
+}
+
+
+
+
+
+
+
+
+
+
