@@ -1,5 +1,7 @@
 extends layout
-table.content(cellspacing='0', cellpadding='0')
+
+block content
+    table.content(cellspacing='0', cellpadding='0')
         tr
             td.sidbar
                 .menu
@@ -39,6 +41,5 @@ table.content(cellspacing='0', cellpadding='0')
                 .tree_link
 
     script(data-main='/dist/contentpage', src='/javascripts/lib/require.js', type='text/javascript')
-    td.body_right(rowspan='2')
-        | .
+
 
