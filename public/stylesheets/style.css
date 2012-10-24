@@ -1,12 +1,3 @@
-body{
-    margin:0;
-    font-family:Arial;
-	font-size:13px;
-	background:url(../image/fon_top1.jpg) repeat-x top;
-	color:#555;
-}
-/*FDFSDFSDFSDFS*/
-
 img{border:none;}
 td{vertical-align:top;}
 h1,h2,h3,h4,h5,h6{color:#33506e; font-weight:normal;}
@@ -25,17 +16,14 @@ table.content{width:100%;}
 table.content2{width:875px; margin-left:50px;}
 table.content a:hover{}
 
-/**************************** ����� *******************************/
-table.shapka{
-	background:url(../image/fonsfera.png) no-repeat center top;
+/**************************** main styles *******************************/
+
+.shapka{
+	background:url(../images/fonsfera.png) no-repeat center top;
 }
-td.logo{
-    width:300px;
-}
-td.logo div{
-    width:300px;
-	height:123px;
-	background:url(../image/logo.png) no-repeat left top;
+
+.logo{
+    background:url(../images/logo.png) no-repeat left top;
 }
 
 /*** search ***/

@@ -1,22 +1,82 @@
 doctype 5
-html
-  head
-      head
-          title= title
-          link(rel='stylesheet', href='/stylesheets/style.css')
-          link(rel='stylesheet', href='/stylesheets/colorbox.css')
-          link(rel='icon',type='image/png',href='/images/favicon.ico')
-  body
-    block content
-    div.footerPanel#panelMain
-        div.panelInternal
-            div.addthis_toolbox.addthis_default_style.addthis_32x32_style
-                a(class="addthis_button_preferred_1")
-                a(class="addthis_button_preferred_2")
-                a(class="addthis_button_preferred_3")
-                a(class="addthis_button_compact")
-                a(class="addthis_counter addthis_bubble_style")
-                span.companyInfo
-                    a(href="/AboutUs") About US
-                span.companyInfo
-                    a(href="/Privacy") Privacy
+html(lang='en')
+head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/colorbox.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
+    link(rel='icon',type='image/png',href='/images/favicon.ico')
+    link(href='../assets/css/bootstrap.css', rel='stylesheet')
+    style
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+            background: url("../public/images/fon_top1.jpg") repeat-x scroll center top transparent;
+            color: #555555;
+            font-family: Arial;
+            font-size: 13px;
+            margin: 0;
+        }
+    link(href='../assets/css/bootstrap-responsive.css', rel='stylesheet')
+
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='../assets/ico/apple-touch-icon-144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='../assets/ico/apple-touch-icon-114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='../assets/ico/apple-touch-icon-72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', href='../assets/ico/apple-touch-icon-57-precomposed.png')
+    body(data-target='.bs-docs-sidebar', data-spy='scroll', data-twttr-rendered='true')
+       .navbar.navbar-fixed-top
+          .row.shapka
+                  .span6
+                      a(href='/', title='Keentour-Home')
+                          .logo
+                  .span6
+                      input#searchtext(type='text', onfocus='if(this.value==\'search...\') this.value=\'\';', onblur='if(!this.value) this.value=\'search...\';', value='search...')
+                      input#searchbtn(type='button', value='')
+          .navbar-inner
+                .container
+
+                    a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+
+                    a.brand(href='#') KeenTour
+                    .nav-collapse
+                        ul.nav
+                            li.active
+                               a(href='#') Home
+                            li
+                                a(href='content/Europe') Europe
+                            li
+                                a(href='content/North-America') North America
+                            li
+                                a(href='content/South-America') South America
+                            li
+                                a(href='content/Asia') Asia
+                            li
+                                a(href='content/Oceania') Oceania
+                            li
+                                a(href='content/Africa') Africa
+
+        .container
+            block content
+
+            div.footerPanel#panelMain
+                div.panelInternal
+                    div.addthis_toolbox.addthis_default_style.addthis_32x32_style
+                        a(class="addthis_button_preferred_1")
+                        a(class="addthis_button_preferred_2")
+                        a(class="addthis_button_preferred_3")
+                        a(class="addthis_button_compact")
+                        a(class="addthis_counter addthis_bubble_style")
+                        span.companyInfo
+                            a(href="/AboutUs") About US
+                        span.companyInfo
+                            a(href="/Privacy") Privacy
+
+
+
+
