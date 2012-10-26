@@ -1,53 +1,27 @@
-img{border:none;}
-td{vertical-align:top;}
-h1,h2,h3,h4,h5,h6{color:#33506e; font-weight:normal;}
-h1{font-size:24px;}
-h2{font-size:20px;}
-h3{font-size:16px;}
-h4{font-size:14px;}
-h5{font-size:11px;}
-h6{font-size:9px;}
-td, th{vertical-align:top; text-align:left;}
-a{color:#33506e; text-decoration:none;}
-table.body_table{background:url(../image/fon_bottom.jpg) repeat-x bottom; width:100%; height:800px; margin:0px;}
-td.body_left, td.body_right{width:50%; vertical-align:middle; color:#fff;}
-td.body_center{width:983px;}
-table.content{width:100%;}
-table.content2{width:875px; margin-left:50px;}
-table.content a:hover{}
+/*img{border:none;}*/
+/*td{vertical-align:top;}*/
+/*h1,h2,h3,h4,h5,h6{color:#33506e; font-weight:normal;}*/
+/*h1{font-size:24px;}*/
+/*h2{font-size:20px;}*/
+/*h3{font-size:16px;}*/
+/*h4{font-size:14px;}*/
+/*h5{font-size:11px;}*/
+/*h6{font-size:9px;}*/
+/*td, th{vertical-align:top; text-align:left;}*/
+/*a{color:#33506e; text-decoration:none;}*/
+/*table.body_table{background:url(../images/fon_bottom.jpg) repeat-x bottom; width:100%; height:800px; margin:0px;}*/
+/*td.body_left, td.body_right{width:50%; vertical-align:middle; color:#fff;}*/
+/*td.body_center{width:983px;}*/
+/*table.content{width:100%;}*/
+/*table.content2{width:875px; margin-left:50px;}*/
+/*table.content a:hover{}*/
 
 /**************************** main styles *******************************/
 
-.shapka{
-	background:url(../images/fonsfera.png) no-repeat center top;
-}
 
-.logo{
-    background:url(../images/logo.png) no-repeat left top;
-}
 
-/*** search ***/
-td.shapka2{
-    width:280px;
-	padding-top:30px;
-}
-div.search{}
-#searchtext{
-	background:url(../image/pole_vvoda.png) no-repeat center top;
-	border:none;
-	width:219px;
-	height:20px;
-	padding:2px 7px 6px 20px;
-	color:#777;
-}
-#searchbtn{
-	background:url(../image/loopa.png) no-repeat center 2px;
-	border:none;
-	width:28px;
-	height:24px;
-}
 #searchbtn:hover{
-	background:url(../image/loopa.png) no-repeat center -279px;
+	background:url(../images/loopa.png) no-repeat center -279px;
 	border:none;
 }
 p.notice{
@@ -56,7 +30,7 @@ p.notice{
 
 /*** history ***/
 div.history{
-	background:url(../image/history_link_1.jpg) repeat-x top;
+	background:url(../images/history_link_1.jpg) repeat-x top;
 	border:1px #eee solid;
     border-radius:8px;
     -moz-border-radius:8px;
@@ -76,7 +50,7 @@ div.history span{
 	border-bottom:1px #888 dashed;
 }
 div.history2{
-	background:url(../image/history_link_2a.jpg) repeat-x top;
+	background:url(../images/history_link_2a.jpg) repeat-x top;
 	width:236px;
 	height:22px;
 	margin-top:10px;
@@ -102,7 +76,7 @@ div.history_block{
 	width:236px;
 	min-height:50px;
 	padding:5px;
-	background:#fff url(../image/history_link_2b.jpg) repeat-x top;
+	background:#fff url(../images/history_link_2b.jpg) repeat-x top;
 	border:1px #ddd solid;
 	border-top:none;
     border-radius:0px 0px 8px 8px;
@@ -127,7 +101,7 @@ div.history_block p a:hover{
 	text-decoration:none;
 }
 
-/************************ ������� ���� ****************************/
+/********************** Table styles ****************************/
 table.top_menu{
     width:100%;
 	height:38px;
@@ -141,10 +115,10 @@ div.top_menu1{
 	margin-top:-1px;
 	padding-top:9px;
 	padding-bottom:11px;
-	background:url(../image/arrowred.png) no-repeat center top;
+	background:url(../images/arrowred.png) no-repeat center top;
 }
 a:hover div.top_menu1{
-	background:url(../image/arrowred.png) no-repeat center -140px;
+	background:url(../images/arrowred.png) no-repeat center -140px;
 }
 table.top_menu div div{
 	border-right:1px #ddd dotted;
@@ -229,7 +203,7 @@ div.popular_cities li{
 	color:#555;
 }
 div.popular_cities li:hover{
-	background:url(../image/plashka.jpg) repeat-x top;
+	background:url(../images/plashka.jpg) repeat-x top;
 	color:#fff;
 }
 
@@ -263,7 +237,7 @@ div.menu li{
 	color:#555;
 }
 div.menu li:hover{
-	background:url(../image/plashka.jpg) repeat-x top;
+	background:url(../images/plashka.jpg) repeat-x top;
 	color:#fff;
 }
 

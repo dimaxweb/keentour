@@ -23,37 +23,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="index.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/index.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="40" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="layout.jade" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/layout.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="33" selection-start="1697" selection-end="1697" vertical-scroll-proportion="0.51328504">
+            <state line="28" column="91" selection-start="1145" selection-end="1145" vertical-scroll-proportion="0.4108352">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <file leaf-file-name="Site.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/Site.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="54" selection-start="467" selection-end="467" vertical-scroll-proportion="-8.16">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/index.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="78" selection-start="179" selection-end="1382" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/shared/header.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="298" column="23" selection-start="4896" selection-end="4896" vertical-scroll-proportion="-7.76">
               <folding />
             </state>
           </provider>
@@ -74,27 +65,24 @@
       <command text="npm" />
     </commandsHistory>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.txt" root0="SKIP_INSPECTION" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/javascripts/youtubeWidget.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/wikiPediaWidget.js" />
         <option value="$PROJECT_DIR$/public/build/app.build.js" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/views/content.ejs" />
         <option value="$PROJECT_DIR$/public/build/start.frag" />
         <option value="$PROJECT_DIR$/public/stylesheets/bootstrap/docs.css" />
         <option value="$PROJECT_DIR$/views/master.jade" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/views/content.jade" />
         <option value="$PROJECT_DIR$/views/aboutUs.jade" />
         <option value="$PROJECT_DIR$/views/privacy.jade" />
+        <option value="$PROJECT_DIR$/views/shared/header.ejs" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/views/index.jade" />
+        <option value="$PROJECT_DIR$/public/stylesheets/Site.css" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
       </list>
     </option>
@@ -159,6 +147,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="keentour" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="keentour" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -203,11 +205,11 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.325" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../jadeExample" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -281,22 +283,22 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44457275" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22933011" sideWeight="0.669746" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22933011" sideWeight="0.55542725" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3995381" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33025405" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44457275" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33025405" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -368,79 +370,76 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/aboutUs.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="54" selection-start="1341" selection-end="1341" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index_old.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="18" selection-start="0" selection-end="2815" vertical-scroll-proportion="0.12128419">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout_old.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="55" selection-start="363" selection-end="933" vertical-scroll-proportion="0.40428063">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="49" selection-start="269" selection-end="269" vertical-scroll-proportion="0.30321047">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="98" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/aboutUs.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="8" selection-start="108" selection-end="108" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/privacy.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="22" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="17" column="22" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap/bootstrap.css">
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="11" column="78" selection-start="179" selection-end="1382" vertical-scroll-proportion="0.22584541">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/content.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="4" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0">
+        <state line="3" column="51" selection-start="81" selection-end="81" vertical-scroll-proportion="0.060642093" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="49" selection-start="666" selection-end="666" vertical-scroll-proportion="0.14064363" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/plugins.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="29" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3185" column="51" selection-start="57399" selection-end="57399" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap/bootstrap-responsive.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="27" selection-start="30" selection-end="31" vertical-scroll-proportion="-0.68">
+        <state line="33" column="53" selection-start="538" selection-end="538" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/shared/header.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="27" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="29" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="761" selection-end="761" vertical-scroll-proportion="16.32">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap/docs.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="52" selection-start="481" selection-end="481" vertical-scroll-proportion="-12.92">
+        <state line="821" column="9" selection-start="16818" selection-end="16824" vertical-scroll-proportion="-172.72">
           <folding />
         </state>
       </provider>
@@ -452,30 +451,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/shared/header.ejs">
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/Site.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="298" column="23" selection-start="4896" selection-end="4896" vertical-scroll-proportion="-7.76">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="78" selection-start="179" selection-end="1382" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="54" selection-start="467" selection-end="467" vertical-scroll-proportion="-8.16">
+        <state line="40" column="40" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="33" selection-start="1697" selection-end="1697" vertical-scroll-proportion="0.51328504">
+        <state line="28" column="91" selection-start="1145" selection-end="1145" vertical-scroll-proportion="0.4108352">
           <folding />
         </state>
       </provider>

@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: Arial;
     font-size: 13px;
-    background: url(../images/fon_top1.jpg) repeat-x top;
+    /*background: url(../images/fon_top1.jpg) repeat-x top;*/
     color: #555;
 }
 
@@ -12,45 +12,6 @@ img {
 
 td {
     vertical-align: top;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: #33506e;
-    font-weight: normal;
-}
-
-h1 {
-    font-size: 24px;
-}
-
-h2 {
-    font-size: 20px;
-}
-
-h3 {
-    font-size: 16px;
-}
-
-h4 {
-    font-size: 14px;
-}
-
-h5 {
-    font-size: 11px;
-}
-
-h6 {
-    font-size: 9px;
-}
-
-td, th {
-    vertical-align: top;
-    text-align: left;
-}
-
-a {
-    color: #33506e;
-    text-decoration: none;
 }
 
 /* originaly had background - background:url(../Content/image/fon_bottom.jpg) repeat-x bottom;*/
@@ -84,33 +45,21 @@ table.content a:hover {
 }
 
 /**************************** top *******************************/
-table.shapka {
-    background: url(../images/fonsfera.png) no-repeat center top;
+
+.header
+{
+    margin-top: 50px;
 }
 
-td.logo {
-    width: 500PX;
+.logo{
+    background:url(../images/logo.png) no-repeat left top;
 }
 
-td.logo div {
-    width: 300px;
-    height: 123px;
-    background: url(../images/logo.png) no-repeat left top;
-}
-
-/*** search ***/
-td.shapka2 {
-    width: 280px;
-    padding-top: 30px;
-}
-
-div.search {
-    margin-top: 20px;
+#search{
+    margin: 50px 0px 0px 200px;
 }
 
 #searchtext {
-    background: url(../images/pole_vvoda.png) no-repeat center top;
-    border: none;
     width: 219px;
     height: 20px;
     padding: 2px 7px 6px 20px;
@@ -129,6 +78,8 @@ div.search {
     background: url(../images/loopa.png) no-repeat center -279px;
     border: none;
 }
+
+.menu
 
 p.notice {
     font-size: 12px;
@@ -185,17 +136,7 @@ div.history2 span {
 div.history_link {
 }
 
-div.history_block {
-    position: absolute;
-    width: 236px;
-    min-height: 50px;
-    padding: 5px;
-    background: #fff url(../images/history_link_2b.jpg) repeat-x top;
-    border: 1px #ddd solid;
-    border-top: none;
-    border-radius: 0px 0px 8px 8px;
-    -moz-border-radius: 0px 0px 8px 8px;
-}
+
 
 div.history_block ol {
     margin: 0;
@@ -222,7 +163,7 @@ div.history_block p a:hover {
 
 /************************ ������� ���� ****************************/
 table.top_menu {
-    width: 100%;
+    width: 50%;
     height: 38px;
 }
 
@@ -236,7 +177,7 @@ div.top_menu1 {
     margin-top: -1px;
     padding-top: 9px;
     padding-bottom: 11px;
-    background: url(../images/arrowred.png) no-repeat center top;
+
     cursor:pointer;
 }
 
@@ -270,7 +211,9 @@ div.popular_countries {
 }
 
 div.popular_countries_title {
-    height: 55px;
+    margin-bottom:10px;
+    text-align: center;
+
 }
 
 div.popular_countries_title h3 {
@@ -313,6 +256,7 @@ div.popular_cities {
 
 div.popular_cities_title {
     height: 53px;
+    text-align: center;
 }
 
 div.popular_cities_title img {
@@ -351,43 +295,10 @@ div.popular_cities li:hover {
 /*** Menu ***/
 div.menu {
     margin-bottom: 10px;
+    background-color: #95ADC7;
+    text-align: center;
 }
 
-div.menu_title {
-    height: 53px;
-}
-
-div.menu_title img {
-    margin-left: 10px;
-}
-
-div.menu_title h3 {
-    width: 120px;
-    margin-top: 20px;
-    margin-right: 0px;
-    float: right;
-    padding-bottom: 10px;
-    margin-top: 10px;
-    border-bottom: 1px #ccc solid;
-}
-
-div.menu ul {
-    margin: 0;
-    padding: 7px 0px 0px 0px;
-
-}
-
-div.menu li {
-    padding: 3px 0px 0px 35px;
-    list-style: none;
-    height: 17px;
-    color: #555;
-}
-
-div.menu li:hover {
-    background: url(../images/plashka.jpg) repeat-x top;
-    color: #fff;
-}
 
 /*** Popular Places ***/
 div.popular_places {
@@ -1064,26 +975,7 @@ ul {
     height: 27px;
 }
 
-.azLetter {
-    /*border:1px solid #362B36;*/
-    /*-moz-border-radius: 45px;*/
-    /*-webkit-border-radius: 45px;*/
-    /*border-radius: 45px;*/
-    color: #33506E !important;
-    font-size: 100%;
-    letter-spacing: 1px;
-    margin: 10px;
-    /*background-color:#6666CC;*/
-    cursor: pointer;
-    text-decoration: underline;
-}
 
-.azLetterActive {
-
-    font-weight: bold;
-    font-size: 110%;
-    color: #0C0517 !important;
-}
 
 #menuDialog {
     text-align: center;
@@ -1292,4 +1184,34 @@ div.popular_places li:hover {
     margin-top: 15px;
 }
 
-.ui-effects-transfer { border: 2px dotted gray; }
+
+
+/*.ui-effects-transfer { border: 2px dotted gray; }*/
+/*div.history_block {*/
+    /*position: absolute;*/
+    /*width: 236px;*/
+    /*min-height: 50px;*/
+    /*padding: 5px;*/
+    /*background: #fff url(../images/history_link_2b.jpg) repeat-x top;*/
+    /*border: 1px #ddd solid;*/
+    /*border-top: none;*/
+    /*border-radius: 0px 0px 8px 8px;*/
+    /*-moz-border-radius: 0px 0px 8px 8px;*/
+/*}*/
+
+/*.azLetter {*/
+    /*color: #33506E !important;*/
+    /*font-size: 100%;*/
+    /*letter-spacing: 1px;*/
+    /*margin: 10px;*/
+    /*background-color:#6666CC;*/
+    /*cursor: pointer;*/
+    /*text-decoration: underline;*/
+/*}*/
+
+/*.azLetterActive {*/
+
+    /*font-weight: bold;*/
+    /*font-size: 110%;*/
+    /*color: #0C0517 !important;*/
+/*}*/
