@@ -25,17 +25,18 @@ html(lang='en')
                         input#searchtext(type='text', onfocus='if(this.value==\'search...\') this.value=\'\';', onblur='if(!this.value) this.value=\'search...\';', value='search...')
                         input#searchbtn(type='button', value='')
 
-        div.menu
-            table.top_menu(cellspacing='0', cellpadding='0', border='0',margin-left='300px')
-                    tr
+        .container-fluid.menu
+           .container.menu
+               table.top_menu
+                   tr
                        td
                            .top_menu1(rel='EU')
-                               div
-                                   a(href='content/Europe') Europe
+                              div
+                                a(href='content/Europe') Europe
                        td
                            .top_menu1(rel='SA')
                                div
-                                   a(href='content/South-America') South America
+                                    a(href='content/South-America') South America
                        td
                            .top_menu1(rel='NA')
                                div
