@@ -1,4 +1,4 @@
-﻿define("search", ['jquery','jQueryUI','geonames','css!jQueryUICSS'], function ($,jQueryUi,geonames,css) {
+﻿define("search", ['jquery','jQueryUI','geonames','tooltip','css!jQueryUICSS'], function ($,jQueryUi,geonames,tooltip,css) {
         var continentNameLookUp = {};
         continentNameLookUp['EU'] = 'Europe';
         continentNameLookUp['AF'] = 'Africa';
@@ -48,14 +48,46 @@
                 }
             });
 
-            $(submitControl).bind('click',function(e){
-                window.location = $(container).val();
+            $(container).focusin(function (e) {
+                $(this).tooltip('hide');
+                $(this).animate({
+                    width: "60%"
+                }, 500 );
             });
 
-        }
+
+
+            //bind tooltip
+            setTimeout(function(){
+                ///bind tooltip
+                $(container).tooltip({
+                    title:'Search something',
+                    placement:'bottom',
+                    trigger:'manual'
+
+                }).tooltip('show')
+            }, 2000);
+
+            //handle enter
+            $(container).keypress(function(event){
+
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode === '13'){
+                    window.location = 'content'  + $(container).val();
+                }
+
+            });
+
+
+            $(submitControl).bind('click',function(e){
+                window.location = 'content'  + $(container).val();
+            });
+
+        };
+
         search.preparePath = function (geoNamesLabel) {
             var label = $.trim(geoNamesLabel);
-            if (label.indexOf(',') == 0) {
+            if (label.indexOf(',') === 0) {
                 label = label.substring(1, label.length - 1);
             }
             var path = label.split(',').reverse();

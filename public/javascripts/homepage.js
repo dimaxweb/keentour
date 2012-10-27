@@ -19,6 +19,8 @@
             'swfobject'
         ],
 
+
+
         youTubeLib:'/javascripts/youTubeLib',
         'jquery.colorbox-min':'/javascripts/lib/jquery.colorbox-min',
         storage:'/javascripts/storage',
@@ -28,8 +30,9 @@
         youtubeWidget : '/javascripts/youtubeWidget',
         wikiPediaWidget : '/javascripts/wikiPediaWidget',
         flickrLib : '/javascripts/flickrLib',
-        youTubeLib : '/javascripts//youTubeLib',
+        youTubeLib : '/javascripts/youTubeLib',
         contentWidget : '/javascripts/contentWidget',
+        tooltip  : '/javascripts/lib/bootstrap/bootstrap-tooltip',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
@@ -59,9 +62,15 @@
         "search":{
             deps:["jquery", "jQueryUI"]
         },
+
         "geonames":{
             deps:["jquery"]
+        },
+
+        "tooltip":{
+            deps:["jquery"]
         }
+
 
 
 
