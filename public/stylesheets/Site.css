@@ -411,6 +411,7 @@ div.new_photos {
 div.new_photos_title {
     height: 55px;
     padding-right: 10px;
+    margin-left: 60px;
 }
 
 div.new_photos_title img {
@@ -2066,4 +2067,8 @@ ul {
     float:right;
     font-weight: normal;
 
+}
+
+#flickrFeed{
+    margin-left: 35px;
 }

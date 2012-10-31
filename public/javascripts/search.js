@@ -61,11 +61,15 @@
             setTimeout(function(){
                 ///bind tooltip
                 $(container).tooltip({
+                    //TODO : put some title
                     title:'Search something',
                     placement:'bottom',
                     trigger:'manual'
 
-                }).tooltip('show')
+                }).tooltip('show');
+                setTimeout(function(){
+                    $(container).tooltip().tooltip('hide');
+                },2000);
             }, 2000);
 
             //handle enter

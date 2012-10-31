@@ -3,30 +3,13 @@ extends layout
 block content
  .row-fluid
    .span10
-     .new_photos(id="popDest")
-      .new_photos_title
-        img(src="/images/photokamera.png")
-        span.homePageTitle Popular destinations of 2012
-      .row-fluid
-        ul.thumbnails
-           li.span2
-               p
-                   a.thumbnail(href='content/South-America')
-                    img(src='/images/Main1.jpg')
-                   a(href='content/South-America') South America
-                   | |
-                   a(href='content/South-America/Honduras') Honduras
-           li.span2
-                   p
-                       a.thumbnail(href='content/South-America')
-                           img(src='/images/Main1.jpg')
-                       a(href='content/South-America') South America
-                       | |
-                       a(href='content/South-America/Honduras') Honduras
+     .container
+       .new_photos(id="popDest")
+       .new_photos_title
+           img(src="/images/photokamera.png")
+           span.homePageTitle Popular destinations of 2012
 
-
-
-
+     .row-fluid#flickrFeed
      .new_photos#newVideos
        .new_photos_title
            span.homePageTitle New Videos

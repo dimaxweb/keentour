@@ -33,6 +33,7 @@
         youTubeLib : '/javascripts/youTubeLib',
         contentWidget : '/javascripts/contentWidget',
         tooltip  : '/javascripts/lib/bootstrap/bootstrap-tooltip',
+        twitter_grid  :  '/javascripts/twitter-grid',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
@@ -69,6 +70,10 @@
 
         "tooltip":{
             deps:["jquery"]
+        },
+
+        "twitter_grid" : {
+            deps:["jquery"]
         }
 
 
@@ -79,13 +84,14 @@
 });
 
 
-define(["storage", "search", "geonames"], function (storage, search, geonames) {
+define(["storage", "search", "geonames","twitter_grid"], function (storage, search, geonames,twitter_grid) {
 
     if (typeof (KEENTOUR) == 'undefined') {
         KEENTOUR = {};
     }
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
+    KEENTOUR.twitter_grid = twitter_grid;
     $(document).ready(function (e) {
         KEENTOUR.search.bindAutoComplete($('#searchtext'), $('#searchbtn'));
     });
@@ -223,7 +229,6 @@ define(["storage", "search", "geonames"], function (storage, search, geonames) {
             var query = names.join('|');
             //search the youtube
             var lib = new YouTubeLib({ query:query, 'max-results':40 });
-            $("<img id='imgLoading' style='margin-left:250px;margin-top:100px' src='images/ajax-loader-big.gif' />").appendTo('#newVideos');
             var photosLoading = $("<img id='phLoad' style='margin-left:250px;margin-top:100px' src='/images/ajax-loader-big.gif' />").appendTo('#popDest');
             //search for videos and update UI when done
             lib.searchVideos(function (data) {
@@ -234,6 +239,17 @@ define(["storage", "search", "geonames"], function (storage, search, geonames) {
                 var entries = data.videoResult.feed.entry;
                 var filteredEntries = getValidEntries(entries, names);
                 displayNewVideos(filteredEntries);
+
+                var arr  = [];
+                var test = 20;
+                while(test--){
+                    arr[arr.length] = {};
+                }
+
+                KEENTOUR.twitter_grid.gridify({
+                   element : $('#flickrFeed'),
+                   data : arr
+                });
             });
 
             try{
