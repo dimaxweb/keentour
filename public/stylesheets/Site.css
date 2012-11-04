@@ -432,7 +432,7 @@ table.new_photos_photo {
     width: 100%;
     margin: 0;
     padding: 0;
-    height: 400px;
+    margin-left: 70px;
     min-height : 400px;
 }
 
@@ -1142,6 +1142,7 @@ div.popular_places li:hover {
 
 #tblVideos {
     margin-bottom: 50px;
+    margin-left: 50px;
 }
 
 .homePageTitle {
@@ -1569,11 +1570,15 @@ table.new_photos_photo{
 table.new_photos_photo img{
 }
 table.new_photos_photo td{
-    padding:10px 0;
-    width:25%;
-    min-height:68px;
-    list-style:none;
-    text-align:center;
+     padding:10px 0;
+     width:22%;
+     min-height:68px;
+     list-style:none;
+     text-align:left;
+ }
+
+table.new_photos_photo td h6{
+   width:90%;
 }
 table.new_photos_photo a p{
     width:154px;

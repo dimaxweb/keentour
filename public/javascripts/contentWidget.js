@@ -27,7 +27,7 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
 
         });
 
-    flickrWidget.prototype.container = $("<div id='divContent' style='width:550px;margin-bottom: 50px;'><div class='video_viev'><div id='paging'></div><div id='photoInfo' style='margin-top:10px;margin-bottom:10px'></div><ul class='videolenta'></ul><span id='bigPhoto' style='width:500px;display:inline-block'></span></div></div>");
+    flickrWidget.prototype.container = $("<div id='divContent'><div class='video_viev'><div id='paging'></div><div id='photoInfo' style='margin-top:10px;margin-bottom:10px'></div><ul class='videolenta'></ul><span id='bigPhoto' style='width:500px;display:inline-block'></span></div></div>");
     contentWidget.parts[contentWidget.parts.length] = flickrWidget;
 
     /*Wiki  Widget*/

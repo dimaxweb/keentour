@@ -3,18 +3,11 @@ extends layout
 block content
  .row-fluid
    .span10
-     .container
-       .new_photos(id="popDest")
-       .new_photos_title
-           img(src="/images/photokamera.png")
-           span.homePageTitle Popular destinations of 2012
-
-     .row-fluid#flickrFeed
-     .new_photos#newVideos
-       .new_photos_title
-           span.homePageTitle New Videos
-           img(src="/images/kamera.png")
-        table(class="new_photos_photo", id="tblVideos", style="display:none")
+        .new_photos#newVideos
+           .new_photos_title
+               span.homePageTitle New Videos
+               img(src="/images/kamera.png")
+         table(class="new_photos_photo", id="tblVideos", style="display:none")
 
 
    .span2(text-align='left',margin-right="10px")

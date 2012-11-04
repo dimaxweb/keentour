@@ -33,6 +33,7 @@
         youTubeLib : '/javascripts/youTubeLib',
         contentWidget : '/javascripts/contentWidget',
         tooltip  : '/javascripts/lib/bootstrap/bootstrap-tooltip',
+        carousel  : '/javascripts/lib/bootstrap/bootstrap-carousel',
         twitter_grid  :  '/javascripts/twitter-grid',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
@@ -72,6 +73,10 @@
             deps:["jquery"]
         },
 
+        "carousel":{
+            deps:["jquery"]
+        },
+
         "twitter_grid" : {
             deps:["jquery"]
         }
@@ -84,7 +89,7 @@
 });
 
 
-define(["storage", "search", "geonames","twitter_grid"], function (storage, search, geonames,twitter_grid) {
+define(["storage", "search", "geonames","twitter_grid","carousel"], function (storage, search, geonames,twitter_grid) {
 
     if (typeof (KEENTOUR) == 'undefined') {
         KEENTOUR = {};
@@ -117,10 +122,10 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
     require(["youTubeLib", "jquery.colorbox-min", "swfObject"], function () {
 
         var homePageEntities = {};
-        homePageEntities['london'] = { name:'Budapest', path:'Europe/Hungary/Budapest', countryName:'Budapest', countryPath:'Europe/Hungary' };
-        homePageEntities['berlin'] = { name:'Berlin', path:'Europe/Germany/Berlin', countryName:'Germany', countryPath:'Europe/Germany' };
-        homePageEntities['paris'] = { name:'Paris', path:'Europe/France/Paris', countryName:'France', countryPath:'Europe/France' };
-        homePageEntities['vienna'] = { name:'Vienna', path:'Europe/Austria/Vienna', countryName:'Austria', countryPath:'Europe/Austria' };
+        homePageEntities['london'] = { name:'Budapest', path:'content/Europe/Hungary/Budapest', countryName:'Budapest', countryPath:'content/Europe/Hungary' };
+        homePageEntities['berlin'] = { name:'Berlin', path:'content/Europe/Germany/Berlin', countryName:'Germany', countryPath:'content/Europe/Germany' };
+        homePageEntities['paris'] = { name:'Paris', path:'content/Europe/France/Paris', countryName:'France', countryPath:'content/Europe/France'};
+        homePageEntities['vienna'] = { name:'Vienna', path:'content/Europe/Austria/Vienna', countryName:'Austria', countryPath:'content/Europe/Austria' };
 
         var trVideos = null;
 
@@ -146,7 +151,7 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
 
             findCreatePlayerFrame();
             $.each(validItems, function (i, validItem) {
-                if (i >= 8) {
+                if (i >= 16) {
                     return;
                 }
                 var item = validItem.videoEntry;
@@ -158,7 +163,7 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
 
                 }
 
-                var tdVideo = $('<td><a style="cursor: pointer;"><div class="play"></div><p><img src="' + url + '" style="width:154px;height:116px;cursor:hand;" class="thumbVideo" /></p></a><b>' + title + '</b><br><a href="' + currentGeoItem.path + '">' + currentGeoItem.name + '</a> | <a href="' + currentGeoItem.countryPath + '">' + currentGeoItem.countryName + '</a></td>');
+                var tdVideo = $('<td><a style="cursor: pointer;"><div class="play"></div><p><img src="' + url + '" style="width:154px;height:116px;cursor:hand;" class="thumbVideo" /></p></a><h6>' + title + '</h6><a href="' + currentGeoItem.path + '">' + currentGeoItem.name + '</a> | <a href="' + currentGeoItem.countryPath + '">' + currentGeoItem.countryName + '</a></td>');
                 $(trVideos).append(tdVideo);
                 var divPlay = $(tdVideo).find('a').first();
                 $(divPlay).colorbox({inline:true, width:"885px", height:"600px", href:'#playerFrame', title:item.title.$t, onClosed:function () {
@@ -229,7 +234,6 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
             var query = names.join('|');
             //search the youtube
             var lib = new YouTubeLib({ query:query, 'max-results':40 });
-            var photosLoading = $("<img id='phLoad' style='margin-left:250px;margin-top:100px' src='/images/ajax-loader-big.gif' />").appendTo('#popDest');
             //search for videos and update UI when done
             lib.searchVideos(function (data) {
                 $('#newVideos').find('#imgLoading').hide();
@@ -240,16 +244,7 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
                 var filteredEntries = getValidEntries(entries, names);
                 displayNewVideos(filteredEntries);
 
-                var arr  = [];
-                var test = 20;
-                while(test--){
-                    arr[arr.length] = {};
-                }
 
-                KEENTOUR.twitter_grid.gridify({
-                   element : $('#flickrFeed'),
-                   data : arr
-                });
             });
 
             try{
