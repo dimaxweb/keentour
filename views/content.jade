@@ -1,45 +1,6 @@
 extends layout
 
 block content
-    table.content(cellspacing='0', cellpadding='0')
-        tr
-            td.sidbar
-                .menu
-                    .menu_title
-                        h3 Theme
-                        img(src='/images/folder.png')
-                    ul#attractionMenu
-                        li.selectedLi
-                            a Everything
-                        li
-                            a Architecture
-                        li
-                            a Culture
-                        li
-                            a Art
-                        li
-                            a Sports
-                        li
-                            a Music
-                        li
-                            a Parks
-                        li
-                            a Nature
-                        li
-                            a Nightlife
-                        li
-                            a Museums
-                        li
-                            a Food
-                .popular_places
-                    .popular_places_title
-                        h3 What's around
-                        img(src='/images/efelevabashnya.png ')
-                    ul#children
-                br
-            td.center
-                .tree_link
-
-    script(data-main='/dist/contentpage', src='/javascripts/lib/require.js', type='text/javascript')
-
+   #widgetsDisplay
+   script(data-main="/javascripts/contentpage",src="/javascripts/lib/require.js",type="text/javascript")
 

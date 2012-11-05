@@ -58,13 +58,18 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
         });
 
 
-    youtubeWidget.prototype.container = $("<div id='youTubeMain'><div id='videoPaging'></div><div id='videos' style='width:100%;padding:10px;margin-bottom: 50px;'></div></div>");
+    youtubeWidget.prototype.container = $("<div id='youTubeMain'><div id='videoPaging' style='margin:0 0 10px 62px;'></div><div id='videos' style='width:100%;margin-left:21px;margin-bottom: 50px;'></div></div>");
     var contentWidgets = { 'article': new wikiWidget(), 'photos': new flickrWidget(), 'videos': new youtubeWidget() };
 
 
     contentWidget.getWidgetKey = function() {
         var selectedTab = $('.tabs1_link').find('.selekted');
-        return $.trim($(selectedTab).text()).toLowerCase();
+        var key =  $.trim($(selectedTab).text()).toLowerCase();
+        if(!key ||  (key && key.length===0)){
+            ///start from videos
+            key = 'videos';
+        }
+        return key;
     }
 
     contentWidget.getCurrentWidget=function(){

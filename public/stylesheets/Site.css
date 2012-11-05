@@ -1598,7 +1598,7 @@ table.new_photos_photo a:hover p{
 }
 table.new_photos_photo a div.play{
     position:absolute;
-    width:35%;
+    width:20%;
     height:136px;
     background:url(../images/play.png) no-repeat 68px 80px;
     z-index:1000;
@@ -1956,7 +1956,7 @@ ul {
 }
 .feed-item h3, .feed-item h4 {
     font-size: 11px;
-    margin: 0;
+    margin: 0 0 2px 4px;
 }
 
 .feed-item-title {

@@ -30,6 +30,9 @@
         flickrLib : '/javascripts/flickrLib',
         youTubeLib : '/javascripts//youTubeLib',
         contentWidget : '/javascripts/contentWidget',
+        tooltip  : '/javascripts/lib/bootstrap/bootstrap-tooltip',
+        carousel  : '/javascripts/lib/bootstrap/bootstrap-carousel',
+        twitter_grid  :  '/javascripts/twitter-grid',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
