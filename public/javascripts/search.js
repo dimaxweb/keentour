@@ -51,7 +51,7 @@
             $(container).focusin(function (e) {
                 $(this).tooltip('hide');
                 $(this).animate({
-                    width: "60%"
+                    width: "63%"
                 }, 500 );
             });
 

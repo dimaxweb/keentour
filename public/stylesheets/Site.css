@@ -62,11 +62,11 @@ table.content a:hover {
 }
 
 #search{
-    margin: 50px 0px 0px 200px;
+    margin: 50px 0px 0px 180px;
 }
 
 #searchtext {
-    width: 219px;
+    width: 230px;
     height: 20px;
     padding: 2px 7px 6px 20px;
     color: #777;
@@ -78,6 +78,41 @@ table.content a:hover {
     width: 28px;
     height: 24px;
     cursor: pointer;
+    left: -40px;
+    position: relative;
+    top: -4px;
+}
+
+.advancedOpen
+{
+    position: relative;
+    left: -48px;
+    top: -4px;
+    cursor:hand;
+
+}
+
+.videoDiv
+{
+    margin-left: 15px;;
+}
+
+.homeVideos
+{
+    margin-bottom: 30px;
+    margin-left: 50px;
+    margin-top: 30px;
+    width: 90%;
+
+}
+.homeVideos p
+{
+border: 1px solid #DDDDDD;
+border-radius: 8px 8px 8px 8px;
+margin-bottom: 7px;
+margin-top: 0;
+padding: 10px;
+width: 154px;
 }
 
 #searchbtn:hover {
@@ -85,7 +120,6 @@ table.content a:hover {
     border: none;
 }
 
-.menu
 
 p.notice {
     font-size: 12px;
@@ -300,9 +334,15 @@ div.popular_cities li:hover {
 
 /*** Menu ***/
 div.menu {
-    margin-bottom:5px;
+    margin-bottom:2px;
     background-color: #95ADC7;
     text-align: center;
+}
+
+.menuCont
+{
+    background-color: #95ADC7;
+    margin-bottom: 20px;
 }
 
 
@@ -1425,39 +1465,36 @@ div.popular_cities li:hover{
     color:#fff;
 }
 
-/*** Menu ***/
-div.menu{
-    margin-bottom:10px;
-}
-div.menu_title{
-    height:53px;
-}
-div.menu_title img{
-    margin-left:10px;
-}
-div.menu_title h3{
-    width:120px;
-    margin-top:20px;
-    margin-right:0px;
-    float:right;
-    padding-bottom:10px;
-    margin-top:10px;
-    border-bottom:1px #ccc solid;
-}
-div.menu ul{
-    margin:0;
-    padding:7px 0px 0px 0px;
-}
-div.menu li{
-    padding:3px 0px 0px 35px;
-    list-style:none;
-    height:17px;
-    color:#555;
-}
-div.menu li:hover{
-    background:url(../images/plashka.jpg) repeat-x top;
-    color:#fff;
-}
+
+/*div.menu_title{*/
+    /*height:53px;*/
+/*}*/
+/*div.menu_title img{*/
+    /*margin-left:10px;*/
+/*}*/
+/*div.menu_title h3{*/
+    /*width:120px;*/
+    /*margin-top:20px;*/
+    /*margin-right:0px;*/
+    /*float:right;*/
+    /*padding-bottom:10px;*/
+    /*margin-top:10px;*/
+    /*border-bottom:1px #ccc solid;*/
+/*}*/
+/*div.menu ul{*/
+    /*margin:0;*/
+    /*padding:7px 0px 0px 0px;*/
+/*}*/
+/*div.menu li{*/
+    /*padding:3px 0px 0px 35px;*/
+    /*list-style:none;*/
+    /*height:17px;*/
+    /*color:#555;*/
+/*}*/
+/*div.menu li:hover{*/
+    /*background:url(../images/plashka.jpg) repeat-x top;*/
+    /*color:#fff;*/
+/*}*/
 
 /*** Popular Places ***/
 div.popular_places{

@@ -135,7 +135,6 @@ define(["storage", "search", "geonames","twitter_grid","carousel"], function (st
             $('#playerFrame').append('<div id="playerArea"></div>');
             emmbedPlayer((videoID));
 
-
         }
 
         function emmbedPlayer(videoID) {
@@ -150,37 +149,37 @@ define(["storage", "search", "geonames","twitter_grid","carousel"], function (st
         function displayNewVideos(validItems) {
 
             findCreatePlayerFrame();
-            $.each(validItems, function (i, validItem) {
-                if (i >= 16) {
-                    return;
-                }
-                var item = validItem.videoEntry;
-                var currentGeoItem = validItem.geoItem;
-                var url = item.media$group.media$thumbnail[0].url;
-                var title = item.title.$t.toLowerCase();
-                if (i == 0 || i % 4 == 0) {
-                    trVideos = $('<tr>').appendTo('#tblVideos');
+            var itemsToShow = validItems.length < 16 ? validItems.length  : 16;
+            var itemsToShow = validItems.slice(0,itemsToShow);
+            KEENTOUR.twitter_grid.gridify({
+               element: $('.homeVideos'),
+               data:itemsToShow,
+               itemsPerRow: 4,
+               getItemContent:function(dataItem,gridCell,grid){
+                   var item = dataItem.videoEntry;
+                   var currentGeoItem = dataItem.geoItem;
+                   var url = item.media$group.media$thumbnail[0].url;
+                   var title = item.title.$t.toLowerCase();
+                   var itemBox = $('<div class="videoDiv"><a style="cursor: pointer;"><div class="play"></div><p><img src="' + url + '" style="width:154px;height:116px;cursor:hand;" class="thumbVideo" /></p></a><h6>' + title + '</h6><a href="' + currentGeoItem.path + '">' + currentGeoItem.name + '</a> | <a href="' + currentGeoItem.countryPath + '">' + currentGeoItem.countryName + '</a></div>');
+                   $(gridCell).append(itemBox);
+                   var divPlay = $(gridCell).find('a').first();
+                   $(divPlay).colorbox({inline:true, width:"885px", height:"600px", href:'#playerFrame', title:item.title.$t, onClosed:function () {
 
-                }
+                       $('#playerFrame').empty();
 
-                var tdVideo = $('<td><a style="cursor: pointer;"><div class="play"></div><p><img src="' + url + '" style="width:154px;height:116px;cursor:hand;" class="thumbVideo" /></p></a><h6>' + title + '</h6><a href="' + currentGeoItem.path + '">' + currentGeoItem.name + '</a> | <a href="' + currentGeoItem.countryPath + '">' + currentGeoItem.countryName + '</a></td>');
-                $(trVideos).append(tdVideo);
-                var divPlay = $(tdVideo).find('a').first();
-                $(divPlay).colorbox({inline:true, width:"885px", height:"600px", href:'#playerFrame', title:item.title.$t, onClosed:function () {
+                   }});
 
-                    $('#playerFrame').empty();
+                   $(divPlay).bind('click',
+                       function (e) {
+                           var video = $(this).data('video');
+                           showVideo(video.media$group.yt$videoid.$t);
+                       })
+                       .data('video', item);
 
-                }});
-
-                $(divPlay).bind('click',
-                    function (e) {
-                        var video = $(this).data('video');
-                        showVideo(video.media$group.yt$videoid.$t);
-                    })
-                    .data('video', item);
-
-
+               }
             });
+
+
         }
 
         function getValidEntries(entries, names) {
