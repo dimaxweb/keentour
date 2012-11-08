@@ -1056,6 +1056,7 @@ ul {
 
 #widgetsDisplay {
     text-align: left;
+    margin-left: 72px;
 }
 
 #divBreadCrumb {
@@ -1100,9 +1101,6 @@ div.popular_places li:hover {
     color: #fff;
 }
 
-#wikiMain {
-    width: 720px;
-}
 
 .footerPanel {
     /* fallback */
@@ -2100,17 +2098,26 @@ ul {
     color: #727272;
     line-height: 13px;
     margin-left:5px;
-
-
 }
 
 .view-count
 {
     float:right;
     font-weight: normal;
-
 }
 
 #flickrFeed{
     margin-left: 35px;
 }
+
+.widgetTitles{
+    margin: 0 0 20px 70px;
+}
+
+.widgetTitle{
+    cursor: pointer;
+
+}
+
+
+

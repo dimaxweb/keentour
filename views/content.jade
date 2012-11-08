@@ -1,6 +1,23 @@
 extends layout
 
 block content
-   #widgetsDisplay
-   script(data-main="/javascripts/contentpage",src="/javascripts/lib/require.js",type="text/javascript")
+    .tabs
+        .row-fluid.widgetTitles
+            .span4
+                .widgetTitle
+                    a(rel="videos") Videos
+                        img(src="/images/kamera.png")
+
+            .span4
+                .widgetTitle
+                    a(rel="photos") Photos
+                        img(src="/images/photokamera.png")
+            .span4
+                .widgetTitle
+                    a(rel="article") Wikipedia
+                        img(src="/images/wikipedia.png")
+
+
+        #widgetsDisplay
+    script(data-main="/javascripts/contentpage",src="/javascripts/lib/require.js",type="text/javascript")
 

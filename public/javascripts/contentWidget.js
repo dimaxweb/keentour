@@ -58,15 +58,15 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
         });
 
 
-    youtubeWidget.prototype.container = $("<div id='youTubeMain'><div id='videoPaging' style='margin:0 0 10px 62px;'></div><div id='videos' style='width:100%;margin-left:21px;margin-bottom: 50px;'></div></div>");
+    youtubeWidget.prototype.container = $("<div id='youTubeMain'><div id='videos'></div><div id='videoPaging'></div></div>");
     var contentWidgets = { 'article': new wikiWidget(), 'photos': new flickrWidget(), 'videos': new youtubeWidget() };
 
 
     contentWidget.getWidgetKey = function() {
-        var selectedTab = $('.tabs1_link').find('.selekted');
-        var key =  $.trim($(selectedTab).text()).toLowerCase();
-        if(!key ||  (key && key.length===0)){
-            ///start from videos
+        var selectedTab = $('.tabs').find('.selected').first().attr('rel');
+        var key =  $.trim(selectedTab).toLowerCase();
+        if(!key ||  (key && key.length === 0)){
+            ///start from videos if no one found
             key = 'videos';
         }
         return key;
@@ -95,7 +95,7 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
             if (previousWidget) {
                 previousWidget.hide();
             }
-            ///display the widget or just unhide the div
+            ///display the widget or just unhidden the div
             if (widget.wasDisplayed) {
                 widget.show();
 
@@ -106,23 +106,19 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
                 widget.wasDisplayed = true;
             }
             contentWidget.previousWidgetKey = widgetKey;
-            $('#widgetIcon').attr('src', widget.getIcon());
-
-            //trigger widget change
+                      //trigger widget change
             $(contentWidget).triggerHandler('widgetChanged',{widgetName:widgetKey});
 
         } ///
     }
 
     $(document).ready(function (e) {
-        $('.tabs1_link li').bind('click', function (e) {
+        var widgetTabs = $('.tabs').find('.widgetTitle a');
+        $(widgetTabs).on('click', function (e) {
             e.preventDefault();
-            //remove selected class
-            $('.tabs1_link li').removeClass('selekted');
-            $(this).addClass('selekted');
+            $(widgetTabs).removeClass('selected');
+            $(this).addClass('selected');
             contentWidget.displayCurrentWidget();
-
-
         });
 
 
