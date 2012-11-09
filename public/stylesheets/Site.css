@@ -107,12 +107,12 @@ table.content a:hover {
 }
 .homeVideos p
 {
-border: 1px solid #DDDDDD;
-border-radius: 8px 8px 8px 8px;
-margin-bottom: 7px;
-margin-top: 0;
-padding: 10px;
-width: 154px;
+    border: 1px solid #DDDDDD;
+    border-radius: 8px 8px 8px 8px;
+    margin-bottom: 7px;
+    margin-top: 0;
+    padding: 10px;
+    width: 154px;
 }
 
 #searchbtn:hover {
@@ -569,11 +569,7 @@ ul.tabs1_link li.selekted a {
     color: #33506e;
 }
 
-/* Video */
-div.video_viev {
-    width: 620px;
 
-}
 
 ul.videolenta {
     margin: -12px 0 0 0;
@@ -735,14 +731,10 @@ td.place3 {
 
 /*** Articles ***/
 div.articles {
-    text-align: justify;
-    height: 500px;
-
+    /*text-align: justify;*/
 }
 
-/*********************** ������ ������� ***************************/
 
-/*************************** ����� ********************************/
 td.footer {
     height: 72px;
     color: #395572;
@@ -841,9 +833,7 @@ div.wm_info {
 
 }
 
-#divContent {
-    height: 650px;
-}
+
 
 /*lightbox*/
 .black_overlay {
@@ -1234,32 +1224,32 @@ div.popular_places li:hover {
 
 /*.ui-effects-transfer { border: 2px dotted gray; }*/
 /*div.history_block {*/
-    /*position: absolute;*/
-    /*width: 236px;*/
-    /*min-height: 50px;*/
-    /*padding: 5px;*/
-    /*background: #fff url(../images/history_link_2b.jpg) repeat-x top;*/
-    /*border: 1px #ddd solid;*/
-    /*border-top: none;*/
-    /*border-radius: 0px 0px 8px 8px;*/
-    /*-moz-border-radius: 0px 0px 8px 8px;*/
+/*position: absolute;*/
+/*width: 236px;*/
+/*min-height: 50px;*/
+/*padding: 5px;*/
+/*background: #fff url(../images/history_link_2b.jpg) repeat-x top;*/
+/*border: 1px #ddd solid;*/
+/*border-top: none;*/
+/*border-radius: 0px 0px 8px 8px;*/
+/*-moz-border-radius: 0px 0px 8px 8px;*/
 /*}*/
 
 /*.azLetter {*/
-    /*color: #33506E !important;*/
-    /*font-size: 100%;*/
-    /*letter-spacing: 1px;*/
-    /*margin: 10px;*/
-    /*background-color:#6666CC;*/
-    /*cursor: pointer;*/
-    /*text-decoration: underline;*/
+/*color: #33506E !important;*/
+/*font-size: 100%;*/
+/*letter-spacing: 1px;*/
+/*margin: 10px;*/
+/*background-color:#6666CC;*/
+/*cursor: pointer;*/
+/*text-decoration: underline;*/
 /*}*/
 
 /*.azLetterActive {*/
 
-    /*font-weight: bold;*/
-    /*font-size: 110%;*/
-    /*color: #0C0517 !important;*/
+/*font-weight: bold;*/
+/*font-size: 110%;*/
+/*color: #0C0517 !important;*/
 /*}*/
 
 
@@ -1465,33 +1455,33 @@ div.popular_cities li:hover{
 
 
 /*div.menu_title{*/
-    /*height:53px;*/
+/*height:53px;*/
 /*}*/
 /*div.menu_title img{*/
-    /*margin-left:10px;*/
+/*margin-left:10px;*/
 /*}*/
 /*div.menu_title h3{*/
-    /*width:120px;*/
-    /*margin-top:20px;*/
-    /*margin-right:0px;*/
-    /*float:right;*/
-    /*padding-bottom:10px;*/
-    /*margin-top:10px;*/
-    /*border-bottom:1px #ccc solid;*/
+/*width:120px;*/
+/*margin-top:20px;*/
+/*margin-right:0px;*/
+/*float:right;*/
+/*padding-bottom:10px;*/
+/*margin-top:10px;*/
+/*border-bottom:1px #ccc solid;*/
 /*}*/
 /*div.menu ul{*/
-    /*margin:0;*/
-    /*padding:7px 0px 0px 0px;*/
+/*margin:0;*/
+/*padding:7px 0px 0px 0px;*/
 /*}*/
 /*div.menu li{*/
-    /*padding:3px 0px 0px 35px;*/
-    /*list-style:none;*/
-    /*height:17px;*/
-    /*color:#555;*/
+/*padding:3px 0px 0px 35px;*/
+/*list-style:none;*/
+/*height:17px;*/
+/*color:#555;*/
 /*}*/
 /*div.menu li:hover{*/
-    /*background:url(../images/plashka.jpg) repeat-x top;*/
-    /*color:#fff;*/
+/*background:url(../images/plashka.jpg) repeat-x top;*/
+/*color:#fff;*/
 /*}*/
 
 /*** Popular Places ***/
@@ -1605,15 +1595,15 @@ table.new_photos_photo{
 table.new_photos_photo img{
 }
 table.new_photos_photo td{
-     padding:10px 0;
-     width:22%;
-     min-height:68px;
-     list-style:none;
-     text-align:left;
- }
+    padding:10px 0;
+    width:22%;
+    min-height:68px;
+    list-style:none;
+    text-align:left;
+}
 
 table.new_photos_photo td h6{
-   width:90%;
+    width:90%;
 }
 table.new_photos_photo a p{
     width:154px;
@@ -1686,10 +1676,6 @@ ul.tabs1_link li.selekted a{
     color:#33506e;
 }
 
-/* Video */
-div.video_viev{
-    width:620px;
-}
 ul.videolenta{
     margin:-12px 0 0 0;
     padding:0;
@@ -1823,19 +1809,6 @@ td.place3{
 
 
 
-
-/*** Articles ***/
-div.articles{
-    text-align:justify;
-    height:500px;
-    overflow:auto;
-}
-
-
-/*********************** ������ ������� ***************************/
-
-
-/*************************** ����� ********************************/
 td.footer{
     height:72px;
     color:#395572;
@@ -1937,10 +1910,7 @@ div.wm_info{
 
 }
 
-#divContent
-{
-    height:650px;
-}
+
 
 /*lightbox*/
 .black_overlay{
@@ -2119,5 +2089,8 @@ ul {
 
 }
 
-
-
+.tabTitle
+{
+   margin-left: 15px;
+   text-decoration:underline ;
+}
