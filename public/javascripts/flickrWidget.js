@@ -1,4 +1,4 @@
-require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","css!paginationCSS","css!jQueryUICSS"], function () {
+require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jquery.colorbox-min","css!paginationCSS","css!jQueryUICSS"], function (undefined,undefined,undefined,undefined,twitter_grid,undefined) {
     (function ($) {
         $.widget("custom.flickrFy", {
 
@@ -8,7 +8,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","css!paginationCSS"
                 clear: null,
                 tags: null,
                 page: 1,
-                perPage: 4
+                perPage: 12
 
             },
 
@@ -21,9 +21,9 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","css!paginationCSS"
             _create: function () {
                 try {
                     this.initialTags = this.options.tags;
-                    this.galleryContainer = this.element.find('.video_viev');
-                    this.thumbContainer = this.galleryContainer.find('.videolenta');
-                    var imageLoading = $("<img id='imgLoading' class='progressLoader' style='margin-left: 200px;margin-top: 200px;' src='/images/ajax-loader-big.gif' />").prependTo(this.galleryContainer);
+//                    this.galleryContainer = this.element.find('.video_viev');
+//                    this.thumbContainer = this.galleryContainer.find('.videolenta');
+//                    var imageLoading = $("<img id='imgLoading' class='progressLoader' src='/images/ajax-loader-big.gif' />").prependTo(this.galleryContainer);
                     this.runWidget();
 
                 }
@@ -50,26 +50,26 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","css!paginationCSS"
                 this.pagesCache = {};
                 this.currentPage = 0;
                 this.initilaising = true;
-                this.flickrLib = new FlickrLib({ 'tags': this.options.tags, sort: 'relevance' });
+                this.flickrLib = new FlickrLib({ 'tags': this.options.tags, sort: 'relevance',perPage:20});
                 var that = this;
-                //var imgLoading = that.showProgress();
-                $(this.galleryContainer).addClass('contTransperensy');
+                var $element =  this.element;
+                $($element).addClass('contTransperensy');
                 var callback = function (result) {
-                    $(that.galleryContainer).find('#imgLoading').remove();
+
                     if (result && result.flickrResult && result.flickrResult.photos && result.flickrResult.photos.photo && result.flickrResult.photos.photo.length > 0) {
-                        $(that.galleryContainer.children()).empty();
-                        $(that.galleryContainer).find('#noFlickrPhotos').remove();
+
                         var data = that.displayData.call(that, result);
-                        $(that.galleryContainer).removeClass('contTransperensy');
+                        $($element).removeClass('contTransperensy');
                         that.createPaging(data);
                     }
                     else {
-                        $(that.galleryContainer.children()).empty();
-                        $(that.galleryContainer).removeClass('contTransperensy');
-                        $('<div id="noFlickrPhotos" style="margin-top: 50px;margin-left: 200px">' + 'No photos found' + '</div>').prependTo(that.galleryContainer);
+
+                        $($element).removeClass('contTransperensy');
+                        $('<div id="noFlickrPhotos" style="margin-top: 50px;margin-left: 200px">' + 'No photos found' + '</div>').prependTo($element);
                     }
 
                 };
+
 
 
                 this.flickrLib.searchPhotos(callback);
@@ -112,19 +112,19 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","css!paginationCSS"
             },
             createTitle: function (photo) {
                 var flickrUrl = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
-                var photoInfo = $('#photoInfo').empty();
+//                var photoInfo = $('#photoInfo').empty();
 
-                //SET flickr link
-                var flickrSpan = $("<span><a href='" + flickrUrl + "' target='blank' style='text-decoration:underline'>View on Flickr</a></span>");
-                if (photo.title && $.trim(photo.title).length) {
-                    var divPhoto = $('<span style="width:150px;display:inline-block" id="spTitle"><strong>' + photo.title + '</strong></span>');
-                    $(photoInfo).append(divPhoto);
-                    var spTitle = $(divPhoto).find('#spTitle');
-                    $(flickrSpan).css({ float: 'right' });
-                } //
-
-                ///$(photoInfo).width($('#bigPhoto').width());
-                $(photoInfo).append(flickrSpan);
+//                //SET flickr link
+//                var flickrSpan = $("<span><a href='" + flickrUrl + "' target='blank' style='text-decoration:underline'>View on Flickr</a></span>");
+//                if (photo.title && $.trim(photo.title).length) {
+//                    var divPhoto = $('<span style="width:150px;display:inline-block" id="spTitle"><strong>' + photo.title + '</strong></span>');
+//                    $(photoInfo).append(divPhoto);
+//                    var spTitle = $(divPhoto).find('#spTitle');
+//                    $(flickrSpan).css({ float: 'right' });
+//                } //
+//
+//                ///$(photoInfo).width($('#bigPhoto').width());
+//                $(photoInfo).append(flickrSpan);
 
 
             },
@@ -155,7 +155,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","css!paginationCSS"
 
             },
             getBigPhotoUrl: function (photo) {
-                var urlBig = photo.url_m || photo.url_z || photo.url_l || photo.url_t || photo.url_s;
+                var urlBig = photo.url_l || photo.url_m || photo.url_z  || photo.url_t || photo.url_s;
                 return urlBig;
             },
             showBigPhoto: function (photo) {
@@ -181,18 +181,18 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","css!paginationCSS"
                 this.createTitle(photo);
 
                 ///display description
-                $('#photoTags').empty();
-                if (photo.tags && photo.tags.length > 0) {
-                    var tags = ($('#photoTags').length == 0) ? $('<div id="photoTags"></div>').appendTo(this.galleryContainer) : $('#photoTags');
-                    var tagsArr = photo.tags.split(' ');
-                    $(tags).append('<div class="tagsTitle">Tags</div>')
-                    var spanTags = $('<div class="flickrTags"></span>').appendTo(tags);
-                    tagsArr = tagsArr.splice(0, 20);
-                    $.each(tagsArr, function (i, item) {
-                        $('<a>' + item + '</a>').appendTo(spanTags);
-                    });
-
-                }
+//                $('#photoTags').empty();
+//                if (photo.tags && photo.tags.length > 0) {
+//                    var tags = ($('#photoTags').length == 0) ? $('<div id="photoTags"></div>').appendTo(this.galleryContainer) : $('#photoTags');
+//                    var tagsArr = photo.tags.split(' ');
+//                    $(tags).append('<div class="tagsTitle">Tags</div>')
+//                    var spanTags = $('<div class="flickrTags"></span>').appendTo(tags);
+//                    tagsArr = tagsArr.splice(0, 20);
+//                    $.each(tagsArr, function (i, item) {
+//                        $('<a>' + item + '</a>').appendTo(spanTags);
+//                    });
+//
+//                }
 
                 // $('#photoDesc').empty();
                 //            ///display description
@@ -208,8 +208,8 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","css!paginationCSS"
             createPaging: function (data) {
                 var that = this;
                 var pagesTotal = (data.photos.total / that.options.perPage) / 100;
-
-                $('#paging').paginate({
+                var $paging = this.element.find('#photoPaging');
+                $($paging).paginate({
                     count: (pagesTotal < 100) ? pagesTotal : 100,
                     start: 1,
                     display: 15,
@@ -234,8 +234,9 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","css!paginationCSS"
 
                     var that = this;
                     that.currentPage = parseInt(page) + 1;
-                    //var imgLoading = that.showProgress();
-                    $(this.galleryContainer).addClass('contTransperensy');
+                    var $element  = that.element.find('.photoFeed');
+                    $($element).addClass('contTransperensy');
+
                     //TODO  : implement cache when will have time
                     //if page in cache
                     //                if (that.pagesCache[that.currentPage]) {
@@ -250,7 +251,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","css!paginationCSS"
 
                     var callback = function (result) {
                         that.displayData.call(that, result);
-                        $(that.galleryContainer).removeClass('contTransperensy');
+
                     };
 
                     that.flickrLib.getPage(that.currentPage, callback);
@@ -266,7 +267,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","css!paginationCSS"
                 var imageLoading = $('#bigPhoto').find('#imgLoading');
                 //
                 if (!imageLoading || imageLoading.length <= 0) {
-                    imageLoading = $("<img id='imgLoading' class='progressLoader' style='margin-top: 50px;margin-left: 200px' src='/images/ajax-loader-big.gif' />").prependTo('#bigPhoto');
+                    imageLoading = $("<img id='imgLoading' class='progressLoader' src='/images/ajax-loader-big.gif' />").prependTo('#bigPhoto');
                 }
                 $(imageLoading).show();
                 return imageLoading;
@@ -292,64 +293,37 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","css!paginationCSS"
 
                 var that = this;
                 var data = {};
-                if (result.status == 'ok') {
+                var $element = this.element.find('.photoFeed');
+                $($element).empty();
+                $(that.galleryContainer).removeClass('contTransperensy');
+                if (result.status === 'ok') {
+                    $($element).removeClass('contTransperensy');
                     data = result.flickrResult;
                     var _photos = data.photos.photo;
+                    twitter_grid.gridify({
+                        element:$element,
+                        data:_photos,
+                        getItemContent:function (dataItem, cell, grid) {
+                            if (dataItem) {
+                                var aItem = $('<a class="photoItem" rel="photoItem"></a>')
+                                    .attr('href', that.getBigPhotoUrl(dataItem))
+                                    .attr('title', dataItem.title)
+                                    .appendTo(cell);
 
-                    var photosToDisplay = $(_photos).slice(0, that.options.perPage);
-                    /////remove previous items from div
-                    $(that.thumbContainer).empty();
+                                var imgItem = $('<img/>')
+                                    .attr('src', dataItem.url_s)
+                                    .attr('rel', 'photoFeed')
+                                    .attr('class', 'thumbnail')
+                                    .appendTo(aItem);
 
-                    //** RUN over all photos and create thumbnails**//
-                    $.each(photosToDisplay, function (i, item) {
-                        var imgItem = that.thumbContainer.append("<li>");
-                        var src = item.url_sq;
+                                $(imgItem).css({ width:150, height:150 });
+                            }
 
-                        //** CREATE ORIGINAL IMAGE **//
-                        var originalImage = $("<img/>").attr("src", 'ajax-loader.gif').addClass('image_thumb').bind('click',
-                        function (e) {
-                            that.thumbContainer.find('.selectedThumb').removeClass('selectedThumb');
-                            $(this).addClass('selectedThumb');
-                            var photo = $(this).data('photo');
-                            that.showBigPhoto(photo);
-                        })
-                        .data('photo', item)
-                        .appendTo(imgItem);
-                        //preload image
-                        that.preloadImage(src, originalImage);
-                        //set first item as selected
-                        if (i == 0) {
-                            $(originalImage).addClass('selectedThumb');
-                        }
+                        },
+                        itemsPerRow:4
                     });
 
-                    //show big photo of first image
-                    that.showBigPhoto(_photos[0]);
-
-                    //preload images  i nnext 2000 seconds
-                    setTimeout(function () { preloadImages.call(that, _photos); }, 2000);
-
-                    //pages cache
-                    //                var pageNumber = 0;
-                    //                var pageStart  = that.currentPage;
-                    //                var pageData = [];
-                    //                ///move pages to cache
-                    //                for(var i=0;i<=_photos.length;i++)
-                    //                {
-                    //
-                    //                    pageData[pageData.length]  = _photos[i];
-                    //                    pageNumber = pageNumber  + 1;
-                    //                    if(i!=0 && ((i+1) % this.options.perPage)==0  || i==_photos.length )
-                    //                    {
-                    //                        this.pagesCache[pageStart] = pageData;
-                    //                        pageData  = [];
-                    //                        pageNumber  = 0;
-                    //                        pageStart = pageStart  + 1;
-                    //
-                    //                    }
-                    //
-                    //
-                    //                }
+                    $(".photoItem").colorbox({rel:'photoItem', transition:"fade"});
 
                     //** END TO RUN OVER ALL IMAGES
                     return data;

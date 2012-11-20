@@ -9,9 +9,8 @@ function YouTubeLib(options)
 {
 
     this.state = {};
-    this.logBag= {};
-
-    this.options  = {
+    this.options = {};
+    this.defaults  = {
         api_key: 'AI39si5fbtiJDujJFuzwahAZdov3djgXrnKETddqHqKTlNmfvIJ-jCGUen-e5ev7QjSH_qMYzqQ4DknT2ZmfbUPj7pr2dLsFOg',
         defaultQuery : 'London',
         'start-index' :   1,
@@ -23,11 +22,10 @@ function YouTubeLib(options)
         category:'Travel'
 
     }
-    ///
-    this.options = $.extend(true,this.options,options);
+    ///extend defaults with provided options
+    this.options = $.extend({},this.defaults,options);
     //check if required parameters are passed
-    if(!this.options.query)
-    {
+    if(!this.options.query){
       this.options.query  = this.options.defaultQuery;
     }
     //validate options

@@ -67,8 +67,8 @@ require(["jquery","jQueryUI","css!wikiCSS","css!jQueryUICSS"], function() {
                 var divBreadCrumb = this.element.find('#divBreadCrumb').first();
                 ///
                 $(divBreadCrumb).html('');
-                var spanTitle = $("<span class='breadTitle'>Your are here : </span>");
-                $(divBreadCrumb).prepend(spanTitle);
+//                var spanTitle = $("<span class='breadTitle'>Your are here : </span>");
+//                $(divBreadCrumb).prepend(spanTitle);
                 var that = this;
                 //draw bread crumb
                 $.each(this.breadCrumb, function (i, item) {
@@ -95,9 +95,28 @@ require(["jquery","jQueryUI","css!wikiCSS","css!jQueryUICSS"], function() {
 
             },
 
-            _processWikiPage: function (query, linkText) {
+            _search :function(query){
+                var searchUrl =   'http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Rio De Janeira&srprop=timestamp&format=json';
+                var request = $.ajax({
+                    url:searchUrl,
+                    dataType:"jsonp"
+
+                });
+
+                request.success(function (data) {
+                      console.log('data is here');
+
+                });
+
+                request.error(function (data) {
+                    console.log('error is here');
+                });
+
+            },
+
+           _processWikiPage: function (query, linkText) {
                 //empty container and add the loading image
-                this.wikiContainer.html("<img style='margin-left:250px;margin-top:50px' src='" + this.options.imageLoading + "'/>");
+                this.wikiContainer.html("<img src='" + this.options.imageLoading + "'/>");
                 //get reference
                 var that = this;
                 var url = that.options.wikApiUrl + '&page=' + query;
@@ -106,6 +125,9 @@ require(["jquery","jQueryUI","css!wikiCSS","css!jQueryUICSS"], function() {
                 }
                 else {
                     $.getJSON(url, that.options.wikiApiParams, function (data) {
+                        if(data.error){
+                            that._search(query);
+                        }
                         that._handleWikiResult.call(that, data);
                         that.wikiCache[url] = data;
                     })

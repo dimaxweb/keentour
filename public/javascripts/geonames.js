@@ -68,7 +68,7 @@
         url = url +  item.name;
 
         url =  $.trim(url).replace(/ /g,"-");
-        url = '/content/' + url;
+        url = '/content' + url;
         url  = window.location.protocol + '//' +   window.location.host  + url;
         return url;
 
@@ -76,7 +76,13 @@
 
     geonames.getItemLabel = function(item)
     {
-        var label  =  item.name  +  ((item.countryName.length == 0) ? '' : ','  + item.countryName) +  ',' + continentNameLookUp[item.continentCode]; ;
+        var label  =  item.name;
+        var countryName='';
+        if(item.countryName && item.countryName!=item.name){
+            countryName = ',' + item.countryName;
+        }
+        label+= countryName;
+//        label+= (item.fcodeName) ?  '---' + item.fcodeName  : '';
         return label;
 
     }

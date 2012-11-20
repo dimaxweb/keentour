@@ -27,7 +27,8 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
 
         });
 
-    flickrWidget.prototype.container = $("<div id='divContent'><div class='video_viev'><div id='paging'></div><div id='photoInfo' style='margin-top:10px;margin-bottom:10px'></div><ul class='videolenta'></ul><span id='bigPhoto' style='width:500px;display:inline-block'></span></div></div>");
+    flickrWidget.prototype.container = $("<div id='divContent'><div class='photoFeed'></div><div class='paging' id='photoPaging'></div></div>");
+
     contentWidget.parts[contentWidget.parts.length] = flickrWidget;
 
     /*Wiki  Widget*/
@@ -58,7 +59,7 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
         });
 
 
-    youtubeWidget.prototype.container = $("<div id='youTubeMain'><div id='videos'></div><div id='videoPaging'></div></div>");
+    youtubeWidget.prototype.container = $("<div id='youTubeMain'><div id='videos'></div><div id='videoPaging' class='paging'></div></div>");
     var contentWidgets = { 'article': new wikiWidget(), 'photos': new flickrWidget(), 'videos': new youtubeWidget() };
 
 
@@ -106,14 +107,15 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
                 widget.wasDisplayed = true;
             }
             contentWidget.previousWidgetKey = widgetKey;
-                      //trigger widget change
+            //trigger widget change
             $(contentWidget).triggerHandler('widgetChanged',{widgetName:widgetKey});
 
         } ///
     }
 
     $(document).ready(function (e) {
-        var widgetTabs = $('.tabs').find('.widgetTitle a');
+
+        var widgetTabs = $('.tabs').find('.widgetTitle');
         $(widgetTabs).on('click', function (e) {
             e.preventDefault();
             $(widgetTabs).removeClass('selected');
@@ -128,3 +130,5 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
 
 
 });
+
+

@@ -1,6 +1,6 @@
 extends layout
 block content
-    div(style='margin-left: 50px; margin-top: 50px; font-size: 110%;')
+    div(style='margin-left:auto;margin-right:auto; margin-top: 50px; font-size: 110%;width:86%')
         h1 About KeenTour
         p
             | The motto of this site is:
@@ -14,7 +14,7 @@ block content
             br
             br
             | With the help of our algorithms we dynamicly map more than 8.000.000 travel entities from public
-            a(href='http://www.geonames.org') Geonames database
+            a(href='http://www.geonames.org')   Geonames database
             br
             | to the newest and coolest content from bellow list of public API providers:
             br
@@ -27,5 +27,7 @@ block content
             | We hope you will enjoy our work
         div
             a(href='mailto:dimitry323@gmail.com') Contact
+
+        script(data-main="/javascripts/aboutUs",src="/javascripts/lib/require.js",type="text/javascript")
 
 

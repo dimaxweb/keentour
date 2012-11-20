@@ -5,9 +5,9 @@
         getObject:function (key) {
             var item = null;
             try {
-                if (window.localStorage) {
+                if (window.sessionStorage) {
                     if (typeof(JSON) != "undefined") {
-                        var itemStr = window.localStorage.getItem(key);
+                        var itemStr = window.sessionStorage.getItem(key);
                         item = JSON.parse(itemStr);
                     }
                 }
@@ -20,16 +20,16 @@
         setObject:function (key, item) {
 
             try {
-                if (window.localStorage) {
-                    if (typeof(item) == "string") {
-                        window.localStorage.setItem(key, item);
+                if (window.sessionStorage) {
+                    if (typeof(item) !== "object") {
+                        window.sessionStorage.setItem(key, item);
+                        return;
                     }
-                    if (typeof(item) == "object") {
-                        if (typeof(JSON) != "undefined") {
+                     if (typeof(JSON) != "undefined") {
                             var itemStr = JSON.stringify(item);
-                            window.localStorage.setItem(key, itemStr);
-                        }
-                    }
+                            window.sessionStorage.setItem(key, itemStr);
+                     }
+
                 }
             }
             catch (e) {

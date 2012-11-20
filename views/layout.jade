@@ -14,7 +14,7 @@ html(lang='en')
 
    body
 
-        .container.header
+        .container-fluid
                .row-fluid
                 .span4
                    div.logoCont.pull-left
@@ -22,12 +22,12 @@ html(lang='en')
                        img(src='/images/logo.png')
                 .span8
                     #search
-                        input#searchtext(type='text', onfocus='if(this.value==\'search...\') this.value=\'\';', onblur='if(!this.value) this.value=\'search...\';', value='search...')
+                        input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
                         //i.icon-chevron-down.advancedOpen
                         input#searchbtn(type='button', value='')
 
         .container-fluid.menuCont
-           .container.menu
+           .menu
                table.top_menu
                    tr
                        td
@@ -55,7 +55,7 @@ html(lang='en')
                                div
                                    a(href='/content/Africa') Africa
 
-       .container
+       .container-fuild
             block content
 
             div.footerPanel#panelMain

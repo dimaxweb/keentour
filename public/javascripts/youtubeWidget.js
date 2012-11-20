@@ -1,4 +1,4 @@
-require(["jquery","jQueryUI","youTubeLib","jquery.paginate","jquery.colorbox-min","swfObject","css!paginationCSS","css!jQueryUICSS"], function() {
+require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jquery.colorbox-min","swfObject","css!paginationCSS","css!jQueryUICSS"], function($,twitter_grid) {
     (function ($) {
         $.widget("custom.youTubeFy", {
 
@@ -8,7 +8,7 @@ require(["jquery","jQueryUI","youTubeLib","jquery.paginate","jquery.colorbox-min
                 clear:null,
                 tags:null,
                 page:1,
-                'max-results':5,
+                'max-results':20,
                 query:'London travel'
             },
 
@@ -58,12 +58,11 @@ require(["jquery","jQueryUI","youTubeLib","jquery.paginate","jquery.colorbox-min
                 $('#videos').empty();
                 this.imagesCache = {};
                 this.initilaising = true;
-                this.youTubeLib = new YouTubeLib({'query':this.options.query});
+                this.youTubeLib = new YouTubeLib(this.options);
                 var that = this;
                 that.videosContainer = this.element.find('#videos');
-                var imgLoading = $("<img id='imgLoading' style='margin-left:250px;margin-top:100px' src='/images/ajax-loader-big.gif' />").prependTo(that.videosContainer);
+
                 var callback = function (result) {
-                    $(imgLoading).hide();
                     $(that.videosContainer).find('#noVideosFound').remove();
                     if (result && result.videoResult && result.videoResult.feed && result.videoResult.feed.entry && result.videoResult.feed.entry.length > 0) {
                         var data = that.displayData.call(that, result);
@@ -76,8 +75,6 @@ require(["jquery","jQueryUI","youTubeLib","jquery.paginate","jquery.colorbox-min
                 };
 
                 this.findCreatePlayerFrame();
-                window.onYouTubePlayerReady = function (playerId) {
-                }
                 this.youTubeLib.searchVideos(callback);
             },
 
@@ -134,8 +131,8 @@ require(["jquery","jQueryUI","youTubeLib","jquery.paginate","jquery.colorbox-min
             createPaging:function (data) {
                 var that = this;
                 var totalPages = data.feed.openSearch$totalResults.$t / this.options['max-results'];
-                var videoPaging = this.element.find('#videoPaging');
-                $(videoPaging).paginate({
+                var $paging = this.element.find('#videoPaging');
+               $($paging).paginate({
                     count:(totalPages < 100) ? totalPages : 100,
                     start:1,
                     display:15,
@@ -159,12 +156,13 @@ require(["jquery","jQueryUI","youTubeLib","jquery.paginate","jquery.colorbox-min
                 try {
 
                     var that = this;
-                    $('#videos').empty();
-                    var imgLoading = $("<img id='imgLoading' style='margin-left:250px;margin-top:100px' src='/images/ajax-loader-big.gif' />").prependTo('#videos');
+                    var $videos = $(this.element).find('#videos');
+                    $($videos).addClass('contTransperensy');
                     var callback = function (result) {
-                        $(imgLoading).hide();
                         that.displayData.call(that, result)
                     };
+
+
                     that.youTubeLib.getPage(page, callback);
                 }
                 catch (e) {
@@ -180,53 +178,82 @@ require(["jquery","jQueryUI","youTubeLib","jquery.paginate","jquery.colorbox-min
                     data = result.videoResult;
                     var entries = data.feed.entry;
                     var mainVideos = that.videosContainer;
-                    var listContainer = $('<ul style="padding-left: 0px;"></ul>').appendTo(mainVideos);
-                    /////remove previous items from div
-                    $(listContainer).empty();
                     //** RUN OVER all photos and create thumbnails**//
                     that.findCreatePlayerFrame();
+                    if(entries){
+                        var $videos = $(this.element).find('#videos');
+                        $($videos).removeClass('contTransperensy');
+                        $($videos).empty();
+                        twitter_grid.gridify({
+                            element: $(mainVideos),
+                            data:entries,
+                            itemsPerRow: 4,
+                            getItemContent:function(dataItem,gridCell,grid){
+                                var item = dataItem;
+                                var url = item.media$group.media$thumbnail[0].url;
+                                var title = item.title.$t.toLowerCase();
+                                title = title.length > 30 ? title.substr(0,27) + '...' : title;
+                                var itemBox = $('<a style="cursor: pointer;"><img class="thumbnail video-thumb" src="' + url + '" /></a><h6 class="align-left">' + title + '</h6>');
+                                $(gridCell).append(itemBox);
+                                var divPlay = $(gridCell).find('a').first();
+                                $(divPlay).colorbox({inline:true, width:"885px", height:"600px", href:'#playerFrame', title:item.title.$t, onClosed:function () {
 
-                    if (entries) {
-                        $.each(entries, function (i, item) {
-                            var mainLi = $('<li class="feed-item-container">').appendTo(listContainer);
-                            var videoItem = $("<div class='feed-item'></span>").appendTo(mainLi);
-                            var videoItemDiv = $(' <div class="feed-item-content">').appendTo(videoItem);
-                            var feedItemTitle = $('<h3 class="feed-item-title"><span class="feed-item-author"><span class="clip"> <span class="clip-inner"><span class="vertical-align"></span> </span> </span> </span><span class="feed-item-owner">' + item.title.$t + '</span></h3>').appendTo(videoItemDiv);
-                            if (item.yt$statistics && item.yt$statistics.viewCount) {
-                                $(feedItemTitle).append('<span class="view-count">' + item.yt$statistics.viewCount + ' views </span>');
+                                    $('#playerFrame').empty();
+
+                                }});
+
+                                $(divPlay).bind('click',
+                                    function (e) {
+                                        var video = $(this).data('video');
+                                        that.showVideo(video.media$group.yt$videoid.$t);
+                                    })
+                                    .data('video', item);
+
                             }
-
-                            var itemVisual = $('<div class="feed-item-visual">').appendTo(videoItemDiv);
-                            var itemImageBox = $('<div class="feed-item-visual-thumb">').appendTo(itemVisual);
-                            var itemContentBox = $('<div class="feed-item-visual-content">').appendTo(itemVisual);
-
-                            $(itemImageBox).append('<a class="ux-thumb-wrap contains-addto yt-uix-sessionlink"> <span class="video-thumb ux-thumb ux-thumb-288 "> <span class="clip"> <span class="clip-inner"> <img id="imgVideoThumb" ><span class="vertical-align"></span> </span></span> </span> <span class="video-time">' + that.youTubeLib.getVideoTime(item) + '</span> </a>');
-                            //bind the image
-                            var originalImage = $(itemImageBox).find('#imgVideoThumb').first();
-
-                            $(originalImage).colorbox({inline:true, width:"885px", height:"600px", href:'#playerFrame', title:item.title.$t, onClosed:function () {
-
-                                $('#playerFrame').empty();
-
-                            }});
-                            var thumb = item.media$group.media$thumbnail[0];
-                            $(originalImage).bind('click',
-                                function (e) {
-
-                                    var video = $(this).data('video');
-                                    that.playVideo(video);
-                                })
-                                .data('video', item)
-                                .css({width:thumb.width, height:thumb.height, cursor:'pointer'})
-                                .attr('src', thumb.url);
-
-                            var itemDescriptionBox = $(' <div class="feed-item-visual-content">').appendTo(itemContentBox);
-                            var description  = item.media$group.media$description.$t.length > 150  ?  item.media$group.media$description.$t.substring(0,250) + '...' : item.media$group.media$description.$t;
-                            $(itemContentBox).append('<div class="feed-item-visual-description"><div class="description"> <p>' + description + '</p> </div> </div>');
-
-
                         });
                     }
+
+//                    if (entries) {
+//                        $.each(entries, function (i, item) {
+//                            var mainLi = $('<li class="feed-item-container">').appendTo(listContainer);
+//                            var videoItem = $("<div class='feed-item'></span>").appendTo(mainLi);
+//                            var videoItemDiv = $(' <div class="feed-item-content">').appendTo(videoItem);
+//                            var feedItemTitle = $('<h3 class="feed-item-title"><span class="feed-item-author"><span class="clip"> <span class="clip-inner"><span class="vertical-align"></span> </span> </span> </span><span class="feed-item-owner">' + item.title.$t + '</span></h3>').appendTo(videoItemDiv);
+//                            if (item.yt$statistics && item.yt$statistics.viewCount) {
+//                                $(feedItemTitle).append('<span class="view-count">' + item.yt$statistics.viewCount + ' views </span>');
+//                            }
+//
+//                            var itemVisual = $('<div class="feed-item-visual">').appendTo(videoItemDiv);
+//                            var itemImageBox = $('<div class="feed-item-visual-thumb">').appendTo(itemVisual);
+//                            var itemContentBox = $('<div class="feed-item-visual-content">').appendTo(itemVisual);
+//
+//                            $(itemImageBox).append('<a class="ux-thumb-wrap contains-addto yt-uix-sessionlink"> <span class="video-thumb ux-thumb ux-thumb-288 "> <span class="clip"> <span class="clip-inner"> <img id="imgVideoThumb" ><span class="vertical-align"></span> </span></span> </span> <span class="video-time">' + that.youTubeLib.getVideoTime(item) + '</span> </a>');
+//                            //bind the image
+//                            var originalImage = $(itemImageBox).find('#imgVideoThumb').first();
+//
+//                            $(originalImage).colorbox({inline:true, width:"885px", height:"600px", href:'#playerFrame', title:item.title.$t, onClosed:function () {
+//
+//                                $('#playerFrame').empty();
+//
+//                            }});
+//                            var thumb = item.media$group.media$thumbnail[0];
+//                            $(originalImage).bind('click',
+//                                function (e) {
+//
+//                                    var video = $(this).data('video');
+//                                    that.playVideo(video);
+//                                })
+//                                .data('video', item)
+//                                .css({width:thumb.width, height:thumb.height, cursor:'pointer'})
+//                                .attr('src', thumb.url);
+//
+//                            var itemDescriptionBox = $(' <div class="feed-item-visual-content">').appendTo(itemContentBox);
+//                            var description  = item.media$group.media$description.$t.length > 150  ?  item.media$group.media$description.$t.substring(0,250) + '...' : item.media$group.media$description.$t;
+//                            $(itemContentBox).append('<div class="feed-item-visual-description"><div class="description"> <p>' + description + '</p> </div> </div>');
+//
+//
+//                        });
+//                    }
 
 
                     //** END TO RUN OVER ALL IMAGES

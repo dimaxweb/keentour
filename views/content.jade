@@ -1,3 +1,42 @@
+<<<<<<< HEAD
+extends layout
+
+block content
+
+    .container-fluid.contentPageBreadCrumb
+        ul.breadcrumb
+            each item,i in breadCrumb
+               if i != breadCrumb.length  - 1
+                   li
+                    a(href = item.link) #{item.text}
+                    span.divider  /
+               else
+                 li.active #{item.text}
+
+
+
+    .tabs
+
+                 span.widgetTitle.selected(rel="videos")
+                    a(rel="videos")
+                        img(src="/images/kamera.png")
+                    a.tabTitle(rel="videos") Videos
+
+                 span.widgetTitle(rel="photos")
+                        a(rel="photos")
+                            img(src="/images/photokamera.png")
+                        a.tabTitle(rel="photos") Photos
+
+                 span.widgetTitle(rel="article")
+                    a(rel="article")
+                        img(src="/images/wikipedia.png")
+                    a.tabTitle(rel="article") Wikipedia
+
+
+    #widgetsDisplay
+    script(data-main="/javascripts/contentpage",src="/javascripts/lib/require.js",type="text/javascript")
+
+=======
 extends layout
 
 block content
@@ -21,3 +60,4 @@ block content
         #widgetsDisplay
     script(data-main="/javascripts/contentpage",src="/javascripts/lib/require.js",type="text/javascript")
 
+>>>>>>> origin/master

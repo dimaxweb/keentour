@@ -1,4 +1,4 @@
-﻿define("search", ['jquery','jQueryUI','geonames','tooltip','css!jQueryUICSS'], function ($,jQueryUi,geonames,tooltip,css) {
+﻿define("search", ['jquery','jQueryUI','geonames','tooltip','css!jQueryUICSS','storage'], function ($,jQueryUi,geonames,tooltip,css,storage) {
         var continentNameLookUp = {};
         continentNameLookUp['EU'] = 'Europe';
         continentNameLookUp['AF'] = 'Africa';
@@ -18,15 +18,16 @@
                             style:"full",
                             maxRows:20,
                             name_startsWith:request.term
+//                            featureClass:'P',
+//                            featureClass: 'A'
                         },
                         success:function (data) {
                             response($.map(data.geonames, function (item) {
                                 return {
                                     label:geonames.getItemLabel(item),
                                     value:item.name,
-                                    dataItem:item,
-                                    featureClass:'A',
-                                    featureClass:'P'
+                                    dataItem:item
+
                                 }
                             }));
                         }
@@ -40,6 +41,8 @@
                     window.location = path;
 
                 },
+
+
                 open:function () {
                     $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
                 },
@@ -48,43 +51,56 @@
                 }
             });
 
+            var originalWidth = $(container).width();
             $(container).focusin(function (e) {
                 $(this).tooltip('hide');
                 $(this).animate({
-                    width: "63%"
-                }, 500 );
+                    width: "40%"
+                },350 );
             });
+//            $(container).focusout(function(){
+//                $(this).animate({
+//                    width: originalWidth
+//                }, 500 );
+//            });
 
 
+            //bind tooltip if already not bound
+            if(!storage.getObject('toolTipShown')){
+               setTimeout(function(){
+                    ///bind tooltip
+                    $(container).tooltip({
+                        title:'Type something e.g. London',
+                        placement:'bottom',
+                        trigger:'manual'
 
-            //bind tooltip
-            setTimeout(function(){
-                ///bind tooltip
-                $(container).tooltip({
-                    //TODO : put some title
-                    title:'Search something',
-                    placement:'bottom',
-                    trigger:'manual'
+                    }).tooltip('show');
+                    setTimeout(function(){
+                        $(container).tooltip().tooltip('hide');
+                    },10000);
 
-                }).tooltip('show');
-                setTimeout(function(){
-                    $(container).tooltip().tooltip('hide');
-                },2000);
-            }, 2000);
+                 storage.setObject('toolTipShown',true);
+
+                },1000);
+            }
+
 
             //handle enter
             $(container).keypress(function(event){
 
                 var keycode = (event.keyCode ? event.keyCode : event.which);
-                if(keycode === '13'){
-                    window.location = 'content'  + $(container).val();
+                if(keycode === 13){
+                    window.location = '/content/'  + $(container).val();
                 }
 
             });
 
 
+
+
+
             $(submitControl).bind('click',function(e){
-                window.location = 'content'  + $(container).val();
+                window.location = 'content/'  + $(container).val();
             });
 
         };

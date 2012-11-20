@@ -34,6 +34,7 @@
         contentWidget : '/javascripts/contentWidget',
         tooltip  : '/javascripts/lib/bootstrap/bootstrap-tooltip',
         carousel  : '/javascripts/lib/bootstrap/bootstrap-carousel',
+        scrollspy : '/javascripts/lib/bootstrap/bootstrap-scrollspy',
         twitter_grid  :  '/javascripts/twitter-grid',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
@@ -73,7 +74,7 @@
             deps:["jquery"]
         },
 
-        "carousel":{
+        "scrollspy":{
             deps:["jquery"]
         },
 
@@ -89,7 +90,7 @@
 });
 
 
-define(["storage", "search", "geonames","twitter_grid","carousel"], function (storage, search, geonames,twitter_grid) {
+define(["storage", "search", "geonames","twitter_grid","scrollspy"], function (storage, search, geonames,twitter_grid) {
 
     if (typeof (KEENTOUR) == 'undefined') {
         KEENTOUR = {};
@@ -119,7 +120,7 @@ define(["storage", "search", "geonames","twitter_grid","carousel"], function (st
     }
 
     ///////////////////////////////////////require page dependencies and run the page
-    require(["youTubeLib", "jquery.colorbox-min", "swfObject"], function () {
+    require(["jQueryUI","youTubeLib", "jquery.colorbox-min", "swfObject"], function () {
 
         var homePageEntities = {};
         homePageEntities['london'] = { name:'Budapest', path:'content/Europe/Hungary/Budapest', countryName:'Budapest', countryPath:'content/Europe/Hungary' };
@@ -160,7 +161,8 @@ define(["storage", "search", "geonames","twitter_grid","carousel"], function (st
                    var currentGeoItem = dataItem.geoItem;
                    var url = item.media$group.media$thumbnail[0].url;
                    var title = item.title.$t.toLowerCase();
-                   var itemBox = $('<div class="videoDiv"><a style="cursor: pointer;"><div class="play"></div><p><img src="' + url + '" style="width:154px;height:116px;cursor:hand;" class="thumbVideo" /></p></a><h6>' + title + '</h6><a href="' + currentGeoItem.path + '">' + currentGeoItem.name + '</a> | <a href="' + currentGeoItem.countryPath + '">' + currentGeoItem.countryName + '</a></div>');
+                   title = title.length > 30 ? title.substr(0,27) + '...' : title;
+                   var itemBox = $('<div class="videoDiv"><a style="cursor: pointer;"><p><img src="' + url + '" style="width:154px;height:116px;cursor:hand;" class="thumbVideo" /></p></a><h6>' + title + '</h6><a href="' + currentGeoItem.path + '">' + currentGeoItem.name + '</a> | <a href="' + currentGeoItem.countryPath + '">' + currentGeoItem.countryName + '</a></div>');
                    $(gridCell).append(itemBox);
                    var divPlay = $(gridCell).find('a').first();
                    $(divPlay).colorbox({inline:true, width:"885px", height:"600px", href:'#playerFrame', title:item.title.$t, onClosed:function () {
@@ -179,7 +181,7 @@ define(["storage", "search", "geonames","twitter_grid","carousel"], function (st
                }
             });
 
-
+            $('.homeVideos').fadeIn('slow');
         }
 
         function getValidEntries(entries, names) {
@@ -226,6 +228,16 @@ define(["storage", "search", "geonames","twitter_grid","carousel"], function (st
 
 
         $(document).ready(function (e) {
+            var imgLoading  = $('<img src="/images/ajax-loader-homepage.gif" />').appendTo('.homeVideos');
+            $(imgLoading).position({
+                    my: "top center",
+                    at: "center center",
+                    of: ".homeVideos"
+                }
+            );
+            $('#newVideos').fadeIn('slow');
+
+            $('.homeVideos').hide();
             var names = [];
             $.each(homePageEntities, function (i, item) {
                 names[names.length] = item.name;
@@ -235,14 +247,11 @@ define(["storage", "search", "geonames","twitter_grid","carousel"], function (st
             var lib = new YouTubeLib({ query:query, 'max-results':40 });
             //search for videos and update UI when done
             lib.searchVideos(function (data) {
-                $('#newVideos').find('#imgLoading').hide();
-                $('#tblPhotos').show();
-                $('#tblVideos').show();
-                $('#popDest').find('#phLoad').hide();
+
                 var entries = data.videoResult.feed.entry;
                 var filteredEntries = getValidEntries(entries, names);
                 displayNewVideos(filteredEntries);
-
+                $(imgLoading).hide();
 
             });
 
