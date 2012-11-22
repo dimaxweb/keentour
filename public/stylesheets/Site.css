@@ -513,10 +513,7 @@ table.new_photos_photo a:hover div.play {
     background: url(../images/play.png) no-repeat 68px -280px;
 }
 
-/*** TABS ***/
-div.tabs1 {
 
-}
 
 div.tabs1_title {
     min-height: 45px;
@@ -1596,11 +1593,7 @@ table.new_photos_photo a:hover div.play{
     background:url(../images/play.png) no-repeat 68px -280px;
 }
 
-/*** TABS ***/
-div.tabs1
-{
 
-}
 div.tabs1_title{
     min-height:45px;
 }
@@ -3419,6 +3412,7 @@ table.new_photos_photo a:hover div.play{
 .tabs
 {
     text-align: center;
+    margin-bottom: 50px;
 }
 div.tabs1_title{
     min-height:45px;

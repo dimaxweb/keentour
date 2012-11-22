@@ -7,7 +7,8 @@
         continentNameLookUp['NA'] = 'North America';
         continentNameLookUp['OC'] = 'Oceania';
         continentNameLookUp['AN'] = 'Antarctica';
-        search = {};
+        var itemFound = false;
+        var search = {};
         search.bindAutoComplete = function (container,submitControl) {
             $(container).autocomplete({
                 source:function (request, response) {
@@ -37,16 +38,20 @@
                 select:function (event, ui) {
                     var path = geonames.getItemUrl(ui.item.dataItem);
                     $(this).trigger('itemSelected', ui.item.dataItem);
+                    console.log('Item path' + path);
                     //TODO : move from here ,raise event instead
                     window.location = path;
 
                 },
 
 
+
                 open:function () {
+                    itemFound = true;
                     $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
                 },
                 close:function () {
+                    itemFound = false;
                     $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
                 }
             });
@@ -58,12 +63,6 @@
                     width: "40%"
                 },350 );
             });
-//            $(container).focusout(function(){
-//                $(this).animate({
-//                    width: originalWidth
-//                }, 500 );
-//            });
-
 
             //bind tooltip if already not bound
             if(!storage.getObject('toolTipShown')){
@@ -77,7 +76,7 @@
                     }).tooltip('show');
                     setTimeout(function(){
                         $(container).tooltip().tooltip('hide');
-                    },10000);
+                    },5000);
 
                  storage.setObject('toolTipShown',true);
 
@@ -85,11 +84,11 @@
             }
 
 
-            //handle enter
+            //TODO : handle enter
             $(container).keypress(function(event){
 
                 var keycode = (event.keyCode ? event.keyCode : event.which);
-                if(keycode === 13){
+                if(keycode === 13 && !itemFound){
                     window.location = '/content/'  + $(container).val();
                 }
 
@@ -100,7 +99,7 @@
 
 
             $(submitControl).bind('click',function(e){
-                window.location = 'content/'  + $(container).val();
+                window.location = '/content/'  + $(container).val();
             });
 
         };

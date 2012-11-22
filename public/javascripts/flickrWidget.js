@@ -1,4 +1,4 @@
-require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jquery.colorbox-min","css!paginationCSS","css!jQueryUICSS"], function (undefined,undefined,undefined,undefined,twitter_grid,undefined) {
+require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jquery.colorbox-min","tooltip","popover","css!paginationCSS","css!jQueryUICSS"], function (undefined,undefined,undefined,undefined,twitter_grid,undefined) {
     (function ($) {
         $.widget("custom.flickrFy", {
 
@@ -316,7 +316,23 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                                     .attr('class', 'thumbnail')
                                     .appendTo(aItem);
 
+
+
                                 $(imgItem).css({ width:150, height:150 });
+                                var title = dataItem.title;
+                                title = title.length > 30 ? title.substr(0,27) + '...' : title;
+                                var description  =  (dataItem.description && dataItem.description._content) ? dataItem.description._content : '';
+                                var tags  = dataItem.tags;
+                                $(imgItem).popover({
+                                    title: dataItem.title,
+                                    placement:'top',
+                                    content:'<p>'  + description + '</p><p><h6>Tagged with:</h6>'  + tags + '</p>'
+
+
+                                });
+
+                                $('<h6 class="pull-left">'+ title +'</h6>').appendTo(cell);
+
                             }
 
                         },

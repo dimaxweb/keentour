@@ -31,6 +31,7 @@
         youTubeLib : '/javascripts//youTubeLib',
         contentWidget : '/javascripts/contentWidget',
         tooltip  : '/javascripts/lib/bootstrap/bootstrap-tooltip',
+        popover  : '/javascripts/lib/bootstrap/bootstrap-popover',
         carousel  : '/javascripts/lib/bootstrap/bootstrap-carousel',
         twitter_grid  :  '/javascripts/twitter-grid',
         ///css resources
@@ -84,7 +85,19 @@
         },
         "geonames":{
             deps:["jquery"]
+        },
+
+        ///bootstrap
+        "tooltip":{
+            deps:["jquery"]
+        },
+
+        "popover":{
+            deps:["jquery"]
         }
+
+
+
 
 
 
@@ -132,9 +145,10 @@ require(["storage", "search", "geonames", "contentWidget"], function (storage, s
         var arrUrlSegments = window.location.pathname.substr(1).split('/');
         var strDefault = arrUrlSegments[arrUrlSegments.length - 1];
         window.contentData.flickrTags = window.contentData.youTubeQuery = window.contentData.wikiPage = strDefault;
-        window.contentData.flickrTags+=',travel';
+//        window.contentData.flickrTags+=',travel';
         if (item) {
             window.contentData.wikiPage = item.name;
+            ///add travel keyword only if geo item is found
             window.contentData.flickrTags =  item.name + ',travel';
             window.contentData.youTubeQuery = item.name;
             window.contentData.currentItem = item;
