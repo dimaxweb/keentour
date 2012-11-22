@@ -162,7 +162,14 @@ define(["storage", "search", "geonames","twitter_grid","scrollspy"], function (s
                    var url = item.media$group.media$thumbnail[0].url;
                    var title = item.title.$t.toLowerCase();
                    title = title.length > 30 ? title.substr(0,27) + '...' : title;
-                   var itemBox = $('<div class="videoDiv"><a style="cursor: pointer;"><p><img src="' + url + '" style="width:154px;height:116px;cursor:hand;" class="thumbVideo" /></p></a><h6>' + title + '</h6><a href="' + currentGeoItem.path + '">' + currentGeoItem.name + '</a> | <a href="' + currentGeoItem.countryPath + '">' + currentGeoItem.countryName + '</a></div>');
+                   var videoTime = YouTubeLib.getVideoTime(dataItem.videoEntry);
+                   var itemBox = $('<div class="videoDiv"><a><img  src="' + url + '" class="thumbnail video-thumb" /><span class="video-time">'
+                                                                       +  videoTime
+                                                                       +  '</span></a>'
+                                                                       +  '<h6>' + title + '</h6>'
+                                                                       +  '<a href="' + currentGeoItem.path + '">' + currentGeoItem.name + '</a> | <a href="'
+                                                                       +   currentGeoItem.countryPath + '">' + currentGeoItem.countryName
+                                                                       +   '</a></div>');
                    $(gridCell).append(itemBox);
                    var divPlay = $(gridCell).find('a').first();
                    $(divPlay).colorbox({inline:true, width:"885px", height:"600px", href:'#playerFrame', title:item.title.$t, onClosed:function () {
@@ -235,6 +242,7 @@ define(["storage", "search", "geonames","twitter_grid","scrollspy"], function (s
                     of: ".homeVideos"
                 }
             );
+
             $('#newVideos').fadeIn('slow');
 
             $('.homeVideos').hide();

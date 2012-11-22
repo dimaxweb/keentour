@@ -124,13 +124,19 @@ function YouTubeLib(options)
         }
     }
 
-   YouTubeLib.prototype.getVideoTime  = function(videoItem)
+   YouTubeLib.getVideoTime  = function(videoItem)
    {
-       try
-       {
-       var seconds = parseInt(videoItem.media$group.yt$duration.seconds);
-       var minutes = parseInt(seconds/60);
-       var remainingSeconds = (seconds%60);
+       try{
+           var seconds = parseInt(videoItem.media$group.yt$duration.seconds);
+           var minutes = parseInt(seconds/60);
+           var remainingSeconds = (seconds%60);
+           if(minutes < 10){
+               minutes = '0' + minutes;
+           }
+
+           if(remainingSeconds < 10){
+               remainingSeconds = '0' + remainingSeconds;
+           }
        }
        catch(e)
        {
