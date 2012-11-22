@@ -163,7 +163,7 @@ define(["storage", "search", "geonames","twitter_grid","scrollspy"], function (s
                    var title = item.title.$t.toLowerCase();
                    title = title.length > 30 ? title.substr(0,27) + '...' : title;
                    var videoTime = YouTubeLib.getVideoTime(dataItem.videoEntry);
-                   var itemBox = $('<div class="videoDiv"><a><img  src="' + url + '" class="thumbnail video-thumb" /><span class="video-time">'
+                   var itemBox = $('<div class="video-block"><a class="video-link"><img  src="' + url + '" class="thumbnail video-thumb" /><span class="video-time">'
                                                                        +  videoTime
                                                                        +  '</span></a>'
                                                                        +  '<h6>' + title + '</h6>'

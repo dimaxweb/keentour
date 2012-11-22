@@ -193,7 +193,12 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
                                 var url = item.media$group.media$thumbnail[0].url;
                                 var title = item.title.$t.toLowerCase();
                                 title = title.length > 30 ? title.substr(0,27) + '...' : title;
-                                var itemBox = $('<a style="cursor: pointer;"><img class="thumbnail video-thumb" src="' + url + '" /></a><h6 class="align-left">' + title + '</h6>');
+                                var videoTime = YouTubeLib.getVideoTime(dataItem);
+                                var itemBox = $('<div class="video-block"><a class="video-link"><img  src="' + url + '" class="thumbnail video-thumb" /><span class="video-time">'
+                                    +  videoTime
+                                    +  '</span></a>'
+                                    +  '<h6>' + title + '</h6>');
+
                                 $(gridCell).append(itemBox);
                                 var divPlay = $(gridCell).find('a').first();
                                 $(divPlay).colorbox({inline:true, width:"885px", height:"600px", href:'#playerFrame', title:item.title.$t, onClosed:function () {
