@@ -3829,3 +3829,8 @@ ul {
     width: 50% !important;
 }
 
+.popover-description
+{
+    height: 350px;
+    overflow: scroll;
+}

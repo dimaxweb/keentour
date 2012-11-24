@@ -214,52 +214,24 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
                                     })
                                     .data('video', item);
 
+                                var description  =  (dataItem.media$group && dataItem.media$group.media$description && dataItem.media$group.media$description.$t) ? '<p><h6>About:</h6>'  + dataItem.media$group.media$description.$t + '</p>' : '';
+//                                var tags  = (dataItem.tags) ? '<p><h6>Tagged with:</h6>'  + dataItem.tags.split(' ').slice(0,5).join(',') + '</p>': '';
+                                var author  = ( dataItem.author &&  dataItem.author.length  >0 && dataItem.author[0].name && dataItem.author[0].name.$t) ? '<p><span>Published by :<span>'  + dataItem.author[0].name.$t + '</p>': '';
+                                var publishedAt  = (dataItem.published &&  dataItem.published.$tt) ? '<p><span>Taken on:<span>'  +dataItem.published.$t + '</p>': '';
+                                var viewsCount  = (dataItem.yt$statistics && dataItem.yt$statistics.viewCount) ? '<p>views count :'  + dataItem.yt$statistics.viewCount + '</p>'  : '';
+
+                                $(divPlay).popover({
+                                    title:title,
+                                    placement:'top',
+                                   content: '<div>' +  author  + viewsCount +   description +  '</div>'
+
+                                });
+
                             }
+
+
                         });
                     }
-
-//                    if (entries) {
-//                        $.each(entries, function (i, item) {
-//                            var mainLi = $('<li class="feed-item-container">').appendTo(listContainer);
-//                            var videoItem = $("<div class='feed-item'></span>").appendTo(mainLi);
-//                            var videoItemDiv = $(' <div class="feed-item-content">').appendTo(videoItem);
-//                            var feedItemTitle = $('<h3 class="feed-item-title"><span class="feed-item-author"><span class="clip"> <span class="clip-inner"><span class="vertical-align"></span> </span> </span> </span><span class="feed-item-owner">' + item.title.$t + '</span></h3>').appendTo(videoItemDiv);
-//                            if (item.yt$statistics && item.yt$statistics.viewCount) {
-//                                $(feedItemTitle).append('<span class="view-count">' + item.yt$statistics.viewCount + ' views </span>');
-//                            }
-//
-//                            var itemVisual = $('<div class="feed-item-visual">').appendTo(videoItemDiv);
-//                            var itemImageBox = $('<div class="feed-item-visual-thumb">').appendTo(itemVisual);
-//                            var itemContentBox = $('<div class="feed-item-visual-content">').appendTo(itemVisual);
-//
-//                            $(itemImageBox).append('<a class="ux-thumb-wrap contains-addto yt-uix-sessionlink"> <span class="video-thumb ux-thumb ux-thumb-288 "> <span class="clip"> <span class="clip-inner"> <img id="imgVideoThumb" ><span class="vertical-align"></span> </span></span> </span> <span class="video-time">' + that.youTubeLib.getVideoTime(item) + '</span> </a>');
-//                            //bind the image
-//                            var originalImage = $(itemImageBox).find('#imgVideoThumb').first();
-//
-//                            $(originalImage).colorbox({inline:true, width:"885px", height:"600px", href:'#playerFrame', title:item.title.$t, onClosed:function () {
-//
-//                                $('#playerFrame').empty();
-//
-//                            }});
-//                            var thumb = item.media$group.media$thumbnail[0];
-//                            $(originalImage).bind('click',
-//                                function (e) {
-//
-//                                    var video = $(this).data('video');
-//                                    that.playVideo(video);
-//                                })
-//                                .data('video', item)
-//                                .css({width:thumb.width, height:thumb.height, cursor:'pointer'})
-//                                .attr('src', thumb.url);
-//
-//                            var itemDescriptionBox = $(' <div class="feed-item-visual-content">').appendTo(itemContentBox);
-//                            var description  = item.media$group.media$description.$t.length > 150  ?  item.media$group.media$description.$t.substring(0,250) + '...' : item.media$group.media$description.$t;
-//                            $(itemContentBox).append('<div class="feed-item-visual-description"><div class="description"> <p>' + description + '</p> </div> </div>');
-//
-//
-//                        });
-//                    }
-
 
                     //** END TO RUN OVER ALL IMAGES
                     return data;

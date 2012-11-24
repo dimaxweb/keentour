@@ -1,5 +1,5 @@
 ﻿require.config({
-    //baseUrl:'/javascripts/lib',
+    baseUrl:'/javascripts/lib',
     paths:{
         jquery:[
             'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min',
@@ -19,8 +19,6 @@
             'swfobject'
         ],
 
-
-
         youTubeLib:'/javascripts/youTubeLib',
         'jquery.colorbox-min':'/javascripts/lib/jquery.colorbox-min',
         storage:'/javascripts/storage',
@@ -30,11 +28,11 @@
         youtubeWidget : '/javascripts/youtubeWidget',
         wikiPediaWidget : '/javascripts/wikiPediaWidget',
         flickrLib : '/javascripts/flickrLib',
-        youTubeLib : '/javascripts/youTubeLib',
+        youTubeLib : '/javascripts//youTubeLib',
         contentWidget : '/javascripts/contentWidget',
         tooltip  : '/javascripts/lib/bootstrap/bootstrap-tooltip',
+        popover  : '/javascripts/lib/bootstrap/bootstrap-popover',
         carousel  : '/javascripts/lib/bootstrap/bootstrap-carousel',
-        scrollspy : '/javascripts/lib/bootstrap/bootstrap-scrollspy',
         twitter_grid  :  '/javascripts/twitter-grid',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
@@ -54,6 +52,26 @@
             deps:["jquery"]
         },
 
+        "flickrLib":{
+            deps:["jquery"]
+        },
+
+        "wikiPediaWidget" :{
+            deps:["jquery"]
+        },
+
+        "youtubeWidget" :{
+            deps:["jquery"]
+        },
+
+        "flickrWidget" :{
+            deps:["jquery"]
+        },
+
+        "jquery.paginate":{
+            deps:["jquery"]
+        },
+
         "jquery.colorbox-min":{
             deps:["jquery"]
         },
@@ -65,22 +83,20 @@
         "search":{
             deps:["jquery", "jQueryUI"]
         },
-
         "geonames":{
             deps:["jquery"]
         },
 
+        ///bootstrap
         "tooltip":{
             deps:["jquery"]
         },
 
-        "scrollspy":{
-            deps:["jquery"]
-        },
-
-        "twitter_grid" : {
+        "popover":{
             deps:["jquery"]
         }
+
+
 
 
 
@@ -89,8 +105,7 @@
 
 });
 
-
-define(["storage", "search", "geonames","twitter_grid","scrollspy"], function (storage, search, geonames,twitter_grid) {
+define(["storage", "search", "geonames","twitter_grid"], function (storage, search, geonames,twitter_grid) {
 
     if (typeof (KEENTOUR) == 'undefined') {
         KEENTOUR = {};
@@ -120,7 +135,7 @@ define(["storage", "search", "geonames","twitter_grid","scrollspy"], function (s
     }
 
     ///////////////////////////////////////require page dependencies and run the page
-    require(["jQueryUI","youTubeLib", "jquery.colorbox-min", "swfObject"], function () {
+    require(["jQueryUI","youTubeLib", "jquery.colorbox-min", "swfObject",'popover'], function () {
 
         var homePageEntities = {};
         homePageEntities['london'] = { name:'Budapest', path:'content/Europe/Hungary/Budapest', countryName:'Budapest', countryPath:'content/Europe/Hungary' };
@@ -185,7 +200,22 @@ define(["storage", "search", "geonames","twitter_grid","scrollspy"], function (s
                        })
                        .data('video', item);
 
+                   var description  =  (item.media$group && item.media$group.media$description && item.media$group.media$description.$t) ? '<p><h6>About:</h6>'  + item.media$group.media$description.$t + '</p>' : '';
+//                                var tags  = (dataItem.tags) ? '<p><h6>Tagged with:</h6>'  + dataItem.tags.split(' ').slice(0,5).join(',') + '</p>': '';
+                   var author  = ( item.author &&  item.author.length  >0 && item.author[0].name && item.author[0].name.$t) ? '<p><span>Published by :<span>'  + item.author[0].name.$t + '</p>': '';
+                   var publishedAt  = (item.published &&  item.published.$tt) ? '<p><span>Taken on:<span>'  +item.published.$t + '</p>': '';
+                   var viewsCount  = (item.yt$statistics && item.yt$statistics.viewCount) ? '<p>views count :'  + item.yt$statistics.viewCount + '</p>'  : '';
+
+                   $(divPlay).popover({
+                       title:title,
+                       placement:'right',
+                       content: '<div>' +  author  + viewsCount +   description +  '</div>'
+
+                   });
+
                }
+
+
             });
 
             $('.homeVideos').fadeIn('slow');
