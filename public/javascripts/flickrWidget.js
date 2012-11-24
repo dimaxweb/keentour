@@ -332,14 +332,14 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                                 title = title.length > 30 ? title.substr(0,27) + '...' : title;
                                 var description  =  (dataItem.description && dataItem.description._content) ? '<p>'  + dataItem.description._content + '</p>' : '';
                                 var tags  = (dataItem.tags) ? '<p><h6>Tagged with:</h6>'  + dataItem.tags.split(' ').slice(0,3).join(',') + '</p>': '';
-                                var author  = ( dataItem.author &&  dataItem.author.length  >0 && dataItem.author[0].name && dataItem.author[0].name.$t) ? '<p><span>Published by :<span>'  + dataItem.author[0].name.$t + '</p>': '';
-                                var publishedAt  = (dataItem.published &&  dataItem.published.$tt) ? '<p><span>Taken on:<span>'  +dataItem.published.$t + '</p>': '';
-                                var viewsCount  = (dataItem.yt$statistics && dataItem.yt$statistics.viewCount) ? '<p>views count :'  + dataItem.yt$statistics.viewCount + '</p>'  : '';
+                                var author  = ( dataItem.author &&  dataItem.author.length  >0 && dataItem.author[0].name && dataItem.author[0].name.$t) ? '<p><b>Published by :</b>'  + dataItem.author[0].name.$t + '</p>': '';
+                                var publishedAt  = (dataItem.published &&  dataItem.published.$t) ? '<p><b>Taken on:</b>'  +dataItem.published.$t + '</p>': '';
+                                var viewsCount  = (dataItem.yt$statistics && dataItem.yt$statistics.viewCount) ? '<p><b>Views </b> :'  + dataItem.yt$statistics.viewCount + '</p>'  : '';
 
                                 $(imgItem).popover({
                                     title: dataItem.title,
                                     placement:'top',
-                                    content: '<div>' +  author  + viewsCount +   tags +  '</div>'
+                                    content: '<div>' +  author  +  publishedAt+ viewsCount +   tags +  '</div>'
 
                                 });
 

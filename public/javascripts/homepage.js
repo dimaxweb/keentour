@@ -285,7 +285,7 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
                 var entries = data.videoResult.feed.entry;
                 var filteredEntries = getValidEntries(entries, names);
                 displayNewVideos(filteredEntries);
-                $(imgLoading).hide();
+
 
             });
 
