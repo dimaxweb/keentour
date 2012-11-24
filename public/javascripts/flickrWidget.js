@@ -321,15 +321,19 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                                 $(imgItem).css({ width:150, height:150 });
                                 var title = dataItem.title;
                                 title = title.length > 30 ? title.substr(0,27) + '...' : title;
-                                var description  =  (dataItem.description && dataItem.description._content) ? dataItem.description._content : '';
-                                var tags  = dataItem.tags;
+                                var description  =  (dataItem.description && dataItem.description._content) ? '<p>'  + dataItem.description._content + '</p>' : '';
+                                var tags  = (dataItem.tags) ? '<p><h6>Tagged with:</h6>'  + dataItem.tags.split(' ').slice(0,5).join(',') + '</p>': '';
+                                var author  = ( dataItem.author &&  dataItem.author.length  >0 && dataItem.author[0].name && dataItem.author[0].name.$t) ? '<p><span>Published by :<span>'  + dataItem.author[0].name.$t + '</p>': '';
+                                var publishedAt  = (dataItem.published &&  dataItem.published.$tt) ? '<p><span>Taken on:<span>'  +dataItem.published.$t + '</p>': '';
+                                var viewsCount  = (dataItem.yt$statistics && dataItem.yt$statistics.viewCount) ? '<p>views count :'  + dataItem.yt$statistics.viewCount + '</p>'  : '';
+
                                 $(imgItem).popover({
                                     title: dataItem.title,
                                     placement:'top',
-                                    content:'<p>'  + description + '</p><p><h6>Tagged with:</h6>'  + tags + '</p>'
-
+                                    content: '<div>' +  author  + viewsCount +   tags +  '</div>'
 
                                 });
+
 
                                 $('<h6 class="pull-left">'+ title +'</h6>').appendTo(cell);
 
@@ -339,7 +343,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                         itemsPerRow:4
                     });
 
-                    $(".photoItem").colorbox({rel:'photoItem', transition:"fade"});
+                    $(".photoItem").colorbox({rel:'photoFeed', transition:"fade",height:"90%"});
 
                     //** END TO RUN OVER ALL IMAGES
                     return data;
