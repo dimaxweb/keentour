@@ -214,8 +214,10 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
                                     })
                                     .data('video', item);
 
-                                var description  =  (dataItem.media$group && dataItem.media$group.media$description && dataItem.media$group.media$description.$t) ? '<p><h6>About:</h6>'  + dataItem.media$group.media$description.$t + '</p>' : '';
-//                                var tags  = (dataItem.tags) ? '<p><h6>Tagged with:</h6>'  + dataItem.tags.split(' ').slice(0,5).join(',') + '</p>': '';
+                                var description  =  (dataItem.media$group && dataItem.media$group.media$description && dataItem.media$group.media$description.$t) ? '<p><h7>About:</h7>'  + dataItem.media$group.media$description.$t + '</p>' : '';
+                                if(description.length > 1000){
+                                    description = description.substring(0,500) +'...';
+                                }
                                 var author  = ( dataItem.author &&  dataItem.author.length  >0 && dataItem.author[0].name && dataItem.author[0].name.$t) ? '<p><span>Published by :<span>'  + dataItem.author[0].name.$t + '</p>': '';
                                 var publishedAt  = (dataItem.published &&  dataItem.published.$tt) ? '<p><span>Taken on:<span>'  +dataItem.published.$t + '</p>': '';
                                 var viewsCount  = (dataItem.yt$statistics && dataItem.yt$statistics.viewCount) ? '<p>views count :'  + dataItem.yt$statistics.viewCount + '</p>'  : '';
@@ -223,7 +225,7 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
                                 $(divPlay).popover({
                                     title:title,
                                     placement:'top',
-                                   content: '<div>' +  author  + viewsCount +   description +  '</div>'
+                                   content: '<div>' +  author  + viewsCount + '</div>'
 
                                 });
 

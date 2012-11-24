@@ -21,9 +21,6 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
             _create: function () {
                 try {
                     this.initialTags = this.options.tags;
-//                    this.galleryContainer = this.element.find('.video_viev');
-//                    this.thumbContainer = this.galleryContainer.find('.videolenta');
-//                    var imageLoading = $("<img id='imgLoading' class='progressLoader' src='/images/ajax-loader-big.gif' />").prependTo(this.galleryContainer);
                     this.runWidget();
 
                 }
@@ -46,18 +43,30 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
             },
 
             runWidget: function () {
-                this.imagesCache = {};
-                this.pagesCache = {};
                 this.currentPage = 0;
                 this.initilaising = true;
                 this.flickrLib = new FlickrLib({ 'tags': this.options.tags, sort: 'relevance',perPage:20});
                 var that = this;
                 var $element =  this.element;
                 $($element).addClass('contTransperensy');
+
+                var imgLoading  = $(this.element).find('#photoLoading').first();
+                if(imgLoading.length === 0){
+                    ///put image loading
+                    var imgLoading  = $('<img src="/images/ajax-loader-homepage.gif" id="photoLoading" />').appendTo(this.element);
+                    $(imgLoading).position({
+                            my: "top center",
+                            at: "center center",
+                            of: this.element
+                        }
+                    );
+                }
+
+
                 var callback = function (result) {
 
                     if (result && result.flickrResult && result.flickrResult.photos && result.flickrResult.photos.photo && result.flickrResult.photos.photo.length > 0) {
-
+                        $(imgLoading).hide();
                         var data = that.displayData.call(that, result);
                         $($element).removeClass('contTransperensy');
                         that.createPaging(data);
@@ -322,7 +331,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                                 var title = dataItem.title;
                                 title = title.length > 30 ? title.substr(0,27) + '...' : title;
                                 var description  =  (dataItem.description && dataItem.description._content) ? '<p>'  + dataItem.description._content + '</p>' : '';
-                                var tags  = (dataItem.tags) ? '<p><h6>Tagged with:</h6>'  + dataItem.tags.split(' ').slice(0,5).join(',') + '</p>': '';
+                                var tags  = (dataItem.tags) ? '<p><h6>Tagged with:</h6>'  + dataItem.tags.split(' ').slice(0,3).join(',') + '</p>': '';
                                 var author  = ( dataItem.author &&  dataItem.author.length  >0 && dataItem.author[0].name && dataItem.author[0].name.$t) ? '<p><span>Published by :<span>'  + dataItem.author[0].name.$t + '</p>': '';
                                 var publishedAt  = (dataItem.published &&  dataItem.published.$tt) ? '<p><span>Taken on:<span>'  +dataItem.published.$t + '</p>': '';
                                 var viewsCount  = (dataItem.yt$statistics && dataItem.yt$statistics.viewCount) ? '<p>views count :'  + dataItem.yt$statistics.viewCount + '</p>'  : '';

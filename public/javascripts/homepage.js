@@ -200,8 +200,11 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
                        })
                        .data('video', item);
 
-                   var description  =  (item.media$group && item.media$group.media$description && item.media$group.media$description.$t) ? '<p><h6>About:</h6>'  + item.media$group.media$description.$t + '</p>' : '';
-//                                var tags  = (dataItem.tags) ? '<p><h6>Tagged with:</h6>'  + dataItem.tags.split(' ').slice(0,5).join(',') + '</p>': '';
+
+                   var description  =  (dataItem.media$group && dataItem.media$group.media$description && dataItem.media$group.media$description.$t) ? '<h6>About:</h6><p>'  + dataItem.media$group.media$description.$t + '</p>' : '';
+                   if(description.length > 1000){
+                       description = description.substring(0,500) +'...';
+                   }
                    var author  = ( item.author &&  item.author.length  >0 && item.author[0].name && item.author[0].name.$t) ? '<p><span>Published by :<span>'  + item.author[0].name.$t + '</p>': '';
                    var publishedAt  = (item.published &&  item.published.$tt) ? '<p><span>Taken on:<span>'  +item.published.$t + '</p>': '';
                    var viewsCount  = (item.yt$statistics && item.yt$statistics.viewCount) ? '<p>views count :'  + item.yt$statistics.viewCount + '</p>'  : '';
@@ -209,7 +212,7 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
                    $(divPlay).popover({
                        title:title,
                        placement:'right',
-                       content: '<div>' +  author  + viewsCount +   description +  '</div>'
+                       content: '<div>' +  author  + viewsCount +  '</div>'
 
                    });
 
@@ -265,13 +268,6 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
 
 
         $(document).ready(function (e) {
-            var imgLoading  = $('<img src="/images/ajax-loader-homepage.gif" />').appendTo('.homeVideos');
-            $(imgLoading).position({
-                    my: "top center",
-                    at: "center center",
-                    of: ".homeVideos"
-                }
-            );
 
             $('#newVideos').fadeIn('slow');
 
