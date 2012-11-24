@@ -95,8 +95,8 @@ require(["jquery","jQueryUI","css!wikiCSS","css!jQueryUICSS"], function() {
 
             },
 
-            _search :function(query){
-                var searchUrl =   'http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Rio De Janeira&srprop=timestamp&format=json';
+            _search :function(query,callback){
+                var searchUrl =   'http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=' + query + '+&srprop=timestamp&rvprop=content&format=json';
                 var request = $.ajax({
                     url:searchUrl,
                     dataType:"jsonp"
@@ -104,7 +104,8 @@ require(["jquery","jQueryUI","css!wikiCSS","css!jQueryUICSS"], function() {
                 });
 
                 request.success(function (data) {
-                      console.log('data is here');
+                    callback(data);
+
 
                 });
 
@@ -116,7 +117,7 @@ require(["jquery","jQueryUI","css!wikiCSS","css!jQueryUICSS"], function() {
 
            _processWikiPage: function (query, linkText) {
                 //empty container and add the loading image
-                this.wikiContainer.html("<img src='" + this.options.imageLoading + "'/>");
+                this.wikiContainer.html("<img id='imgWikiLoading' src='" + this.options.imageLoading + "'/>");
                 //get reference
                 var that = this;
                 var url = that.options.wikApiUrl + '&page=' + query;
@@ -126,16 +127,38 @@ require(["jquery","jQueryUI","css!wikiCSS","css!jQueryUICSS"], function() {
                 else {
                     $.getJSON(url, that.options.wikiApiParams, function (data) {
                         if(data.error){
-                            that._search(query);
-                        }
-                        that._handleWikiResult.call(that, data);
-                        that.wikiCache[url] = data;
-                    })
-                        .success(function () {
+                           that._search(query,function(data){
+                                if(data && data.query && data.query.search && data.query.search.length > 0 ){
+                                    that.wikiContainer.append('<div style="color:#33506E;font-size:16px;font-weight:bold;margin-bottom:8px">Multiple results returned from Wikipedia.Please use the appropriate one:</div>');
+                                    $.each(data.query.search ,function(i,item){
+                                        var articleUrl =  item.title.replace(' ','_');
+                                        var divOptionLink = $('<div><a class="wikiOption">'  + item.title  + '</a></div>').appendTo(that.wikiContainer);
+                                        $(divOptionLink).find('a').bind('click',function(){
+                                           that._processWikiPage(articleUrl,item.title);
+                                        });
+                                    });
 
-                        });
+
+                                }////
+                               else{
+                                    that.wikiContainer.append('<div style="color:#33506E;font-size:16px;font-weight:bold;margin-bottom:8px">No data found</div>');
+                                }
+
+                            });
+                            that.wikiContainer.find('#imgWikiLoading').hide();
+                            return;
+
+                        }
+                        else{
+                            that._handleWikiResult.call(that, data);
+                            that.wikiCache[url] = data;
+                            that._createBreadCrumb.call(that, query, linkText);
+                        }
+
+                    });
+
                 }
-                that._createBreadCrumb.call(that, query, linkText);
+
 
             },
 

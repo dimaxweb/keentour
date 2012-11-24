@@ -3834,3 +3834,8 @@ ul {
     height: 350px;
     overflow: scroll;
 }
+
+.wikiOption
+{
+    cursor:pointer;
+}

@@ -43,7 +43,7 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
             }
         });
 
-    wikiWidget.prototype.container = $("<div id='wikiMain'><div id='divBreadCrumb'></div><div class ='articles' style='padding:10px;margin-bottom: 50px;'></div></div>");
+    wikiWidget.prototype.container = $("<div id='wikiMain'><div id='divBreadCrumb'></div><div class ='articles'></div></div>");
     contentWidget.parts[ contentWidget.parts.length] = wikiWidget;
 
 //youtube widget
