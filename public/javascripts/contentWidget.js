@@ -27,7 +27,7 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
 
         });
 
-    flickrWidget.prototype.container = $("<div id='divContent'><div class='photoFeed'></div><div class='paging' id='photoPaging'></div></div>");
+    flickrWidget.prototype.container = $("<div id='divContent'  class='widgetInternal'><div class='photoFeed'></div><div class='paging' id='photoPaging'></div></div>");
 
     contentWidget.parts[contentWidget.parts.length] = flickrWidget;
 
@@ -43,7 +43,7 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
             }
         });
 
-    wikiWidget.prototype.container = $("<div id='wikiMain'><div id='divBreadCrumb'></div><div class ='articles'></div></div>");
+    wikiWidget.prototype.container = $("<div id='wikiMain' class='widgetInternal'><div id='divBreadCrumb'></div><div class ='articles'></div></div>");
     contentWidget.parts[ contentWidget.parts.length] = wikiWidget;
 
 //youtube widget
@@ -59,7 +59,7 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
         });
 
 
-    youtubeWidget.prototype.container = $("<div id='youTubeMain'><div id='videos'></div><div id='videoPaging' class='paging'></div></div>");
+    youtubeWidget.prototype.container = $("<div id='youTubeMain'  class='widgetInternal'><div id='videos'></div><div id='videoPaging' class='paging'></div></div>");
     var contentWidgets = { 'article': new wikiWidget(), 'photos': new flickrWidget(), 'videos': new youtubeWidget() };
 
 

@@ -21,6 +21,10 @@
         youtubeWidget:'../javascripts/youtubeWidget',
         homepage:'../javascripts/homepage',
         contentpage:'../javascripts/contentpage',
+        tooltip  : '../javascripts/lib/bootstrap/bootstrap-tooltip',
+        popover  : '../javascripts/lib/bootstrap/bootstrap-popover',
+        carousel  : '../javascripts/lib/bootstrap/bootstrap-carousel',
+        twitter_grid  :  '../javascripts/twitter-grid',
         ///requirejs plugins
         css:'../javascripts/lib/css',
         text:'../javascripts/lib/text',

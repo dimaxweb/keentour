@@ -192,12 +192,11 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
                                 var item = dataItem;
                                 var url = item.media$group.media$thumbnail[0].url;
                                 var title = item.title.$t.toLowerCase();
-                                title = title.length > 30 ? title.substr(0,27) + '...' : title;
                                 var videoTime = YouTubeLib.getVideoTime(dataItem);
                                 var itemBox = $('<div class="video-block"><a class="video-link"><img  src="' + url + '" class="thumbnail video-thumb" /><span class="video-time">'
                                     +  videoTime
                                     +  '</span></a>'
-                                    +  '<h6>' + title + '</h6>');
+                                    +  '<div class="widgetItemName"><a>' + title + '</a></div>');
 
                                 $(gridCell).append(itemBox);
                                 var divPlay = $(gridCell).find('a').first();
@@ -225,7 +224,7 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
                                 $(divPlay).popover({
                                     title:title,
                                     placement:'top',
-                                   content: '<div>' +  author  + viewsCount + '</div>'
+                                    content: '<div>' +  author  + viewsCount + '</div>'
 
                                 });
 

@@ -9,6 +9,9 @@ body {
 img {
     border: none;
 }
+a{
+    cursor: pointer;
+}
 
 td {
     vertical-align: top;
@@ -1026,8 +1029,15 @@ ul {
 
 #widgetsDisplay {
 
-     margin: 30px 220px 150px;
+     margin: 30px 100px 100px 150px;
 
+}
+
+.widgetInternal
+{
+    width: 87%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -1970,9 +1980,45 @@ ul {
     margin-left: 35px;
 }
 
+/*
+ Widget related styles
+*/
 .widgetTitles{
     margin: 0 0 20px 70px;
 }
+
+.widgetItemName a
+{
+    transition: all 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transition: all 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    max-width: 115px;
+    margin-right: 12px;
+    white-space: nowrap;
+    font-size: 12px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 27px;
+}
+
+.widgetItemName a:hover
+{
+    max-width: 280px;
+    background: rgba(255, 255, 255, 0.9);
+    padding-right: 1em;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    z-index: 1000;
+
+}
+
+.widgetTitle{
+    cursor: pointer;
+    margin-right: 25px;
+    padding-bottom: 30px;
+}
+
+
 
 .contentPageBreadCrumb
 {
@@ -3799,13 +3845,10 @@ ul {
 
 
 
-.widgetTitle{
-    cursor: pointer;
-    margin-right: 25px;
-    padding-bottom: 30px;
 
 
-}
+
+
 .align-left
 {
     text-align: left;
@@ -3839,3 +3882,5 @@ ul {
 {
     cursor:pointer;
 }
+
+

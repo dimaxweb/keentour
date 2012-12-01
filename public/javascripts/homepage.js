@@ -96,14 +96,10 @@
             deps:["jquery"]
         }
 
-
-
-
-
-
     }
 
 });
+
 
 define(["storage", "search", "geonames","twitter_grid"], function (storage, search, geonames,twitter_grid) {
 
@@ -142,8 +138,25 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
         homePageEntities['berlin'] = { name:'Berlin', path:'content/Europe/Germany/Berlin', countryName:'Germany', countryPath:'content/Europe/Germany' };
         homePageEntities['paris'] = { name:'Paris', path:'content/Europe/France/Paris', countryName:'France', countryPath:'content/Europe/France'};
         homePageEntities['vienna'] = { name:'Vienna', path:'content/Europe/Austria/Vienna', countryName:'Austria', countryPath:'content/Europe/Austria' };
+//      homePageEntities['new-york'] = { name:'New-York', path:'content/North-America/United-States/New-York', countryName:'United-States', countryPath:'content/North-America/United-States' };
+        function searchYoutube(query, names,pageNumber,callback) {
 
-        var trVideos = null;
+                var startIndex = (pageNumber == 1 ) ? 1 :  40 * (pageNumber - 1);
+                //search the youtube
+                var lib = new YouTubeLib({ query:query, 'max-results':40,'start-index' :startIndex });
+                //search for videos and update UI when done
+                lib.searchVideos(function (data) {
+                    var entries = data.videoResult.feed.entry;
+                    var filteredEntries = getValidEntries(entries, names);
+                    displayNewVideos(filteredEntries);
+                    if(callback){
+                        callback();
+                    }
+
+                });
+
+        };
+
 
         function showVideo(videoID) {
             swfobject.switchOffAutoHideShow();
@@ -176,12 +189,12 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
                    var currentGeoItem = dataItem.geoItem;
                    var url = item.media$group.media$thumbnail[0].url;
                    var title = item.title.$t.toLowerCase();
-                   title = title.length > 30 ? title.substr(0,27) + '...' : title;
+//                   title = title.length > 30 ? title.substr(0,27) + '...' : title;
                    var videoTime = YouTubeLib.getVideoTime(dataItem.videoEntry);
                    var itemBox = $('<div class="video-block"><a class="video-link"><img  src="' + url + '" class="thumbnail video-thumb" /><span class="video-time">'
                                                                        +  videoTime
                                                                        +  '</span></a>'
-                                                                       +  '<h6>' + title + '</h6>'
+                                                                       +  '<div class="widgetItemName"><a>' + title + '</a></div>'
                                                                        +  '<a href="' + currentGeoItem.path + '">' + currentGeoItem.name + '</a> | <a href="'
                                                                        +   currentGeoItem.countryPath + '">' + currentGeoItem.countryName
                                                                        +   '</a></div>');
@@ -211,7 +224,7 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
 
                    $(divPlay).popover({
                        title:title,
-                       placement:'right',
+                       placement:'top',
                        content: '<div>' +  author  + viewsCount +  '</div>'
 
                    });
@@ -269,35 +282,76 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
 
         $(document).ready(function (e) {
 
-            $('#newVideos').fadeIn('slow');
+            KEENTOUR.scrollStep = 0;
+            KEENTOUR.scrolltrigger = 0.95;
+            KEENTOUR.pageNumber = 2;
+            KEENTOUR.scrollResults = false;
 
+            $('#newVideos').fadeIn('slow');
             $('.homeVideos').hide();
+
             var names = [];
             $.each(homePageEntities, function (i, item) {
                 names[names.length] = item.name;
             });
             var query = names.join('|');
-            //search the youtube
-            var lib = new YouTubeLib({ query:query, 'max-results':40 });
-            //search for videos and update UI when done
-            lib.searchVideos(function (data) {
+            searchYoutube(query, names,1);
 
-                var entries = data.videoResult.feed.entry;
-                var filteredEntries = getValidEntries(entries, names);
-                displayNewVideos(filteredEntries);
+            ///add addthis
+            try {
+                KEENTOUR.addAddThisWidget();
+            }
+            catch (e) {
+                //TODO : enable console logging
+            }
 
+            ///
+            $(window).scroll(function () {
+                var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
+                var scrolltrigger = 0.95;
+                var scrollStep = (wintop / (docheight - winheight));
+                if (scrollStep > scrolltrigger) {
+                    KEENTOUR.scrollResults = true;
+                }
 
             });
 
-            try{
-                KEENTOUR.addAddThisWidget();
-            }
-            catch(e){
-              //TODO : enable console logging
-            }
+            setInterval(function(){
+                if(KEENTOUR.scrollResults && KEENTOUR.pageNumber < 10 ){
+                    console.log('Scrolling paging');
+                    var element = $('.homeVideos');
+                    var imgLoading  = $(this.element).find('#photoLoading').first();
+                    if(imgLoading.length === 0){
+                        ///put image loading
+                        var imgLoading  = $('<img src="/images/ajax-loader-big.gif" id="photoLoading" />').appendTo(element);
+                        $(imgLoading).position({
+                                my: "middle center",
+                                at: "bottom bottom",
+                                of: element
+                            }
+                        );
+                    }
+
+                    $(imgLoading).show();
+                    var callback  = function(){
+                        $(imgLoading).hide();
+                        KEENTOUR.pageNumber++;
+                        KEENTOUR.scrollResults = false;
+                    }
+                    searchYoutube(query, names,KEENTOUR.pageNumber,callback);
+
+
+                }
+            },1000);
+
+
 
 
         });
+
+
+
+
 
     });
 

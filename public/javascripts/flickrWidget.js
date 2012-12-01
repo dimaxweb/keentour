@@ -55,8 +55,8 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                     ///put image loading
                     var imgLoading  = $('<img src="/images/ajax-loader-homepage.gif" id="photoLoading" />').appendTo(this.element);
                     $(imgLoading).position({
-                            my: "top center",
-                            at: "center center",
+                            my: "middle center",
+                            at: "center middle",
                             of: this.element
                         }
                     );
@@ -326,10 +326,8 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                                     .appendTo(aItem);
 
 
-
                                 $(imgItem).css({ width:150, height:150 });
                                 var title = dataItem.title;
-                                title = title.length > 30 ? title.substr(0,27) + '...' : title;
                                 var description  =  (dataItem.description && dataItem.description._content) ? '<p>'  + dataItem.description._content + '</p>' : '';
                                 var tags  = (dataItem.tags) ? '<p><h6>Tagged with:</h6>'  + dataItem.tags.split(' ').slice(0,3).join(',') + '</p>': '';
                                 var author  = ( dataItem.author &&  dataItem.author.length  >0 && dataItem.author[0].name && dataItem.author[0].name.$t) ? '<p><b>Published by :</b>'  + dataItem.author[0].name.$t + '</p>': '';
@@ -344,7 +342,8 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                                 });
 
 
-                                $('<h6 class="pull-left">'+ title +'</h6>').appendTo(cell);
+                                $('<div class="widgetItemName pull-left"><a>' + title + '</a></div>').appendTo(cell);
+
 
                             }
 
