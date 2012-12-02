@@ -53,7 +53,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                 var imgLoading  = $(this.element).find('#photoLoading').first();
                 if(imgLoading.length === 0){
                     ///put image loading
-                    var imgLoading  = $('<img src="/images/ajax-loader-homepage.gif" id="photoLoading" />').appendTo(this.element);
+                    var imgLoading  = $('<img src="/images/ajax-loader-big.gif" id="photoLoading" />').appendTo(this.element);
                     $(imgLoading).position({
                             my: "middle center",
                             at: "center middle",

@@ -1028,14 +1028,13 @@ ul {
 }
 
 #widgetsDisplay {
-
-     margin: 30px 100px 100px 150px;
-
+    margin-bottom: 5%;
+    margin-left: 5%;
 }
 
 .widgetInternal
 {
-    width: 87%;
+
     margin-left: auto;
     margin-right: auto;
 }
@@ -2040,12 +2039,11 @@ ul {
 #divContent
 {
     text-align: center;
+    margin-left: 5%;
+
 }
 
-#paging
-{
-    margin-left: 200px;
-}
+
 
 #bigPhoto
 {
@@ -3843,12 +3841,6 @@ ul {
     margin-left: 35px;
 }
 
-
-
-
-
-
-
 .align-left
 {
     text-align: left;
@@ -3858,6 +3850,7 @@ ul {
 {
     text-align: center;
     min-height: 500px;
+
 }
 
 .selected
@@ -3883,4 +3876,7 @@ ul {
     cursor:pointer;
 }
 
-
+#wikiMain
+{
+    width: 90%;
+}
