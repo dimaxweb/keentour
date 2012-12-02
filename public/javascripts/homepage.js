@@ -327,7 +327,10 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
                 }
             },1000);
 
-            ///add addthis
+            /*
+                Add this widget
+            */
+
             try {
                 KEENTOUR.addAddThisWidget();
             }
