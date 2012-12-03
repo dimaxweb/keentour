@@ -54,19 +54,19 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                 if(imgLoading.length === 0){
                     ///put image loading
                     var imgLoading  = $('<img src="/images/ajax-loader-big.gif" id="photoLoading" />').appendTo(this.element);
-//                    $(imgLoading).position({
-//                            my: "middle center",
-//                            at: "center middle",
-//                            of: this.element
-//                        }
-//                    );
+                    $(imgLoading).position({
+                            my: "center middle",
+                            at: "center-5% middle",
+                            of: this.element
+                        }
+                    );
                 }
 
 
                 var callback = function (result) {
 
                     if (result && result.flickrResult && result.flickrResult.photos && result.flickrResult.photos.photo && result.flickrResult.photos.photo.length > 0) {
-                        $(imgLoading).hide();
+                        ///$(imgLoading).hide();
                         var data = that.displayData.call(that, result);
                         $($element).removeClass('contTransperensy');
                         that.createPaging(data);
