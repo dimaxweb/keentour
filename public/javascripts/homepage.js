@@ -187,6 +187,7 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
                getItemContent:function(dataItem,gridCell,grid){
                    var item = dataItem.videoEntry;
                    var currentGeoItem = dataItem.geoItem;
+                   console.log(item.media$group.media$keywords);
                    var url = item.media$group.media$thumbnail[0].url;
                    var title = item.title.$t.toLowerCase();
 //                   title = title.length > 30 ? title.substr(0,27) + '...' : title;

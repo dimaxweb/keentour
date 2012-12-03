@@ -2254,6 +2254,14 @@ div.top_menu1 {
     cursor:pointer;
 }
 
+div.top_menu1right {
+    height: 16px;
+    margin-top: -1px;
+    padding-top: 9px;
+    padding-bottom: 11px;
+    cursor:pointer;
+}
+
 a:hover div.top_menu1 {
     background: url(../images/arrowred.png) no-repeat center -140px;
 }
