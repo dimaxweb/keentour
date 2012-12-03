@@ -66,7 +66,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                 var callback = function (result) {
 
                     if (result && result.flickrResult && result.flickrResult.photos && result.flickrResult.photos.photo && result.flickrResult.photos.photo.length > 0) {
-                        ///$(imgLoading).hide();
+                        $(imgLoading).hide();
                         var data = that.displayData.call(that, result);
                         $($element).removeClass('contTransperensy');
                         that.createPaging(data);
