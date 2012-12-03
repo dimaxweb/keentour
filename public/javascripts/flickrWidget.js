@@ -8,7 +8,8 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                 clear: null,
                 tags: null,
                 page: 1,
-                perPage: 12
+                perPage: 12,
+                text:''
 
             },
 
@@ -45,7 +46,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
             runWidget: function () {
                 this.currentPage = 0;
                 this.initilaising = true;
-                this.flickrLib = new FlickrLib({ 'tags': this.options.tags, sort: 'relevance',perPage:20});
+                this.flickrLib = new FlickrLib({ 'tags': this.options.tags, sort: 'relevance',perPage:20,text:this.options.text});
                 var that = this;
                 var $element =  this.element;
                 $($element).addClass('contTransperensy');

@@ -42,16 +42,17 @@ FlickrLib.prototype.searchPhotos = function (callback) {
         + "&page=" + this.options.page
         + "&sort=" + this.options.sort
         + "&accuracy=" + this.options.accuracy;
-    if (this.options.tags != '') {
-        url += "&tags=" + this.options.tags;
-    }
 
-    if (this.options.text != '') {
+    if (this.options.text) {
         url += "&text=" + this.options.text;
     }
 
-    url = url + "&tag_mode=" + this.options.tagsMode
-        + "&per_page=" + this.options.perPage
+    if (this.options.tags) {
+        url += "&tags=" + this.options.tags;
+        url = url + "&tag_mode=" + this.options.tagsMode;
+    }
+
+    url = url + "&per_page=" + this.options.perPage
         + "&extras=" + this.options.photoInfo
         + "&format=" + this.options.format
 

@@ -17,7 +17,7 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
     var flickrWidget = widgetBase.extend(
         {
             displayContent:function () {
-                $(this.container).flickrFy({ tags:window.contentData.flickrTags});
+                $(this.container).flickrFy({ text:window.contentData.flickrText});
                 this.instance  =   $(this.container).data('flickrFy');
 
             },
@@ -85,7 +85,7 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
             //default data
             window.contentData = {};
             window.contentData.wikiPage = 'Austria';
-            window.contentData.flickrTags = 'Austria,travel';
+            window.contentData.flickrText = 'Austria travel';
             window.contentData.youTubeQuery = 'Austria,travel';
         }
         var widget = this.getCurrentWidget();

@@ -144,12 +144,12 @@ require(["storage", "search", "geonames", "contentWidget"], function (storage, s
         //default context
         var arrUrlSegments = window.location.pathname.substr(1).split('/');
         var strDefault = arrUrlSegments[arrUrlSegments.length - 1];
-        window.contentData.flickrTags = window.contentData.youTubeQuery = window.contentData.wikiPage = strDefault;
-//        window.contentData.flickrTags+=',travel';
+      window.contentData.flickrText = window.contentData.youTubeQuery = window.contentData.wikiPage = strDefault;
+//      window.contentData.flickrText+=',travel';
         if (item) {
             window.contentData.wikiPage = item.name;
             ///add travel keyword only if geo item is found
-            window.contentData.flickrTags =  item.name + ',travel';
+            window.contentData.flickrText =  item.name + ' travel';
             window.contentData.youTubeQuery = item.name;
             window.contentData.currentItem = item;
         }
