@@ -69,14 +69,12 @@
                setTimeout(function(){
                     ///bind tooltip
                     $(container).tooltip({
-                        title:'Type something e.g. London',
+                        title:'Let us impress you !  Type country,city,street name,"Berlin nightlife",...anything interesting you about travel',
                         placement:'bottom',
                         trigger:'manual'
 
                     }).tooltip('show');
-                    setTimeout(function(){
-                        $(container).tooltip().tooltip('hide');
-                    },5000);
+
 
                  storage.setObject('toolTipShown',true);
 
