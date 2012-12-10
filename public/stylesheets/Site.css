@@ -1,9 +1,9 @@
 body {
-    margin: 0;
+    background: url("../images/fon_top.jpg") repeat-x scroll center top transparent;
+    color: #555555;
     font-family: Arial;
     font-size: 13px;
-    /*background: url(../images/fon_top1.jpg) repeat-x top;*/
-    color: #555;
+    margin: 0;
 }
 
 img {
