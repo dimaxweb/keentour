@@ -14,62 +14,63 @@ html(lang='en')
 
    body
 
-        .container-fluid
-               .row-fluid
-                .span4
-                   div.logoCont.pull-left
-                    a(href='/', title='Keentour-Home')
-                       img(src='/images/logo.png')
-                .span8
-                    #search
-                        input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
-                        //i.icon-chevron-down.advancedOpen
-                        input#searchbtn(type='button', value='')
 
-        .container-fluid.menuCont
-           .menu
-               table.top_menu
-                   tr
-                       td
-                           .top_menu1(rel='EU')
-                              div
-                                a(href='/content/Europe') Europe
-                       td
-                           .top_menu1(rel='SA')
-                               div
-                                    a(href='/content/South-America') South America
-                       td
-                           .top_menu1(rel='NA')
-                               div
-                                   a(href='/content/North-America') North America
-                       td
-                           .top_menu1(rel='AS')
-                               div
-                                   a(href='/content/Asia') Asia
-                       td
-                           .top_menu1(rel='OC')
-                               div
-                                   a(href='/content/Oceania') Oceania
-                       td
-                           .top_menu1right(rel='AF',style='border-right:none !important;')
-                               div(style='border-right:none !important;')
-                                   a(href='/content/Africa') Africa
+           .container-fluid.header
+                   .row-fluid
+                    .span4
+                       div.logoCont.pull-left
+                        a(href='/', title='Keentour-Home')
+                           img(src='/images/logo.png')
+                    .span8
+                        #search
+                            input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
+                            //i.icon-chevron-down.advancedOpen
+                            input#searchbtn(type='button', value='')
 
-       .container-fuild
-            block content
+           .container-fluid.menuCont
+               .menu
+                   table.top_menu
+                       tr
+                           td
+                               .top_menu1(rel='EU')
+                                  div
+                                    a(href='/content/Europe') Europe
+                           td
+                               .top_menu1(rel='SA')
+                                   div
+                                        a(href='/content/South-America') South America
+                           td
+                               .top_menu1(rel='NA')
+                                   div
+                                       a(href='/content/North-America') North America
+                           td
+                               .top_menu1(rel='AS')
+                                   div
+                                       a(href='/content/Asia') Asia
+                           td
+                               .top_menu1(rel='OC')
+                                   div
+                                       a(href='/content/Oceania') Oceania
+                           td
+                               .top_menu1right(rel='AF',style='border-right:none !important;')
+                                   div(style='border-right:none !important;')
+                                       a(href='/content/Africa') Africa
 
-            div.footerPanel#panelMain
-                div.panelInternal
-                    div.addthis_toolbox.addthis_default_style.addthis_32x32_style
-                        a(class="addthis_button_preferred_1")
-                        a(class="addthis_button_preferred_2")
-                        a(class="addthis_button_preferred_3")
-                        a(class="addthis_button_compact")
-                        a(class="addthis_counter addthis_bubble_style")
-                        span.companyInfo
-                            a(href="/AboutUs") About US
-                        span.companyInfo
-                            a(href="/Privacy") Privacy
+           .container-fuild
+                block content
+
+                div.footerPanel#panelMain
+                    div.panelInternal
+                        div.addthis_toolbox.addthis_default_style.addthis_32x32_style
+                            a(class="addthis_button_preferred_1")
+                            a(class="addthis_button_preferred_2")
+                            a(class="addthis_button_preferred_3")
+                            a(class="addthis_button_compact")
+                            a(class="addthis_counter addthis_bubble_style")
+                            span.companyInfo
+                                a(href="/AboutUs") About US
+                            span.companyInfo
+                                a(href="/Privacy") Privacy
 
 
 

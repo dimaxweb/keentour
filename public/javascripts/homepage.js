@@ -291,12 +291,10 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
             var query = names.join('|');
             searchYoutube(query, names,1);
 
-
-
-
-
-
-
+            /*
+                Scroll behavior
+                //TODO : move to some plugin/package
+             */
             KEENTOUR.pageNumber = 2;
             KEENTOUR.scrollResults = false;
             $(window).scroll(function () {

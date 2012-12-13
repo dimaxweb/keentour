@@ -51,7 +51,8 @@ table.content a:hover {
 
 .header
 {
-    margin-top: 10px;
+
+    background:url("../images/fonsfera.png");
 
 }
 
@@ -2238,6 +2239,7 @@ table.top_menu {
 
     height: 38px;
     position: relative;
+
 
 }
 
