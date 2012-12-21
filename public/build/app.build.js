@@ -1,4 +1,3 @@
-//TODO : understand how to load the  jquery,jqueryUi and swfObject from  CDN
 ({
 
     baseUrl:"./",
@@ -20,6 +19,8 @@
         youTubeLib:'../javascripts/youTubeLib',
         youtubeWidget:'../javascripts/youtubeWidget',
         homepage:'../javascripts/homepage',
+        privacy:'../javascripts/aboutUs',
+        aboutUs:'../javascripts/homepage',
         contentpage:'../javascripts/contentpage',
         tooltip  : '../javascripts/lib/bootstrap/bootstrap-tooltip',
         popover  : '../javascripts/lib/bootstrap/bootstrap-popover',
@@ -38,7 +39,8 @@
 
     removeCombined: false,
 
-
+    //No files are loaded on demand,so we wan to nest also the recources from require calls
+    findNestedDependencies: true,
     //List the modules that will be optimized. All their immediate and deep
     //dependencies will be included in the module's file when the build is
     //done. If that module or any of its dependencies includes i18n bundles,
@@ -51,6 +53,13 @@
         },
         {
             name:"contentpage"
+        },
+
+        {
+            name:"privacy"
+        },
+        {
+            name:"aboutUs"
         }
 
     ],

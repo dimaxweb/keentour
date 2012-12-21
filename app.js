@@ -27,7 +27,19 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(express.errorHandler());
+    app.locals({
+        scriptPrefix : 'javascripts'
+    });
 });
+
+app.configure('production', function(){
+    app.use(express.errorHandler());
+    app.locals({
+        scriptPrefix : 'dist'
+    });
+
+});
+
 
 app.get('/content/*', routes.content);
 app.get('/content', routes.index);
