@@ -45,7 +45,7 @@ exports.content = function (req, res) {
 };
 
 exports.aboutUs = function (req, res) {
-    res.render('aboutus', { title:' About wwww.keentour.com' });
+    res.render('aboutUs', { title:' About wwww.keentour.com' });
 };
 
 exports.privacy = function (req, res) {

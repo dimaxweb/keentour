@@ -1,15 +1,18 @@
 {
-  "name": "application-name",
-  "version": "0.0.1-4",
+  "name": "keentour-website",
+  "version": "0.0.1-12",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "app.js"
   },
   "dependencies": {
     "express": "3.0.0rc4",
     "jade": "*"
   },
-  "subdomain": "dmitry.mogilko.keentour",
+  "domains": [
+    "www.keentour.com"
+  ],
+  "subdomain": "dmitry.mogilko.keentour-web",
   "engines": {
     "node": "0.8.x"
   }
