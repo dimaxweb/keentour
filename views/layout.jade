@@ -1,3 +1,5 @@
+include shared/mixins
+
 doctype 5
 html(lang='en')
    head
@@ -57,9 +59,10 @@ html(lang='en')
                                        a(href='/content/Africa') Africa
 
            .container-fuild
-                block content
 
-                div.footerPanel#panelMain
+               block content
+
+           div.footerPanel#panelMain
                     div.panelInternal
                         div.addthis_toolbox.addthis_default_style.addthis_32x32_style
                             a(class="addthis_button_preferred_1")
