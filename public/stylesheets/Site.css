@@ -1134,7 +1134,7 @@ div.popular_places li:hover {
 .panelInternal {
     position: relative;
     top: 12px;
-    margin-left: 450px;
+    margin-left: 5%;
 }
 
 #menuResultsPaging {
@@ -2993,11 +2993,7 @@ div.popular_places li:hover {
     margin-left: 20px;
 }
 
-.panelInternal {
-    position: relative;
-    top: 12px;
-    margin-left: 450px;
-}
+
 
 #menuResultsPaging {
     margin-left: 175px;
