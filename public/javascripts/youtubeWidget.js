@@ -1,4 +1,4 @@
-require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jquery.colorbox-min","swfObject","css!paginationCSS","css!jQueryUICSS"], function($,twitter_grid) {
+require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jquery.colorbox-min","swfObject","css!paginationCSS","css!jQueryUICSS",'ajax-scroll'], function($,twitter_grid) {
     (function ($) {
         $.widget("custom.youTubeFy", {
 
@@ -55,7 +55,7 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
 
 
             runWidget:function () {
-                $('#videos').empty();
+//                $('#videos').empty();
                 this.imagesCache = {};
                 this.initilaising = true;
                 this.youTubeLib = new YouTubeLib(this.options);
@@ -131,24 +131,21 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
             createPaging:function (data) {
                 var that = this;
                 var totalPages = data.feed.openSearch$totalResults.$t / this.options['max-results'];
-                var $paging = this.element.find('#videoPaging');
-               $($paging).paginate({
-                    count:(totalPages < 100) ? totalPages : 100,
-                    start:1,
-                    display:15,
-                    border:true,
-                    text_hover_color:'#33506E',
-                    background_hover_color:'#fff',
-                    background_color:'#fff',
-                    text_color:'#33506E',
-                    images:false,
-                    mouse:'press',
-                    onChange:function (new_page_index, container) {
-                        that.goToPage(new_page_index, container)
-                    }
+                $(window).ajax_scroll({
+                    beforePageChanged:function(page){
+                      console.log("before youtube",page);
+                        return true;
+                    },
+                    handleScroll:function (page) {
+                        console.log("page is :",page);
+                        that.goToPage(page,that.element);
+                        return true;
+                    },
+                    step:'150px',
+                    pagesToScroll : totalPages,
+                    binderElement:this.element
+
                 });
-
-
             },
 
             goToPage:function (page, container) {
@@ -162,11 +159,10 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
                         that.displayData.call(that, result)
                     };
 
-
                     that.youTubeLib.getPage(page, callback);
                 }
                 catch (e) {
-
+                   //TODO : log here
                 }
 
             },
@@ -174,7 +170,8 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
 
                 var that = this;
                 var data = {};
-                if (result.status == 'ok') {
+                //TODO  : may ne remove or change to bool at least
+                if (result.status === 'ok') {
                     data = result.videoResult;
                     var entries = data.feed.entry;
                     var mainVideos = that.videosContainer;
@@ -183,7 +180,6 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
                     if(entries){
                         var $videos = $(this.element).find('#videos');
                         $($videos).removeClass('contTransperensy');
-                        $($videos).empty();
                         twitter_grid.gridify({
                             element: $(mainVideos),
                             data:entries,

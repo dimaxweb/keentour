@@ -21,6 +21,7 @@
 
         youTubeLib:'/javascripts/youTubeLib',
         'jquery.colorbox-min':'/javascripts/lib/jquery.colorbox-min',
+        'ajax-scroll' : '/javascripts/lib/jquery-ajax-scroll',
         storage:'/javascripts/storage',
         geonames:'/javascripts/geonames',
         search:'/javascripts/search',
@@ -53,6 +54,10 @@
         },
 
         "flickrLib":{
+            deps:["jquery"]
+        },
+
+        "ajax-scroll":{
             deps:["jquery"]
         },
 

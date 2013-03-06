@@ -299,6 +299,9 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
             KEENTOUR.scrollResults = false;
             $(window).scroll(function () {
                 var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
+                console.log("window top  : ", wintop);
+                console.log("doc height  : ", docheight);
+                console.log("win height  : ", wintop);
                 var scrolltrigger = 0.95;
                 var scrollStep = (wintop / (docheight - winheight));
                 if (scrollStep > scrolltrigger) {

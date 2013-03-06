@@ -102,18 +102,18 @@ function YouTubeLib(options)
     //*****Navigation functions****//
     YouTubeLib.prototype.nextPage = function(callback)
     {
-        this.options['start-index'] =  this.options['start-index'] + 1;
-        return this.searchVideos(callback);
+        var page =  this.options['start-index'] + 1;
+        return this.goToPage(page,callback);
     };
 
   YouTubeLib.prototype.previousPage = function(callback){
-        this.options['start-index'] = (this.options['start-index']===1) ? 1  : this.options['start-index'] - 1;
-        return this.searchVideos(callback);
+        var page = (this.options['start-index']===1) ? 1  : this.options['start-index'] - 1;
+        return this.goToPage(page,callback);
     };
 
   YouTubeLib.prototype.getPage = function(page,callback){
         if(page && !isNaN(page)){
-            this.options['start-index']  = page;
+            this.options['start-index']  = page * this.options['max-results'];
             return this.searchVideos(callback);
         }
        else
@@ -145,12 +145,6 @@ function YouTubeLib(options)
 
        return minutes + ':' + remainingSeconds;
    }
-
-
-
-
-
-  //***** End navigation functions****//
 
 
 
