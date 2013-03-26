@@ -235,15 +235,12 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
 //                    }
 //                });
 
-                $(window).ajax_scroll({
-                    beforePageChanged:function(page){
-                        console.log("before flickr",page);
-                        return true;
-                    },
+                $(window).paged_scroll({
                     handleScroll:function (page) {
                         that.goToPage(page,that.element);
                         return true;
                     },
+                    targetElement : $(this.element),
                     step:'20%',
                     pagesToScroll : totalPages,
                     binderElement:this.element

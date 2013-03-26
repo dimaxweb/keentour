@@ -131,17 +131,13 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
             createPaging:function (data) {
                 var that = this;
                 var totalPages = data.feed.openSearch$totalResults.$t / this.options['max-results'];
-                $(window).ajax_scroll({
-                    beforePageChanged:function(page){
-                      console.log("before youtube",page);
-                        return true;
-                    },
-                    handleScroll:function (page) {
-                        console.log("page is :",page);
+                $(window).paged_scroll({
+                   handleScroll:function (page) {
                         that.goToPage(page,that.element);
                         return true;
                     },
-                    step:'150px',
+                    targetElement : $(this.element),
+                    step:'20%',
                     pagesToScroll : totalPages,
                     binderElement:this.element
 

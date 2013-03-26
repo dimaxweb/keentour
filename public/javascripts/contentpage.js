@@ -21,7 +21,7 @@
 
         youTubeLib:'/javascripts/youTubeLib',
         'jquery.colorbox-min':'/javascripts/lib/jquery.colorbox-min',
-        'ajax-scroll' : '/javascripts/lib/jquery-ajax-scroll',
+        'ajax-scroll' : '/javascripts/lib/jquery-paged-scroll.min',
         storage:'/javascripts/storage',
         geonames:'/javascripts/geonames',
         search:'/javascripts/search',
