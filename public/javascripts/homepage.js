@@ -178,7 +178,7 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
         function displayNewVideos(validItems) {
 
             findCreatePlayerFrame();
-            var itemsToShow = validItems.length < 16 ? validItems.length  : 16;
+            var itemsToShow = validItems.length < 8 ? validItems.length  : 8;
             var itemsToShow = validItems.slice(0,itemsToShow);
             KEENTOUR.twitter_grid.gridify({
                element: $('.homeVideos'),
