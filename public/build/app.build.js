@@ -26,6 +26,7 @@
         popover  : '../javascripts/lib/bootstrap/bootstrap-popover',
         carousel  : '../javascripts/lib/bootstrap/bootstrap-carousel',
         twitter_grid  :  '../javascripts/twitter-grid',
+        'ajax-scroll' : '../javascripts/lib/jquery-paged-scroll.min',
         ///requirejs plugins
         css:'../javascripts/lib/css',
         text:'../javascripts/lib/text',
