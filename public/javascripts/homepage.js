@@ -27,6 +27,7 @@
         flickrWidget  :'/javascripts/flickrWidget',
         youtubeWidget : '/javascripts/youtubeWidget',
         wikiPediaWidget : '/javascripts/wikiPediaWidget',
+        'ajax-scroll' : '/javascripts/lib/jquery-paged-scroll.min',
         flickrLib : '/javascripts/flickrLib',
         youTubeLib : '/javascripts//youTubeLib',
         contentWidget : '/javascripts/contentWidget',
@@ -76,6 +77,10 @@
             deps:["jquery"]
         },
 
+        "ajax-scroll":{
+            deps:["jquery"]
+        },
+
         "storage":{
             deps:["jquery"]
         },
@@ -101,7 +106,7 @@
 });
 
 
-define(["storage", "search", "geonames","twitter_grid"], function (storage, search, geonames,twitter_grid) {
+define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function (storage, search, geonames,twitter_grid) {
 
     if (typeof (KEENTOUR) == 'undefined') {
         KEENTOUR = {};
@@ -291,43 +296,18 @@ define(["storage", "search", "geonames","twitter_grid"], function (storage, sear
             var query = names.join('|');
             searchYoutube(query, names,1);
 
-            /*
-                Scroll behavior
-                //TODO : move to some plugin/package
-             */
-            KEENTOUR.pageNumber = 2;
-            KEENTOUR.scrollResults = false;
-            $(window).scroll(function () {
-                var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
-                console.log("window top  : ", wintop);
-                console.log("doc height  : ", docheight);
-                console.log("win height  : ", wintop);
-                var scrolltrigger = 0.95;
-                var scrollStep = (wintop / (docheight - winheight));
-                if (scrollStep > scrolltrigger) {
-                    KEENTOUR.scrollResults = true;
-                }
+
+            $(window).paged_scroll({
+                handleScroll:function (page,container,doneCallback) {
+                    searchYoutube(query, names,page);
+
+                },
+                startPage : 1,
+                targetElement : $('.homeVideos'),
+                step:'20%'
+
 
             });
-
-            setInterval(function(){
-                if(KEENTOUR.scrollResults && KEENTOUR.pageNumber < 10 ){
-                   // console.log('Scrolling down the results...');
-                    var element = $('.homeVideos');
-                    //var imgLoading  = $(element).find('#photoLoading').first();
-//                    var imgLoading  = $(element).find('#photoLoading').first();
-                    var imgLoading  = $('<div style="text-align: center"><img src="/images/ajax-loader-big.gif" id="photoLoading" style="margin-left auto;margin-right: auto;" /></div>').appendTo(element);
-                    var callback  = function(){
-                        $(imgLoading).remove();
-                        KEENTOUR.pageNumber++;
-                        KEENTOUR.scrollResults = false;
-
-                    }
-                    searchYoutube(query, names,KEENTOUR.pageNumber,callback);
-
-
-                }
-            },1000);
 
             /*
                 Add this widget

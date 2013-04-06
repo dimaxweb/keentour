@@ -138,8 +138,7 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
                     },
                     targetElement : $(this.element),
                     step:'20%',
-                    pagesToScroll : totalPages,
-                    binderElement:this.element
+                    pagesToScroll : totalPages
 
                 });
             },
@@ -166,7 +165,7 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
 
                 var that = this;
                 var data = {};
-                //TODO  : may ne remove or change to bool at least
+                //TODO  : may be remove or change to bool at least
                 if (result.status === 'ok') {
                     data = result.videoResult;
                     var entries = data.feed.entry;
