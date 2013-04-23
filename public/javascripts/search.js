@@ -75,10 +75,10 @@
 
                     }).tooltip('show');
 
-
+                    setTimeout(function(){$(container).tooltip('hide');},5000);
                  storage.setObject('toolTipShown',true);
 
-                },1000);
+                },2000);
             }
 
 

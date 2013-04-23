@@ -9,7 +9,7 @@ define('twitter_grid',['jquery'],function($){
 
    var  twitter_grid = {};
    twitter_grid.gridify = function(options) {
-        options = $.extend(true,defaults, options);
+        options = $.extend({},defaults, options);
         var element = options.element;
         if(options && options.data
                 && options.data

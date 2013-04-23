@@ -146,7 +146,9 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
 //      homePageEntities['new-york'] = { name:'New-York', path:'content/North-America/United-States/New-York', countryName:'United-States', countryPath:'content/North-America/United-States' };
         function searchYoutube(query, names,pageNumber,callback) {
 
-                var startIndex = (pageNumber == 1 ) ? 1 :  40 * (pageNumber - 1);
+            $('.homeVideos').fadeIn('slow');
+            $('<img class="videoLoading" src="/images/ajax-loader-big.gif" />').appendTo('.homeVideos');
+            var startIndex = (pageNumber == 1 ) ? 1 :  40 * (pageNumber - 1);
                 //search the youtube
                 var lib = new YouTubeLib({ query:query, 'max-results':40,'start-index' :startIndex });
                 //search for videos and update UI when done
@@ -158,7 +160,11 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
                         callback();
                     }
 
+                    $('.videoLoading').hide();
+
                 });
+
+
 
         };
 
@@ -240,7 +246,8 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
 
             });
 
-            $('.homeVideos').fadeIn('slow');
+
+
         }
 
         function getValidEntries(entries, names) {
@@ -304,7 +311,8 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
                 },
                 startPage : 1,
                 targetElement : $('.homeVideos'),
-                step:'20%'
+                step:'10%',
+                pagesToScroll : 25
 
 
             });
@@ -313,12 +321,16 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
                 Add this widget
             */
 
+
+
             try {
                 KEENTOUR.addAddThisWidget();
             }
             catch (e) {
                 //TODO : enable console logging
             }
+            var addSenceBottom = $('<script type="text/javascript"><!-- google_ad_client = "ca-pub-4780158497290031"; /* BeetwenRowsLinks */ google_ad_slot = "7565752583"; google_ad_width = 728; google_ad_height = 15; //--> </script> <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> </script>')
+                                .appendTo('.homeVideos');
 
 
         });
