@@ -24,10 +24,7 @@
 {
     overflow: auto;
 }
-#cboxTitle
-{
-    margin: 0;
-}
+
 #cboxLoadingOverlay, #cboxLoadingGraphic
 {
     position: absolute;
@@ -136,6 +133,7 @@
     text-align: center;
     width: 100%;
     color: #949494;
+    font-size: 76%;
 }
 #cboxCurrent
 {

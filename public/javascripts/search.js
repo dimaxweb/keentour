@@ -70,12 +70,12 @@
                     ///bind tooltip
                     $(container).tooltip({
                         title:'Let us impress you !  Type country,city,street name,"Berlin nightlife",...anything interesting you about travel',
-                        placement:'bottom',
+                        placement:'left',
                         trigger:'manual'
 
                     }).tooltip('show');
 
-                    setTimeout(function(){$(container).tooltip('hide');},5000);
+                 setTimeout(function(){$(container).tooltip('hide');},3000);
                  storage.setObject('toolTipShown',true);
 
                 },2000);
