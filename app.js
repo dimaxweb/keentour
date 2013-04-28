@@ -45,9 +45,11 @@ app.get('/content/*', routes.content);
 app.get('/content', routes.index);
 app.get('/AboutUs',routes.aboutUs);
 app.get('/Privacy',routes.privacy);
+app.get('/story/*',routes.story);
 //app.get('/SearchGeoNames',routes.SearchGeoNames);
 app.get('/', routes.index);
 app.get('/users', user.list);
+
 
 
 http.createServer(app).listen(app.get('port'), function(){

@@ -44,6 +44,10 @@ exports.content = function (req, res) {
     res.render('content', { title:title,breadCrumb:breadCrumbArray})
 };
 
+exports.story = function(req,res){
+    res.render('story',{title : "Good story!!!"});
+}
+
 exports.aboutUs = function (req, res) {
     res.render('aboutUs', { title:' About wwww.keentour.com' });
 };
