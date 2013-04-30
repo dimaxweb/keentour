@@ -147,20 +147,24 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
         function searchYoutube(query, names,pageNumber,callback) {
 
             $('.homeVideos').fadeIn('slow');
-            $('<img class="videoLoading" src="/images/ajax-loader-big.gif" />').appendTo('.homeVideos');
+//            $('<img class="videoLoading" src="/images/ajax-loader-big.gif" />').appendTo('.homeVideos');
             var startIndex = (pageNumber == 1 ) ? 1 :  40 * (pageNumber - 1);
                 //search the youtube
                 var lib = new YouTubeLib({ query:query, 'max-results':40,'start-index' :startIndex });
                 //search for videos and update UI when done
                 lib.searchVideos(function (data) {
-                    var entries = data.videoResult.feed.entry;
-                    var filteredEntries = getValidEntries(entries, names);
-                    displayNewVideos(filteredEntries);
-                    if(callback){
-                        callback();
-                    }
+                    if(data && data.videoResult && data.videoResult.feed && data.videoResult.feed.entry){
+                        var entries = data.videoResult.feed.entry;
+                        var filteredEntries = getValidEntries(entries, names);
+                        displayNewVideos(filteredEntries);
+                        if(callback){
+                            callback();
+                        }
 
+
+                    }
                     $('.videoLoading').hide();
+
 
                 });
 
@@ -188,13 +192,17 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
 
         function displayNewVideos(validItems) {
 
+            if(!validItems)
+            {
+               return;
+            }
             findCreatePlayerFrame();
             var itemsToShow = validItems.length < 8 ? validItems.length  : 8;
             var itemsToShow = validItems.slice(0,itemsToShow);
             KEENTOUR.twitter_grid.gridify({
                element: $('.homeVideos'),
                data:itemsToShow,
-               itemsPerRow: 4,
+               itemsPerRow: 3,
                getItemContent:function(dataItem,gridCell,grid){
                    var item = dataItem.videoEntry;
                    var currentGeoItem = dataItem.geoItem;
@@ -311,9 +319,8 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
                 },
                 startPage : 1,
                 targetElement : $('.homeVideos'),
-                step:'10%',
-                pagesToScroll : 25
-
+                step:'15%',
+                pagesToScroll : 4
 
             });
 

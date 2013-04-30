@@ -80,6 +80,7 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
     }
 
     contentWidget.displayCurrentWidget = function() {
+        //TODO  : get  content data inside / expose method
         ///load defaults
         if (!window.contentData) {
             //default data
@@ -113,8 +114,9 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
         } ///
     }
 
-    $(document).ready(function (e) {
 
+    $(document).ready(function (e) {
+        //TODO  : add this to container and bind
         var widgetTabs = $('.tabs').find('.widgetTitle');
         $(widgetTabs).on('click', function (e) {
             e.preventDefault();
