@@ -1,20 +1,18 @@
 extends  layout
 block content
-    .search
-        input.searchtext(type='text')
-    .tabs
+
+    .tabs(style="text-align:left;")
         span.widgetTitle.selected(rel="videos")
         a(rel="videos")
             img(src="/images/kamera.png")
-        a.tabTitle(rel="videos") Videos
+        a.tabTitle(rel="videos")
         span.widgetTitle(rel="photos")
             a(rel="photos")
                 img(src="/images/photokamera.png")
-            a.tabTitle(rel="photos") Photos
-        span.widgetTitle(rel="article")
-        a(rel="article")
-            img(src="/images/wikipedia.png")
-        a.tabTitle(rel="article") Wikipedia
+            a.tabTitle(rel="photos")
+
+    .search
+        input.searchtext(type='text')
 
     #widgetDisplay
 
