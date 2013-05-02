@@ -15,5 +15,8 @@
   "subdomain": "dmitry.mogilko.keentour-web",
   "engines": {
     "node": "0.8.x"
+  },
+  "devDependencies": {
+    "grunt-contrib-requirejs": "~0.4.0"
   }
 }
