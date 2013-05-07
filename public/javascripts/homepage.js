@@ -197,7 +197,7 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
                return;
             }
             findCreatePlayerFrame();
-            var itemsToShow = validItems.length < 8 ? validItems.length  : 8;
+            var itemsToShow = validItems.length < 6 ? validItems.length  : 6;
             var itemsToShow = validItems.slice(0,itemsToShow);
             KEENTOUR.twitter_grid.gridify({
                element: $('.homeVideos'),
@@ -320,7 +320,7 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
                 startPage : 1,
                 targetElement : $('.homeVideos'),
                 step:'15%',
-                pagesToScroll : 4
+                pagesToScroll : 3
 
             });
 
