@@ -1,29 +1,23 @@
 extends  layout
 block content
 
-    .tabs
-        span.widgetTitle.selected(rel="videos")
-        a(rel="videos")
-            img(src="/images/kamera.png")
-        a.tabTitle(rel="videos")
-        span.widgetTitle(rel="photos")
-            a(rel="photos")
-                img(src="/images/photokamera.png")
-            a.tabTitle(rel="photos")
+    .raw-fluid
+        .span6
+            form.form-search
+                legend Search for content
+                input.input-medium.search-query(type='text',id='searchText')
+                button.btn.btnPrimary(type='submit',id='btnSearch') Search
+            .photos
+                .photoFeed
 
-        span.widgetTitle.selected(rel="videos")
-            a(rel="videos")
-                img(src="/images/kamera.png")
-            a.tabTitle(rel="videos")
+        .span6
+           .story
+               .storyTitle
+                   legend Title
+                   input(type='text')
 
-
-    .search
-        input.searchtext(type='text')
-
-    #widgetDisplay
-
-     #storyContent  TEST
-
+               legend Drop photos here
+               .storyPhotos(style="width:500px;height:500px")
 
     script(data-main="/#{locals.scriptPrefix}/stories/story",src="/javascripts/lib/require.js",type="text/javascript")
 

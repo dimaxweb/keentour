@@ -33,13 +33,13 @@ jquery/paginate.js
 twitter_grid.js
 jquery/colorbox-min.js
 popover.js
+ajax-scroll.js
 css!paginationCSS
 flickrWidget.js
 css!wikiCSS
 wikiPediaWidget.js
 youTubeLib.js
 swfObject.js
-ajax-scroll.js
 youtubeWidget.js
 contentWidget.js
 contentpage.js
