@@ -106,7 +106,43 @@ require.config({
 });
 
 
-require(["storage", "search", "geonames", "contentWidget"], function (storage, search, geonames, contentWidget) {
-    console.dir(contentWidget);
+function flickrSearch(e) {
+    e.preventDefault();
+    $('.photos').flickrFy({
+        text:$('#searchText').val(),
+        perPage:20,
+        sort:'interestingness-asc'
+    });
+}
+require(["storage", "search", "geonames", "flickrWidget"], function (storage, search, geonames, flickrWidget) {
+   $(document).ready(function(e){
+
+       $('#searchText').keypress(function(e) {
+           if(e.which == 13) {
+               flickrSearch(e);
+           }
+       });
+
+       $('#btnSearch').on('click',function(e){
+           flickrSearch(e);
+       });
+
+   $('.storyPhotos').droppable({
+       drop: function(event,ui) {
+           var elem = ui.draggable;
+           var ulPhotos = $(this).find('#ulPhotos');
+           if(ulPhotos.length === 0 ){
+               ulPhotos  = $('<ul class="thumbnails"></ul>').appendTo(this);
+           }
+           $(ulPhotos).append(elem);
+           $(elem).css({position:'static'});
+           //$('.photos').remove(elem);
+
+       }
+   });
+
+
+
+   });
 });
 

@@ -1,55 +1,31 @@
-require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jquery.colorbox-min","tooltip","popover","css!paginationCSS","css!jQueryUICSS"], function (undefined,undefined,undefined,undefined,twitter_grid,undefined) {
+//TODO  : get config parameters also for dependent modules (twiter_grid,etc..)
+require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jquery.colorbox-min","tooltip","popover","ajax-scroll","css!paginationCSS","css!jQueryUICSS"], function (undefined,undefined,undefined,undefined,twitter_grid,undefined) {
     (function ($) {
         $.widget("custom.flickrFy", {
 
             /********************************Widget methods**********************************************************/////
-            // These options will be used as defaults
-            options: {
-                clear: null,
-                tags: null,
-                page: 1,
-                perPage: 12,
-                text:''
-
-            },
-
-            galleryContainer: null,
-            thumbContainer: null,
-            bigPhoto: null,
-            initialTags: null,
-
-            // Set up the widget
-            _create: function () {
+            _init: function(){
                 try {
-                    this.initialTags = this.options.tags;
                     this.runWidget();
-
                 }
                 catch (e) {
+                    //TODO  : change to debug
                     if (console && console.log) {
                         console.log(e);
                     }
                 }
-
             },
 
-            addKeyWord: function (keyWord) {
-                this.options.tags = this.initialTags + ',' + keyWord;
-                this.runWidget();
-            },
 
-            backToInitialState: function () {
-                this.options.tags = this.initialTags;
-                this.runWidget();
-            },
 
             runWidget: function () {
                 this.currentPage = 0;
                 this.initilaising = true;
-                this.flickrLib = new FlickrLib({ 'tags': this.options.tags, sort: 'relevance',perPage:20,text:this.options.text});
+                this.flickrLib = new FlickrLib(this.options);
                 var that = this;
                 var $element =  this.element;
                 $($element).addClass('contTransperensy');
+
 
                 var imgLoading  = $(this.element).find('#photoLoading').first();
                 if(imgLoading.length === 0){
@@ -68,6 +44,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
 
                     if (result && result.flickrResult && result.flickrResult.photos && result.flickrResult.photos.photo && result.flickrResult.photos.photo.length > 0) {
                         $(imgLoading).hide();
+                        $element.find('.photoFeed').empty();
                         var data = that.displayData.call(that, result);
                         $($element).removeClass('contTransperensy');
                         that.createPaging(data);
@@ -75,6 +52,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                     else {
 
                         $($element).removeClass('contTransperensy');
+                        //TODO  : do something nice here also
                         $('<div id="noFlickrPhotos" style="margin-top: 50px;margin-left: 200px">' + 'No photos found' + '</div>').prependTo($element);
                     }
 
@@ -84,6 +62,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
 
                 this.flickrLib.searchPhotos(callback);
             },
+
 
 
             // Use the _setOption method to respond to changes to options
@@ -316,49 +295,64 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                 var that = this;
                 var data = {};
                 var $element = this.element.find('.photoFeed');
-//                $($element).empty();
+                //TODO : make configurable from outside as effect
                 $(that.galleryContainer).removeClass('contTransperensy');
+
                 if (result.status === 'ok') {
                     $($element).removeClass('contTransperensy');
                     data = result.flickrResult;
                     var _photos = data.photos.photo;
+
                     twitter_grid.gridify({
                         element:$element,
                         data:_photos,
                         getItemContent:function (dataItem, cell, grid) {
                             if (dataItem) {
+                                var itemContainer = $('<div class="itemContainer"/>').appendTo(cell);
                                 var aItem = $('<a class="photoItem" rel="photoItem"></a>')
                                     .attr('href', that.getBigPhotoUrl(dataItem))
                                     .attr('title', dataItem.title)
-                                    .appendTo(cell);
+                                    .appendTo(itemContainer);
 
                                 var imgItem = $('<img/>')
                                     .attr('src', dataItem.url_s)
                                     .attr('rel', 'photoFeed')
                                     .attr('class', 'thumbnail')
                                     .appendTo(aItem);
+
+                                //TODO : look why it soo,make responsive
                                 $(imgItem).css({ width:150, height:150 });
+
+
                                 var title = dataItem.title;
+                                $('<div class="widgetItemName pull-left"><a>' + title + '</a></div>').appendTo(itemContainer);
+
+                                //TODO  : move from here expose event instead
+                                $(cell).draggable({ addClasses: false });
+
+                                /*
+                                    Tooltip
+                                */
+                                //TODO  : use description
                                 var description  =  (dataItem.description && dataItem.description._content) ? '<p>'  + dataItem.description._content + '</p>' : '';
+
                                 var tags  = (dataItem.tags) ? '<p><h6>Tagged with:</h6>'  + dataItem.tags.split(' ').slice(0,3).join(',') + '</p>': '';
                                 var author  = ( dataItem.author &&  dataItem.author.length  >0 && dataItem.author[0].name && dataItem.author[0].name.$t) ? '<p><b>Published by :</b>'  + dataItem.author[0].name.$t + '</p>': '';
                                 var publishedAt  = (dataItem.published &&  dataItem.published.$t) ? '<p><b>Taken on:</b>'  +dataItem.published.$t + '</p>': '';
                                 var viewsCount  = (dataItem.yt$statistics && dataItem.yt$statistics.viewCount) ? '<p><b>Views </b> :'  + dataItem.yt$statistics.viewCount + '</p>'  : '';
 
+                                //TODO : change style
                                 $(imgItem).popover({
                                     title: dataItem.title,
                                     placement:'top',
-                                    content: '<div>' +  author  +  publishedAt+ viewsCount +   tags +  '</div>'
+                                    content: '<div>' +  author  +  publishedAt  + viewsCount +   tags +  '</div>'
 
                                 });
-
-
-                                $('<div class="widgetItemName pull-left"><a>' + title + '</a></div>').appendTo(cell);
-
 
                             }
 
                         },
+                        //TODO  : make configurable from outside
                         itemsPerRow:4
                     });
 
