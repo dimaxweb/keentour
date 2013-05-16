@@ -319,7 +319,7 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
                 },
                 startPage : 1,
                 targetElement : $('.homeVideos'),
-                step:'15%',
+                step:'20%',
                 pagesToScroll : 3
 
             });

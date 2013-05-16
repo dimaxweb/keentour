@@ -21,26 +21,26 @@ require.config({
 
         youTubeLib:'/javascripts/youTubeLib',
         'jquery.colorbox-min':'/javascripts/lib/jquery.colorbox-min',
-        'ajax-scroll' : '/javascripts/lib/jquery-paged-scroll.min',
+        'ajax-scroll':'/javascripts/lib/jquery-paged-scroll.min',
         storage:'/javascripts/storage',
         geonames:'/javascripts/geonames',
         search:'/javascripts/search',
-        flickrWidget  :'/javascripts/flickrWidget',
-        youtubeWidget : '/javascripts/youtubeWidget',
-        wikiPediaWidget : '/javascripts/wikiPediaWidget',
-        flickrLib : '/javascripts/flickrLib',
-        youTubeLib : '/javascripts//youTubeLib',
-        contentWidget : '/javascripts/contentWidget',
-        tooltip  : '/javascripts/lib/bootstrap/bootstrap-tooltip',
-        popover  : '/javascripts/lib/bootstrap/bootstrap-popover',
-        carousel  : '/javascripts/lib/bootstrap/bootstrap-carousel',
-        twitter_grid  :  '/javascripts/twitter-grid',
+        flickrWidget:'/javascripts/flickrWidget',
+        youtubeWidget:'/javascripts/youtubeWidget',
+        wikiPediaWidget:'/javascripts/wikiPediaWidget',
+        flickrLib:'/javascripts/flickrLib',
+        youTubeLib:'/javascripts//youTubeLib',
+        contentWidget:'/javascripts/contentWidget',
+        tooltip:'/javascripts/lib/bootstrap/bootstrap-tooltip',
+        popover:'/javascripts/lib/bootstrap/bootstrap-popover',
+        carousel:'/javascripts/lib/bootstrap/bootstrap-carousel',
+        twitter_grid:'/javascripts/twitter-grid',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
-        colorBoxCSS :  '/stylesheets//colorBox',
-        wikiCSS :  '/stylesheets/wiki2',
-        css : '/javascripts/lib/css'
+        colorBoxCSS:'/stylesheets//colorBox',
+        wikiCSS:'/stylesheets/wiki2',
+        css:'/javascripts/lib/css'
 
 
     },
@@ -61,15 +61,15 @@ require.config({
             deps:["jquery"]
         },
 
-        "wikiPediaWidget" :{
+        "wikiPediaWidget":{
             deps:["jquery"]
         },
 
-        "youtubeWidget" :{
+        "youtubeWidget":{
             deps:["jquery"]
         },
 
-        "flickrWidget" :{
+        "flickrWidget":{
             deps:["jquery"]
         },
 
@@ -115,34 +115,28 @@ function flickrSearch(e) {
     });
 }
 require(["storage", "search", "geonames", "flickrWidget"], function (storage, search, geonames, flickrWidget) {
-   $(document).ready(function(e){
+    $(document).ready(function (e) {
+        $('#searchText').keypress(function (e) {
+            if (e.which == 13) {
+                flickrSearch(e);
+            }
+        });
 
-       $('#searchText').keypress(function(e) {
-           if(e.which == 13) {
-               flickrSearch(e);
-           }
-       });
+        $('.storyPhotos').droppable({
+            drop:function (event, ui) {
+                var elem = ui.draggable;
+                var ulPhotos = $(this).find('#ulPhotos');
+                if (ulPhotos.length === 0) {
+                    ulPhotos = $('<ul class="thumbnails"></ul>').appendTo(this);
+                }
+                $(ulPhotos).append(elem);
+                $(elem).css({position:'static'});
+                //$('.photos').remove(elem);
 
-       $('#btnSearch').on('click',function(e){
-           flickrSearch(e);
-       });
-
-   $('.storyPhotos').droppable({
-       drop: function(event,ui) {
-           var elem = ui.draggable;
-           var ulPhotos = $(this).find('#ulPhotos');
-           if(ulPhotos.length === 0 ){
-               ulPhotos  = $('<ul class="thumbnails"></ul>').appendTo(this);
-           }
-           $(ulPhotos).append(elem);
-           $(elem).css({position:'static'});
-           //$('.photos').remove(elem);
-
-       }
-   });
+            }
+        });
 
 
-
-   });
+    });
 });
 
