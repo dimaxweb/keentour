@@ -17,7 +17,7 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
     var flickrWidget = widgetBase.extend(
         {
             displayContent:function () {
-                $(this.container).flickrFy({ text:window.contentData.flickrText});
+                $(this.container).flickrFy({ text:window.contentData.flickrText,defaultImageThumb:'s'});
                 this.instance  =   $(this.container).data('flickrFy');
 
             },

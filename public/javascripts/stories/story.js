@@ -108,10 +108,15 @@ require.config({
 
 function flickrSearch(e) {
     e.preventDefault();
+    /*
+        instansiate flickr widget
+     */
     $('.photos').flickrFy({
         text:$('#searchText').val(),
-        perPage:20,
-        sort:'interestingness-asc'
+        perPage:18,
+        sort:'relevance',
+        defaultImageThumb  :'sq',
+        itemsPerRow  : 6
     });
 }
 require(["storage", "search", "geonames", "flickrWidget"], function (storage, search, geonames, flickrWidget) {

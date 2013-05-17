@@ -2,6 +2,12 @@
 require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jquery.colorbox-min","tooltip","popover","ajax-scroll","css!paginationCSS","css!jQueryUICSS"], function (undefined,undefined,undefined,undefined,twitter_grid,undefined) {
     (function ($) {
         $.widget("custom.flickrFy", {
+            options : {
+                defaultImageThumb  : 't',
+                itemsPerRow  :  4
+
+            },
+
 
             /********************************Widget methods**********************************************************/////
             _init: function(){
@@ -117,6 +123,10 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
 
 
             },
+
+            /*
+                Todo  : look on appropriate way to upload
+            */
             preloadImage: function (src, originalImage, photo, imgLoading) {
                 var that = this;
                 originalImage.hide();
@@ -143,13 +153,14 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                 });
 
             },
-            getBigPhotoUrl: function (photo) {
-                var urlBig = photo.url_l || photo.url_m || photo.url_z  || photo.url_t || photo.url_s;
-                return urlBig;
+            getBigImageUrl: function (photo) {
+              var photoUrl =  photo.url_l || photo.url_m  || photo.url_z  || photo.url_t || photo.url_s;
+              return photoUrl;
             },
+
             showBigPhoto: function (photo) {
 
-                var urlBig = this.getBigPhotoUrl(photo);
+                var urlBig = this.getBigImageUrl(photo);
                 var bigHeight = photo.height_m || photo.height_z || photo.height_l || photo.height_t || photo.height_s;
                 var bigImage = this.imagesCache[urlBig];
                 $('#bigPhoto').empty();
@@ -281,7 +292,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                         //call to download all big images
                         for (var j = 0; j < _photos.length; j++) {
                             var photo = _photos[j];
-                            var src = this.getBigPhotoUrl(photo);
+                            var src = this.getBigImageUrl(photo);
                             var imgFk = $('<img src="' + src + '" style="width:0px height:0px;display:none"  />').appendTo('body');
 
                         }
@@ -302,26 +313,26 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                     $($element).removeClass('contTransperensy');
                     data = result.flickrResult;
                     var _photos = data.photos.photo;
-
                     twitter_grid.gridify({
                         element:$element,
                         data:_photos,
                         getItemContent:function (dataItem, cell, grid) {
                             if (dataItem) {
                                 var itemContainer = $('<div class="itemContainer"/>').appendTo(cell);
+                                var thumbUrl = 'url_' + that.options.defaultImageThumb;
                                 var aItem = $('<a class="photoItem" rel="photoItem"></a>')
-                                    .attr('href', that.getBigPhotoUrl(dataItem))
+                                    .attr('href', that.getBigImageUrl(dataItem))
                                     .attr('title', dataItem.title)
                                     .appendTo(itemContainer);
 
                                 var imgItem = $('<img/>')
-                                    .attr('src', dataItem.url_s)
+                                    .attr('src',dataItem[thumbUrl] )
                                     .attr('rel', 'photoFeed')
                                     .attr('class', 'thumbnail')
                                     .appendTo(aItem);
 
-                                //TODO : look why it soo,make responsive
-                                $(imgItem).css({ width:150, height:150 });
+
+                                $(imgItem).css({ width:dataItem['width_' + that.options.defaultImageThumb], height:dataItem['height_' + that.options.defaultImageThumb] });
 
 
                                 var title = dataItem.title;
@@ -352,8 +363,8 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                             }
 
                         },
-                        //TODO  : make configurable from outside
-                        itemsPerRow:4
+
+                        itemsPerRow:that.options.itemsPerRow
                     });
 
                     $(".photoItem").colorbox({rel:'photoFeed', transition:"fade",height:"90%"});
