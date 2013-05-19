@@ -2,22 +2,17 @@ extends  layout
 block content
 
     .raw-fluid
-        .span6
+        .span4
             form.form-search
                 legend Search for content
-                input.input-medium.search-query(type='text',id='searchText',style='width:60%')
+                input.input-medium.search-query(type='text',id='searchText',style='width:95%')
 
             .photos
-                .photoFeed
 
-        .span6
+        .span8
            .story
-               .storyTitle
-                   legend Title
-                   input(type='text')
-
-               legend Drop photos here
-               .storyPhotos(style="width:500px;height:500px")
+                legend Drop photos here
+               .storyPhotos
 
     script(data-main="/#{locals.scriptPrefix}/stories/story",src="/javascripts/lib/require.js",type="text/javascript")
 

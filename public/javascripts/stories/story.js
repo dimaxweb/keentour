@@ -37,10 +37,12 @@ require.config({
         twitter_grid:'/javascripts/twitter-grid',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
+        storyCSS : '/stylesheets/story',
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
-        colorBoxCSS:'/stylesheets//colorBox',
+        colorBoxCSS:'/stylesheets/colorBox',
         wikiCSS:'/stylesheets/wiki2',
         css:'/javascripts/lib/css'
+
 
 
     },
@@ -113,13 +115,13 @@ function flickrSearch(e) {
      */
     $('.photos').flickrFy({
         text:$('#searchText').val(),
-        perPage:18,
+        perPage:10,
         sort:'relevance',
         defaultImageThumb  :'sq',
         itemsPerRow  : 6
     });
 }
-require(["storage", "search", "geonames", "flickrWidget"], function (storage, search, geonames, flickrWidget) {
+require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
     $(document).ready(function (e) {
         $('#searchText').keypress(function (e) {
             if (e.which == 13) {
@@ -130,14 +132,11 @@ require(["storage", "search", "geonames", "flickrWidget"], function (storage, se
         $('.storyPhotos').droppable({
             drop:function (event, ui) {
                 var elem = ui.draggable;
-                var ulPhotos = $(this).find('#ulPhotos');
-                if (ulPhotos.length === 0) {
-                    ulPhotos = $('<ul class="thumbnails"></ul>').appendTo(this);
-                }
-                $(ulPhotos).append(elem);
-                $(elem).css({position:'static'});
-                //$('.photos').remove(elem);
-
+                var photo  = $(elem).data('photo');
+                $(elem).find('.thumbnail').attr('src',photo.url_s).css({width:photo.width_s,height:photo.height_s});
+                $(elem).css({position:'static'} );
+                var storyItem = $('<div class="storyItem"></div>').appendTo(this);
+                $(storyItem).append(elem);
             }
         });
 

@@ -12,6 +12,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
             /********************************Widget methods**********************************************************/////
             _init: function(){
                 try {
+                    this.element.empty();
                     this.runWidget();
                 }
                 catch (e) {
@@ -246,7 +247,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
 
                     var that = this;
                     that.currentPage = parseInt(page) + 1;
-                    var $element  = that.element.find('.photoFeed');
+                    var $element  = that.element;
                     $($element).addClass('contTransperensy');
 
                     //TODO  : implement cache when will have time
@@ -305,7 +306,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
 
                 var that = this;
                 var data = {};
-                var $element = this.element.find('.photoFeed');
+                var $element = this.element;
                 //TODO : make configurable from outside as effect
                 $(that.galleryContainer).removeClass('contTransperensy');
 
@@ -335,12 +336,9 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                                 $(imgItem).css({ width:dataItem['width_' + that.options.defaultImageThumb], height:dataItem['height_' + that.options.defaultImageThumb] });
 
 
+
                                 var title = dataItem.title;
                                 $('<div class="widgetItemName pull-left"><a>' + title + '</a></div>').appendTo(itemContainer);
-
-                                //TODO  : move from here expose event instead
-                                $(cell).draggable({ addClasses: false });
-
                                 /*
                                     Tooltip
                                 */
@@ -355,17 +353,23 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                                 //TODO : change style
                                 $(imgItem).popover({
                                     title: dataItem.title,
-                                    placement:'top',
+                                    placement:'right',
                                     content: '<div>' +  author  +  publishedAt  + viewsCount +   tags +  '</div>'
 
                                 });
 
                             }
 
+                            //TODO  : move from here expose event instead
+                            $(itemContainer).draggable({ addClasses: false });
+                            $(itemContainer).data('photo',dataItem);
+
                         },
 
                         itemsPerRow:that.options.itemsPerRow
                     });
+
+
 
                     $(".photoItem").colorbox({rel:'photoFeed', transition:"fade",height:"90%"});
 

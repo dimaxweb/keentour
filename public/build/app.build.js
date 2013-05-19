@@ -21,6 +21,7 @@
         homepage:'../javascripts/homepage',
         privacy:'../javascripts/aboutUs',
         aboutUs:'../javascripts/homepage',
+        story:'../javascripts/story',
         contentpage:'../javascripts/contentpage',
         tooltip  : '../javascripts/lib/bootstrap/bootstrap-tooltip',
         popover  : '../javascripts/lib/bootstrap/bootstrap-popover',
@@ -52,6 +53,11 @@
 
 
         },
+
+        {
+          name : "story"
+        },
+
         {
             name:"contentpage"
         },
