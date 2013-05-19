@@ -9,10 +9,10 @@
     min-height: 500px;
     padding-left: 30%;
     background-color: #DEEDF3;
+    margin-bottom: 5%;
 }
 .storyItem{
-    border-radius: 10px;
-    border: 1px solid #000000;
+
     padding: 2.5%;
     text-align: center;
     margin-top: 5%;

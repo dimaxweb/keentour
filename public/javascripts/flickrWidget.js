@@ -4,7 +4,8 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
         $.widget("custom.flickrFy", {
             options : {
                 defaultImageThumb  : 't',
-                itemsPerRow  :  4
+                itemsPerRow  :  4,
+                usePaging : false
 
             },
 
@@ -206,38 +207,41 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
 
 
 
+            //TODO : refactor to use templates and behaviours instead
             createPaging: function (data) {
                 var that = this;
                 var totalPages = (data.photos.total / that.options.perPage) / 100;
-//                var $paging = this.element.find('#photoPaging');
-//                $($paging).paginate({
-//                    count: (pagesTotal < 100) ? pagesTotal : 100,
-//                    start: 1,
-//                    display: 15,
-//                    border_hover_color: '#ccc',
-//                    text_hover_color: '#33506E',
-//                    background_hover_color: '#fff',
-//                    background_color: '#fff',
-//                    text_color: '#33506E',
-//                    images: false,
-//                    mouse: 'press',
-//                    onChange: function (new_page_index, container) {
-//                        that.goToPage(new_page_index, container)
-//                    }
-//                });
+                if(this.options.usePaging){
+                    var $paging = $('#photoPaging');
+                    $($paging).paginate({
+                        count: (totalPages < 100) ? totalPages : 100,
+                        start: 1,
+                        display: 15,
+                        border_hover_color: '#ccc',
+                        text_hover_color: '#33506E',
+                        background_hover_color: '#fff',
+                        background_color: '#fff',
+                        text_color: '#33506E',
+                        images: false,
+                        mouse: 'press',
+                        onChange: function (new_page_index, container) {
+                            that.goToPage(new_page_index, container)
+                        }
+                    });
+                }
+                else{
+                    $(window).paged_scroll({
+                        handleScroll:function (page) {
+                            that.goToPage(page,that.element);
+                            return true;
+                        },
+                        targetElement : $(this.element),
+                        step:'5px',
+                        pagesToScroll : totalPages,
+                        binderElement:this.element
 
-                $(window).paged_scroll({
-                    handleScroll:function (page) {
-                        that.goToPage(page,that.element);
-                        return true;
-                    },
-                    targetElement : $(this.element),
-                    step:'20%',
-                    pagesToScroll : totalPages,
-                    binderElement:this.element
-
-                });
-
+                    });
+                }
 
             },
 
@@ -307,6 +311,9 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                 var that = this;
                 var data = {};
                 var $element = this.element;
+                if(that.options.usePaging){
+                   $element.empty();
+                }
                 //TODO : make configurable from outside as effect
                 $(that.galleryContainer).removeClass('contTransperensy');
 

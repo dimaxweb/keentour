@@ -115,10 +115,11 @@ function flickrSearch(e) {
      */
     $('.photos').flickrFy({
         text:$('#searchText').val(),
-        perPage:10,
+        perPage:6,
         sort:'relevance',
         defaultImageThumb  :'sq',
-        itemsPerRow  : 6
+        itemsPerRow  : 6,
+        usePaging : true
     });
 }
 require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
