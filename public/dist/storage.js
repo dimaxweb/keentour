@@ -1,1 +1,58 @@
-(function(){var e={getObject:function(e){var t=null;try{if(window.sessionStorage&&typeof JSON!="undefined"){var n=window.sessionStorage.getItem(e);t=JSON.parse(n)}}catch(r){}return t},setObject:function(e,t){try{if(window.sessionStorage){if(typeof t!="object"){window.sessionStorage.setItem(e,t);return}if(typeof JSON!="undefined"){var n=JSON.stringify(t);window.sessionStorage.setItem(e,n)}}}catch(r){}}};if(typeof define!="function"||!define.amd)return e;define("storage",[],function(){return e})})()
+﻿//if defined amd cal define ,else just return the value
+(function(){
+    var storage =
+    {
+        getObject:function (key) {
+            var item = null;
+            try {
+                if (window.sessionStorage) {
+                    if (typeof(JSON) != "undefined") {
+                        var itemStr = window.sessionStorage.getItem(key);
+                        item = JSON.parse(itemStr);
+                    }
+                }
+            }
+            catch (e) {
+                //TODO : log or rethrow here
+            }
+            return item;
+        },
+        setObject:function (key, item) {
+
+            try {
+                if (window.sessionStorage) {
+                    if (typeof(item) !== "object") {
+                        window.sessionStorage.setItem(key, item);
+                        return;
+                    }
+                     if (typeof(JSON) != "undefined") {
+                            var itemStr = JSON.stringify(item);
+                            window.sessionStorage.setItem(key, itemStr);
+                     }
+
+                }
+            }
+            catch (e) {
+                //TODO : log or rethrow here
+            }
+        }
+
+    };
+
+
+
+    if ( typeof define === "function" && define.amd ) {
+        define( "storage", [], function () { return storage; });
+    }
+    else{
+        return storage;
+    }
+
+})();
+
+
+
+
+
+
+

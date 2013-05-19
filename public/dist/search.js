@@ -1,1 +1,151 @@
-define("search",["jquery","jQueryUI","geonames","tooltip","css!jQueryUICSS","storage"],function(e,t,n,r,i,s){var o={};o.EU="Europe",o.AF="Africa",o.AS="Asia",o.SA="South America",o.NA="North America",o.OC="Oceania",o.AN="Antarctica";var u=!1,a={};return a.bindAutoComplete=function(t,r){e(t).autocomplete({source:function(t,r){e.ajax({url:"http://ws.geonames.org/searchJSON",dataType:"jsonp",data:{style:"full",maxRows:20,name_startsWith:t.term},success:function(t){r(e.map(t.geonames,function(e){return{label:n.getItemLabel(e),value:e.name,dataItem:e}}))}})},minLength:1,select:function(t,r){var i=n.getItemUrl(r.item.dataItem);e(this).trigger("itemSelected",r.item.dataItem),console.log("Item path"+i),window.location=i},open:function(){u=!0,e(this).removeClass("ui-corner-all").addClass("ui-corner-top")},close:function(){u=!1,e(this).removeClass("ui-corner-top").addClass("ui-corner-all")}});var i=e(t).width();e(t).focusin(function(t){e(this).tooltip("hide"),e(this).animate({width:"40%"},350)}),s.getObject("toolTipShown")||setTimeout(function(){e(t).tooltip({title:'Let us impress you !  Type country,city,street name,"Berlin nightlife",...anything interesting you about travel',placement:"left",trigger:"manual"}).tooltip("show"),setTimeout(function(){e(t).tooltip("hide")},3e3),s.setObject("toolTipShown",!0)},2e3),e(t).keypress(function(n){var r=n.keyCode?n.keyCode:n.which;r===13&&!u&&(window.location="/content/"+e(t).val())}),e(r).bind("click",function(n){window.location="/content/"+e(t).val()})},a.preparePath=function(t){var n=e.trim(t);n.indexOf(",")===0&&(n=n.substring(1,n.length-1));var r=n.split(",").reverse();for(var i=0;i<r.length;i++)r[i]=e.trim(r[i]).replace(/ /g,"-");return r=r.join("/"),r},a.getItemLabel=function(e){var t=this.getAdminCodeName(e);return e.name+","+t+e.countryName+","+o[e.continentCode]},a.getAdminCodeName=function(e){var t="";for(var n=1;n<5;n++){var r=e["adminName"+n];r&&!isNaN(r)&&(t=t+r+",")}return t},a})
+﻿define("search", ['jquery','jQueryUI','geonames','tooltip','css!jQueryUICSS','storage'], function ($,jQueryUi,geonames,tooltip,css,storage) {
+        var continentNameLookUp = {};
+        continentNameLookUp['EU'] = 'Europe';
+        continentNameLookUp['AF'] = 'Africa';
+        continentNameLookUp['AS'] = 'Asia';
+        continentNameLookUp['SA'] = 'South America';
+        continentNameLookUp['NA'] = 'North America';
+        continentNameLookUp['OC'] = 'Oceania';
+        continentNameLookUp['AN'] = 'Antarctica';
+        var itemFound = false;
+        var search = {};
+        search.bindAutoComplete = function (container,submitControl) {
+            $(container).autocomplete({
+                source:function (request, response) {
+                    $.ajax({
+                        url:"http://ws.geonames.org/searchJSON",
+                        dataType:"jsonp",
+                        data:{
+                            style:"full",
+                            maxRows:20,
+                            name_startsWith:request.term
+//                            featureClass:'P',
+//                            featureClass: 'A'
+                        },
+                        success:function (data) {
+                            response($.map(data.geonames, function (item) {
+                                return {
+                                    label:geonames.getItemLabel(item),
+                                    value:item.name,
+                                    dataItem:item
+
+                                }
+                            }));
+                        }
+                    });
+                },
+                minLength:1,
+                select:function (event, ui) {
+                    var path = geonames.getItemUrl(ui.item.dataItem);
+                    $(this).trigger('itemSelected', ui.item.dataItem);
+                    console.log('Item path' + path);
+                    //TODO : move from here ,raise event instead
+                    window.location = path;
+
+                },
+
+
+
+                open:function () {
+                    itemFound = true;
+                    $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+                },
+                close:function () {
+                    itemFound = false;
+                    $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+                }
+            });
+
+            var originalWidth = $(container).width();
+            $(container).focusin(function (e) {
+                $(this).tooltip('hide');
+                $(this).animate({
+                    width: "40%"
+                },350 );
+            });
+
+            //bind tooltip if already not bound
+            if(!storage.getObject('toolTipShown')){
+               setTimeout(function(){
+                    ///bind tooltip
+                    $(container).tooltip({
+                        title:'Let us impress you !  Type country,city,street name,"Berlin nightlife",...anything interesting you about travel',
+                        placement:'left',
+                        trigger:'manual'
+
+                    }).tooltip('show');
+
+                 setTimeout(function(){$(container).tooltip('hide');},3000);
+                 storage.setObject('toolTipShown',true);
+
+                },2000);
+            }
+
+
+            //TODO : handle enter
+            $(container).keypress(function(event){
+
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode === 13 && !itemFound){
+                    window.location = '/content/'  + $(container).val();
+                }
+
+            });
+
+
+
+
+
+            $(submitControl).bind('click',function(e){
+                window.location = '/content/'  + $(container).val();
+            });
+
+        };
+
+        search.preparePath = function (geoNamesLabel) {
+            var label = $.trim(geoNamesLabel);
+            if (label.indexOf(',') === 0) {
+                label = label.substring(1, label.length - 1);
+            }
+            var path = label.split(',').reverse();
+            for (var i = 0; i < path.length; i++) {
+                path[i] = $.trim(path[i]).replace(/ /g, "-");
+            }
+            path = path.join('/');
+            return path;
+
+        }
+
+        search.getItemLabel = function (item) {
+            var adminCodePath = this.getAdminCodeName(item);
+            return item.name + ',' + adminCodePath + item.countryName + ',' + continentNameLookUp[item.continentCode];
+        }
+
+        search.getAdminCodeName = function (item) {
+            var adminCodePath = '';
+            for (var i = 1; i < 5; i++) {
+                var adminName = item['adminName' + i];
+                //check if exists and also not a number ,don't want display numbers
+                if (adminName && !isNaN(adminName)) {
+                    adminCodePath = adminCodePath + adminName + ',';
+                }
+            }
+
+            return adminCodePath;
+        }
+
+        return search;
+    }
+);
+
+
+
+
+
+
+
+
+
+
+
+
