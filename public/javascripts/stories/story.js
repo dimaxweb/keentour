@@ -142,10 +142,16 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
                 $(storyItem).append(elem);
                 $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
 
-
-
             }
         });
+
+         $('<div><button class="btn btn-primary" data-action="preview">Preview</button> <button class="btn btn-primary" data-action="save">Save</button> <button class="btn btn-primary" data-action="publish">Publish</button> </div>')
+            .appendTo('.actionPanel')
+            .on('click', '.btn', function () {
+                var action  = $(this).data('action');
+                //TODO : implement action here
+            });
+
 
 
     });

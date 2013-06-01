@@ -35,3 +35,11 @@
     border: 1px solid #EEEEEE;
     width: 90%;
 }
+
+.actionPanel
+{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+
+}
