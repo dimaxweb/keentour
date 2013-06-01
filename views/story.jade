@@ -1,19 +1,45 @@
-extends  layout
-block content
+include shared/mixins
 
-    .raw-fluid
-        .span4
-            form.form-search
+doctype 5
+html(lang='en')
+    head
+        title= title
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='description', content='')
+        meta(name='author', content='')
+        link(rel='stylesheet', href='/stylesheets/Site.css')
+        link(rel='stylesheet', href='/stylesheets/colorbox.css')
+        link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap-responsive.css')
+        link(rel='icon',type='image/png',href='/images/favicon.ico')
+        script(type='text/javascript',src='/javascripts/console.js')
+    body
+        .container-fluid.header
+            .row-fluid
+                .span4
+                    div.logoCont.pull-left
+                        a(href='/', title='Keentour-Home')
+                            img(src='/images/logo.png')
+
+
+        .raw-fluid
+            .span4
+                form.form-search
                 legend Search for content
-                input.input-medium.search-query(type='text',id='searchText',style='width:95%')
+                input(type='text',id='searchText',style='width:95%')
 
-            .photos
-            #photoPaging
+                #photoPaging
+                .photos
+
 
         .span8
            .story
-                legend Drop photos here
-               .storyPhotos
+               div
+                    input(type='text',id='titleText',style='width:95%',value="Story title")
+               div
+                    textarea(rows=3,cols=20,value="Some description",class="storyDescription")
+               .storyPhotos(contenteditable="false")
 
 
     script(data-main="/#{locals.scriptPrefix}/stories/story",src="/javascripts/lib/require.js",type="text/javascript")

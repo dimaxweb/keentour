@@ -17,6 +17,27 @@ swfObject.js
 popover.js
 homepage.js
 
+story.js
+----------------
+storage.js
+jquery.js
+jQueryUI.js
+geonames.js
+tooltip.js
+css.js
+css!jQueryUICSS
+search.js
+flickrLib.js
+jquery/paginate.js
+twitter_grid.js
+jquery/colorbox-min.js
+popover.js
+ajax-scroll.js
+css!paginationCSS
+flickrWidget.js
+css!storyCSS
+story.js
+
 contentpage.js
 ----------------
 storage.js

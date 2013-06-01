@@ -115,7 +115,7 @@ function flickrSearch(e) {
      */
     $('.photos').flickrFy({
         text:$('#searchText').val(),
-        perPage:6,
+        perPage:18,
         sort:'relevance',
         defaultImageThumb  :'sq',
         itemsPerRow  : 6,
@@ -131,13 +131,19 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
         });
 
         $('.storyPhotos').droppable({
+            activeClass: "ui-state-highlight",
             drop:function (event, ui) {
                 var elem = ui.draggable;
                 var photo  = $(elem).data('photo');
                 $(elem).find('.thumbnail').attr('src',photo.url_s).css({width:photo.width_s,height:photo.height_s});
                 $(elem).css({position:'static'} );
-                var storyItem = $('<div class="storyItem"></div>').appendTo(this);
+                var storyItem = $('<div class="storyItem"  contenteditable="false"></div>').data('item',photo).appendTo(this);
+                $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
                 $(storyItem).append(elem);
+                $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
+
+
+
             }
         });
 

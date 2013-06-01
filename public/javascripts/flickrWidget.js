@@ -1,17 +1,17 @@
 //TODO  : get config parameters also for dependent modules (twiter_grid,etc..)
-require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jquery.colorbox-min","tooltip","popover","ajax-scroll","css!paginationCSS","css!jQueryUICSS"], function (undefined,undefined,undefined,undefined,twitter_grid,undefined) {
+require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "jquery.colorbox-min", "tooltip", "popover", "ajax-scroll", "css!paginationCSS", "css!jQueryUICSS"], function (undefined, undefined, undefined, undefined, twitter_grid, undefined) {
     (function ($) {
         $.widget("custom.flickrFy", {
-            options : {
-                defaultImageThumb  : 't',
-                itemsPerRow  :  4,
-                usePaging : false
+            options:{
+                defaultImageThumb:'t',
+                itemsPerRow:4,
+                usePaging:false
 
             },
 
 
             /********************************Widget methods**********************************************************/////
-            _init: function(){
+            _init:function () {
                 try {
                     this.element.empty();
                     this.runWidget();
@@ -25,24 +25,23 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
             },
 
 
-
-            runWidget: function () {
+            runWidget:function () {
                 this.currentPage = 0;
                 this.initilaising = true;
                 this.flickrLib = new FlickrLib(this.options);
                 var that = this;
-                var $element =  this.element;
+                var $element = this.element;
                 $($element).addClass('contTransperensy');
 
 
-                var imgLoading  = $(this.element).find('#photoLoading').first();
-                if(imgLoading.length === 0){
+                var imgLoading = $(this.element).find('#photoLoading').first();
+                if (imgLoading.length === 0) {
                     ///put image loading
-                    var imgLoading  = $('<img src="/images/ajax-loader-big.gif" id="photoLoading" />').appendTo(this.element);
+                    var imgLoading = $('<img src="/images/ajax-loader-big.gif" id="photoLoading" />').appendTo(this.element);
                     $(imgLoading).position({
-                            my: "center middle",
-                            at: "center-5% middle",
-                            of: this.element
+                            my:"center middle",
+                            at:"center-5% middle",
+                            of:this.element
                         }
                     );
                 }
@@ -67,14 +66,12 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                 };
 
 
-
                 this.flickrLib.searchPhotos(callback);
             },
 
 
-
             // Use the _setOption method to respond to changes to options
-            _setOption: function (key, value) {
+            _setOption:function (key, value) {
                 switch (key) {
                     case "clear":
                         // handle changes to clear option
@@ -88,7 +85,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
             },
 
             // Use the destroy method to clean up any modifications your widget has made to the DOM
-            destroy: function () {
+            destroy:function () {
                 // In jQuery UI 1.8, you must invoke the destroy method from the base widget
                 $.Widget.prototype.destroy.call(this);
                 // In jQuery UI 1.9 and above, you would define _destroy instead of destroy and not call the base method
@@ -96,7 +93,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
             /*************END WIDGET Functions****************/
 
 
-            setImageMargin: function (_originalImage, divTitle, divPhoto) {
+            setImageMargin:function (_originalImage, divTitle, divPhoto) {
                 var originalWidth = $(_originalImage).width();
                 var containerWidth = $('#bigPhoto').width();
                 var marginToLeft = (parseInt(containerWidth) - parseInt(originalWidth)) / 2;
@@ -107,7 +104,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                 }
 
             },
-            createTitle: function (photo) {
+            createTitle:function (photo) {
                 var flickrUrl = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
 //                var photoInfo = $('#photoInfo').empty();
 
@@ -127,9 +124,9 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
             },
 
             /*
-                Todo  : look on appropriate way to upload
-            */
-            preloadImage: function (src, originalImage, photo, imgLoading) {
+             Todo  : look on appropriate way to upload
+             */
+            preloadImage:function (src, originalImage, photo, imgLoading) {
                 var that = this;
                 originalImage.hide();
                 originalImage.attr('src', src);
@@ -147,7 +144,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                     } //
                     else {
                         var data = $(this).data('photo');
-                        $(this).css({ width: data.width_sq || 75, height: data.height_sq || 75 });
+                        $(this).css({ width:data.width_sq || 75, height:data.height_sq || 75 });
                         $(this).show();
                     }
 
@@ -155,18 +152,18 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                 });
 
             },
-            getBigImageUrl: function (photo) {
-              var photoUrl =  photo.url_l || photo.url_m  || photo.url_z  || photo.url_t || photo.url_s;
-              return photoUrl;
+            getBigImageUrl:function (photo) {
+                var photoUrl = photo.url_l || photo.url_m || photo.url_z || photo.url_t || photo.url_s;
+                return photoUrl;
             },
 
-            showBigPhoto: function (photo) {
+            showBigPhoto:function (photo) {
 
                 var urlBig = this.getBigImageUrl(photo);
                 var bigHeight = photo.height_m || photo.height_z || photo.height_l || photo.height_t || photo.height_s;
                 var bigImage = this.imagesCache[urlBig];
                 $('#bigPhoto').empty();
-                $('#bigPhoto').css({ 'height': bigHeight, border: 1 });
+                $('#bigPhoto').css({ 'height':bigHeight, border:1 });
 
                 // image already in cache
                 if (bigImage) {
@@ -206,38 +203,37 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
             },
 
 
-
             //TODO : refactor to use templates and behaviours instead
-            createPaging: function (data) {
+            createPaging:function (data) {
                 var that = this;
                 var totalPages = (data.photos.total / that.options.perPage) / 100;
-                if(this.options.usePaging){
+                if (this.options.usePaging) {
                     var $paging = $('#photoPaging');
                     $($paging).paginate({
-                        count: (totalPages < 100) ? totalPages : 100,
-                        start: 1,
-                        display: 15,
-                        border_hover_color: '#ccc',
-                        text_hover_color: '#33506E',
-                        background_hover_color: '#fff',
-                        background_color: '#fff',
-                        text_color: '#33506E',
-                        images: false,
-                        mouse: 'press',
-                        onChange: function (new_page_index, container) {
+                        count:(totalPages < 100) ? totalPages : 100,
+                        start:1,
+                        display:15,
+                        border_hover_color:'#ccc',
+                        text_hover_color:'#33506E',
+                        background_hover_color:'#fff',
+                        background_color:'#fff',
+                        text_color:'#33506E',
+                        images:false,
+                        mouse:'press',
+                        onChange:function (new_page_index, container) {
                             that.goToPage(new_page_index, container)
                         }
                     });
                 }
-                else{
+                else {
                     $(window).paged_scroll({
                         handleScroll:function (page) {
-                            that.goToPage(page,that.element);
+                            that.goToPage(page, that.element);
                             return true;
                         },
-                        targetElement : $(this.element),
+                        targetElement:$(this.element),
                         step:'5px',
-                        pagesToScroll : totalPages,
+                        pagesToScroll:totalPages,
                         binderElement:this.element
 
                     });
@@ -245,13 +241,13 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
 
             },
 
-            goToPage: function (page, container) {
+            goToPage:function (page, container) {
 
                 try {
 
                     var that = this;
                     that.currentPage = parseInt(page) + 1;
-                    var $element  = that.element;
+                    var $element = that.element;
                     $($element).addClass('contTransperensy');
 
                     //TODO  : implement cache when will have time
@@ -280,7 +276,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
 
             },
 
-            showProgress: function () {
+            showProgress:function () {
                 var imageLoading = $('#bigPhoto').find('#imgLoading');
                 //
                 if (!imageLoading || imageLoading.length <= 0) {
@@ -290,7 +286,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                 return imageLoading;
             },
 
-            displayData: function (result) {
+            displayData:function (result) {
                 function preloadImages(_photos) {
 
                     try {
@@ -311,8 +307,8 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                 var that = this;
                 var data = {};
                 var $element = this.element;
-                if(that.options.usePaging){
-                   $element.empty();
+                if (that.options.usePaging) {
+                    $element.empty();
                 }
                 //TODO : make configurable from outside as effect
                 $(that.galleryContainer).removeClass('contTransperensy');
@@ -334,7 +330,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                                     .appendTo(itemContainer);
 
                                 var imgItem = $('<img/>')
-                                    .attr('src',dataItem[thumbUrl] )
+                                    .attr('src', dataItem[thumbUrl])
                                     .attr('rel', 'photoFeed')
                                     .attr('class', 'thumbnail')
                                     .appendTo(aItem);
@@ -343,33 +339,32 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                                 $(imgItem).css({ width:dataItem['width_' + that.options.defaultImageThumb], height:dataItem['height_' + that.options.defaultImageThumb] });
 
 
-
                                 var title = dataItem.title;
                                 $('<div class="widgetItemName pull-left"><a>' + title + '</a></div>').appendTo(itemContainer);
                                 /*
-                                    Tooltip
-                                */
+                                 Tooltip
+                                 */
                                 //TODO  : use description
-                                var description  =  (dataItem.description && dataItem.description._content) ? '<p>'  + dataItem.description._content + '</p>' : '';
+                                var description = (dataItem.description && dataItem.description._content) ? '<p>' + dataItem.description._content + '</p>' : '';
 
-                                var tags  = (dataItem.tags) ? '<p><h6>Tagged with:</h6>'  + dataItem.tags.split(' ').slice(0,3).join(',') + '</p>': '';
-                                var author  = ( dataItem.author &&  dataItem.author.length  >0 && dataItem.author[0].name && dataItem.author[0].name.$t) ? '<p><b>Published by :</b>'  + dataItem.author[0].name.$t + '</p>': '';
-                                var publishedAt  = (dataItem.published &&  dataItem.published.$t) ? '<p><b>Taken on:</b>'  +dataItem.published.$t + '</p>': '';
-                                var viewsCount  = (dataItem.yt$statistics && dataItem.yt$statistics.viewCount) ? '<p><b>Views </b> :'  + dataItem.yt$statistics.viewCount + '</p>'  : '';
+                                var tags = (dataItem.tags) ? '<p><h6>Tagged with:</h6>' + dataItem.tags.split(' ').slice(0, 3).join(',') + '</p>' : '';
+                                var author = ( dataItem.author && dataItem.author.length > 0 && dataItem.author[0].name && dataItem.author[0].name.$t) ? '<p><b>Published by :</b>' + dataItem.author[0].name.$t + '</p>' : '';
+                                var publishedAt = (dataItem.published && dataItem.published.$t) ? '<p><b>Taken on:</b>' + dataItem.published.$t + '</p>' : '';
+                                var viewsCount = (dataItem.yt$statistics && dataItem.yt$statistics.viewCount) ? '<p><b>Views </b> :' + dataItem.yt$statistics.viewCount + '</p>' : '';
 
                                 //TODO : change style
                                 $(imgItem).popover({
-                                    title: dataItem.title,
+                                    title:dataItem.title,
                                     placement:'right',
-                                    content: '<div>' +  author  +  publishedAt  + viewsCount +   tags +  '</div>'
+                                    content:'<div>' + author + publishedAt + viewsCount + tags + '</div>'
 
                                 });
 
                             }
 
                             //TODO  : move from here expose event instead
-                            $(itemContainer).draggable({ addClasses: false });
-                            $(itemContainer).data('photo',dataItem);
+                            $(itemContainer).draggable({cursor:"move"});
+                            $(itemContainer).data('photo', dataItem);
 
                         },
 
@@ -377,8 +372,7 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
                     });
 
 
-
-                    $(".photoItem").colorbox({rel:'photoFeed', transition:"fade",height:"90%"});
+                    $(".photoItem").colorbox({rel:'photoFeed', transition:"fade", height:"90%"});
 
                     //** END TO RUN OVER ALL IMAGES
                     return data;
@@ -388,6 +382,6 @@ require(["jquery", "jQueryUI","flickrLib", "jquery.paginate","twitter_grid","jqu
             } ////end display data
 
         });
-    } (jQuery));
+    }(jQuery));
 });
 

@@ -7,16 +7,31 @@
 {
     width:95%;
     min-height: 500px;
-    padding-left: 30%;
-    background-color: #DEEDF3;
+    border: 1px solid #CCCCCC;
     margin-bottom: 5%;
+    text-align: center;
 }
 .storyItem{
 
     padding: 2.5%;
     text-align: center;
     margin-top: 5%;
-    width:30%;
+    width:85%;
+    border-bottom: 1px dashed blue;
 
 
+}
+
+.storyItemText
+{
+    border: 1px solid #CCCCCC;
+    margin: 10%;
+    min-height: 30px;
+    min-width: 80%;
+}
+
+.storyDescription
+{
+    border: 1px solid #EEEEEE;
+    width: 90%;
 }
