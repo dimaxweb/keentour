@@ -1,4 +1,7 @@
 var http = require("http");
+var MongoClient = require('mongodb').MongoClient
+    , Server = require('mongodb').Server;
+
 
 getJSON = function (options, onResult) {
 
@@ -46,6 +49,24 @@ exports.content = function (req, res) {
 
 exports.story = function(req,res){
     res.render('story',{title : "Good story!!!"});
+}
+
+
+//TODO  : create some wrapper reuse connection
+exports.storySave = function (req, res) {
+    var mongoClient = new MongoClient(new Server('localhost', 27017));
+    var story  =  {'name' : 'Dima'};//JSON.parse(req.body);
+    mongoClient.open(function(err, mongoClient) {
+        var keentour = mongoClient.db("keentour_new");
+        keentour.collection("story").save(story,function(err,results){
+            console.log(results);
+            console.log(err);
+            mongoClient.close();
+            res.json({"result" : true});
+        });
+
+    });
+
 }
 
 exports.aboutUs = function (req, res) {
