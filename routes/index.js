@@ -53,6 +53,7 @@ exports.story = function(req,res){
 
 
 //TODO  : create some wrapper reuse connection
+//TODO  : try / catch
 exports.storySave = function (req, res) {
     var mongoClient = new MongoClient(new Server('localhost', 27017));
     console.log(req.body);
@@ -63,7 +64,7 @@ exports.storySave = function (req, res) {
             console.log(results);
             console.log(err);
             mongoClient.close();
-            res.json({"result" : true,data:story});
+            res.json({"result" : true});
         });
 
     });

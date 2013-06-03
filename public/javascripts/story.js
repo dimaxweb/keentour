@@ -122,6 +122,9 @@ function flickrSearch(e) {
         usePaging : true
     });
 }
+
+//TODO : think about creating in define or checking findNested dependencies in app.build.js
+//TODO  : refactor move logic to some model
 require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
     $(document).ready(function (e) {
         $('#searchText').keypress(function (e) {
@@ -152,11 +155,18 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
                 if(action === "save"){
                     var story  =  {
                         title : $('#txtTitle').val(),
-                        description : $('#txtDescription').val()
-
-
+                        description : $('#txtDescription').val(),
+                        items  : []
                     };
 
+                    $('.storyItem','.storyPhotos').each(function(i,item){
+                       var data = $(item).data('item');
+                       story.items.push(data);
+
+                    });
+
+                    //TODO  : validation before send to sever
+                    //TODO : check if I can use facebook authentication here already
                     var request = $.ajax('/story/save',{
                        headers:
                        {
@@ -169,10 +179,12 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
                     });
 
                     request.success(function(data){
-                       console.log("Sucess"  + data);
+                        //TODO : change to notif or some other popular library
+                        console.log("Sucess"  + data);
                     });
 
                     request.error(function(data){
+                        //TODO : change to notif or some other popular library
                         console.log("Error"+ data);
                     });
                 }
