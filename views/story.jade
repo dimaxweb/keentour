@@ -36,15 +36,15 @@ html(lang='en')
         .span8
            .story
                div
-                    input(type='text',id='titleText',style='width:95%',value="Story title")
+                    input(type='text',id='txtTitle',style='width:95%',value="Story title")
                div
-                    textarea(rows=3,cols=20,value="Some description",class="storyDescription")
+                    textarea(id="txtDescription",rows=3,cols=20,value="Some description",class="storyDescription")
                .storyPhotos(contenteditable="false")
 
         .actionPanel
 
 
 
-    script(data-main="/#{locals.scriptPrefix}/stories/story",src="/javascripts/lib/require.js",type="text/javascript")
+    script(data-main="/#{locals.scriptPrefix}/story",src="/javascripts/lib/require.js",type="text/javascript")
 
 

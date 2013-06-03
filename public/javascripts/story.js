@@ -149,7 +149,33 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
             .appendTo('.actionPanel')
             .on('click', '.btn', function () {
                 var action  = $(this).data('action');
-                //TODO : implement action here
+                if(action === "save"){
+                    var story  =  {
+                        title : $('#txtTitle').val(),
+                        description : $('#txtDescription').val()
+
+
+                    };
+
+                    var request = $.ajax('/story/save',{
+                       headers:
+                       {
+                           'Content-type' : 'application/json'
+                       },
+                       data : JSON.stringify(story),
+                       type : 'POST',
+                       dataType : 'json'
+
+                    });
+
+                    request.success(function(data){
+                       console.log("Sucess"  + data);
+                    });
+
+                    request.error(function(data){
+                        console.log("Error"+ data);
+                    });
+                }
             });
 
 

@@ -32,6 +32,13 @@ app.configure('development', function(){
     });
 });
 
+app.configure('default', function(){
+    app.use(express.errorHandler());
+    app.locals({
+        scriptPrefix : 'javascripts'
+    });
+});
+
 app.configure('production', function(){
     app.use(express.errorHandler());
     app.locals({

@@ -55,14 +55,15 @@ exports.story = function(req,res){
 //TODO  : create some wrapper reuse connection
 exports.storySave = function (req, res) {
     var mongoClient = new MongoClient(new Server('localhost', 27017));
-    var story  =  {'name' : 'Dima'};//JSON.parse(req.body);
+    console.log(req.body);
+    var story  =  req.body;
     mongoClient.open(function(err, mongoClient) {
         var keentour = mongoClient.db("keentour_new");
         keentour.collection("story").save(story,function(err,results){
             console.log(results);
             console.log(err);
             mongoClient.close();
-            res.json({"result" : true});
+            res.json({"result" : true,data:story});
         });
 
     });
