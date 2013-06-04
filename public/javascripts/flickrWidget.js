@@ -225,6 +225,7 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                         }
                     });
                 }
+                //default behavior innfinite scroll
                 else {
                     $(window).paged_scroll({
                         handleScroll:function (page) {
@@ -248,8 +249,6 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                     var that = this;
                     that.currentPage = parseInt(page) + 1;
                     var $element = that.element;
-                    $($element).addClass('contTransperensy');
-
                     //TODO  : implement cache when will have time
                     //if page in cache
                     //                if (that.pagesCache[that.currentPage]) {
@@ -310,8 +309,6 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                 if (that.options.usePaging) {
                     $element.empty();
                 }
-                //TODO : make configurable from outside as effect
-                $(that.galleryContainer).removeClass('contTransperensy');
 
                 if (result.status === 'ok') {
                     $($element).removeClass('contTransperensy');

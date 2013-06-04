@@ -149,7 +149,7 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
 
                     var that = this;
                     var $videos = $(this.element).find('#videos');
-                    $($videos).addClass('contTransperensy');
+
                     var callback = function (result) {
                         that.displayData.call(that, result)
                     };
@@ -174,7 +174,6 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
                     that.findCreatePlayerFrame();
                     if(entries){
                         var $videos = $(this.element).find('#videos');
-                        $($videos).removeClass('contTransperensy');
                         twitter_grid.gridify({
                             element: $(mainVideos),
                             data:entries,
