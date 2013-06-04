@@ -179,8 +179,16 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
                     });
 
                     request.success(function(data){
-                        //TODO : change to notif or some other popular library
-                        console.log("Sucess"  + data);
+                        if(data){
+                            if(data.result){
+                                console.log("Saved");
+                            }
+                            else{
+                                window.location = data.redirect || '/';
+                            }
+
+                        }
+
                     });
 
                     request.error(function(data){

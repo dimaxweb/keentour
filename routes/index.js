@@ -3,6 +3,8 @@ var MongoClient = require('mongodb').MongoClient
     , Server = require('mongodb').Server;
 
 
+
+
 getJSON = function (options, onResult) {
 
     var prot = options.port == 443 ? https : http;
@@ -55,24 +57,35 @@ exports.story = function(req,res){
 //TODO  : create some wrapper reuse connection
 //TODO  : try / catch
 exports.storySave = function (req, res) {
-    var mongoClient = new MongoClient(new Server('localhost', 27017));
-    console.log(req.body);
-    var story  =  req.body;
-    mongoClient.open(function(err, mongoClient) {
-        var keentour = mongoClient.db("keentour_new");
-        keentour.collection("story").save(story,function(err,results){
-            console.log(results);
-            console.log(err);
-            mongoClient.close();
-            res.json({"result" : true});
-        });
+//    console.log("Request",req);
+    console.log("Session",req.session);
+    if(req.isAuthenticated()){
+        var mongoClient = new MongoClient(new Server('localhost', 27017));
+        console.log(req.body);
+        var story  =  req.body;
+        mongoClient.open(function(err, mongoClient) {
+            var keentour = mongoClient.db("keentour_new");
+            keentour.collection("story").save(story,function(err,results){
+                console.log(results);
+                console.log(err);
+                mongoClient.close();
+                res.json({"result" : true});
+            });
 
-    });
+        });
+    }
+    else{
+        res.json({"result" : false,redirect:'/login'});
+    }
 
 }
 
 exports.aboutUs = function (req, res) {
     res.render('aboutUs', { title:' About wwww.keentour.com' });
+};
+
+exports.login = function (req, res) {
+    res.render('login', { title:'Please login to keentour' });
 };
 
 exports.privacy = function (req, res) {
