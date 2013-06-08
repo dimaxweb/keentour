@@ -127,6 +127,17 @@ app.get('/users', user.list);
 //     /auth/facebook/callback
 app.get('/auth/facebook', passport.authenticate('facebook'));
 
+
+/*
+    Facebook logout
+ */
+app.get('/logout',function(req,res){
+    if(req.isAuthenticated()){
+        req.logout();
+    }
+    res.redirect('/');
+});
+
 // Facebook will redirect the user to this URL after approval.  Finish the
 // authentication process by attempting to obtain an access token.  If
 // access was granted, the user will be logged in.  Otherwise,
