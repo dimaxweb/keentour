@@ -133,11 +133,10 @@ app.get('/auth/facebook', passport.authenticate('facebook'));
 // authentication has failed.
 app.get('/auth/facebook/callback',
     passport.authenticate('facebook',
-    { successRedirect: '/',
-        failureRedirect: '/login' }
-));
-
-
+        {
+            successRedirect:'/',
+            failureRedirect:'/login'
+        }));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

@@ -108,8 +108,8 @@ require.config({
 });
 
 
-function flickrSearch(e) {
-    e.preventDefault();
+function flickrSearch() {
+    //e.preventDefault();
     /*
         instansiate flickr widget
      */
@@ -128,8 +128,11 @@ function flickrSearch(e) {
 require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
     $(document).ready(function (e) {
         $('#searchText').keypress(function (e) {
+            /*
+                Handle enter
+             */
             if (e.which == 13) {
-                flickrSearch(e);
+                flickrSearch();
             }
         });
 
@@ -174,20 +177,22 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
                        },
                        data : JSON.stringify(story),
                        type : 'POST',
-                       dataType : 'json'
+                       dataType : 'json',
+                       cache: false
 
                     });
 
                     request.success(function(data){
                         if(data){
                             if(data.result){
-                                console.log("Saved");
+                                alert("Story saved");
                             }
                             else{
                                 window.location = data.redirect || '/';
                             }
 
                         }
+
 
                     });
 
@@ -199,7 +204,7 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
             });
 
 
-
+        flickrSearch();
     });
 });
 

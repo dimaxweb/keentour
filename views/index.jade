@@ -102,7 +102,15 @@ block content
 
 
 
+
                    script(data-main="/#{locals.scriptPrefix}/homepage",src="/javascripts/lib/require.js",type="text/javascript")
+                   script
+
+                       var user = !{JSON.stringify(user)};
+                       window.KeenTourData = user;
+
+
+
 
 
 

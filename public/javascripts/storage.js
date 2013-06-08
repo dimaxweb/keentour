@@ -5,9 +5,9 @@
         getObject:function (key) {
             var item = null;
             try {
-                if (window.sessionStorage) {
+                if (window.localStorage) {
                     if (typeof(JSON) != "undefined") {
-                        var itemStr = window.sessionStorage.getItem(key);
+                        var itemStr = window.localStorage.getItem(key);
                         item = JSON.parse(itemStr);
                     }
                 }
@@ -20,14 +20,14 @@
         setObject:function (key, item) {
 
             try {
-                if (window.sessionStorage) {
+                if (window.localStorage) {
                     if (typeof(item) !== "object") {
-                        window.sessionStorage.setItem(key, item);
+                        window.localStorage.setItem(key, item);
                         return;
                     }
                      if (typeof(JSON) != "undefined") {
                             var itemStr = JSON.stringify(item);
-                            window.sessionStorage.setItem(key, itemStr);
+                            window.localStorage.setItem(key, itemStr);
                      }
 
                 }

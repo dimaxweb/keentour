@@ -32,7 +32,25 @@ getJSON = function (options, onResult) {
 
 
 exports.index = function (req, res) {
-    res.render('index', { title:' KeenTour - explore the beauty of the world!' });
+    if(req.session && req.session.passport && req.session.passport.user){
+
+        var mongoClient = new MongoClient(new Server('localhost', 27017));
+        mongoClient.open(function(err, mongoClient) {
+            var keentour = mongoClient.db("keentour_new");
+            keentour.collection("user").findOne({id:req.session.passport.user},function(err,results){
+                console.log("User in index is : ",results);
+                res.render('index', { title:' KeenTour - explore the beauty of the world!',user :results || {} });
+
+            });
+
+
+
+        });
+    }
+    else{
+        res.render('index', { title:' KeenTour - explore the beauty of the world!',user :{} });
+    }
+
 };
 
 exports.content = function (req, res) {
@@ -60,14 +78,16 @@ exports.storySave = function (req, res) {
 //    console.log("Request",req);
     console.log("Session",req.session);
     if(req.isAuthenticated()){
+
         var mongoClient = new MongoClient(new Server('localhost', 27017));
         console.log(req.body);
         var story  =  req.body;
+        story.user = req.session.passport.user;
         mongoClient.open(function(err, mongoClient) {
             var keentour = mongoClient.db("keentour_new");
             keentour.collection("story").save(story,function(err,results){
-                console.log(results);
-                console.log(err);
+                console.log("Results:"  + results);
+                console.log("Error:"  +err);
                 mongoClient.close();
                 res.json({"result" : true});
             });
@@ -75,6 +95,7 @@ exports.storySave = function (req, res) {
         });
     }
     else{
+        req.session.lastRequestedUrl = req.url;
         res.json({"result" : false,redirect:'/login'});
     }
 
