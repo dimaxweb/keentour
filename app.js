@@ -23,11 +23,11 @@ passport.use(new FacebookStrategy({
         mongoClient.open(function(err, mongoClient) {
             var keentour = mongoClient.db("keentour_new");
             keentour.collection("user").findOne({id:profile.id},function(err,results){
-                console.log("In found",results);
+                console.log("User found",results);
                 if(results){
                     console.log("Update collection");
                     keentour.collection("user").update({id:profile.id},profile,function(err,results){
-                        console.log("Collection updated");
+                        console.log("User data is updated");
                     });
                 }
                 else{
@@ -41,7 +41,7 @@ passport.use(new FacebookStrategy({
 
         });
 
-        done(null,profile);
+        done(null,{accessToken:accessToken,refreshToken:refreshToken,profile:profile});
     }
 ));
 
@@ -50,13 +50,15 @@ passport.use(new FacebookStrategy({
     Bellow functions  are serializing and deserializing user object in express session.
     Keep only id in session
  */
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
+passport.serializeUser(function(userData, done) {
+    console.log("serializing user",userData);
+    done(null, {accessToken:userData.accessToken,refreshToken:userData.refreshToken,user : userData.profile.id});
 });
 
 
-passport.deserializeUser(function(id, done) {
-    done(null,{id : id});
+passport.deserializeUser(function(userData, done) {
+    console.log("deserializing user",userData);
+    done(null,{id : userData.user});
 });
 
 /*

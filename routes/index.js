@@ -37,7 +37,8 @@ exports.index = function (req, res) {
         var mongoClient = new MongoClient(new Server('localhost', 27017));
         mongoClient.open(function(err, mongoClient) {
             var keentour = mongoClient.db("keentour_new");
-            keentour.collection("user").findOne({id:req.session.passport.user},function(err,results){
+            console.log("Passport session is ",req.session.passport);
+            keentour.collection("user").findOne({id:req.session.passport.user.user},function(err,results){
                 console.log("User in index is : ",results);
                 res.render('index', { title:' KeenTour - explore the beauty of the world!',user :results || {} });
 
