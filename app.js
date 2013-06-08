@@ -114,6 +114,7 @@ app.get('/content', routes.index);
 app.get('/AboutUs',routes.aboutUs);
 app.get('/Privacy',routes.privacy);
 app.post('/story/save',routes.storySave);
+app.post('/story/edit',routes.storySave);
 app.get('/story/create',routes.story);
 //app.get('/SearchGeoNames',routes.SearchGeoNames);
 app.get('/', routes.index);
@@ -140,6 +141,17 @@ app.get('/logout',function(req,res){
     res.redirect('/');
 });
 
+app.get('/redirector',function(req,res){
+   var url = '/';
+   if(req.session && req.session.lastRequestedUrl){
+        url  = req.session.lastRequestedUrl;
+       req.session.lastRequestedUrl = null;
+   }
+
+    res.redirect(url);
+
+});
+
 // Facebook will redirect the user to this URL after approval.  Finish the
 // authentication process by attempting to obtain an access token.  If
 // access was granted, the user will be logged in.  Otherwise,
@@ -147,7 +159,7 @@ app.get('/logout',function(req,res){
 app.get('/auth/facebook/callback',
     passport.authenticate('facebook',
         {
-            successRedirect:'/',
+            successRedirect:'/redirector',
             failureRedirect:'/login'
         }));
 

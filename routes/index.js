@@ -96,7 +96,7 @@ exports.storySave = function (req, res) {
         });
     }
     else{
-        req.session.lastRequestedUrl = req.url;
+        req.session.lastRequestedUrl ='/story/create';
         res.json({"result" : false,redirect:'/login'});
     }
 

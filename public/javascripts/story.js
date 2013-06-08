@@ -125,6 +125,8 @@ function flickrSearch() {
 
 //TODO : think about creating in define or checking findNested dependencies in app.build.js
 //TODO  : refactor move logic to some model
+//TODO  : refactor method get functions
+
 require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
     $(document).ready(function (e) {
         $('#searchText').keypress(function (e) {
