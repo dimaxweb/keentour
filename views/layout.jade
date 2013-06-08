@@ -30,11 +30,7 @@ html(lang='en')
                         #search
 
 
-                            a(href="/login") Login
 
-                            a(href="/story/create") Create Tour
-
-                            a(href="/logout") Logout
 
                             input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
                             //i.icon-chevron-down.advancedOpen
@@ -89,6 +85,10 @@ html(lang='en')
                                     a(href="/AboutUs") About US
                                 span.companyInfo
                                     a(href="/Privacy") Privacy
+                        span(style="display:none")
+                            a(href="/login") Login
+                            a(href="/story/create") Create Tour
+                            a(href="/logout") Logout
                     .span7
                         .advBlock
                             script(type='text/javascript')
