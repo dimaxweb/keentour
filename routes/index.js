@@ -61,6 +61,9 @@ saveStory = function(story,req,callback) {
 
 
 exports.index = function (req, res) {
+
+    console.log("Home page if request authnticated",req.isAuthenticated());
+    console.log("Request passport",req.session.passport);
     if(req.session && req.session.passport && req.session.passport.user){
         var mongoClient = new MongoClient(new Server('localhost', 27017));
         mongoClient.open(function(err, mongoClient) {
@@ -121,8 +124,8 @@ exports.story = function(req,res){
 
         saveStory(story,req,function(res){
             if(res.result){
-                req.session.lastRequestedUrl = null;
-                req.session.submitedStory  = null;
+                delete req.session.lastRequestedUrl;
+                delete req.session.submitedStory;
             }
         });
 
@@ -136,9 +139,10 @@ exports.story = function(req,res){
 //TODO  : try / catch
 exports.storySave = function (req, res) {
     var story  =  req.body;
+    console.log(req.session.passport);
     if(req.isAuthenticated()){
-        saveStory(story,req,function(res){
-            res.json(res);
+        saveStory(story,req,function(response){
+            res.json(response);
         });
     }
     else{

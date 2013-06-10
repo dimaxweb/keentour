@@ -176,16 +176,21 @@ KEENTOUR.saveStory = function(){
 
     request.success(function(data){
         if(data){
-            if(data.result){
+            if(data.status === true ){
                 //TODO : change to notif
                 alert("Story saved");
-                KEENTOUR.currentStory = result.story;
+                KEENTOUR.currentStory = data.story;
             }
             else{
                 window.location = data.redirect || '/';
             }
 
         }
+        else{
+            console.log("Success but no data returned.Redirect to home page");
+            window.location = '/';
+        }
+
 
 
     });
