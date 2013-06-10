@@ -108,10 +108,34 @@ require.config({
 });
 
 
-function flickrSearch() {
+
+
+//TODO : think about creating in define or checking findNested dependencies in app.build.js
+//TODO  : refactor move logic to some model
+//TODO  : refactor method get functions
+if(typeof(KEENTOUR)==="undefined"){
+    KEENTOUR = {};
+}
+
+KEENTOUR.renderStory =function(story){
+        if($.isEmptyObject(story)){
+            console.log("No story in state");
+            return;
+        }
+
+       $('#txtTitle').val(story.title);
+       $('#txtDescription').val(story.description);
+       $.each(story.items,function(i,item){
+          console.log("Story item",item);
+       });
+
+
+};
+
+KEENTOUR.flickrSearch =function() {
     //e.preventDefault();
     /*
-        instansiate flickr widget
+     instansiate flickr widget
      */
     $('.photos').flickrFy({
         text:$('#searchText').val(),
@@ -123,18 +147,21 @@ function flickrSearch() {
     });
 }
 
-//TODO : think about creating in define or checking findNested dependencies in app.build.js
-//TODO  : refactor move logic to some model
-//TODO  : refactor method get functions
-
 require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
+
+    KEENTOUR.storage = storage;
+    KEENTOUR.search = search;
+    KEENTOUR.geonames = geonames;
+
+
+
     $(document).ready(function (e) {
         $('#searchText').keypress(function (e) {
             /*
                 Handle enter
              */
             if (e.which == 13) {
-                flickrSearch();
+                KEENTOUR.flickrSearch();
             }
         });
 
@@ -156,6 +183,7 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
          $('<div><button class="btn btn-primary" data-action="preview">Preview</button> <button class="btn btn-primary" data-action="save">Save</button> <button class="btn btn-primary" data-action="publish">Publish</button> </div>')
             .appendTo('.actionPanel')
             .on('click', '.btn', function () {
+                //TODO :refactor to smaller functions here
                 var action  = $(this).data('action');
                 if(action === "save"){
                     var story  =  {
@@ -206,7 +234,27 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
             });
 
 
-        flickrSearch();
+        KEENTOUR.flickrSearch();
+
+        var story = {};
+        /*
+          Load story data ,which can be provided from login or edit flow
+        */
+        if(!$.isEmptyObject(KEENTOUR.lastStory)){
+            //TODO  : change to notification
+            alert("story saved!");
+            story = KEENTOUR.lastStory;
+
+        }
+
+        KEENTOUR.renderStory(story);
+
+
+
+
+
+
+
     });
 });
 
