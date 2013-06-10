@@ -30,14 +30,23 @@ getJSON = function (options, onResult) {
     req.end();
 };
 
+/*
+ Sanitize string to be used in url
+ */
+sanitizeString = function(str) {
+    return str.replace(/[^a-z0-9]/gi, '-').toLowerCase();
+}
+
 
 saveStory = function(story,req,callback) {
     var mongoClient = new MongoClient(new Server('localhost', 27017));
-    story.user = req.session.passport.user;
-    console.log(req.session.passport.user);
-    var displayName = "";//encodeURIComponent(req.session.passport.user.profile.displayName);
-    story.userDisplayName = displayName;
-
+//    story.user = req.session.passport.user;
+    console.log("Passport user",req.session.passport.user.profile);
+    var storyUrl =  sanitizeString(req.session.passport.user.profile.displayName) + "/" + sanitizeString(story.title);
+    story.url = storyUrl;
+    /*
+        save story to database
+    */
     mongoClient.open(function (err, mongoClient) {
         var keentour = mongoClient.db("keentour_new");
         keentour.collection("story").save(story, function (err, results) {
@@ -90,16 +99,33 @@ exports.content = function (req, res) {
 };
 
 
+exports.aboutUs = function (req, res) {
+    res.render('aboutUs', { title:' About wwww.keentour.com' });
+};
+
+exports.login = function (req, res) {
+    res.render('login', { title:'Please login to keentour' });
+};
+
+exports.privacy = function (req, res) {
+    res.render('privacy', { title:'Keen Tour Privacy Policy' });
+};
+
+
+/* Stories functionality
+
+*/
 
 exports.story = function(req,res){
     var story  = {};
     if(req.query.loadLast){
         story = req.session.submitedStory;
+
         saveStory(story,req,function(res){
-          if(res.result){
-              req.session.lastRequestedUrl = null;
-              req.session.submitedStory  = null;
-          }
+            if(res.result){
+                req.session.lastRequestedUrl = null;
+                req.session.submitedStory  = null;
+            }
         });
 
     }
@@ -116,11 +142,11 @@ exports.storySave = function (req, res) {
     var storyTitle = encodeURIComponent(story.title);
     if(req.isAuthenticated()){
         saveStory(story,function(res){
-             res.json(res);
+            res.json(res);
         });
     }
     else{
-        req.session.lastRequestedUrl ='/story/create/?loadLast=true';
+        req.session.lastRequestedUrl ='/story/?loadLast=true';
         req.session.submitedStory  = story;
         res.json({"result" : false,redirect:'/login'});
     }
@@ -128,18 +154,6 @@ exports.storySave = function (req, res) {
 }
 
 
-
-exports.aboutUs = function (req, res) {
-    res.render('aboutUs', { title:' About wwww.keentour.com' });
-};
-
-exports.login = function (req, res) {
-    res.render('login', { title:'Please login to keentour' });
-};
-
-exports.privacy = function (req, res) {
-    res.render('privacy', { title:'Keen Tour Privacy Policy' });
-};
 
 //TODO  : check how to make simple proxy
 //exports.SearchGeoNames = function (req, res) {

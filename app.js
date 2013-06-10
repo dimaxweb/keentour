@@ -52,13 +52,13 @@ passport.use(new FacebookStrategy({
  */
 passport.serializeUser(function(userData, done) {
     console.log("serializing user",userData);
-    done(null, {accessToken:userData.accessToken,refreshToken:userData.refreshToken,user : userData.profile.id});
+    done(null, {accessToken:userData.accessToken,refreshToken:userData.refreshToken,profile : userData.profile});
 });
 
 
 passport.deserializeUser(function(userData, done) {
     console.log("deserializing user",userData);
-    done(null,{id : userData.user});
+    done(null,{accessToken:userData.accessToken,refreshToken:userData.refreshToken,profile : userData.profile});
 });
 
 /*
@@ -115,7 +115,7 @@ app.get('/AboutUs',routes.aboutUs);
 app.get('/Privacy',routes.privacy);
 app.post('/story/save',routes.storySave);
 app.post('/story/edit',routes.storySave);
-app.get('/story/create',routes.story);
+app.get('/story',routes.story);
 //app.get('/SearchGeoNames',routes.SearchGeoNames);
 app.get('/', routes.index);
 app.get('/login',routes.login);
