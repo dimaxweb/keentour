@@ -31,9 +31,30 @@ getJSON = function (options, onResult) {
 };
 
 
+saveStory = function(story,req,callback) {
+    var mongoClient = new MongoClient(new Server('localhost', 27017));
+    story.user = req.session.passport.user;
+    console.log(req.session.passport.user);
+    var displayName = "";//encodeURIComponent(req.session.passport.user.profile.displayName);
+    story.userDisplayName = displayName;
+
+    mongoClient.open(function (err, mongoClient) {
+        var keentour = mongoClient.db("keentour_new");
+        keentour.collection("story").save(story, function (err, results) {
+            mongoClient.close();
+            if(callback){
+                callback({"result":true})
+            }
+
+
+        });
+
+    });
+}
+
+
 exports.index = function (req, res) {
     if(req.session && req.session.passport && req.session.passport.user){
-
         var mongoClient = new MongoClient(new Server('localhost', 27017));
         mongoClient.open(function(err, mongoClient) {
             var keentour = mongoClient.db("keentour_new");
@@ -68,39 +89,45 @@ exports.content = function (req, res) {
     res.render('content', { title:title,breadCrumb:breadCrumbArray})
 };
 
+
+
 exports.story = function(req,res){
-    res.render('story',{title : "Good story!!!"});
+    var story  = {};
+    if(req.query.loadLast){
+        story = req.session.submitedStory;
+        saveStory(story,req,function(res){
+          if(res.result){
+              req.session.lastRequestedUrl = null;
+              req.session.submitedStory  = null;
+          }
+        });
+
+    }
+
+    res.render('story',{story:story});
 }
 
 
 //TODO  : create some wrapper reuse connection
 //TODO  : try / catch
 exports.storySave = function (req, res) {
-//    console.log("Request",req);
-    console.log("Session",req.session);
+    console.log("Request body",req.body);
+    var story  =  req.body;
+    var storyTitle = encodeURIComponent(story.title);
     if(req.isAuthenticated()){
-
-        var mongoClient = new MongoClient(new Server('localhost', 27017));
-        console.log(req.body);
-        var story  =  req.body;
-        story.user = req.session.passport.user;
-        mongoClient.open(function(err, mongoClient) {
-            var keentour = mongoClient.db("keentour_new");
-            keentour.collection("story").save(story,function(err,results){
-                console.log("Results:"  + results);
-                console.log("Error:"  +err);
-                mongoClient.close();
-                res.json({"result" : true});
-            });
-
+        saveStory(story,function(res){
+             res.json(res);
         });
     }
     else{
-        req.session.lastRequestedUrl ='/story/create';
+        req.session.lastRequestedUrl ='/story/create/?loadLast=true';
+        req.session.submitedStory  = story;
         res.json({"result" : false,redirect:'/login'});
     }
 
 }
+
+
 
 exports.aboutUs = function (req, res) {
     res.render('aboutUs', { title:' About wwww.keentour.com' });
