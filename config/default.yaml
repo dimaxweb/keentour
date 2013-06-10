@@ -1,0 +1,17 @@
+mongo:
+  db:'localhost'
+
+
+logging:
+    File :
+      filename: "keentour.log"
+      maxsize: 10485760,
+      max_files: 3
+      json: true
+      level : error
+    Console:
+      level : info
+
+
+
+

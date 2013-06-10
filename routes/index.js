@@ -39,9 +39,7 @@ sanitizeString = function(str) {
 
 
 saveStory = function(story,req,callback) {
-    var mongoClient = new MongoClient(new Server('localhost', 27017));
-//    story.user = req.session.passport.user;
-    console.log("Passport user",req.session.passport.user.profile);
+   var mongoClient = new MongoClient(new Server('localhost', 27017));
     var storyUrl =  sanitizeString(req.session.passport.user.profile.displayName) + "/" + sanitizeString(story.title);
     story.url = storyUrl;
     /*
@@ -52,7 +50,7 @@ saveStory = function(story,req,callback) {
         keentour.collection("story").save(story, function (err, results) {
             mongoClient.close();
             if(callback){
-                callback({"result":true})
+                callback({"status":true,story:story});
             }
 
 
@@ -68,7 +66,7 @@ exports.index = function (req, res) {
         mongoClient.open(function(err, mongoClient) {
             var keentour = mongoClient.db("keentour_new");
             console.log("Passport session is ",req.session.passport);
-            keentour.collection("user").findOne({id:req.session.passport.user.user},function(err,results){
+            keentour.collection("user").findOne({id:req.session.passport.user.profile.id},function(err,results){
                 console.log("User in index is : ",results);
                 res.render('index', { title:' KeenTour - explore the beauty of the world!',user :results || {} });
 
@@ -137,11 +135,9 @@ exports.story = function(req,res){
 //TODO  : create some wrapper reuse connection
 //TODO  : try / catch
 exports.storySave = function (req, res) {
-    console.log("Request body",req.body);
     var story  =  req.body;
-    var storyTitle = encodeURIComponent(story.title);
     if(req.isAuthenticated()){
-        saveStory(story,function(res){
+        saveStory(story,req,function(res){
             res.json(res);
         });
     }
@@ -152,6 +148,29 @@ exports.storySave = function (req, res) {
     }
 
 }
+
+exports.storyPreview = function(req,res){
+    if(req.isAuthenticated()){
+        var username =   req.params.username;
+        var title = req.params.title;
+        var url  = username  + "/" + title;
+        var mongoClient = new MongoClient(new Server('localhost', 27017));
+        mongoClient.open(function(err, mongoClient) {
+            var keentour = mongoClient.db("keentour_new");
+            keentour.collection("story").findOne({url:url},function(err,results){
+                //TODO : check for errors
+                console.log("Story is:",results);
+                res.render('storyView', {title : "Preview :" + results.title,story : results});
+
+            });
+
+       });
+    }
+    else{
+        res.redirect('/login');
+    }
+
+};
 
 
 

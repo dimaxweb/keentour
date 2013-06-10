@@ -145,15 +145,63 @@ KEENTOUR.flickrSearch =function() {
         itemsPerRow  : 6,
         usePaging : true
     });
-}
+};
+
+KEENTOUR.saveStory = function(){
+    var story  =  {
+        title : $('#txtTitle').val(),
+        description : $('#txtDescription').val(),
+        items  : []
+    };
+
+    $('.storyItem','.storyPhotos').each(function(i,item){
+        var data = $(item).data('item');
+        story.items.push(data);
+
+    });
+
+    //TODO  : validation before send to sever
+    //TODO : check if I can use facebook authentication here already
+    var request = $.ajax('/story/save',{
+        headers:
+        {
+            'Content-type' : 'application/json'
+        },
+        data : JSON.stringify(story),
+        type : 'POST',
+        dataType : 'json',
+        cache: false
+
+    });
+
+    request.success(function(data){
+        if(data){
+            if(data.result){
+                //TODO : change to notif
+                alert("Story saved");
+                KEENTOUR.currentStory = result.story;
+            }
+            else{
+                window.location = data.redirect || '/';
+            }
+
+        }
+
+
+    });
+
+    request.error(function(data){
+        //TODO : change to notif or some other popular library
+        console.log("Error"+ data);
+    });
+};
+
 
 require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
     KEENTOUR.geonames = geonames;
-
-
 
     $(document).ready(function (e) {
         $('#searchText').keypress(function (e) {
@@ -186,50 +234,11 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
                 //TODO :refactor to smaller functions here
                 var action  = $(this).data('action');
                 if(action === "save"){
-                    var story  =  {
-                        title : $('#txtTitle').val(),
-                        description : $('#txtDescription').val(),
-                        items  : []
-                    };
-
-                    $('.storyItem','.storyPhotos').each(function(i,item){
-                       var data = $(item).data('item');
-                       story.items.push(data);
-
-                    });
-
-                    //TODO  : validation before send to sever
-                    //TODO : check if I can use facebook authentication here already
-                    var request = $.ajax('/story/save',{
-                       headers:
-                       {
-                           'Content-type' : 'application/json'
-                       },
-                       data : JSON.stringify(story),
-                       type : 'POST',
-                       dataType : 'json',
-                       cache: false
-
-                    });
-
-                    request.success(function(data){
-                        if(data){
-                            if(data.result){
-                                alert("Story saved");
-                            }
-                            else{
-                                window.location = data.redirect || '/';
-                            }
-
-                        }
-
-
-                    });
-
-                    request.error(function(data){
-                        //TODO : change to notif or some other popular library
-                        console.log("Error"+ data);
-                    });
+                    KEENTOUR.saveStory();
+                    return;
+                }
+                if(action==="preview"){
+                   window.location = '/stories/preview/' + KEENTOUR.currentStory.url;
                 }
             });
 
@@ -243,7 +252,7 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
         if(!$.isEmptyObject(KEENTOUR.lastStory)){
             //TODO  : change to notification
             alert("story saved!");
-            story = KEENTOUR.lastStory;
+            story =KEENTOUR.currentStory =  KEENTOUR.lastStory;
 
         }
 

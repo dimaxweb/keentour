@@ -11,7 +11,8 @@ var express = require('express')
   ,passport = require('passport')
   ,FacebookStrategy = require('passport-facebook').Strategy
   ,MongoClient = require('mongodb').MongoClient
-  ,Server = require('mongodb').Server;
+  ,Server = require('mongodb').Server,
+  MongoStore = require('connect-mongo')(express);
 
 passport.use(new FacebookStrategy({
         clientID: '253212218150408',
@@ -70,13 +71,12 @@ var app = express();
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
-//  app.set('view engine', 'ejs');
   app.set('view engine', 'jade');
   app.set('view options', { layout: false });
-  //app.use(express.favicon('/images/favicon.ico'));
   app.use(express.logger('dev'));
   app.use(express.cookieParser());
-  app.use(express.session({ key: 'express.sid', secret: 'keyboard cat' }));
+  //app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({db:'keentour-new',auto_reconnect: true})}));
+  app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({db:'keentour-new',auto_reconnect: true,stringify : true})}));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.static(path.join(__dirname, 'public')));
@@ -116,6 +116,7 @@ app.get('/Privacy',routes.privacy);
 app.post('/story/save',routes.storySave);
 app.post('/story/edit',routes.storySave);
 app.get('/story',routes.story);
+app.get('/stories/preview/:username/:title',routes.storyPreview);
 //app.get('/SearchGeoNames',routes.SearchGeoNames);
 app.get('/', routes.index);
 app.get('/login',routes.login);
