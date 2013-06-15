@@ -144,6 +144,33 @@ exports.privacy = function (req, res) {
 
 */
 
+exports.storyEdit=function(req,res){
+  if(req.isAuthenticated()){
+    var user = req.params.user;
+    var title = req.params.title;
+    var url = user + "/"  + title;
+    var mongoClient = new MongoClient(new Server('localhost', 27017));
+    mongoClient.open(function(err, mongoClient) {
+          var keentour = mongoClient.db("keentour_new");
+          keentour.collection("story").findOne({url:url},function(err,results){
+              //TODO : check for errors
+              console.log("Story is:",results);
+              res.render('story', {title : "Edit story :" + results.title,story : results});
+
+          });
+
+      });
+  }
+  else{
+      res.redirect("/login");
+  }
+};
+
+exports.userProfile = function(req,res){
+    var userStories = [];
+    res.render('userProfile',{title:'User Profile',profile:{},stories:userStories});
+}
+
 exports.story = function(req,res){
     var story  = {};
     if(req.query.loadLast){

@@ -33,9 +33,19 @@ html(lang='en')
                             input#searchbtn(type='button', value='')
 
            div(style="display:block")
-                   a(href="/login") Login
+                   a(href="/login")
+                   .btn-group
+                        a.btn.dropdown-toggle(data-toggle='dropdown', href='#') UserName
+                        span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href="/profile") Profile
+                                a(href="/logout") SignOut
+
+
+
                    a(href="/story") Create Tour
-                   a(href="/logout") Logout
+
 
 
            .container-fluid.menuCont
@@ -73,7 +83,8 @@ html(lang='en')
 
 
            div.footerPanel#panelMain
-                .raw-fluid
+                script(type='text/javascript',src="javascripts/lib/bootstrap/bootstrap-dropdown.js")
+               .raw-fluid
                     .span5
                         div.panelInternal
                             div.addthis_toolbox.addthis_default_style.addthis_32x32_style
@@ -86,6 +97,9 @@ html(lang='en')
                                     a(href="/AboutUs") About US
                                 span.companyInfo
                                     a(href="/Privacy") Privacy
+
+
+
 
                     .span7
                         .advBlock
@@ -105,6 +119,8 @@ html(lang='en')
                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
                 })();
+
+
 
 
 
