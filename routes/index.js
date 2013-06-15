@@ -1,6 +1,8 @@
 var http = require("http");
 var MongoClient = require('mongodb').MongoClient
-    , Server = require('mongodb').Server;
+    , Server = require('mongodb').Server
+    , _ = require('underscore');
+
 
 
 
@@ -47,14 +49,39 @@ saveStory = function(story,req,callback) {
     */
     mongoClient.open(function (err, mongoClient) {
         var keentour = mongoClient.db("keentour_new");
-        keentour.collection("story").save(story, function (err, results) {
-            mongoClient.close();
-            if(callback){
-                callback({"status":true,story:story});
+        /*
+             first try to find story
+        */
+        keentour.collection("story").findOne({_id:story._id},function(err,results){
+            console.log("The result is:",results);
+            if(results){
+                console.log("Story found",results);
+                _.extend(results,story);
+                keentour.collection("story").update(results,{_id:story._id},function (err, results) {
+                    mongoClient.close();
+                    if(callback){
+                        callback({"status":true,story:story});
+                    }
+
+
+                });
+            }
+            else{
+                console.log("Insert new story",story);
+                keentour.collection("story").insert(story, function (err, results) {
+                    mongoClient.close();
+                    if(callback){
+                        callback({"status":true,story:story});
+                    }
+
+
+                });
             }
 
 
         });
+
+
 
     });
 }

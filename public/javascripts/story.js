@@ -148,6 +148,7 @@ KEENTOUR.flickrSearch =function() {
 };
 
 KEENTOUR.saveStory = function(){
+
     var story  =  {
         title : $('#txtTitle').val(),
         description : $('#txtDescription').val(),
@@ -159,6 +160,9 @@ KEENTOUR.saveStory = function(){
         story.items.push(data);
 
     });
+
+
+    story  = $.extend({},KEENTOUR.currentStory,story);
 
     //TODO  : validation before send to sever
     //TODO : check if I can use facebook authentication here already
@@ -257,7 +261,7 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
         if(!$.isEmptyObject(KEENTOUR.lastStory)){
             //TODO  : change to notification
             alert("story saved!");
-            story =KEENTOUR.currentStory =  KEENTOUR.lastStory;
+            story = KEENTOUR.currentStory =  KEENTOUR.lastStory;
 
         }
 
