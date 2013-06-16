@@ -37,7 +37,7 @@ require.config({
         twitter_grid:'/javascripts/twitter-grid',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
-        storyCSS : '/stylesheets/story',
+        storyCSS:'/stylesheets/story',
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
         colorBoxCSS:'/stylesheets/colorBox',
         wikiCSS:'/stylesheets/wiki2',
@@ -108,31 +108,29 @@ require.config({
 });
 
 
-
-
 //TODO : think about creating in define or checking findNested dependencies in app.build.js
 //TODO  : refactor move logic to some model
 //TODO  : refactor method get functions
-if(typeof(KEENTOUR)==="undefined"){
+if (typeof(KEENTOUR) === "undefined") {
     KEENTOUR = {};
 }
 
-KEENTOUR.renderStory =function(story){
-        if($.isEmptyObject(story)){
-            console.log("No story in state");
-            return;
-        }
+KEENTOUR.renderStory = function (story) {
+    if ($.isEmptyObject(story)) {
+        console.log("No story in state");
+        return;
+    }
 
-       $('#txtTitle').val(story.title);
-       $('#txtDescription').val(story.description);
-       $.each(story.items,function(i,item){
-          console.log("Story item",item);
-       });
+    $('#txtTitle').val(story.title);
+    $('#txtDescription').val(story.description);
+    $.each(story.items, function (i, item) {
+        console.log("Story item", item);
+    });
 
 
 };
 
-KEENTOUR.flickrSearch =function() {
+KEENTOUR.flickrSearch = function () {
     //e.preventDefault();
     /*
      instansiate flickr widget
@@ -141,72 +139,72 @@ KEENTOUR.flickrSearch =function() {
         text:$('#searchText').val(),
         perPage:18,
         sort:'relevance',
-        defaultImageThumb  :'sq',
-        itemsPerRow  : 6,
-        usePaging : true
+        defaultImageThumb:'sq',
+        itemsPerRow:6,
+        usePaging:true
     });
 };
 
-KEENTOUR.saveStory = function(){
+KEENTOUR.saveStory = function (callback) {
 
-    var story  =  {
-        title : $('#txtTitle').val(),
-        description : $('#txtDescription').val(),
-        items  : []
+    var story = {
+        title:$('#txtTitle').val(),
+        description:$('#txtDescription').val(),
+        items:[]
     };
 
-    $('.storyItem','.storyPhotos').each(function(i,item){
+    $('.storyItem', '.storyPhotos').each(function (i, item) {
         var data = $(item).data('item');
         story.items.push(data);
 
     });
 
 
-    story  = $.extend({},KEENTOUR.currentStory,story);
+    story = $.extend({}, KEENTOUR.currentStory, story);
 
     //TODO  : validation before send to sever
     //TODO : check if I can use facebook authentication here already
-    var request = $.ajax('/story/save',{
-        headers:
-        {
-            'Content-type' : 'application/json'
+    var request = $.ajax('/story/save', {
+        headers:{
+            'Content-type':'application/json'
         },
-        data : JSON.stringify(story),
-        type : 'POST',
-        dataType : 'json',
-        cache: false
+        data:JSON.stringify(story),
+        type:'POST',
+        dataType:'json',
+        cache:false
 
     });
 
-    request.success(function(data){
-        if(data){
-            if(data.status === true ){
-                //TODO : change to notif
-                alert("Story saved");
-                KEENTOUR.currentStory = data.story;
-            }
-            else{
-                window.location = data.redirect || '/';
-            }
-
-        }
-        else{
-            console.log("Success but no data returned.Redirect to home page");
-            window.location = '/';
+    request.success(function (data) {
+        if (callback) {
+            callback(data);
         }
 
-
-
     });
 
-    request.error(function(data){
-        //TODO : change to notif or some other popular library
-        console.log("Error"+ data);
+    request.error(function (data) {
+        if (callback) {
+            callback(data);
+        }
     });
+
+
 };
 
 
-require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
+KEENTOUR.storySavedHandle = function(data) {
+    if (data) {
+        if (data.status === true) {
+            KEENTOUR.currentStory = data.story;
+        }
+        else {
+            window.location = data.redirect || '/';
+        }
+
+    }
+};
+
+require(["storage", "search", "geonames", "flickrWidget", "css!storyCSS"], function (storage, search, geonames, flickrWidget) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
@@ -215,7 +213,7 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
     $(document).ready(function (e) {
         $('#searchText').keypress(function (e) {
             /*
-                Handle enter
+             Handle enter
              */
             if (e.which == 13) {
                 KEENTOUR.flickrSearch();
@@ -223,13 +221,13 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
         });
 
         $('.storyPhotos').droppable({
-            activeClass: "ui-state-highlight",
+            activeClass:"ui-state-highlight",
             drop:function (event, ui) {
                 var elem = ui.draggable;
-                var photo  = $(elem).data('photo');
-                $(elem).find('.thumbnail').attr('src',photo.url_s).css({width:photo.width_s,height:photo.height_s});
-                $(elem).css({position:'static'} );
-                var storyItem = $('<div class="storyItem"  contenteditable="false"></div>').data('item',photo).appendTo(this);
+                var photo = $(elem).data('photo');
+                $(elem).find('.thumbnail').attr('src', photo.url_s).css({width:photo.width_s, height:photo.height_s});
+                $(elem).css({position:'static'});
+                var storyItem = $('<div class="storyItem"  contenteditable="false"></div>').data('item', photo).appendTo(this);
                 $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
                 $(storyItem).append(elem);
                 $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
@@ -237,18 +235,28 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
             }
         });
 
-         $('<div><button class="btn btn-primary" data-action="preview">Preview</button> <button class="btn btn-primary" data-action="save">Save</button> <button class="btn btn-primary" data-action="publish">Publish</button> </div>')
+        $('<div><button class="btn btn-primary" data-action="preview">Preview</button> <button class="btn btn-primary" data-action="save">Save</button> <button class="btn btn-primary" data-action="publish">Publish</button> </div>')
             .appendTo('.actionPanel')
             .on('click', '.btn', function () {
                 //TODO :refactor to smaller functions here
-                var action  = $(this).data('action');
-                if(action === "save"){
-                    KEENTOUR.saveStory();
-                    return;
+                var action = $(this).data('action');
+                if (action === "save") {
+                    KEENTOUR.saveStory(function (data) {
+                        KEENTOUR.storySavedHandle(data);
+                    });
+
                 }
-                if(action==="preview"){
-                   window.location = '/stories/preview/' + KEENTOUR.currentStory.url;
-                }
+                if (action === "preview") {
+                    KEENTOUR.saveStory(function (data) {
+                        KEENTOUR.storySavedHandle(data);
+                        if(data && data.story && data.story.url){
+                            window.location = '/stories/preview/' + data.story.url;
+                        }
+
+                    });
+
+               }
+
             });
 
 
@@ -256,21 +264,16 @@ require(["storage", "search", "geonames", "flickrWidget","css!storyCSS"], functi
 
         var story = {};
         /*
-          Load story data ,which can be provided from login or edit flow
-        */
-        if(!$.isEmptyObject(KEENTOUR.lastStory)){
+         Load story data ,which can be provided from login or edit flow
+         */
+        if (!$.isEmptyObject(KEENTOUR.lastStory)) {
             //TODO  : change to notification
             alert("story saved!");
-            story = KEENTOUR.currentStory =  KEENTOUR.lastStory;
+            story = KEENTOUR.currentStory = KEENTOUR.lastStory;
 
         }
 
         KEENTOUR.renderStory(story);
-
-
-
-
-
 
 
     });
