@@ -100,7 +100,7 @@ require.config({
         },
 
         "popover":{
-            deps:["jquery"]
+            deps:["jquery","tooltip"]
         }
 
     }
@@ -145,8 +145,7 @@ KEENTOUR.flickrSearch = function () {
     });
 };
 
-KEENTOUR.saveStory = function (callback) {
-
+KEENTOUR.getStory = function () {
     var story = {
         title:$('#txtTitle').val(),
         description:$('#txtDescription').val(),
@@ -161,7 +160,11 @@ KEENTOUR.saveStory = function (callback) {
 
 
     story = $.extend({}, KEENTOUR.currentStory, story);
+    return story;
+}
+KEENTOUR.saveStory = function (currentStory, callback) {
 
+    var story = currentStory || KEENTOUR.getStory();
     //TODO  : validation before send to sever
     //TODO : check if I can use facebook authentication here already
     var request = $.ajax('/story/save', {
@@ -192,7 +195,7 @@ KEENTOUR.saveStory = function (callback) {
 };
 
 
-KEENTOUR.storySavedHandle = function(data) {
+KEENTOUR.storySavedHandle = function (data) {
     if (data) {
         if (data.status === true) {
             KEENTOUR.currentStory = data.story;
@@ -225,12 +228,12 @@ require(["storage", "search", "geonames", "flickrWidget", "css!storyCSS"], funct
             drop:function (event, ui) {
                 var elem = ui.draggable;
                 var photo = $(elem).data('photo');
-                $(elem).find('.thumbnail').attr('src', photo.url_s).css({width:photo.width_s, height:photo.height_s});
+                $(elem).find('.thumbnail').attr('src', photo.url_m).css({width:photo.width_m, height:photo.height_m});
                 $(elem).css({position:'static'});
                 var storyItem = $('<div class="storyItem"  contenteditable="false"></div>').data('item', photo).appendTo(this);
-                $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
+//                $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
                 $(storyItem).append(elem);
-                $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
+//                $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
 
             }
         });
@@ -240,22 +243,49 @@ require(["storage", "search", "geonames", "flickrWidget", "css!storyCSS"], funct
             .on('click', '.btn', function () {
                 //TODO :refactor to smaller functions here
                 var action = $(this).data('action');
+                /*
+                    Save story
+                */
                 if (action === "save") {
-                    KEENTOUR.saveStory(function (data) {
+                    KEENTOUR.saveStory(null,function (data) {
                         KEENTOUR.storySavedHandle(data);
                     });
 
                 }
+
+                /*
+                    Preview story
+                */
                 if (action === "preview") {
-                    KEENTOUR.saveStory(function (data) {
+                    KEENTOUR.saveStory(null,function (data) {
                         KEENTOUR.storySavedHandle(data);
-                        if(data && data.story && data.story.url){
+                        if (data && data.story && data.story.url) {
                             window.location = '/stories/preview/' + data.story.url;
                         }
 
                     });
 
-               }
+                }
+
+                /*
+                 Publish story
+                */
+                if (action === "publish") {
+
+                    var story = KEENTOUR.getStory();
+                    story.publishedVersion = KEENTOUR.getStory();
+                    story.isPublished = true;
+                    KEENTOUR.saveStory(story, function (data) {
+                        KEENTOUR.storySavedHandle(data);
+                        if (data && data.status === true) {
+                            //TODO : add notification here
+                            alert("Story published");
+                            ///window.location = '/stories/preview/' + data.story.url;
+                        }
+
+                    });
+
+                }
 
             });
 
