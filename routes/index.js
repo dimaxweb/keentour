@@ -1,11 +1,13 @@
 var http = require("http");
 var MongoClient = require('mongodb').MongoClient
     , Server = require('mongodb').Server
-    , _ = require('underscore');
+    , _ = require('underscore')
+    //, CONFIG = require('config')
 
 
-
-
+/*
+    TODO  : Move to some utilities class
+*/
 
 getJSON = function (options, onResult) {
 
@@ -32,33 +34,23 @@ getJSON = function (options, onResult) {
     req.end();
 };
 
-/*
- Sanitize string to be used in url
- */
 sanitizeString = function(str) {
     return str.replace(/[^a-z0-9]/gi, '-').toLowerCase();
 }
 
-
 saveStory = function(story,req,callback) {
-   var mongoClient = new MongoClient(new Server('localhost', 27017));
+    //TODO   :  check error  "err" === null
     var storyUrl =  sanitizeString(req.session.passport.user.profile.displayName) + "/" + sanitizeString(story.title);
     story.url = storyUrl;
-    /*
-        save story to database
-    */
-    mongoClient.open(function (err, mongoClient) {
-        var keentour = mongoClient.db("keentour_new");
-        /*
-             first try to find story
-        */
-        keentour.collection("story").findOne({_id:story._id},function(err,results){
+    MongoClient.connect("mongodb://localhost:27017/keentour_new",function(err,db){
+        console.log(err!==null);
+        db.collection("story").findOne({_id:story._id},function(err,results){
             console.log("The result is:",results);
             if(results){
                 console.log("Story found",results);
                 _.extend(results,story);
-                keentour.collection("story").update(results,{_id:story._id},function (err, results) {
-                    mongoClient.close();
+                db.collection("story").update(results,{_id:story._id},function (err, results) {
+
                     if(callback){
                         callback({"status":true,story:story});
                     }
@@ -68,8 +60,8 @@ saveStory = function(story,req,callback) {
             }
             else{
                 console.log("Insert new story",story);
-                keentour.collection("story").insert(story, function (err, results) {
-                    mongoClient.close();
+                db.collection("story").insert(story, function (err, results) {
+
                     if(callback){
                         callback({"status":true,story:story});
                     }
@@ -80,10 +72,10 @@ saveStory = function(story,req,callback) {
 
 
         });
-
-
-
     });
+
+
+
 }
 
 
@@ -126,7 +118,6 @@ exports.content = function (req, res) {
     res.render('content', { title:title,breadCrumb:breadCrumbArray})
 };
 
-
 exports.aboutUs = function (req, res) {
     res.render('aboutUs', { title:' About wwww.keentour.com' });
 };
@@ -138,11 +129,6 @@ exports.login = function (req, res) {
 exports.privacy = function (req, res) {
     res.render('privacy', { title:'Keen Tour Privacy Policy' });
 };
-
-
-/* Stories functionality
-
-*/
 
 exports.storyEdit=function(req,res){
   if(req.isAuthenticated()){
@@ -188,9 +174,6 @@ exports.story = function(req,res){
     res.render('story',{story:story});
 }
 
-
-//TODO  : create some wrapper reuse connection
-//TODO  : try / catch
 exports.storySave = function (req, res) {
     var story  =  req.body;
     console.log(req.session.passport);
@@ -232,40 +215,4 @@ exports.storyPreview = function(req,res){
 
 
 
-//TODO  : check how to make simple proxy
-//exports.SearchGeoNames = function (req, res) {
-//    try {
-//        //The url we want is: 'www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
-//        var options = {
-//            host:'ws.geonames.org',
-//            path:'/searchJSON?' + req.path + '&username=dmitrym'
-//        };
-//
-//        console.log(options.path);
-//        callback = function (response) {
-//            try {
-//                var str = '';
-//                //another chunk of data has been recieved, so append it to `str`
-//                response.on('data', function (chunk) {
-//                    str += chunk;
-//                });
-//
-//                //the whole response has been recieved, so we just print it out here
-//                response.on('end', function () {
-//                    res.write(str);
-//                });
-//            }
-//            catch (e) {
-//                console.log(e);
-//            }
-//
-//        }
-//
-//        http.request(options, callback).end();
-//    }
-//    catch (e) {
-//        console.log(e);
-//    }
-//
-//
-//};
+

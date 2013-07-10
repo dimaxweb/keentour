@@ -1,3 +1,4 @@
+//TODO  : wrap as  jQueryUI widget
 define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget","youtubeWidget"], function($) {
     var contentWidget =  {};
     contentWidget.parts = [];
@@ -89,7 +90,10 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
             window.contentData.flickrText = 'Austria travel';
             window.contentData.youTubeQuery = 'Austria,travel';
         }
+
+
         var widget = this.getCurrentWidget();
+
         var widgetKey  = this.getWidgetKey();
         if (widget) {
             //hide previously displayed
