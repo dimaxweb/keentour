@@ -3,6 +3,7 @@ var MongoClient = require('mongodb').MongoClient
     , Server = require('mongodb').Server
     , _ = require('underscore')
     , CONFIG = require('config')
+    , MongoWrapper = require('mongo-wrapper')
 
 
 /*
@@ -39,42 +40,9 @@ sanitizeString = function(str) {
 }
 
 saveStory = function(story,req,callback) {
-    //TODO   :  check error  "err" === null and write to log
     var storyUrl =  sanitizeString(req.session.passport.user.profile.displayName) + "/" + sanitizeString(story.title);
     story.url = storyUrl;
-    MongoClient.connect(CONFIG.mongo.connectionString,function(err,db){
-        console.log(err!==null);
-        db.collection("story").findOne({_id:story._id},function(err,results){
-            console.log("The result is:",results);
-            if(results){
-                console.log("Story found",results);
-                _.extend(results,story);
-                db.collection("story").update(results,{_id:story._id},function (err, results) {
-
-                    if(callback){
-                        callback({"status":true,story:story});
-                    }
-
-
-                });
-            }
-            else{
-                console.log("Insert new story",story);
-                db.collection("story").insert(story, function (err, results) {
-
-                    if(callback){
-                        callback({"status":true,story:story});
-                    }
-
-
-                });
-            }
-
-
-        });
-    });
-
-
+    MongoWrapper.saveStory(story,callback);
 
 }
 
