@@ -199,6 +199,7 @@ KEENTOUR.storySavedHandle = function (data) {
     if (data) {
         if (data.status === true) {
             KEENTOUR.currentStory = data.story;
+            alert("Story saved...");
         }
         else {
             window.location = data.redirect || '/';

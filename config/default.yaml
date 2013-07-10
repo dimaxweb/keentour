@@ -1,5 +1,5 @@
 mongo:
-  connectionString   : 'mongodb://localhost:30000/keentour_new'
+  connectionString   : 'mongodb://localhost:27017/keentour_new'
 logging:
     File :
       filename: "keentour.log"

@@ -2,7 +2,7 @@ var http = require("http");
 var MongoClient = require('mongodb').MongoClient
     , Server = require('mongodb').Server
     , _ = require('underscore')
-    //, CONFIG = require('config')
+    , CONFIG = require('config')
 
 
 /*
@@ -39,10 +39,10 @@ sanitizeString = function(str) {
 }
 
 saveStory = function(story,req,callback) {
-    //TODO   :  check error  "err" === null
+    //TODO   :  check error  "err" === null and write to log
     var storyUrl =  sanitizeString(req.session.passport.user.profile.displayName) + "/" + sanitizeString(story.title);
     story.url = storyUrl;
-    MongoClient.connect("mongodb://localhost:27017/keentour_new",function(err,db){
+    MongoClient.connect(CONFIG.mongo.connectionString,function(err,db){
         console.log(err!==null);
         db.collection("story").findOne({_id:story._id},function(err,results){
             console.log("The result is:",results);
@@ -171,6 +171,7 @@ exports.story = function(req,res){
 
     }
 
+    console.log("Story is :",story);
     res.render('story',{story:story});
 }
 

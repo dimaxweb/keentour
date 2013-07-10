@@ -11,8 +11,10 @@ var express = require('express')
   ,passport = require('passport')
   ,FacebookStrategy = require('passport-facebook').Strategy
   ,MongoClient = require('mongodb').MongoClient
-  ,Server = require('mongodb').Server,
-  MongoStore = require('connect-mongo')(express);
+  ,Server = require('mongodb').Server
+   MongoStore = require('connect-mongo')(express),
+   CONFIG   =  require('config')
+
 
 passport.use(new FacebookStrategy({
         clientID: '253212218150408',
@@ -76,7 +78,8 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.cookieParser());
   //app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({db:'keentour-new',auto_reconnect: true})}));
-  app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({db:'keentour-new',auto_reconnect: true,stringify : true})}));
+//  app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({db:'keentour-new',auto_reconnect: true,stringify : true})}));
+  app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({url : CONFIG.mongo.connectionString,auto_reconnect: true,stringify : true})}));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.static(path.join(__dirname, 'public')));
