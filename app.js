@@ -9,9 +9,8 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   ,passport = require('passport')
-  ,FacebookStrategy = require('passport-facebook').Strategy
-  ,MongoClient = require('mongodb').MongoClient
-  ,Server = require('mongodb').Server
+  ,FacebookStrategy = require('passport-facebook').Strategy,
+   MongoWrapper = require('mongo-wrapper')
    MongoStore = require('connect-mongo')(express),
    CONFIG   =  require('config')
 
@@ -19,31 +18,11 @@ var express = require('express')
 passport.use(new FacebookStrategy({
         clientID: '253212218150408',
         clientSecret: '842075e6c9603dd8ba127cd5f288f5bd',
+        //TODO  : use host here instead of localhost
         callbackURL: "http://localhost:3000/auth/facebook/callback"
     },
     function(accessToken, refreshToken, profile, done) {
-        var mongoClient = new MongoClient(new Server('localhost', 27017));
-        mongoClient.open(function(err, mongoClient) {
-            var keentour = mongoClient.db("keentour_new");
-            keentour.collection("user").findOne({id:profile.id},function(err,results){
-                console.log("User found",results);
-                if(results){
-                    console.log("Update collection");
-                    keentour.collection("user").update({id:profile.id},profile,function(err,results){
-                        console.log("User data is updated");
-                    });
-                }
-                else{
-                    keentour.collection("user").save(profile,function(err,results){
-                        console.log("Save new user profile");
-                    });
-                }
-                mongoClient.close();
-
-            });
-
-        });
-
+        MongoWrapper.updateCreateUser(profile);
         done(null,{accessToken:accessToken,refreshToken:refreshToken,profile:profile});
     }
 ));

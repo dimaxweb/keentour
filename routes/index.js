@@ -1,9 +1,9 @@
 var http = require("http");
 var MongoClient = require('mongodb').MongoClient
-    , Server = require('mongodb').Server
-    , _ = require('underscore')
-    , CONFIG = require('config')
-    , MongoWrapper = require('mongo-wrapper')
+, Server = require('mongodb').Server
+, _ = require('underscore')
+, CONFIG = require('config')
+, MongoWrapper = require('mongo-wrapper')
 
 
 /*
@@ -53,22 +53,13 @@ exports.index = function (req, res) {
     console.log("Home page if request authnticated",req.isAuthenticated());
     console.log("Request passport",req.session.passport);
     if(req.session && req.session.passport && req.session.passport.user){
-        var mongoClient = new MongoClient(new Server('localhost', 27017));
-        mongoClient.open(function(err, mongoClient) {
-            var keentour = mongoClient.db("keentour_new");
-            console.log("Passport session is ",req.session.passport);
-            keentour.collection("user").findOne({id:req.session.passport.user.profile.id},function(err,results){
-                console.log("User in index is : ",results);
-                res.render('index', { title:' KeenTour - explore the beauty of the world!',user :results || {} });
-
-            });
-
-
-
-        });
+        var userCallback = function(userData){
+            res.render('index', { title:' KeenTour - explore the beauty of the world!',user : userData || {} });
+        }
+        MongoWrapper.getUser(req.session.passport.user.profile.id,userCallback);
     }
     else{
-        res.render('index', { title:' KeenTour - explore the beauty of the world!',user :{} });
+        res.render('index', { title:' KeenTour - explore the beauty of the world!',user : {} });
     }
 
 };
@@ -104,17 +95,12 @@ exports.storyEdit=function(req,res){
     var user = req.params.user;
     var title = req.params.title;
     var url = user + "/"  + title;
-    var mongoClient = new MongoClient(new Server('localhost', 27017));
-    mongoClient.open(function(err, mongoClient) {
-          var keentour = mongoClient.db("keentour_new");
-          keentour.collection("story").findOne({url:url},function(err,results){
-              //TODO : check for errors
-              console.log("Story is:",results);
-              res.render('story', {title : "Edit story :" + results.title,story : results});
+    var storyCallback = function(results){
+        res.render('story', {title : "Edit story :" + results.title,story : results});
+    }
 
-          });
+    MongoWrapper.getStoryByUrl(url,storyCallback);
 
-      });
   }
   else{
       res.redirect("/login");
@@ -165,17 +151,11 @@ exports.storyPreview = function(req,res){
         var username =   req.params.username;
         var title = req.params.title;
         var url  = username  + "/" + title;
-        var mongoClient = new MongoClient(new Server('localhost', 27017));
-        mongoClient.open(function(err, mongoClient) {
-            var keentour = mongoClient.db("keentour_new");
-            keentour.collection("story").findOne({url:url},function(err,results){
-                //TODO : check for errors
-                console.log("Story is:",results);
-                res.render('storyView', {title : "Preview :" + results.title,story : results});
+        var storyCallback = function(results){
+            res.render('story', {title : "Preview story :" + results.title,story : results});
+        }
 
-            });
-
-       });
+        MongoWrapper.getStoryByUrl(url,storyCallback);
     }
     else{
         res.redirect('/login');
