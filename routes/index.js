@@ -42,6 +42,7 @@ sanitizeString = function(str) {
 saveStory = function(story,req,callback) {
     var storyUrl =  sanitizeString(req.session.passport.user.profile.displayName) + "/" + sanitizeString(story.title);
     story.url = storyUrl;
+    story.userName =   sanitizeString(req.session.passport.user.profile.displayName);
     MongoWrapper.saveStory(story,callback);
 
 }
