@@ -10,7 +10,8 @@ var express = require('express')
   , path = require('path')
   ,passport = require('passport')
   ,FacebookStrategy = require('passport-facebook').Strategy,
-   MongoWrapper = require('mongo-wrapper')
+   MongoWrapper = require('./logic/mongo-wrapper')
+   //TODO  : recheck that session is stored in db
    MongoStore = require('connect-mongo')(express),
    CONFIG   =  require('config')
 

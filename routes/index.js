@@ -1,9 +1,7 @@
-var http = require("http");
-var MongoClient = require('mongodb').MongoClient
-, Server = require('mongodb').Server
+var http = require("http")
 , _ = require('underscore')
 , CONFIG = require('config')
-, MongoWrapper = require('mongo-wrapper')
+, MongoWrapper = require('../logic/mongo-wrapper')
 
 
 /*
