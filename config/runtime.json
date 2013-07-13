@@ -1,7 +1,3 @@
 {
-  "logging": {
-    "File": {
-      "filename": "c:\\inetpub\\wwwroot\\keentour\\public\\logs\\keentour.log"
-    }
-  }
+
 }

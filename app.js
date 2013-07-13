@@ -60,7 +60,10 @@ app.configure(function(){
   app.use(express.cookieParser());
   //app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({db:'keentour-new',auto_reconnect: true})}));
 //  app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({db:'keentour-new',auto_reconnect: true,stringify : true})}));
-  app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({url : CONFIG.mongo.connectionString,auto_reconnect: true,stringify : true})}));
+    app.use(express.session({
+        secret:'sedhhh66h6hwww',
+        store:new  MongoStore({url:CONFIG.mongo.connectionString, auto_reconnect:true, stringify:true})
+        }));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.static(path.join(__dirname, 'public')));

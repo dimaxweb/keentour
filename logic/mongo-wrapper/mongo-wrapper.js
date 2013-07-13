@@ -11,13 +11,15 @@ var MongoWrapper = module.exports = {
         console.log("Here");
         MongoClient.connect(MongoWrapper.connectionString,function(err,db){
            if(err!==null){
-              //TODO  : log hear
+               logger.log("error","Error connecting to database.Error:",err);
+               return;
+
            }
            try{
                 func(err,db);
            }
             catch(e){
-                //TODO  : log here
+                logger.log("error","Error occured wehn executing function"+ func.toString() + ".Error:",e);
             }
 
         });
