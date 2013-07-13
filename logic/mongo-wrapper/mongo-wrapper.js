@@ -1,13 +1,14 @@
 var MongoClient = require('mongodb').MongoClient,
     CONFIG = require('config'),
-    winston  = require('winston'),
-    _  = require('underscore')
+     _  = require('underscore'),
+    logger  = require('../logging/logger')
 
 var MongoWrapper = module.exports = {
     connectionString : CONFIG.mongo.connectionString,
 
     executeQuery : function(func){
-        console.log("Excuting function:"  + func.toString());
+        logger.log("info","Going to execute function",func.toString());
+        console.log("Here");
         MongoClient.connect(MongoWrapper.connectionString,function(err,db){
            if(err!==null){
               //TODO  : log hear

@@ -3,6 +3,7 @@
  * Module dependencies.
  */
 
+//TODO  : add favicon
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
@@ -13,14 +14,14 @@ var express = require('express')
    MongoWrapper = require('./logic/mongo-wrapper')
    //TODO  : recheck that session is stored in db
    MongoStore = require('connect-mongo')(express),
-   CONFIG   =  require('config')
+   CONFIG   =  require('config'),
+   Logger = require('./logic/logging/logger')
 
 
 passport.use(new FacebookStrategy({
         clientID: '253212218150408',
         clientSecret: '842075e6c9603dd8ba127cd5f288f5bd',
-        //TODO  : use host here instead of localhost
-        callbackURL: "http://localhost:3000/auth/facebook/callback"
+        callbackURL: "http://www.keentour.com/auth/facebook/callback"
     },
     function(accessToken, refreshToken, profile, done) {
         MongoWrapper.updateCreateUser(profile);
@@ -51,7 +52,7 @@ passport.deserializeUser(function(userData, done) {
 var app = express();
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || 80);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.set('view options', { layout: false });
@@ -148,5 +149,6 @@ app.get('/auth/facebook/callback',
         }));
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+    Logger.log('info',"Starting application");
+    console.log("Express server listening on port " + app.get('port'));
 });

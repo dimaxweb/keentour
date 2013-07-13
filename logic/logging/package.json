@@ -1,0 +1,5 @@
+{
+    "name" : "logger",
+    "main"  : "logger.js"
+
+}

@@ -1,12 +1,15 @@
 mongo:
   connectionString   : 'mongodb://localhost:27017/keentour_new'
+
+host : 'http://localhost:3000'
+
 logging:
     File :
-      filename: "keentour.log"
+      filename: "public/logs/keentour.log"
       maxsize: 10485760,
       max_files: 3
       json: true
-      level : error
+      level : info
     Console:
       level : info
 

@@ -2,6 +2,7 @@ var http = require("http")
 , _ = require('underscore')
 , CONFIG = require('config')
 , MongoWrapper = require('../logic/mongo-wrapper')
+, Logger = require('../logic/logging')
 
 
 /*
@@ -47,7 +48,7 @@ saveStory = function(story,req,callback) {
 
 
 exports.index = function (req, res) {
-
+    Logger.log('info',"Accessing homepage");
     console.log("Home page if request authnticated",req.isAuthenticated());
     console.log("Request passport",req.session.passport);
     if(req.session && req.session.passport && req.session.passport.user){
@@ -63,6 +64,7 @@ exports.index = function (req, res) {
 };
 
 exports.content = function (req, res) {
+    Logger.log('info',"Accessing content page");
     var title  = "Explore "  + req.params[0].replace('/',',') + '.Pictures and videos from travelers like you!!!';
     var arrPath  = req.params[0].split('/');
     //arrPath.splice(0,1);
@@ -111,6 +113,7 @@ exports.userProfile = function(req,res){
 }
 
 exports.story = function(req,res){
+    Logger.log("info","Request for new story");
     var story  = {};
     if(req.query.loadLast){
         story = req.session.submitedStory;
