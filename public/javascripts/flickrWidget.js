@@ -5,7 +5,8 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
             options:{
                 defaultImageThumb:'t',
                 itemsPerRow:4,
-                usePaging:false
+                usePaging:false,
+                itemCreated  :function(domItem,dataItem){}
 
             },
 
@@ -31,9 +32,6 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                 this.flickrLib = new FlickrLib(this.options);
                 var that = this;
                 var $element = this.element;
-                $($element).addClass('contTransperensy');
-
-
                 var imgLoading = $(this.element).find('#photoLoading').first();
                 if (imgLoading.length === 0) {
                     ///put image loading
@@ -319,7 +317,7 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                         data:_photos,
                         getItemContent:function (dataItem, cell, grid) {
                             if (dataItem) {
-                                var itemContainer = $('<div class="itemContainer"/>').appendTo(cell);
+                                var itemContainer = $('<div class="itemContainer" data-content="contentItem" />').appendTo(cell);
                                 var thumbUrl = 'url_' + that.options.defaultImageThumb;
                                 var aItem = $('<a class="photoItem" rel="photoItem"></a>')
                                     .attr('href', that.getBigImageUrl(dataItem))
@@ -362,6 +360,7 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                             //TODO  : move from here expose event instead
                             $(itemContainer).draggable({cursor:"move"});
                             $(itemContainer).data('photo', dataItem);
+                            that.options.itemCreated(itemContainer,dataItem);
 
                         },
 

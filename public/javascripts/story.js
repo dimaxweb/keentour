@@ -140,8 +140,11 @@ KEENTOUR.flickrSearch = function () {
         perPage:18,
         sort:'relevance',
         defaultImageThumb:'sq',
-        itemsPerRow:6,
-        usePaging:true
+        itemsPerRow:1,
+        usePaging:true,
+        itemCreated : function(domItem,dataItem){
+           var aAppend = $("<a>+</a>").data('photo',dataItem).appendTo(domItem);
+        }
     });
 };
 
@@ -232,9 +235,9 @@ require(["storage", "search", "geonames", "flickrWidget", "css!storyCSS"], funct
                 $(elem).find('.thumbnail').attr('src', photo.url_m).css({width:photo.width_m, height:photo.height_m});
                 $(elem).css({position:'static'});
                 var storyItem = $('<div class="storyItem"  contenteditable="false"></div>').data('item', photo).appendTo(this);
-//                $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
+               // $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
                 $(storyItem).append(elem);
-//                $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
+               // $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
 
             }
         });

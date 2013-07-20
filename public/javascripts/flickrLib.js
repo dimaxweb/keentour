@@ -11,7 +11,7 @@ function FlickrLib(options) {
         page:1,
         accuracy:12,
         //additional values can be : date_upload,date_taken,owner_name,icon_server,original_format,last_update,geo,machine_tags,o_dims,views, media,path_alias
-        photoInfo:'tags,url_sq,url_t,url_s,url_m,url_z,url_l,url_o,description',
+        photoInfo:'tags,url_sq,url_t,url_s,url_m,url_z,url_l,url_o,description,path_alias,owner_name,date_taken,date_upload',
         sort:'relevance',
         tagsMode:'all',
         tags:'London',
