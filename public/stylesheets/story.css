@@ -43,3 +43,15 @@
     right: 40%;
 
 }
+
+.addItem{
+    background-color:#0000ff;
+    color: #D3E7F0;
+}
+
+.storyItemContainer
+{
+    border: 1px solid #000000;
+    margin:3%;
+    padding-top:3%;
+}

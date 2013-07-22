@@ -357,8 +357,7 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
 
                             }
 
-                            //TODO  : move from here expose event instead
-                            $(itemContainer).draggable({cursor:"move"});
+
                             $(itemContainer).data('photo', dataItem);
                             that.options.itemCreated(itemContainer,dataItem);
 

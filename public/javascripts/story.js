@@ -130,6 +130,21 @@ KEENTOUR.renderStory = function (story) {
 
 };
 
+
+KEENTOUR.addStoryItem   = function(photo){
+       var storyContainer = $('.storyItems');
+       var item = $("<li><div class='storyItemContainer'><a class='storyPhoto'><img class='imgStory' src='" + photo.url_m  +"'/></a></div></li>").appendTo(storyContainer);
+       var storyItemContainer =  $(item).find('.storyItemContainer');
+       $(storyItemContainer).append("<div class='storyItemTitle'>" + photo.title + "</div>");
+       $("<div class='storyItemLinks'></div>").appendTo(storyItemContainer).append("<a href='http://www.flickr.com/photos/" + photo.owner  + "'>" + photo.ownername + "</a>");
+       if( photo.description &&  photo.description._content){
+           $(storyItemContainer).append("<div class='storyItemDescription'>" + photo.description._content + "</div>");
+       }
+
+
+    }
+
+
 KEENTOUR.flickrSearch = function () {
     //e.preventDefault();
     /*
@@ -143,7 +158,12 @@ KEENTOUR.flickrSearch = function () {
         itemsPerRow:1,
         usePaging:true,
         itemCreated : function(domItem,dataItem){
-           var aAppend = $("<a>+</a>").data('photo',dataItem).appendTo(domItem);
+           var aAppend = $("<a class='addItem'>+</a>").data('photo',dataItem).appendTo(domItem).on("click",function(e){
+               e.preventDefault();
+               var photo = $(this).data('photo');
+               KEENTOUR.addStoryItem(photo);
+
+           });
         }
     });
 };
@@ -211,7 +231,7 @@ KEENTOUR.storySavedHandle = function (data) {
     }
 };
 
-require(["storage", "search", "geonames", "flickrWidget", "css!storyCSS"], function (storage, search, geonames, flickrWidget) {
+require(["storage", "search", "geonames", "flickrWidget","jQueryUI","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
@@ -227,20 +247,20 @@ require(["storage", "search", "geonames", "flickrWidget", "css!storyCSS"], funct
             }
         });
 
-        $('.storyPhotos').droppable({
-            activeClass:"ui-state-highlight",
-            drop:function (event, ui) {
-                var elem = ui.draggable;
-                var photo = $(elem).data('photo');
-                $(elem).find('.thumbnail').attr('src', photo.url_m).css({width:photo.width_m, height:photo.height_m});
-                $(elem).css({position:'static'});
-                var storyItem = $('<div class="storyItem"  contenteditable="false"></div>').data('item', photo).appendTo(this);
-               // $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
-                $(storyItem).append(elem);
-               // $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
-
-            }
-        });
+//        $('.storyPhotos').droppable({
+//            activeClass:"ui-state-highlight",
+//            drop:function (event, ui) {
+//                var elem = ui.draggable;
+//                var photo = $(elem).data('photo');
+//                $(elem).find('.thumbnail').attr('src', photo.url_m).css({width:photo.width_m, height:photo.height_m});
+//                $(elem).css({position:'static'});
+//                var storyItem = $('<div class="storyItem"  contenteditable="false"></div>').data('item', photo).appendTo(this);
+//               // $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
+//                $(storyItem).append(elem);
+//               // $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
+//
+//            }
+//        });
 
         $('<div><button class="btn btn-primary" data-action="preview">Preview</button> <button class="btn btn-primary" data-action="save">Save</button> <button class="btn btn-primary" data-action="publish">Publish</button> </div>')
             .appendTo('.actionPanel')
@@ -308,6 +328,7 @@ require(["storage", "search", "geonames", "flickrWidget", "css!storyCSS"], funct
         }
 
         KEENTOUR.renderStory(story);
+        $('.storyItems').sortable();
 
 
     });
