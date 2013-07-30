@@ -115,6 +115,7 @@ if (typeof(KEENTOUR) === "undefined") {
     KEENTOUR = {};
 }
 
+
 KEENTOUR.renderStory = function (story) {
     if ($.isEmptyObject(story)) {
         console.log("No story in state");
@@ -133,13 +134,18 @@ KEENTOUR.renderStory = function (story) {
 
 KEENTOUR.addStoryItem   = function(photo){
        var storyContainer = $('.storyItems');
-       var item = $("<li><div class='storyItemContainer'><a class='storyPhoto'><img class='imgStory' src='" + photo.url_m  +"'/></a></div></li>").appendTo(storyContainer);
+       var item = $("<li class='storyItemLi'><div class='storyItemContainer'><a class='storyPhoto'><img class='imgStory' src='" + photo.url_m  +"'/></a></div></li>").appendTo(storyContainer);
+       $(item).data('item',photo);
        var storyItemContainer =  $(item).find('.storyItemContainer');
+        $("<div><a class='storyItemDelete pull-right'>x</a></div>").prependTo(item).on('click',function(e){
+            $(this).closest('li').remove();
+       });
        $(storyItemContainer).append("<div class='storyItemTitle'>" + photo.title + "</div>");
        $("<div class='storyItemLinks'></div>").appendTo(storyItemContainer).append("<a href='http://www.flickr.com/photos/" + photo.owner  + "'>" + photo.ownername + "</a>");
        if( photo.description &&  photo.description._content){
            $(storyItemContainer).append("<div class='storyItemDescription'>" + photo.description._content + "</div>");
        }
+
 
 
     }
@@ -175,7 +181,7 @@ KEENTOUR.getStory = function () {
         items:[]
     };
 
-    $('.storyItem', '.storyPhotos').each(function (i, item) {
+    $('.storyItemLi', '.storyItems').each(function (i, item) {
         var data = $(item).data('item');
         story.items.push(data);
 

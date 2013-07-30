@@ -1,0 +1,175 @@
+{"level":"info","message":"Starting application","timestamp":"2013-07-19T19:08:37.723Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-19T19:18:12.356Z"}
+{"level":"info","message":"Accessing content page","timestamp":"2013-07-19T19:18:21.606Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-19T19:28:20.812Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-19T19:29:05.178Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-19T19:29:46.467Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-19T19:31:58.050Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-19T19:31:58.199Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n\r\n            db.collection(\"user\").findOne({id:profile.id},function(err,results){\r\n                console.log(\"User found\",results);\r\n                if(results){\r\n                    console.log(\"Update user collection\");\r\n                    db.collection(\"user\").update({id:profile.id},profile,function(err,results){\r\n                        console.log(\"User data is updated\");\r\n                    });\r\n                }\r\n                else{\r\n                    db.collection(\"user\").save(profile,function(err,results){\r\n                        console.log(\"Save new user profile\");\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-19T19:35:27.724Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-19T19:35:27.898Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            db.collection(\"user\").findOne({id:userId},function(err,results){\r\n                console.log(\"User in index is : \",results);\r\n                callback(results);\r\n\r\n            });\r\n        }","timestamp":"2013-07-19T19:35:27.906Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-19T19:35:46.566Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            console.log(\"In function save story\");\r\n            db.collection(\"story\").findOne( { $or : [{_id:story._id},{title:story.title}] } ,function(err,results){\r\n            console.log(\"The result is:\",results);\r\n                if(results){\r\n                    console.log(\"Story found\",results);\r\n                    _.extend(results,story);\r\n                    db.collection(\"story\").update(results,{_id:story._id},function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n                else{\r\n                    console.log(\"Insert new story\",story);\r\n                    db.collection(\"story\").insert(story, function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-19T19:35:50.639Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T09:56:59.587Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T10:00:38.555Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n\r\n            db.collection(\"user\").findOne({id:profile.id},function(err,results){\r\n                console.log(\"User found\",results);\r\n                if(results){\r\n                    console.log(\"Update user collection\");\r\n                    db.collection(\"user\").update({id:profile.id},profile,function(err,results){\r\n                        console.log(\"User data is updated\");\r\n                    });\r\n                }\r\n                else{\r\n                    db.collection(\"user\").save(profile,function(err,results){\r\n                        console.log(\"Save new user profile\");\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-20T10:01:36.954Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T10:01:37.036Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            db.collection(\"user\").findOne({id:userId},function(err,results){\r\n                console.log(\"User in index is : \",results);\r\n                callback(results);\r\n\r\n            });\r\n        }","timestamp":"2013-07-20T10:01:37.042Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T10:01:44.072Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            console.log(\"In function save story\");\r\n            db.collection(\"story\").findOne( { $or : [{_id:story._id},{title:story.title}] } ,function(err,results){\r\n            console.log(\"The result is:\",results);\r\n                if(results){\r\n                    console.log(\"Story found\",results);\r\n                    _.extend(results,story);\r\n                    db.collection(\"story\").update(results,{_id:story._id},function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n                else{\r\n                    console.log(\"Insert new story\",story);\r\n                    db.collection(\"story\").insert(story, function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-20T10:01:55.125Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            console.log(\"In function save story\");\r\n            db.collection(\"story\").findOne( { $or : [{_id:story._id},{title:story.title}] } ,function(err,results){\r\n            console.log(\"The result is:\",results);\r\n                if(results){\r\n                    console.log(\"Story found\",results);\r\n                    _.extend(results,story);\r\n                    db.collection(\"story\").update(results,{_id:story._id},function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n                else{\r\n                    console.log(\"Insert new story\",story);\r\n                    db.collection(\"story\").insert(story, function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-20T10:01:59.880Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n          db.collection(\"story\").findOne({url:storyUrl},function(err,results){\r\n              //TODO : check for errors\r\n              console.log(\"Story is:\",results);\r\n              callback(results);\r\n\r\n          });\r\n      }","timestamp":"2013-07-20T10:02:01.256Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T10:33:38.391Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T10:34:28.279Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            db.collection(\"user\").findOne({id:userId},function(err,results){\r\n                console.log(\"User in index is : \",results);\r\n                callback(results);\r\n\r\n            });\r\n        }","timestamp":"2013-07-20T10:34:28.291Z"}
+{"level":"info","message":"Accessing content page","timestamp":"2013-07-20T10:34:31.053Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T10:35:31.679Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T10:36:14.419Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            db.collection(\"user\").findOne({id:userId},function(err,results){\r\n                console.log(\"User in index is : \",results);\r\n                callback(results);\r\n\r\n            });\r\n        }","timestamp":"2013-07-20T10:36:14.430Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T10:36:21.878Z"}
+{"level":"info","message":"Accessing content page","timestamp":"2013-07-20T10:36:33.483Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T10:36:44.388Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T10:37:26.610Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T10:37:38.069Z"}
+{"level":"info","message":"Accessing content page","timestamp":"2013-07-20T10:37:41.100Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T10:37:59.356Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T10:40:28.224Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T12:41:05.982Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T12:41:13.219Z"}
+{"level":"info","message":"Accessing content page","timestamp":"2013-07-20T12:41:23.979Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T12:41:32.274Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T12:49:53.966Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T12:50:08.200Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T12:50:08.488Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T12:51:46.871Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T12:51:48.711Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T12:52:45.316Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T18:00:20.897Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T18:00:27.145Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n\r\n            db.collection(\"user\").findOne({id:profile.id},function(err,results){\r\n                console.log(\"User found\",results);\r\n                if(results){\r\n                    console.log(\"Update user collection\");\r\n                    db.collection(\"user\").update({id:profile.id},profile,function(err,results){\r\n                        console.log(\"User data is updated\");\r\n                    });\r\n                }\r\n                else{\r\n                    db.collection(\"user\").save(profile,function(err,results){\r\n                        console.log(\"Save new user profile\");\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-20T18:01:13.653Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T18:01:13.734Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            db.collection(\"user\").findOne({id:userId},function(err,results){\r\n                console.log(\"User in index is : \",results);\r\n                callback(results);\r\n\r\n            });\r\n        }","timestamp":"2013-07-20T18:01:13.751Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T18:01:24.175Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            console.log(\"In function save story\");\r\n            db.collection(\"story\").findOne( { $or : [{_id:story._id},{title:story.title}] } ,function(err,results){\r\n            console.log(\"The result is:\",results);\r\n                if(results){\r\n                    console.log(\"Story found\",results);\r\n                    _.extend(results,story);\r\n                    db.collection(\"story\").update(results,{_id:story._id},function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n                else{\r\n                    console.log(\"Insert new story\",story);\r\n                    db.collection(\"story\").insert(story, function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-20T18:01:31.449Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T18:01:41.354Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T18:01:54.151Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n\r\n            db.collection(\"user\").findOne({id:profile.id},function(err,results){\r\n                console.log(\"User found\",results);\r\n                if(results){\r\n                    console.log(\"Update user collection\");\r\n                    db.collection(\"user\").update({id:profile.id},profile,function(err,results){\r\n                        console.log(\"User data is updated\");\r\n                    });\r\n                }\r\n                else{\r\n                    db.collection(\"user\").save(profile,function(err,results){\r\n                        console.log(\"Save new user profile\");\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-20T18:02:09.584Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T18:02:09.672Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            console.log(\"In function save story\");\r\n            db.collection(\"story\").findOne( { $or : [{_id:story._id},{title:story.title}] } ,function(err,results){\r\n            console.log(\"The result is:\",results);\r\n                if(results){\r\n                    console.log(\"Story found\",results);\r\n                    _.extend(results,story);\r\n                    db.collection(\"story\").update(results,{_id:story._id},function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n                else{\r\n                    console.log(\"Insert new story\",story);\r\n                    db.collection(\"story\").insert(story, function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-20T18:02:09.680Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T18:02:35.019Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            db.collection(\"user\").findOne({id:userId},function(err,results){\r\n                console.log(\"User in index is : \",results);\r\n                callback(results);\r\n\r\n            });\r\n        }","timestamp":"2013-07-20T18:02:35.031Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T18:29:47.158Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T18:29:49.443Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T18:32:19.896Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T18:35:18.312Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T18:37:48.595Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T18:38:07.920Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T18:47:03.375Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T18:47:48.821Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T19:00:10.307Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T19:00:11.559Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T19:00:24.860Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T19:00:25.582Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T19:05:29.428Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T19:05:31.835Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T19:05:40.130Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T19:06:00.243Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T19:06:02.127Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T19:21:23.446Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-20T19:22:08.700Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T19:22:23.821Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-20T19:23:00.913Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-20T19:23:19.598Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-21T17:59:07.474Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-21T18:40:45.961Z"}
+{"level":"info","message":"Accessing content page","timestamp":"2013-07-21T18:40:56.407Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-21T18:49:30.529Z"}
+{"level":"info","message":"Accessing content page","timestamp":"2013-07-21T21:10:25.947Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T13:57:47.063Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T13:59:00.323Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-22T14:03:11.844Z"}
+{"level":"info","message":"Accessing content page","timestamp":"2013-07-22T14:03:24.736Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:07:39.529Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-22T14:13:07.568Z"}
+{"level":"info","message":"Accessing content page","timestamp":"2013-07-22T14:14:13.766Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:17:34.961Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:19:22.510Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:21:02.522Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:21:03.846Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:30:07.817Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:39:29.247Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:39:34.326Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:40:18.705Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:40:22.337Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:40:40.110Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:41:38.721Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-22T14:41:40.062Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:41:56.892Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:43:50.652Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:44:50.713Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:44:53.922Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:45:28.269Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:45:31.269Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:46:20.441Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:46:21.373Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:49:47.149Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T14:50:58.765Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:51:05.085Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:52:43.030Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:53:56.553Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T14:58:08.248Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T15:01:26.159Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T15:02:29.348Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T15:02:47.952Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n\r\n            db.collection(\"user\").findOne({id:profile.id},function(err,results){\r\n                console.log(\"User found\",results);\r\n                if(results){\r\n                    console.log(\"Update user collection\");\r\n                    db.collection(\"user\").update({id:profile.id},profile,function(err,results){\r\n                        console.log(\"User data is updated\");\r\n                    });\r\n                }\r\n                else{\r\n                    db.collection(\"user\").save(profile,function(err,results){\r\n                        console.log(\"Save new user profile\");\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-22T15:08:59.639Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-22T15:08:59.818Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            db.collection(\"user\").findOne({id:userId},function(err,results){\r\n                console.log(\"User in index is : \",results);\r\n                callback(results);\r\n\r\n            });\r\n        }","timestamp":"2013-07-22T15:08:59.820Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T15:25:30.265Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-22T15:42:45.478Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T16:06:37.789Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-22T16:06:42.301Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            db.collection(\"user\").findOne({id:userId},function(err,results){\r\n                console.log(\"User in index is : \",results);\r\n                callback(results);\r\n\r\n            });\r\n        }","timestamp":"2013-07-22T16:06:42.320Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T16:06:56.083Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T16:07:57.466Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T16:08:02.487Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T16:08:57.507Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T16:08:58.381Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T16:09:30.114Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T16:09:31.807Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-22T16:11:05.899Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-22T16:11:19.296Z"}
+{"level":"info","message":"Accessing content page","timestamp":"2013-07-22T16:11:28.230Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T16:11:42.751Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T16:13:48.341Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T16:14:15.509Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T16:15:01.241Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T16:15:16.714Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T16:15:28.400Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n\r\n            db.collection(\"user\").findOne({id:profile.id},function(err,results){\r\n                console.log(\"User found\",results);\r\n                if(results){\r\n                    console.log(\"Update user collection\");\r\n                    db.collection(\"user\").update({id:profile.id},profile,function(err,results){\r\n                        console.log(\"User data is updated\");\r\n                    });\r\n                }\r\n                else{\r\n                    db.collection(\"user\").save(profile,function(err,results){\r\n                        console.log(\"Save new user profile\");\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-22T18:02:01.553Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-22T18:02:01.679Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            db.collection(\"user\").findOne({id:userId},function(err,results){\r\n                console.log(\"User in index is : \",results);\r\n                callback(results);\r\n\r\n            });\r\n        }","timestamp":"2013-07-22T18:02:01.685Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-22T18:02:14.643Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            console.log(\"In function save story\");\r\n            db.collection(\"story\").findOne( { $or : [{_id:story._id},{title:story.title}] } ,function(err,results){\r\n            console.log(\"The result is:\",results);\r\n                if(results){\r\n                    console.log(\"Story found\",results);\r\n                    _.extend(results,story);\r\n                    db.collection(\"story\").update(results,{_id:story._id},function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n                else{\r\n                    console.log(\"Insert new story\",story);\r\n                    db.collection(\"story\").insert(story, function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-22T18:02:42.326Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-25T17:58:37.689Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-25T17:58:38.064Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-25T17:59:29.742Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-25T17:59:32.477Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-25T18:03:39.498Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-25T18:03:39.787Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-25T18:05:24.000Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-25T18:05:53.754Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n\r\n            db.collection(\"user\").findOne({id:profile.id},function(err,results){\r\n                console.log(\"User found\",results);\r\n                if(results){\r\n                    console.log(\"Update user collection\");\r\n                    db.collection(\"user\").update({id:profile.id},profile,function(err,results){\r\n                        console.log(\"User data is updated\");\r\n                    });\r\n                }\r\n                else{\r\n                    db.collection(\"user\").save(profile,function(err,results){\r\n                        console.log(\"Save new user profile\");\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-25T18:06:58.358Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-25T18:06:58.568Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            db.collection(\"user\").findOne({id:userId},function(err,results){\r\n                console.log(\"User in index is : \",results);\r\n                callback(results);\r\n\r\n            });\r\n        }","timestamp":"2013-07-25T18:06:58.573Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-25T18:10:11.469Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            console.log(\"In function save story\");\r\n            db.collection(\"story\").findOne( { $or : [{_id:story._id},{title:story.title}] } ,function(err,results){\r\n            console.log(\"The result is:\",results);\r\n                if(results){\r\n                    console.log(\"Story found\",results);\r\n                    _.extend(results,story);\r\n                    db.collection(\"story\").update(results,{_id:story._id},function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n                else{\r\n                    console.log(\"Insert new story\",story);\r\n                    db.collection(\"story\").insert(story, function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-25T18:11:46.200Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-07-25T18:15:21.846Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-25T18:15:36.642Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            db.collection(\"user\").findOne({id:userId},function(err,results){\r\n                console.log(\"User in index is : \",results);\r\n                callback(results);\r\n\r\n            });\r\n        }","timestamp":"2013-07-25T18:15:36.643Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-25T18:21:09.197Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n\r\n            db.collection(\"user\").findOne({id:profile.id},function(err,results){\r\n                console.log(\"User found\",results);\r\n                if(results){\r\n                    console.log(\"Update user collection\");\r\n                    db.collection(\"user\").update({id:profile.id},profile,function(err,results){\r\n                        console.log(\"User data is updated\");\r\n                    });\r\n                }\r\n                else{\r\n                    db.collection(\"user\").save(profile,function(err,results){\r\n                        console.log(\"Save new user profile\");\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-25T18:21:27.321Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-07-25T18:21:27.371Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            db.collection(\"user\").findOne({id:userId},function(err,results){\r\n                console.log(\"User in index is : \",results);\r\n                callback(results);\r\n\r\n            });\r\n        }","timestamp":"2013-07-25T18:21:27.372Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-07-25T18:21:42.124Z"}
+{"level":"info","message":"Going to execute function function (err,db){\r\n            console.log(\"In function save story\");\r\n            db.collection(\"story\").findOne( { $or : [{_id:story._id},{title:story.title}] } ,function(err,results){\r\n            console.log(\"The result is:\",results);\r\n                if(results){\r\n                    console.log(\"Story found\",results);\r\n                    _.extend(results,story);\r\n                    db.collection(\"story\").update(results,{_id:story._id},function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n                else{\r\n                    console.log(\"Insert new story\",story);\r\n                    db.collection(\"story\").insert(story, function (err, results) {\r\n\r\n                        if(callback){\r\n                            callback({\"status\":true,story:story});\r\n                        }\r\n\r\n\r\n                    });\r\n                }\r\n\r\n\r\n            });\r\n        }","timestamp":"2013-07-25T18:22:07.612Z"}
