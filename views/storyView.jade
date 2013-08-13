@@ -4,3 +4,9 @@ block content
    .title  #{story.title}
    .description  #{story.description}
 
+    script
+        var story = !{JSON.stringify(story)};
+        if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
+        KEENTOUR.story = story;
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+       <script>
+           var vdata = new Object();
+           vdata._id = 'vUserName';
+           vdata.email = 'vUserName';
+           vdata.password = 'vUserName';
+           vdata.dateOfBirth = 'vUserName';
+           vdata.location = 'vUserName';
+           vdata.bio = 'vUserName';
+           vdata.favBrand = 'vUserName';
+           vdata.registrationDate = 'vUserName';
+           vdata.bio = 'vUserName';
+           vdata.active = 'vUserName';
+           vdata.fishdagAgeement = 'vUserName';
+
+           $.ajax({
+               url:"/testUpload/users/signUp?userName=" + vUserName + "&uniqueDeviceId=" + device.uuid + "",
+               data: {'json':vdata},
+               contentType:'multipart/form-data',
+               //contentType:'application/json',
+               cache: false,
+               type:'POST',
+               dataType: "json",
+               success: function (data)
+               {
+                   alert("success");
+                   console.log(data);
+                   //$(".loading").hide();
+               },
+               error: function (ts)
+               {
+//                   alert("notGood")
+//                   alert(ts.responseText);
+//                   allError(ts.responseText)
+//                   $(".loading").hide();
+                   console.log(ts);
+               }
+           });
+       </script>
+</body>
+</html>

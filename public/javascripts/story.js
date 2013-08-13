@@ -177,7 +177,7 @@ KEENTOUR.getStory = function () {
         title:$('#txtTitle').val(),
         description:$('#txtDescription').val(),
         items:[],
-        htmlContent  : $('.story').html()
+        innerHtml  : $('.storyItems').html()
     };
 
     $('.storyItemLi', '.storyItems').each(function (i, item) {
@@ -201,7 +201,7 @@ KEENTOUR.saveStory = function (currentStory, callback) {
 
     */
     if(story.items.length == 0){
-        //TODO  : add hint to widgets may be
+        //TODO  : add tooltip hint to widgets may be
         alert("Please add some content to story");
         return;
     }
@@ -211,6 +211,9 @@ KEENTOUR.saveStory = function (currentStory, callback) {
         return;
     }
 
+    /*
+        Request to save the idea
+    */
     var request = $.ajax('/story/save', {
             headers:{
                 'Content-type':'application/json'
@@ -305,7 +308,7 @@ require(["storage", "search", "geonames", "flickrWidget","jQueryUI","css!storyCS
                     KEENTOUR.saveStory(null,function (data) {
                         KEENTOUR.storySavedHandle(data);
                         if (data && data.story && data.story.url) {
-                            window.location = '/stories/preview/' + data.story.url;
+                            window.location = '/storyView/' + data.story.url;
                         }
 
                     });
@@ -335,6 +338,7 @@ require(["storage", "search", "geonames", "flickrWidget","jQueryUI","css!storyCS
             });
 
 
+        //TODO  :load from localStorage
         KEENTOUR.flickrSearch();
 
         var story = {};
@@ -345,6 +349,7 @@ require(["storage", "search", "geonames", "flickrWidget","jQueryUI","css!storyCS
             //TODO  : change to notification
             alert("story saved!");
             story = KEENTOUR.currentStory = KEENTOUR.lastStory;
+            $('.storyHtml').html(story.innerHtml);
 
         }
 

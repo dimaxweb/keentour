@@ -132,6 +132,24 @@ exports.story = function(req,res){
     res.render('story',{story:story});
 }
 
+
+exports.storyView  = function(req,res){
+    if(req.isAuthenticated()){
+        var username =   req.params.username;
+        var title = req.params.title;
+        var url  = username  + "/" + title;
+        var storyCallback = function(results){
+            res.render('storyView', {title : results.title,story : results});
+        }
+
+        MongoWrapper.renderStory(url,storyCallback);
+    }
+    else{
+        res.redirect('/login');
+    }
+
+}
+
 exports.storySave = function (req, res) {
     var story  =  req.body;
     console.log(req.session.passport);
@@ -148,22 +166,7 @@ exports.storySave = function (req, res) {
 
 }
 
-exports.storyPreview = function(req,res){
-    if(req.isAuthenticated()){
-        var username =   req.params.username;
-        var title = req.params.title;
-        var url  = username  + "/" + title;
-        var storyCallback = function(results){
-            res.render('story', {title : "Preview story :" + results.title,story : results});
-        }
 
-        MongoWrapper.renderStory(url,storyCallback);
-    }
-    else{
-        res.redirect('/login');
-    }
-
-};
 
 
 

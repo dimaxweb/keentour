@@ -104,6 +104,7 @@ app.post('/story/save',routes.storySave);
 app.post('/story/edit/:user/:title',routes.storyEdit);
 app.post('/profile/:user',routes.userProfile);
 app.get('/story',routes.story);
+app.get('/storyView/:username/:title',routes.storyView);
 app.get('/stories/preview/:username/:title',routes.storyPreview);
 app.get('/', routes.index);
 app.get('/login',routes.login);
@@ -139,6 +140,7 @@ app.get('/redirector',function(req,res){
     res.redirect(url);
 
 });
+
 
 // Facebook will redirect the user to this URL after approval.  Finish the
 // authentication process by attempting to obtain an access token.  If
