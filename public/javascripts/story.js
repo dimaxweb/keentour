@@ -131,7 +131,6 @@ KEENTOUR.renderStory = function (story) {
 
 };
 
-
 KEENTOUR.addStoryItem   = function(photo){
        var storyContainer = $('.storyItems');
        var item = $("<li class='storyItemLi'><div class='storyItemContainer'><a class='storyPhoto'><img class='imgStory' src='" + photo.url_m  +"'/></a></div></li>").appendTo(storyContainer);
@@ -149,7 +148,6 @@ KEENTOUR.addStoryItem   = function(photo){
 
 
     }
-
 
 KEENTOUR.flickrSearch = function () {
     //e.preventDefault();
@@ -178,7 +176,8 @@ KEENTOUR.getStory = function () {
     var story = {
         title:$('#txtTitle').val(),
         description:$('#txtDescription').val(),
-        items:[]
+        items:[],
+        htmlContent  : $('.story').html()
     };
 
     $('.storyItemLi', '.storyItems').each(function (i, item) {
@@ -191,35 +190,50 @@ KEENTOUR.getStory = function () {
     story = $.extend({}, KEENTOUR.currentStory, story);
     return story;
 }
+
 KEENTOUR.saveStory = function (currentStory, callback) {
 
     var story = currentStory || KEENTOUR.getStory();
-    //TODO  : validation before send to sever
-    //TODO : check if I can use facebook authentication here already
+
+    /*
+
+      Validations
+
+    */
+    if(story.items.length == 0){
+        //TODO  : add hint to widgets may be
+        alert("Please add some content to story");
+        return;
+    }
+
+    if($.trim(story.title)===''){
+        alert("Please enter story title");
+        return;
+    }
+
     var request = $.ajax('/story/save', {
-        headers:{
-            'Content-type':'application/json'
-        },
-        data:JSON.stringify(story),
-        type:'POST',
-        dataType:'json',
-        cache:false
+            headers:{
+                'Content-type':'application/json'
+            },
+            data:JSON.stringify(story),
+            type:'POST',
+            dataType:'json',
+            cache:false
 
-    });
+        });
 
-    request.success(function (data) {
-        if (callback) {
-            callback(data);
-        }
+        request.success(function (data) {
+            if (callback) {
+                callback(data);
+            }
 
-    });
+        });
 
-    request.error(function (data) {
-        if (callback) {
-            callback(data);
-        }
-    });
-
+        request.error(function (data) {
+            if (callback) {
+                callback(data);
+            }
+        });
 
 };
 
@@ -236,6 +250,7 @@ KEENTOUR.storySavedHandle = function (data) {
 
     }
 };
+
 
 require(["storage", "search", "geonames", "flickrWidget","jQueryUI","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
 

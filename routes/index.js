@@ -90,16 +90,17 @@ exports.privacy = function (req, res) {
     res.render('privacy', { title:'Keen Tour Privacy Policy' });
 };
 
-exports.storyEdit=function(req,res){
+exports.storyEdit = function(req,res){
   if(req.isAuthenticated()){
     var user = req.params.user;
     var title = req.params.title;
     var url = user + "/"  + title;
+
     var storyCallback = function(results){
         res.render('story', {title : "Edit story :" + results.title,story : results});
     }
 
-    MongoWrapper.getStoryByUrl(url,storyCallback);
+    MongoWrapper.renderStory(url,storyCallback);
 
   }
   else{
@@ -156,7 +157,7 @@ exports.storyPreview = function(req,res){
             res.render('story', {title : "Preview story :" + results.title,story : results});
         }
 
-        MongoWrapper.getStoryByUrl(url,storyCallback);
+        MongoWrapper.renderStory(url,storyCallback);
     }
     else{
         res.redirect('/login');

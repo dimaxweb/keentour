@@ -87,7 +87,7 @@ var MongoWrapper = module.exports = {
         get story by url
      */
 
-    getStoryByUrl : function(storyUrl,callback){
+    renderStory : function(storyUrl,callback){
       var storyQuery = function(err,db){
           db.collection("story").findOne({url:storyUrl},function(err,results){
               //TODO : check for errors
