@@ -1,5 +1,20 @@
 #wysihtml5-editor-toolbar {
     position: relative;
+    margin: 20px 0px 0px 0px;
+}
+
+#wysihtml5-editor
+{
+    width: 100%;
+    background: transparent;
+    height: 100%;
+    border: 0;
+    resize: none;
+    white-space: pre;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 10px;
+    word-wrap: normal;
 }
 
 header {

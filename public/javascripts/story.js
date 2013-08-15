@@ -132,7 +132,7 @@ KEENTOUR.bindEditor  = function() {
                             .prependTo('.storyText');
 
 
-    var editor = new wysihtml5.Editor("description", {
+    var editor = new wysihtml5.Editor("wysihtml5-editor", {
         toolbar: "wysihtml5-editor-toolbar",
         parserRules: wysihtml5ParserRules
     });
@@ -223,12 +223,26 @@ KEENTOUR.flickrSearch = function () {
     });
 };
 
+/*
+  strip scripts also on client
+*/
+KEENTOUR.stripScripts   = function(s){
+    var div = document.createElement('div');
+    div.innerHTML = s;
+    var scripts = div.getElementsByTagName('script');
+    var i = scripts.length;
+    while (i--) {
+        scripts[i].parentNode.removeChild(scripts[i]);
+    }
+    return div.innerHTML;
+}
+
 KEENTOUR.getStory = function () {
     var story = {
-        title:$('#txtTitle').val(),
-        description:$('#txtDescription').val(),
-        items:[],
-        innerHtml  : $('.storyItems').html()
+        title: KEENTOUR.stripScripts($('#txtTitle').val()),
+        description:KEENTOUR.stripScripts($('#wysihtml5-editor').val()),
+        items:[]
+
     };
 
     $('.storyItemLi', '.storyItems').each(function (i, item) {
@@ -259,6 +273,7 @@ KEENTOUR.saveStory = function (currentStory, callback) {
 
     if($.trim(story.title)===''){
         alert("Please enter story title");
+        $('#txtTitle').focus();
         return;
     }
 
