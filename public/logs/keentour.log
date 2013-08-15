@@ -48,3 +48,39 @@
 {"level":"info","message":"Starting application","timestamp":"2013-08-13T16:46:32.779Z"}
 {"level":"info","message":"Going to execute function function (err,db){\r\n          db.collection(\"story\").findOne({url:storyUrl},function(err,results){\r\n              //TODO : check for errors\r\n              console.log(\"Story is:\",results);\r\n              callback(results);\r\n\r\n          });\r\n      }","timestamp":"2013-08-13T16:46:44.542Z"}
 {"level":"info","message":"Starting application","timestamp":"2013-08-13T16:51:07.691Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T05:33:34.712Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-15T05:33:52.834Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T05:33:59.491Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T05:35:44.703Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T05:57:09.945Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T06:02:34.917Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T06:05:38.561Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T06:07:39.838Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T06:13:41.623Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T06:14:18.291Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T06:14:31.258Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T06:15:28.639Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T06:15:29.644Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T06:16:53.340Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T06:16:54.037Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T06:19:12.960Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T06:21:07.513Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T06:21:07.776Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T06:24:07.838Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T06:24:08.097Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T06:34:11.995Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T06:35:55.945Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T06:36:42.208Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T06:40:08.199Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T06:40:14.540Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T07:54:27.567Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T07:55:17.236Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T08:05:43.826Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T08:05:47.603Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T08:05:51.491Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T08:07:21.768Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T08:07:53.624Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T08:07:59.902Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-15T08:11:15.026Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T08:11:20.981Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-15T08:14:09.976Z"}

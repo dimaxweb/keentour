@@ -33,10 +33,12 @@ html(lang='en')
 
         .span8
            .story
-               div
+
+              div
                     input(type='text',id='txtTitle',style='width:95%'")
-               div
-                    textarea(id="txtDescription",rows=3,cols=20,value="Some description",class="storyDescription")
+               .storyText
+                    textarea(id="description",rows=3,cols=20,value="Some description",class="storyDescription")
+
                ul.storyItems
 
         .actionPanel

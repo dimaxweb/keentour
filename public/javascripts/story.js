@@ -35,13 +35,19 @@ require.config({
         popover:'/javascripts/lib/bootstrap/bootstrap-popover',
         carousel:'/javascripts/lib/bootstrap/bootstrap-carousel',
         twitter_grid:'/javascripts/twitter-grid',
-        ///css resources
+        richEditorSource  : '/javascripts/lib/wysihtml5/wysihtml5-0.3.0.min',
+        richEditor  : '/javascripts/lib/wysihtml5/wysihtml5-AMD',
+        /*
+            css resources
+        */
         paginationCSS:'/stylesheets/pagination',
         storyCSS:'/stylesheets/story',
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
         colorBoxCSS:'/stylesheets/colorBox',
         wikiCSS:'/stylesheets/wiki2',
+        richEditorCSS : '/stylesheets/wysihtml',
         css:'/javascripts/lib/css'
+
 
 
 
@@ -114,6 +120,51 @@ require.config({
 if (typeof(KEENTOUR) === "undefined") {
     KEENTOUR = {};
 }
+
+
+KEENTOUR.bindEditor  = function() {
+
+    /*
+        Toolbar template
+    */
+
+   var toolbarTemplate = $('<div id="wysihtml5-editor-toolbar"><header><ul class="commands"><li data-wysihtml5-command="bold" title="Make text bold (CTRL + B)" class="command"></li><li data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" class="command"></li><li data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" class="command"></li><li data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" class="command"></li><li data-wysihtml5-command="createLink" title="Insert a link" class="command"></li><li data-wysihtml5-command="insertImage" title="Insert an image" class="command"></li><li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" class="command"></li><li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" class="command"></li><li data-wysihtml5-command-group="foreColor" class="fore-color" title="Color the selected text" class="command"><ul> <li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="silver"></li>               <li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="gray"></li><li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="maroon"></li><li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red"></li><li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="purple"></li>               <li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green"></li>               <li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="olive"></li>               <li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="navy"></li>               <li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="blue"></li>             </ul>           </li>           <li data-wysihtml5-command="insertSpeech" title="Insert speech" class="command"></li><li data-wysihtml5-action="change_view" title="Show HTML" class="action"></li></ul></header><div data-wysihtml5-dialog="createLink" style="display: none;"><label>Link:<input data-wysihtml5-dialog-field="href" value="http://">         </label>         <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a></div><div data-wysihtml5-dialog="insertImage" style="display: none;">Image:<input data-wysihtml5-dialog-field="src" value="http://"> </label><a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a></div></div>')
+                            .prependTo('.storyText');
+
+
+    var editor = new wysihtml5.Editor("description", {
+        toolbar: "wysihtml5-editor-toolbar",
+        parserRules: wysihtml5ParserRules
+    });
+
+//    var log = document.getElementById("log");
+//
+//    editor
+//        .on("load", function() {
+//            log.innerHTML += "<div>load</div>";
+//        })
+//        .on("focus", function() {
+//            log.innerHTML += "<div>focus</div>";
+//        })
+//        .on("blur", function() {
+//            log.innerHTML += "<div>blur</div>";
+//        })
+//        .on("change", function() {
+//            log.innerHTML += "<div>change</div>";
+//        })
+//        .on("paste", function() {
+//            log.innerHTML += "<div>paste</div>";
+//        })
+//        .on("newword:composer", function() {
+//            log.innerHTML += "<div>newword:composer</div>";
+//        })
+//        .on("undo:composer", function() {
+//            log.innerHTML += "<div>undo:composer</div>";
+//        })
+//        .on("redo:composer", function() {
+//            log.innerHTML += "<div>redo:composer</div>";
+//        });
+};
 
 
 KEENTOUR.renderStory = function (story) {
@@ -255,13 +306,16 @@ KEENTOUR.storySavedHandle = function (data) {
 };
 
 
-require(["storage", "search", "geonames", "flickrWidget","jQueryUI","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
+require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
     KEENTOUR.geonames = geonames;
 
     $(document).ready(function (e) {
+
+
+
         $('#searchText').keypress(function (e) {
             /*
              Handle enter
@@ -271,22 +325,13 @@ require(["storage", "search", "geonames", "flickrWidget","jQueryUI","css!storyCS
             }
         });
 
-//        $('.storyPhotos').droppable({
-//            activeClass:"ui-state-highlight",
-//            drop:function (event, ui) {
-//                var elem = ui.draggable;
-//                var photo = $(elem).data('photo');
-//                $(elem).find('.thumbnail').attr('src', photo.url_m).css({width:photo.width_m, height:photo.height_m});
-//                $(elem).css({position:'static'});
-//                var storyItem = $('<div class="storyItem"  contenteditable="false"></div>').data('item', photo).appendTo(this);
-//               // $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
-//                $(storyItem).append(elem);
-//               // $(storyItem).append($('<div contenteditable="true" class="storyItemText" />'));
-//
-//            }
-//        });
-
-        $('<div><button class="btn btn-primary" data-action="preview">Preview</button> <button class="btn btn-primary" data-action="save">Save</button> <button class="btn btn-primary" data-action="publish">Publish</button> </div>')
+        /*
+         Create action buttons
+        */
+        $('<div>' +
+            '<button class="btn btn-primary" data-action="preview">Preview</button> ' +
+            '<button class="btn btn-primary" data-action="save">Save</button> ' +
+            '<button class="btn btn-primary" data-action="publish">Publish</button> </div>')
             .appendTo('.actionPanel')
             .on('click', '.btn', function () {
                 //TODO :refactor to smaller functions here
@@ -338,8 +383,13 @@ require(["storage", "search", "geonames", "flickrWidget","jQueryUI","css!storyCS
             });
 
 
+
+
+
         //TODO  :load from localStorage
         KEENTOUR.flickrSearch();
+
+        KEENTOUR.bindEditor();
 
         var story = {};
         /*
