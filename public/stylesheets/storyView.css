@@ -1,0 +1,13 @@
+.story
+{
+    text-align: center;
+}
+
+.storyPhotos
+{
+    width:95%;
+    min-height: 500px;
+    border: 1px solid #CCCCCC;
+    margin-bottom: 5%;
+    text-align: center;
+}

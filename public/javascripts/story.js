@@ -169,13 +169,14 @@ KEENTOUR.bindEditor  = function() {
 
 KEENTOUR.renderStory = function (story) {
     if ($.isEmptyObject(story)) {
-        console.log("No story in state");
+        console.log("The story object is empty");
         return;
     }
 
     $('#txtTitle').val(story.title);
-    $('#txtDescription').val(story.description);
+    $('#txtDescription').html(story.description);
     $.each(story.items, function (i, item) {
+        KEENTOUR.addStoryItem(item);
         console.log("Story item", item);
     });
 
@@ -329,8 +330,7 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
 
     $(document).ready(function (e) {
 
-
-
+        //Move all the code from here to some function
         $('#searchText').keypress(function (e) {
             /*
              Handle enter

@@ -1,13 +1,16 @@
 extends layout
 
 block content
-   .title  #{story.title}
-   .description  #{story.description}
+    .story
+        .title
+        .description
+        .storyItems
 
     script
         var story = !{JSON.stringify(story)};
         if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
         KEENTOUR.story = story;
         console.log(KEENTOUR.story);
+    script(data-main="/#{locals.scriptPrefix}/storyView",src="/javascripts/lib/require.js",type="text/javascript")
 
 
