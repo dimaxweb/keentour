@@ -1,25 +1,25 @@
 var MongoClient = require('mongodb').MongoClient,
     CONFIG = require('config'),
-     _  = require('underscore'),
-    logger  = require('../logging/logger')
+    _ = require('underscore'),
+    logger = require('../logging/logger')
 
 var MongoWrapper = module.exports = {
-    connectionString : CONFIG.mongo.connectionString,
+    connectionString:CONFIG.mongo.connectionString,
 
-    executeQuery : function(func){
-        logger.log("info","Going to execute function",func.toString());
-        console.log("Here");
-        MongoClient.connect(MongoWrapper.connectionString,function(err,db){
-           if(err!==null){
-               logger.log("error","Error connecting to database.Error:",err);
-               return;
+    executeQuery:function (func) {
+        //logger.log("info","Going to execute function",func.toString());
+        logger.info("Here");
+        MongoClient.connect(MongoWrapper.connectionString, function (err, db) {
+            if (err !== null) {
+                logger.log("error", "Error connecting to database.Error:", err);
+                return;
 
-           }
-           try{
-                func(err,db);
-           }
-            catch(e){
-                logger.log("error","Error occured wehn executing function"+ func.toString() + ".Error:",e);
+            }
+            try {
+                func(err, db);
+            }
+            catch (e) {
+                logger.log("error", "Error occured wehn executing function" + func.toString() + ".Error:", e);
             }
 
         });
@@ -28,31 +28,44 @@ var MongoWrapper = module.exports = {
 
 
     /*
-        save story to db
-    */
-    saveStory  : function(story,callback){
-        var saveQuery = function(err,db){
-            console.log("In function save story");
-            db.collection("story").findOne( { $or : [{_id:story._id},{title:story.title}] } ,function(err,results){
-            console.log("The result is:",results);
-                if(results){
-                    console.log("Story found",results);
-                    _.extend(results,story);
-                    db.collection("story").update(results,{_id:story._id},function (err, results) {
+     save story to db
+     */
+    saveStory:function (story, callback) {
+        var saveQuery = function (err, db) {
+            logger.log("info", "In function save story");
+            db.collection("story").findOne({ $or:[
+                {_id:story._id},
+                {title:story.title}
+            ] }, function (err, dbStory) {
+                if (dbStory) {
+                    logger.info("Story found.Update story");
+                    //_.extend(dbStory,story);
+                    //logger.log("info","",dbStory.items.lenth);
+                    //TODO  : find way here to update all the story
+                    db.collection("story").update({ $or:[
+                            {_id:story._id},
+                            {title:story.title}
+                        ] }, {$set:{items:story.items},
+                              title:story.title,
+                              description:story.description},
+                        function (err, results) {
+                            logger.log("info", "Error is:", err);
+                            logger.log("info", "Results is:", results);
+                            logger.log("info", "Story is a updated");
 
-                        if(callback){
-                            callback({"status":true,story:story});
-                        }
+                            if (callback) {
+                                callback({"status":true, story:story});
+                            }
 
 
-                    });
+                        });
                 }
-                else{
-                    console.log("Insert new story",story);
+                else {
+                    logger.log("info", "Insert new story", story);
                     db.collection("story").insert(story, function (err, results) {
 
-                        if(callback){
-                            callback({"status":true,story:story});
+                        if (callback) {
+                            callback({"status":true, story:story});
                         }
 
 
@@ -66,12 +79,12 @@ var MongoWrapper = module.exports = {
     },
 
     /*
-        get user
-    */
-    getUser : function(userId,callback){
-        var getUserQuery = function(err,db){
-            db.collection("user").findOne({id:userId},function(err,results){
-                console.log("User in index is : ",results);
+     get user
+     */
+    getUser:function (userId, callback) {
+        var getUserQuery = function (err, db) {
+            db.collection("user").findOne({id:userId}, function (err, results) {
+                logger.info("User in index is : ", results);
                 callback(results);
 
             });
@@ -84,39 +97,39 @@ var MongoWrapper = module.exports = {
 
 
     /*
-        get story by url
+     get story by url
      */
 
-    renderStory : function(storyUrl,callback){
-      var storyQuery = function(err,db){
-          db.collection("story").findOne({url:storyUrl},function(err,results){
-              //TODO : check for errors
-              console.log("Story is:",results);
-              callback(results);
+    renderStory:function (storyUrl, callback) {
+        var storyQuery = function (err, db) {
+            db.collection("story").findOne({url:storyUrl}, function (err, results) {
+                //TODO : check for errors
+                logger.info("Story is:", results);
+                callback(results);
 
-          });
-      };
+            });
+        };
 
         MongoWrapper.executeQuery(storyQuery);
     },
 
     /*
-        update / create user
-    */
-    updateCreateUser  : function(profile){
-        var userQuery = function(err,db){
+     update / create user
+     */
+    updateCreateUser:function (profile) {
+        var userQuery = function (err, db) {
 
-            db.collection("user").findOne({id:profile.id},function(err,results){
-                console.log("User found",results);
-                if(results){
-                    console.log("Update user collection");
-                    db.collection("user").update({id:profile.id},profile,function(err,results){
-                        console.log("User data is updated");
+            db.collection("user").findOne({id:profile.id}, function (err, results) {
+                logger.info("User found", results);
+                if (results) {
+                    logger.info("Update user collection");
+                    db.collection("user").update({id:profile.id}, profile, function (err, results) {
+                        logger.info("User data is updated");
                     });
                 }
-                else{
-                    db.collection("user").save(profile,function(err,results){
-                        console.log("Save new user profile");
+                else {
+                    db.collection("user").save(profile, function (err, results) {
+                        logger.info("Save new user profile");
                     });
                 }
 

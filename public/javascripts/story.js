@@ -312,7 +312,8 @@ KEENTOUR.storySavedHandle = function (data) {
     if (data) {
         if (data.status === true) {
             KEENTOUR.currentStory = data.story;
-            alert("Story saved...");
+            //KEENTOUR.storage.setObject('currentStory',KEENTOUR.currentStory);
+            console.log("Story saved...",KEENTOUR.currentStory);
         }
         else {
             window.location = data.redirect || '/';
@@ -368,7 +369,8 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
                     KEENTOUR.saveStory(null,function (data) {
                         KEENTOUR.storySavedHandle(data);
                         if (data && data.story && data.story.url) {
-                            window.location = '/storyView/' + data.story.url;
+                            window.open('/storyView/' + data.story.url);
+
                         }
 
                     });
@@ -406,19 +408,30 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
 
         KEENTOUR.bindEditor();
 
-        var story = {};
         /*
-         Load story data ,which can be provided from login or edit flow
-         */
-        if (!$.isEmptyObject(KEENTOUR.lastStory)) {
+         Load story data ,which can be provided from
+          login flow
+          edit flow
+          client side storage
+
+        */
+
+        /*
+            check for server version and if empty  ,disable for now
+        */
+
+//        if($.isEmptyObject(KEENTOUR.currentStory)){
+//            KEENTOUR.currentStory =  KEENTOUR.storage.getObject('currentStory');
+//        }
+
+        if (!$.isEmptyObject(KEENTOUR.currentStory)) {
             //TODO  : change to notification
-            alert("story saved!");
-            story = KEENTOUR.currentStory = KEENTOUR.lastStory;
-            $('.storyHtml').html(story.innerHtml);
+            console.log("story saved!");
+            KEENTOUR.renderStory(KEENTOUR.currentStory);
 
         }
 
-        KEENTOUR.renderStory(story);
+
         $('.storyItems').sortable();
 
 

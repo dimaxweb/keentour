@@ -48,7 +48,7 @@ html(lang='en')
     script
         var story = !{JSON.stringify(story)};
         if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
-        KEENTOUR.lastStory = story;
+        KEENTOUR.currentStory= story;
     script(data-main="/#{locals.scriptPrefix}/story",src="/javascripts/lib/require.js",type="text/javascript")
 
 

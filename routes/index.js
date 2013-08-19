@@ -43,7 +43,7 @@ stripScripts=function(s) {
 }
 
 saveStory = function(story,req,callback) {
-//    console.log("Story.title before",story.title);
+    Logger.info("Request to save story");
     story.title = stripScripts(story.title);
 //    console.log("Story.title after",story.title);
     story.description  = stripScripts(story.description);

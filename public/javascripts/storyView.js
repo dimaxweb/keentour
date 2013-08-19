@@ -125,7 +125,7 @@ KEENTOUR.renderStory = function (story) {
         return;
     }
 
-    $('.title').val(story.title);
+    $('.title').text(story.title);
     $('.description').html(story.description);
     $.each(story.items, function (i, item) {
         KEENTOUR.addStoryItem(item);
