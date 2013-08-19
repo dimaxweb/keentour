@@ -23,7 +23,7 @@ html(lang='en')
                             img(src='/images/logo.png')
 
 
-        .raw-fluid
+        .raw-fluid.contentSearch
             .span4
                 input(type='text',id='searchText',style='width:95%',value="London travel")
 
@@ -33,11 +33,10 @@ html(lang='en')
 
         .span8
            .story
-
-              div
-                    input(type='text',id='txtTitle',style='width:95%'")
+                div(style='text-align:left')
+                    input(type='text',id='txtTitle',placeholder='Enter title',style='width:95%'")
                .storyText
-                    textarea#wysihtml5-editor(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter something ...')
+                    textarea#wysihtml5-editor(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter description ...')
 
                ul.storyItems
 
