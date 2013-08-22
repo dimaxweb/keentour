@@ -9,7 +9,10 @@
         continentNameLookUp['AN'] = 'Antarctica';
         var itemFound = false;
         var search = {};
-        search.bindAutoComplete = function (container,submitControl) {
+        search.bindAutoComplete = function (options) {
+            var container = options.container;
+            var submitControl  = options.submitControl;
+            var onItemSelected = options.onItemSelected;
             $(container).autocomplete({
                 source:function (request, response) {
                     $.ajax({
@@ -34,13 +37,12 @@
                         }
                     });
                 },
+                //TODO  : if we can do something clever here
                 minLength:1,
                 select:function (event, ui) {
-                    var path = geonames.getItemUrl(ui.item.dataItem);
                     $(this).trigger('itemSelected', ui.item.dataItem);
-                    console.log('Item path' + path);
-                    //TODO : move from here ,raise event instead
-                    window.location = path;
+                    //console.log('Item path' + path);
+                    onItemSelected({geoItem:ui.item.dataItem,searchText:$(container).value});
 
                 },
 
@@ -82,22 +84,23 @@
             }
 
 
-            //TODO : handle enter
+
+            /*
+               Search submit keypress or button click
+            */
             $(container).keypress(function(event){
 
                 var keycode = (event.keyCode ? event.keyCode : event.which);
                 if(keycode === 13 && !itemFound){
-                    window.location = '/content/'  + $(container).val();
+                    onItemSelected({geoItem:null,searchText:$(container).val()});
+
                 }
 
             });
 
 
-
-
-
             $(submitControl).bind('click',function(e){
-                window.location = '/content/'  + $(container).val();
+                onItemSelected({geoItem:null,searchText:$(container).val()});
             });
 
         };

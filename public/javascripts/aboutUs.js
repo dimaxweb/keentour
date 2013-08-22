@@ -90,12 +90,13 @@ require.config({
 });
 
 
-define(['jquery','search'],function($,search){
+define(['jquery','search','geonames'],function($,search,geonames){
     if (typeof (KEENTOUR) == 'undefined') {
         KEENTOUR = {};
     }
 
     KEENTOUR.search = search;
+    KEENTOUR.geonames = geonames;
     KEENTOUR.addAddThisWidget = function () {
         try {
             window.addthis_config = {};
@@ -112,7 +113,19 @@ define(['jquery','search'],function($,search){
     }
 
     $(document).ready(function (e) {
-        KEENTOUR.search.bindAutoComplete($('#searchtext'), $('#searchbtn'));
+        KEENTOUR.search.bindAutoComplete({
+            container:$('#searchtext'),
+            submitControl:$('#searchbtn'),
+            onItemSelected:function (options) {
+                if(options.geoItem){
+                    var path =  KEENTOUR.geonames.getItemUrl(options.geoItem);
+                    window.location = path;
+                }
+                else{
+                    window.location  = "/content/"  + options.searchText;
+                }
+
+            }});
         KEENTOUR.addAddThisWidget();
 
     });

@@ -98,7 +98,7 @@
         },
 
         "popover":{
-            deps:["jquery"]
+            deps:["jquery","tooltip"]
         }
 
 
@@ -136,7 +136,19 @@ require(["storage", "search", "geonames", "contentWidget"], function (storage, s
 
     }
     $(document).ready(function (e) {
-        KEENTOUR.search.bindAutoComplete($('#searchtext'), $('#searchbtn'));
+        KEENTOUR.search.bindAutoComplete({
+            container:$('#searchtext'),
+            submitControl:$('#searchbtn'),
+            onItemSelected:function (options) {
+                if(options.geoItem){
+                    var path = geonames.getItemUrl(options.geoItem);
+                    window.location = path;
+                }
+                else{
+                    window.location  = "/content/"  + options.searchText;
+                }
+
+            }});
         KEENTOUR.addAddThisWidget();
     });
 

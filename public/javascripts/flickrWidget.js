@@ -334,6 +334,9 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
 
                                 $(imgItem).css({ width:dataItem['width_' + that.options.defaultImageThumb], height:dataItem['height_' + that.options.defaultImageThumb] });
 
+                                /*
+                                  display title or not
+                                */
                                 if(that.options.showTitle){
                                     var title = dataItem.title;
                                     $('<div class="widgetItemName pull-left"><a>' + title + '</a></div>').appendTo(itemContainer);

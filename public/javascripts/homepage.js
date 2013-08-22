@@ -24,23 +24,23 @@
         storage:'/javascripts/storage',
         geonames:'/javascripts/geonames',
         search:'/javascripts/search',
-        flickrWidget  :'/javascripts/flickrWidget',
-        youtubeWidget : '/javascripts/youtubeWidget',
-        wikiPediaWidget : '/javascripts/wikiPediaWidget',
-        'ajax-scroll' : '/javascripts/lib/jquery-paged-scroll.min',
-        flickrLib : '/javascripts/flickrLib',
-        youTubeLib : '/javascripts//youTubeLib',
-        contentWidget : '/javascripts/contentWidget',
-        tooltip  : '/javascripts/lib/bootstrap/bootstrap-tooltip',
-        popover  : '/javascripts/lib/bootstrap/bootstrap-popover',
-        carousel  : '/javascripts/lib/bootstrap/bootstrap-carousel',
-        twitter_grid  :  '/javascripts/twitter-grid',
+        flickrWidget:'/javascripts/flickrWidget',
+        youtubeWidget:'/javascripts/youtubeWidget',
+        wikiPediaWidget:'/javascripts/wikiPediaWidget',
+        'ajax-scroll':'/javascripts/lib/jquery-paged-scroll.min',
+        flickrLib:'/javascripts/flickrLib',
+        youTubeLib:'/javascripts//youTubeLib',
+        contentWidget:'/javascripts/contentWidget',
+        tooltip:'/javascripts/lib/bootstrap/bootstrap-tooltip',
+        popover:'/javascripts/lib/bootstrap/bootstrap-popover',
+        carousel:'/javascripts/lib/bootstrap/bootstrap-carousel',
+        twitter_grid:'/javascripts/twitter-grid',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
-        colorBoxCSS :  '/stylesheets//colorBox',
-        wikiCSS :  '/stylesheets/wiki2',
-        css : '/javascripts/lib/css'
+        colorBoxCSS:'/stylesheets//colorBox',
+        wikiCSS:'/stylesheets/wiki2',
+        css:'/javascripts/lib/css'
 
 
     },
@@ -57,15 +57,15 @@
             deps:["jquery"]
         },
 
-        "wikiPediaWidget" :{
+        "wikiPediaWidget":{
             deps:["jquery"]
         },
 
-        "youtubeWidget" :{
+        "youtubeWidget":{
             deps:["jquery"]
         },
 
-        "flickrWidget" :{
+        "flickrWidget":{
             deps:["jquery"]
         },
 
@@ -106,16 +106,29 @@
 });
 
 
-define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function (storage, search, geonames,twitter_grid) {
+define(["storage", "search", "geonames", "twitter_grid", "ajax-scroll"], function (storage, search, geonames, twitter_grid) {
 
     if (typeof (KEENTOUR) == 'undefined') {
         KEENTOUR = {};
     }
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
+    KEENTOUR.geonames = geonames;
     KEENTOUR.twitter_grid = twitter_grid;
     $(document).ready(function (e) {
-        KEENTOUR.search.bindAutoComplete($('#searchtext'), $('#searchbtn'));
+        KEENTOUR.search.bindAutoComplete({
+            container:$('#searchtext'),
+            submitControl:$('#searchbtn'),
+            onItemSelected:function (options) {
+                      if(options.geoItem){
+                          var path = KEENTOUR.geonames.getItemUrl(options.geoItem);
+                          window.location = path;
+                      }
+                else{
+                    window.location  = "/content/"  + options.searchText;
+                }
+
+            }});
     });
 
     KEENTOUR.geonames = geonames;
@@ -136,7 +149,7 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
     }
 
     ///////////////////////////////////////require page dependencies and run the page
-    require(["jQueryUI","youTubeLib", "jquery.colorbox-min", "swfObject",'popover'], function () {
+    require(["jQueryUI", "youTubeLib", "jquery.colorbox-min", "swfObject", 'popover'], function () {
 
         var homePageEntities = {};
         homePageEntities['london'] = { name:'Budapest', path:'content/Europe/Hungary/Budapest', countryName:'Budapest', countryPath:'content/Europe/Hungary' };
@@ -144,30 +157,29 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
         homePageEntities['paris'] = { name:'Paris', path:'content/Europe/France/Paris', countryName:'France', countryPath:'content/Europe/France'};
         homePageEntities['vienna'] = { name:'Vienna', path:'content/Europe/Austria/Vienna', countryName:'Austria', countryPath:'content/Europe/Austria' };
 //      homePageEntities['new-york'] = { name:'New-York', path:'content/North-America/United-States/New-York', countryName:'United-States', countryPath:'content/North-America/United-States' };
-        function searchYoutube(query, names,pageNumber,callback) {
+        function searchYoutube(query, names, pageNumber, callback) {
 
             $('.homeVideos').fadeIn('slow');
 //            $('<img class="videoLoading" src="/images/ajax-loader-big.gif" />').appendTo('.homeVideos');
-            var startIndex = (pageNumber == 1 ) ? 1 :  40 * (pageNumber - 1);
-                //search the youtube
-                var lib = new YouTubeLib({ query:query, 'max-results':40,'start-index' :startIndex });
-                //search for videos and update UI when done
-                lib.searchVideos(function (data) {
-                    if(data && data.videoResult && data.videoResult.feed && data.videoResult.feed.entry){
-                        var entries = data.videoResult.feed.entry;
-                        var filteredEntries = getValidEntries(entries, names);
-                        displayNewVideos(filteredEntries);
-                        if(callback){
-                            callback();
-                        }
-
-
+            var startIndex = (pageNumber == 1 ) ? 1 : 40 * (pageNumber - 1);
+            //search the youtube
+            var lib = new YouTubeLib({ query:query, 'max-results':40, 'start-index':startIndex });
+            //search for videos and update UI when done
+            lib.searchVideos(function (data) {
+                if (data && data.videoResult && data.videoResult.feed && data.videoResult.feed.entry) {
+                    var entries = data.videoResult.feed.entry;
+                    var filteredEntries = getValidEntries(entries, names);
+                    displayNewVideos(filteredEntries);
+                    if (callback) {
+                        callback();
                     }
-                    $('.videoLoading').hide();
 
 
-                });
+                }
+                $('.videoLoading').hide();
 
+
+            });
 
 
         };
@@ -192,68 +204,66 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
 
         function displayNewVideos(validItems) {
 
-            if(!validItems)
-            {
-               return;
+            if (!validItems) {
+                return;
             }
             findCreatePlayerFrame();
-            var itemsToShow = validItems.length < 6 ? validItems.length  : 6;
-            var itemsToShow = validItems.slice(0,itemsToShow);
+            var itemsToShow = validItems.length < 6 ? validItems.length : 6;
+            var itemsToShow = validItems.slice(0, itemsToShow);
             KEENTOUR.twitter_grid.gridify({
-               element: $('.homeVideos'),
-               data:itemsToShow,
-               itemsPerRow: 3,
-               getItemContent:function(dataItem,gridCell,grid){
-                   var item = dataItem.videoEntry;
-                   var currentGeoItem = dataItem.geoItem;
-                   console.log(item.media$group.media$keywords);
-                   var url = item.media$group.media$thumbnail[0].url;
-                   var title = item.title.$t.toLowerCase();
+                element:$('.homeVideos'),
+                data:itemsToShow,
+                itemsPerRow:3,
+                getItemContent:function (dataItem, gridCell, grid) {
+                    var item = dataItem.videoEntry;
+                    var currentGeoItem = dataItem.geoItem;
+                    console.log(item.media$group.media$keywords);
+                    var url = item.media$group.media$thumbnail[0].url;
+                    var title = item.title.$t.toLowerCase();
 //                   title = title.length > 30 ? title.substr(0,27) + '...' : title;
-                   var videoTime = YouTubeLib.getVideoTime(dataItem.videoEntry);
-                   var itemBox = $('<div class="video-block"><a class="video-link"><img  src="' + url + '" class="thumbnail video-thumb" /><span class="video-time">'
-                                                                       +  videoTime
-                                                                       +  '</span></a>'
-                                                                       +  '<div class="widgetItemName"><a>' + title + '</a></div>'
-                                                                       +  '<a href="' + currentGeoItem.path + '">' + currentGeoItem.name + '</a> | <a href="'
-                                                                       +   currentGeoItem.countryPath + '">' + currentGeoItem.countryName
-                                                                       +   '</a></div>');
-                   $(gridCell).append(itemBox);
-                   var divPlay = $(gridCell).find('a').first();
-                   $(divPlay).colorbox({inline:true, width:"885px", height:"600px", href:'#playerFrame', title:item.title.$t, onClosed:function () {
+                    var videoTime = YouTubeLib.getVideoTime(dataItem.videoEntry);
+                    var itemBox = $('<div class="video-block"><a class="video-link"><img  src="' + url + '" class="thumbnail video-thumb" /><span class="video-time">'
+                        + videoTime
+                        + '</span></a>'
+                        + '<div class="widgetItemName"><a>' + title + '</a></div>'
+                        + '<a href="' + currentGeoItem.path + '">' + currentGeoItem.name + '</a> | <a href="'
+                        + currentGeoItem.countryPath + '">' + currentGeoItem.countryName
+                        + '</a></div>');
+                    $(gridCell).append(itemBox);
+                    var divPlay = $(gridCell).find('a').first();
+                    $(divPlay).colorbox({inline:true, width:"885px", height:"600px", href:'#playerFrame', title:item.title.$t, onClosed:function () {
 
-                       $('#playerFrame').empty();
+                        $('#playerFrame').empty();
 
-                   }});
+                    }});
 
-                   $(divPlay).bind('click',
-                       function (e) {
-                           var video = $(this).data('video');
-                           showVideo(video.media$group.yt$videoid.$t);
-                       })
-                       .data('video', item);
+                    $(divPlay).bind('click',
+                        function (e) {
+                            var video = $(this).data('video');
+                            showVideo(video.media$group.yt$videoid.$t);
+                        })
+                        .data('video', item);
 
 
-                   var description  =  (dataItem.media$group && dataItem.media$group.media$description && dataItem.media$group.media$description.$t) ? '<h6>About:</h6><p>'  + dataItem.media$group.media$description.$t + '</p>' : '';
-                   if(description.length > 1000){
-                       description = description.substring(0,500) +'...';
-                   }
-                   var author  = ( item.author &&  item.author.length  >0 && item.author[0].name && item.author[0].name.$t) ? '<p><span>Published by :<span>'  + item.author[0].name.$t + '</p>': '';
-                   var publishedAt  = (item.published &&  item.published.$tt) ? '<p><span>Taken on:<span>'  +item.published.$t + '</p>': '';
-                   var viewsCount  = (item.yt$statistics && item.yt$statistics.viewCount) ? '<p>views count :'  + item.yt$statistics.viewCount + '</p>'  : '';
+                    var description = (dataItem.media$group && dataItem.media$group.media$description && dataItem.media$group.media$description.$t) ? '<h6>About:</h6><p>' + dataItem.media$group.media$description.$t + '</p>' : '';
+                    if (description.length > 1000) {
+                        description = description.substring(0, 500) + '...';
+                    }
+                    var author = ( item.author && item.author.length > 0 && item.author[0].name && item.author[0].name.$t) ? '<p><span>Published by :<span>' + item.author[0].name.$t + '</p>' : '';
+                    var publishedAt = (item.published && item.published.$tt) ? '<p><span>Taken on:<span>' + item.published.$t + '</p>' : '';
+                    var viewsCount = (item.yt$statistics && item.yt$statistics.viewCount) ? '<p>views count :' + item.yt$statistics.viewCount + '</p>' : '';
 
-                   $(divPlay).popover({
-                       title:title,
-                       placement:'top',
-                       content: '<div>' +  author  + viewsCount +  '</div>'
+                    $(divPlay).popover({
+                        title:title,
+                        placement:'top',
+                        content:'<div>' + author + viewsCount + '</div>'
 
-                   });
+                    });
 
-               }
+                }
 
 
             });
-
 
 
         }
@@ -309,25 +319,24 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
                 names[names.length] = item.name;
             });
             var query = names.join('|');
-            searchYoutube(query, names,1);
+            searchYoutube(query, names, 1);
 
 
             $(window).paged_scroll({
-                handleScroll:function (page,container,doneCallback) {
-                    searchYoutube(query, names,page);
+                handleScroll:function (page, container, doneCallback) {
+                    searchYoutube(query, names, page);
 
                 },
-                startPage : 1,
-                targetElement : $('.homeVideos'),
+                startPage:1,
+                targetElement:$('.homeVideos'),
                 step:'20%',
-                pagesToScroll : 3
+                pagesToScroll:3
 
             });
 
             /*
-                Add this widget
-            */
-
+             Add this widget
+             */
 
 
             try {
@@ -337,13 +346,10 @@ define(["storage", "search", "geonames","twitter_grid","ajax-scroll"], function 
                 //TODO : enable console logging
             }
             var addSenceBottom = $('<script type="text/javascript"><!-- google_ad_client = "ca-pub-4780158497290031"; /* BeetwenRowsLinks */ google_ad_slot = "7565752583"; google_ad_width = 728; google_ad_height = 15; //--> </script> <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> </script>')
-                                .appendTo('.homeVideos');
+                .appendTo('.homeVideos');
 
 
         });
-
-
-
 
 
     });
