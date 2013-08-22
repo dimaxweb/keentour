@@ -6,6 +6,7 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                 defaultImageThumb:'t',
                 itemsPerRow:4,
                 usePaging:false,
+                showTitle : true,
                 itemCreated  :function(domItem,dataItem){}
 
             },
@@ -333,9 +334,12 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
 
                                 $(imgItem).css({ width:dataItem['width_' + that.options.defaultImageThumb], height:dataItem['height_' + that.options.defaultImageThumb] });
 
+                                if(that.options.showTitle){
+                                    var title = dataItem.title;
+                                    $('<div class="widgetItemName pull-left"><a>' + title + '</a></div>').appendTo(itemContainer);
+                                }
 
-                                var title = dataItem.title;
-                                $('<div class="widgetItemName pull-left"><a>' + title + '</a></div>').appendTo(itemContainer);
+
                                 /*
                                  Tooltip
                                  */

@@ -211,8 +211,9 @@ KEENTOUR.flickrSearch = function () {
         perPage:18,
         sort:'relevance',
         defaultImageThumb:'sq',
-        itemsPerRow:1,
-        usePaging:true,
+        itemsPerRow:9,
+        usePaging:false,
+        showTitle : false,
         itemCreated : function(domItem,dataItem){
            var aAppend = $("<a class='addItem'>+</a>").data('photo',dataItem).appendTo(domItem).on("click",function(e){
                e.preventDefault();
