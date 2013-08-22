@@ -131,6 +131,10 @@ KEENTOUR.renderStory = function (story) {
         KEENTOUR.addStoryItem(item);
         console.log("Story item", item);
     });
+    $.each(story.tags,function(i,item){
+        $('.storyTags').append('<li>'+ item +'</li>');
+    });
+
 
 
 };

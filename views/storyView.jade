@@ -1,10 +1,17 @@
 extends layout
 
 block content
-    .story
-        .title
-        .description
-        ul.storyItems
+    .row-fluid
+       .span2
+           h4 Tags
+           ul.storyTags
+       .span8
+          .story
+            .title
+            .description
+            ul.storyItems
+
+
 
     script
         var story = !{JSON.stringify(story)};

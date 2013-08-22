@@ -121,6 +121,18 @@ if (typeof(KEENTOUR) === "undefined") {
     KEENTOUR = {};
 }
 
+Array.prototype.getUnique = function(){
+    var u = {}, a = [];
+    for(var i = 0, l = this.length; i < l; ++i){
+        if(u.hasOwnProperty(this[i])) {
+            continue;
+        }
+        a.push(this[i]);
+        u[this[i]] = 1;
+    }
+    return a;
+}
+
 
 KEENTOUR.bindEditor  = function() {
 
@@ -201,13 +213,13 @@ KEENTOUR.addStoryItem   = function(photo){
 
     }
 
-KEENTOUR.flickrSearch = function () {
+KEENTOUR.flickrSearch = function (query) {
     //e.preventDefault();
     /*
      instansiate flickr widget
      */
     $('.photos').flickrFy({
-        text:$('#searchText').val(),
+        text:query,
         perPage:18,
         sort:'relevance',
         defaultImageThumb:'sq',
@@ -243,17 +255,20 @@ KEENTOUR.getStory = function () {
     var story = {
         title: KEENTOUR.stripScripts($('#txtTitle').val()),
         description:KEENTOUR.stripScripts($('#wysihtml5-editor').val()),
-        items:[]
+        items:[],
+        tags  : []
 
     };
 
     $('.storyItemLi', '.storyItems').each(function (i, item) {
         var data = $(item).data('item');
         story.items.push(data);
+        story.tags = story.tags.concat(data.tags.split(' '));
+
 
     });
 
-
+    story.tags = story.tags.getUnique();
     story = $.extend({}, KEENTOUR.currentStory, story);
     return story;
 }
@@ -323,7 +338,10 @@ KEENTOUR.storySavedHandle = function (data) {
     }
 };
 
-
+KEENTOUR.getLastQuery = function(){
+    //TODO  :load from localStorage
+    return $('#searchText').val();
+}
 require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
 
     KEENTOUR.storage = storage;
@@ -332,14 +350,25 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
 
     $(document).ready(function (e) {
 
-        //Move all the code from here to some function
-        $('#searchText').keypress(function (e) {
-            /*
-             Handle enter
-             */
-            if (e.which == 13) {
-                KEENTOUR.flickrSearch();
+         /*
+           bind this to another place,when editing geo loacation
+         */
+//        KEENTOUR.search.bindAutoComplete({
+//            container:$('#searchText'),
+//            onItemSelected:function (options) {
+//                var query = $(options.searchText).val();
+//                KEENTOUR.flickrSearch(query);
+//
+//
+//        }});
+
+        $('#searchText').keypress(function(event){
+
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode === 13){
+               KEENTOUR.flickrSearch($('#searchText').val());
             }
+
         });
 
         /*
@@ -400,12 +429,7 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
 
             });
 
-
-
-
-
-        //TODO  :load from localStorage
-        KEENTOUR.flickrSearch();
+        KEENTOUR.flickrSearch(KEENTOUR.getLastQuery());
 
         KEENTOUR.bindEditor();
 

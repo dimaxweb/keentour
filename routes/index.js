@@ -160,8 +160,9 @@ exports.storyView  = function(req,res){
 
 exports.storySave = function (req, res) {
     var story  =  req.body;
-    console.log(req.session.passport);
+//    console.log(req.session.passport);
     if(req.isAuthenticated()){
+
         saveStory(story,req,function(response){
             res.json(response);
         });
