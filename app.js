@@ -95,7 +95,7 @@ app.configure('production', function(){
 
 });
 
-
+app.get('/homeNew',routes.homeNew);
 app.get('/content/*', routes.content);
 app.get('/content', routes.index);
 app.get('/AboutUs',routes.aboutUs);
@@ -109,6 +109,8 @@ app.get('/stories/preview/:username/:title',routes.storyPreview);
 app.get('/', routes.index);
 app.get('/login',routes.login);
 app.get('/users', user.list);
+app.get('/latestStories',routes.latestStories);
+
 
 /*
     Facebook authenticated pages

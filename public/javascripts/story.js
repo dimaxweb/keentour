@@ -1,5 +1,6 @@
 require.config({
     baseUrl:'/javascripts/lib',
+
     paths:{
         jquery:[
             'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min',
@@ -52,7 +53,8 @@ require.config({
 
 
     },
-    //Order of the preferences
+
+    //Order of the loaded files
     shim:{
         "jQueryUI":{
             deps:["jquery"]
@@ -210,8 +212,7 @@ KEENTOUR.addStoryItem   = function(photo){
        }
 
 
-
-    }
+}
 
 KEENTOUR.flickrSearch = function (query) {
     //e.preventDefault();
@@ -342,6 +343,7 @@ KEENTOUR.getLastQuery = function(){
     //TODO  :load from localStorage
     return $('#searchText').val();
 }
+
 require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
 
     KEENTOUR.storage = storage;
@@ -399,7 +401,7 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
                     KEENTOUR.saveStory(null,function (data) {
                         KEENTOUR.storySavedHandle(data);
                         if (data && data.story && data.story.url) {
-                            window.open('/storyView/' + data.story.url);
+                            window.open(data.story.url);
 
                         }
 

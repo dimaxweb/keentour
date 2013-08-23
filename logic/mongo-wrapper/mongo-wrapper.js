@@ -8,18 +8,20 @@ var MongoWrapper = module.exports = {
 
     executeQuery:function (func) {
         //logger.log("info","Going to execute function",func.toString());
-        logger.info("Here");
+        logger.info("Executing MongoWrapper");
         MongoClient.connect(MongoWrapper.connectionString, function (err, db) {
+            logger.info("Connected to db");
             if (err !== null) {
                 logger.log("error", "Error connecting to database.Error:", err);
                 return;
 
             }
             try {
+                logger.info("MongoWrapper executing callback");
                 func(err, db);
             }
             catch (e) {
-                logger.log("error", "Error occured wehn executing function" + func.toString() + ".Error:", e);
+                logger.log("error", "Error occured wehn executing function:" + func.toString() + ".Error:", e);
             }
 
         });
@@ -96,6 +98,8 @@ var MongoWrapper = module.exports = {
     },
 
 
+
+
     /*
      get story by url
      */
@@ -139,7 +143,24 @@ var MongoWrapper = module.exports = {
 
 
         MongoWrapper.executeQuery(userQuery);
+    },
+
+    /*
+        get latest stories by object creation number
+    */
+    getLatestStories : function(callback){
+        logger.info('In latest stories');
+        var query = function (err, db) {
+            logger.info('In latest stories callback');
+            db.collection("story").find({}).toArray(function(err, results) {
+                callback(results);
+
+            });
+        };
+
+        MongoWrapper.executeQuery(query);
     }
+
 
 };
 

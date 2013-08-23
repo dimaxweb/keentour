@@ -48,7 +48,7 @@ saveStory = function(story,req,callback) {
 //    console.log("Story.title after",story.title);
     story.description  = stripScripts(story.description);
     var storyUrl =  sanitizeString(req.session.passport.user.profile.displayName) + "/" + sanitizeString(story.title);
-    story.url = storyUrl;
+    story.url = "/storyView/" + storyUrl;
     story.userName =   sanitizeString(req.session.passport.user.profile.displayName);
     MongoWrapper.saveStory(story,callback);
 
@@ -145,7 +145,7 @@ exports.storyView  = function(req,res){
     if(req.isAuthenticated()){
         var username =   req.params.username;
         var title = req.params.title;
-        var url  = username  + "/" + title;
+        var url  = '/storyView/' +  username  + "/" + title;
         var storyCallback = function(results){
             res.render('storyView', {title : results.title,story : results});
         }
@@ -158,6 +158,24 @@ exports.storyView  = function(req,res){
 
 }
 
+exports.homeNew = function(req,res){
+
+    if(req.session && req.session.passport && req.session.passport.user){
+        var userCallback = function(userData){
+            res.render('index-new', { title:' KeenTour - explore the beauty of the world!',user : userData || {} });
+        }
+        MongoWrapper.getUser(req.session.passport.user.profile.id,userCallback);
+    }
+    else{
+        res.render('index-new', { title:' KeenTour - explore the beauty of the world!',user : {} });
+    }
+}
+
+exports.latestStories = function(req, res){
+    MongoWrapper.getLatestStories(function(stories){
+            res.json(stories);
+     });
+}
 exports.storySave = function (req, res) {
     var story  =  req.body;
 //    console.log(req.session.passport);
