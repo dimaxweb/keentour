@@ -155,20 +155,9 @@ require(["storage", "search", "geonames","storiesList"], function (storage, sear
 
             }});
         KEENTOUR.storiesList.showLatest($('.latestStories'));
-//            $(window).paged_scroll({
-//                handleScroll:function (page, container, doneCallback) {
-//                   //console.log
-//                },
-//                startPage:1,
-//                targetElement:$('.homeVideos'),
-//                step:'20%',
-//                pagesToScroll:3
-//
-//            });
-
-            /*
-             Add this widget
-             */
+        /*
+            Add this widget
+        */
             try {
                 KEENTOUR.addAddThisWidget();
             }

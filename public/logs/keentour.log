@@ -620,3 +620,56 @@
 {"name":"MongoError","err":"Invalid modifier specified: title","code":10147,"n":0,"connectionId":26149,"ok":1,"level":"info","message":"Error is:","timestamp":"2013-08-25T10:54:11.738Z"}
 {"level":"info","message":"Results is: undefined","timestamp":"2013-08-25T10:54:11.741Z"}
 {"level":"info","message":"Story is a updated","timestamp":"2013-08-25T10:54:11.742Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-26T20:13:04.034Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-26T20:13:10.751Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-26T20:13:10.780Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-26T20:13:10.797Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-26T20:13:10.799Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-26T20:13:10.807Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-26T20:13:24.186Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-26T20:13:24.226Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-26T20:13:24.228Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-26T20:13:24.233Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-26T20:13:27.628Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-26T20:13:27.634Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-26T20:13:27.657Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-26T20:13:27.660Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-26T20:13:27.663Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-26T20:16:28.025Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-26T20:23:08.833Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-26T20:25:33.458Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-26T20:25:35.266Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-26T20:25:35.293Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-26T20:25:35.295Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-26T20:25:35.300Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-26T20:26:52.887Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-26T20:26:53.834Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-26T20:26:53.861Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-26T20:26:53.864Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-26T20:26:53.868Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-26T20:26:57.393Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-26T20:26:57.395Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-26T20:26:57.413Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-26T20:26:57.415Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-26T20:26:57.420Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-26T20:27:57.253Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-26T20:27:57.678Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-26T20:27:57.704Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-26T20:27:57.705Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-26T20:27:57.774Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-26T20:28:01.720Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-26T20:28:01.754Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-26T20:28:01.851Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-26T20:28:01.855Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-26T20:28:01.859Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-26T20:28:23.402Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-26T20:28:23.412Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-26T20:28:23.414Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-26T20:28:23.433Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-26T20:28:26.578Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-26T20:28:26.580Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-26T20:28:26.610Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-26T20:28:26.611Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-26T20:28:26.614Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-26T20:29:03.277Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-26T20:31:10.419Z"}
