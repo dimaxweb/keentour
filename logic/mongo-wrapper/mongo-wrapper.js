@@ -152,7 +152,7 @@ var MongoWrapper = module.exports = {
         logger.info('In latest stories');
         var query = function (err, db) {
             logger.info('In latest stories callback');
-            db.collection("story").find({}).toArray(function(err, results) {
+            db.collection("story").find({}).sort({_id:-1}).toArray(function(err, results) {
                 callback(results);
 
             });

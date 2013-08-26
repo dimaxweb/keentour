@@ -520,3 +520,103 @@
 {"level":"info","message":"Connected to db","timestamp":"2013-08-22T19:44:08.863Z"}
 {"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-22T19:44:08.864Z"}
 {"level":"info","message":"In latest stories callback","timestamp":"2013-08-22T19:44:08.864Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-23T05:49:22.949Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-23T05:49:22.967Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-23T05:49:22.971Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-23T05:49:22.975Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-23T05:49:27.795Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-23T05:49:27.796Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-23T05:49:27.815Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-23T05:49:27.816Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-23T05:49:27.816Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-23T05:51:12.995Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-23T05:53:41.913Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-23T05:53:41.935Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-23T05:53:41.936Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-23T05:53:41.940Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-23T05:53:46.219Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-23T05:53:46.219Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-23T05:53:46.244Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-23T05:53:46.245Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-23T05:53:46.245Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-23T05:56:12.351Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-23T05:56:12.367Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-23T05:56:12.369Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-23T05:56:12.374Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-23T05:56:16.911Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-23T05:56:16.914Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-23T05:56:16.931Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-23T05:56:16.933Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-23T05:56:16.935Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-23T05:56:21.118Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-23T05:56:21.143Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-23T05:56:21.146Z"}
+{"level":"info","message":"Story is:","timestamp":"2013-08-23T05:56:21.154Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-23T05:56:41.675Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-23T05:56:41.678Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-23T05:56:41.731Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-23T05:56:41.732Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-23T05:56:41.733Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-23T06:00:37.739Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-23T06:01:58.826Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-23T06:02:03.273Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-23T06:02:03.351Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-23T06:02:03.354Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-23T06:02:03.361Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-23T06:02:06.765Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-23T06:02:06.768Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-23T06:02:06.803Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-23T06:02:06.804Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-23T06:02:06.805Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-24T16:30:51.893Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-24T16:30:51.991Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-24T16:30:52.204Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-24T16:30:52.205Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-24T16:30:52.238Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-25T10:20:30.564Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-25T10:20:30.993Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-25T10:20:30.996Z"}
+{"level":"info","message":"Story is:","timestamp":"2013-08-25T10:20:31.260Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-25T10:51:02.537Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-25T10:51:02.570Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-25T10:51:02.610Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-25T10:51:02.611Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-25T10:51:02.646Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-25T10:51:20.152Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-25T10:51:42.516Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-25T10:51:42.517Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-25T10:51:42.557Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-25T10:51:42.558Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-25T10:51:42.560Z"}
+{"title":"bcbc","description":"vcccc<br>","items":[{"id":"9585166064","owner":"7366969@N02","secret":"d2f221588a","server":"3770","farm":4,"title":"Big Ben, London","ispublic":1,"isfriend":0,"isfamily":0,"tags":"7d canon city england greatbritain holiday london travel trip uk vacation","url_sq":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_t.jpg","height_t":"67","width_t":"100","url_s":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_m.jpg","height_s":"160","width_s":"240","url_m":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a.jpg","height_m":"333","width_m":"500","url_z":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_z.jpg","height_z":"427","width_z":"640","url_l":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_b.jpg","height_l":"683","width_l":"1024","url_o":"http://farm4.staticflickr.com/3770/9585166064_d3ae7cd3b7_o.jpg","height_o":"3456","width_o":"5184","description":{"_content":"London - A short walk around after a meeting"},"pathalias":"myfrozenlife","ownername":"myfrozenlife","datetaken":"2013-05-17 13:02:22","datetakengranularity":"0","dateupload":"1377365268"},{"id":"2940732129","owner":"10411969@N07","secret":"7540c974b0","server":"3233","farm":4,"title":"From London with love","ispublic":1,"isfriend":0,"isfamily":0,"tags":"uk red holiday london travels britain linda pentacon beret hamstead kodakportra400nc pentaconsixtl pseudofrench peasfromapod psuedofrench","url_sq":"http://farm4.staticflickr.com/3233/2940732129_7540c974b0_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm4.staticflickr.com/3233/2940732129_7540c974b0_t.jpg","height_t":"100","width_t":"99","url_s":"http://farm4.staticflickr.com/3233/2940732129_7540c974b0_m.jpg","height_s":"240","width_s":"238","url_m":"http://farm4.staticflickr.com/3233/2940732129_7540c974b0.jpg","height_m":"500","width_m":"496","url_z":"http://farm4.staticflickr.com/3233/2940732129_7540c974b0_z.jpg","height_z":"640","width_z":635,"url_l":"http://farm4.staticflickr.com/3233/2940732129_7540c974b0_b.jpg","height_l":"1024","width_l":"1016","description":{"_content":"Pentacon Six TL - Kodak Portra 400NC\n\nHamstead, London, UK\n\nThe colours in this shot turned out quite strange. It had some green colour cast, I completed a colour restoration and it came out this bright saturated colour, hardly Portra"},"pathalias":"davewell","ownername":"dave.carswell","datetaken":"2008-10-14 05:17:24","datetakengranularity":"0","dateupload":"1223986644"}],"tags":["7d","canon","city","england","greatbritain","holiday","london","travel","trip","uk","vacation","red","travels","britain","linda","pentacon","beret","hamstead","kodakportra400nc","pentaconsixtl","pseudofrench","peasfromapod","psuedofrench"],"url":"/storyView/dmitry-mogilko/bcbc","userName":"dmitry-mogilko","level":"info","message":"Insert new story","timestamp":"2013-08-25T10:51:42.614Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-25T10:51:46.278Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-25T10:51:46.284Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-25T10:51:46.307Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-25T10:51:46.309Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-25T10:51:46.310Z"}
+{"level":"info","message":"Story found.Update story","timestamp":"2013-08-25T10:51:46.330Z"}
+{"name":"MongoError","err":"Invalid modifier specified: title","code":10147,"n":0,"connectionId":26131,"ok":1,"level":"info","message":"Error is:","timestamp":"2013-08-25T10:51:46.491Z"}
+{"level":"info","message":"Results is: undefined","timestamp":"2013-08-25T10:51:46.492Z"}
+{"level":"info","message":"Story is a updated","timestamp":"2013-08-25T10:51:46.494Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-25T10:51:46.711Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-25T10:51:46.727Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-25T10:51:46.729Z"}
+{"level":"info","message":"Story is:","timestamp":"2013-08-25T10:51:46.827Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-25T10:54:10.871Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-25T10:54:10.873Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-25T10:54:10.887Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-25T10:54:10.889Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-25T10:54:10.891Z"}
+{"level":"info","message":"Story found.Update story","timestamp":"2013-08-25T10:54:10.934Z"}
+{"name":"MongoError","err":"Invalid modifier specified: title","code":10147,"n":0,"connectionId":26141,"ok":1,"level":"info","message":"Error is:","timestamp":"2013-08-25T10:54:10.940Z"}
+{"level":"info","message":"Results is: undefined","timestamp":"2013-08-25T10:54:10.945Z"}
+{"level":"info","message":"Story is a updated","timestamp":"2013-08-25T10:54:10.946Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-25T10:54:11.658Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-25T10:54:11.661Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-25T10:54:11.692Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-25T10:54:11.694Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-25T10:54:11.695Z"}
+{"level":"info","message":"Story found.Update story","timestamp":"2013-08-25T10:54:11.698Z"}
+{"name":"MongoError","err":"Invalid modifier specified: title","code":10147,"n":0,"connectionId":26149,"ok":1,"level":"info","message":"Error is:","timestamp":"2013-08-25T10:54:11.738Z"}
+{"level":"info","message":"Results is: undefined","timestamp":"2013-08-25T10:54:11.741Z"}
+{"level":"info","message":"Story is a updated","timestamp":"2013-08-25T10:54:11.742Z"}

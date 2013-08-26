@@ -59,7 +59,7 @@ define(["jquery"], function ($) {
             var storyUrl = story.url;
             var mainItemUrl = storiesList.getBigImageUrl(mainItem);
             $('<h5>' + title + '</h5>').appendTo(storyCont);
-            $('<div class="<div class="storyImageCont"><img src="' + mainItemUrl + '"/></div>').appendTo(storyCont);
+            $('<div class="storyImageCont"><img src="' + mainItemUrl + '"/></div>').appendTo(storyCont);
             $('<a href="' + storyUrl +  '">Explore ...</a>').appendTo(storyCont);
 
         },

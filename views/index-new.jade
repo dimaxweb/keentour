@@ -2,16 +2,16 @@ extends layout
 
 block content
     .row-fluid
-        .span9
+        .span9.offset2
             .new_photos#newVideos(style="display:none")
                 .new_photos_title
                     span.homePageTitle Where do you want to travel ?
                     img(src="/images/kamera.png")
 
-            .latestStories
+            .latestStories(style="margin-bottom:10%;")
 
 
-        .span3
+        .span3.offset2
             .popular_countries
             .popular_countries_title
                 img(src='/images/planet.png')
