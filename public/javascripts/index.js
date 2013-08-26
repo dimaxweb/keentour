@@ -41,6 +41,7 @@ require.config({
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
         colorBoxCSS:'/stylesheets//colorBox',
         wikiCSS:'/stylesheets/wiki2',
+        storiesListCss : '/stylesheets/storiesList',
         css:'/javascripts/lib/css'
 
 
@@ -130,7 +131,7 @@ if (typeof (KEENTOUR) == 'undefined') {
 }
 
 
-require(["storage", "search", "geonames","storiesList"], function (storage, search, geonames,storiesList) {
+require(["storage", "search", "geonames","storiesList","css!storiesListCss"], function (storage, search, geonames,storiesList) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
@@ -154,6 +155,7 @@ require(["storage", "search", "geonames","storiesList"], function (storage, sear
                 }
 
             }});
+
         KEENTOUR.storiesList.showLatest($('.latestStories'));
         /*
             Add this widget

@@ -5,7 +5,7 @@
  * Time: 7:18 PM
  * To change this template use File | Settings | File Templates.
  */
-define(["jquery", "ajax-scroll"], function ($) {
+define(["jquery", "ajax-scroll",""], function ($) {
     var storiesList = {
         config:{
             LATEST_STORIES_URL:"/latestStories"
@@ -66,15 +66,15 @@ define(["jquery", "ajax-scroll"], function ($) {
         },
 
         renderStory:function (story, element) {
-            var storyCont = $("<div class='storyCont'></div>").appendTo(element);
             var title = story.title;
             var storyTags = story.tags;
             var mainItem = story.items[0];
             var storyUrl = story.url;
+            var storyCont = $('<a class="storyContainer" href="' + storyUrl + '"><div class="storyCont"></div></a>').appendTo(element);
             var mainItemUrl = storiesList.getBigImageUrl(mainItem);
             $('<h5>' + title + '</h5>').appendTo(storyCont);
             $('<div class="storyImageCont"><img src="' + mainItemUrl + '"/></div>').appendTo(storyCont);
-            $('<a href="' + storyUrl + '">Explore ...</a>').appendTo(storyCont);
+
 
         },
 
