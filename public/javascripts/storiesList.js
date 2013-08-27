@@ -11,14 +11,14 @@ define(["jquery", "ajax-scroll",""], function ($) {
             LATEST_STORIES_URL:"/latestStories"
         },
 
-        lastStoryId   : -1,
+        rowsToSkip   : 0,
         storiesToShow  : 5,
 
         getStories:function (element) {
             var callback = function (stories) {
-                if (stories && stories.length > 0) {
-                    storiesList.lastStoryId = stories[stories.length - 1]._id;
-                }
+//                if (stories && stories.length > 0) {
+//                    storiesList.lastStoryId = stories[stories.length - 1]._id;
+//                }
                 storiesList.render(stories, element);
 
             };
@@ -27,6 +27,7 @@ define(["jquery", "ajax-scroll",""], function ($) {
         showLatest:function (element) {
             $(window).paged_scroll({
                 handleScroll:function (page, container, doneCallback) {
+                    storiesList.rowsToSkip = page * storiesList.storiesToShow;
                     storiesList.getStories(element);
                     doneCallback();
                 },
@@ -46,9 +47,10 @@ define(["jquery", "ajax-scroll",""], function ($) {
                 url:storiesList.config.LATEST_STORIES_URL,
                 dataType:"json",
                 data :{
-                    lastStoryId : storiesList.lastStoryId,
+                    rowsToSkip : storiesList.rowsToSkip,
                     storiesToShow : storiesList.storiesToShow
-                }
+                },
+                cache : false
 
 
             });
