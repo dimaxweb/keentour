@@ -11,10 +11,23 @@ define(["jquery", "ajax-scroll",""], function ($) {
             LATEST_STORIES_URL:"/latestStories"
         },
 
+        lastStoryId   : -1,
+        storiesToShow  : 5,
+
+        getStories:function (element) {
+            var callback = function (stories) {
+                if (stories && stories.length > 0) {
+                    storiesList.lastStoryId = stories[stories.length - 1]._id;
+                }
+                storiesList.render(stories, element);
+
+            };
+            storiesList._getLatestStories(callback);
+        },
         showLatest:function (element) {
             $(window).paged_scroll({
                 handleScroll:function (page, container, doneCallback) {
-                    console.log(page);
+                    storiesList.getStories(element);
                     doneCallback();
                 },
                 startPage:1,
@@ -24,17 +37,19 @@ define(["jquery", "ajax-scroll",""], function ($) {
                 monitorTargetChange:false
 
             });
-            var callback = function (stories) {
-                storiesList.render(stories, element);
-            };
-            storiesList._getLatestStories(callback);
+            storiesList.getStories(element);
         },
 
         _getLatestStories:function (callback) {
 
             var request = $.ajax({
                 url:storiesList.config.LATEST_STORIES_URL,
-                dataType:"json"
+                dataType:"json",
+                data :{
+                    lastStoryId : storiesList.lastStoryId,
+                    storiesToShow : storiesList.storiesToShow
+                }
+
 
             });
 
@@ -58,7 +73,7 @@ define(["jquery", "ajax-scroll",""], function ($) {
                 }
 
                 catch (e) {
-                    throw e
+                    console.log("Error occured when rendering story",story);
                 }
 
             });

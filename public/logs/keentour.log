@@ -717,3 +717,235 @@
 {"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-26T20:42:59.893Z"}
 {"level":"info","message":"Story is:","timestamp":"2013-08-26T20:42:59.923Z"}
 {"level":"info","message":"Accessing content page","timestamp":"2013-08-26T20:43:41.645Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-27T05:50:40.790Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T05:51:06.743Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T05:51:06.744Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T05:51:06.751Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T05:51:06.752Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T05:51:06.752Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T05:51:51.775Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-27T05:51:51.801Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T05:51:51.813Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T05:51:51.821Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T05:51:51.822Z"}
+{"level":"info","message":"User found","timestamp":"2013-08-27T05:51:51.823Z"}
+{"level":"info","message":"Update user collection","timestamp":"2013-08-27T05:51:51.824Z"}
+{"level":"info","message":"User data is updated","timestamp":"2013-08-27T05:51:51.826Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T05:51:51.827Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T05:51:51.827Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T05:51:51.828Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T05:52:03.765Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T05:52:03.769Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T05:52:03.769Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T05:52:03.770Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T05:52:04.960Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T05:52:04.961Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T05:52:04.965Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T05:52:04.966Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T05:52:04.966Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T05:52:06.983Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T05:52:06.986Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T05:52:06.987Z"}
+{"level":"info","message":"Story is:","timestamp":"2013-08-27T05:52:06.988Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:09:44.760Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:09:44.761Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:09:44.766Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:09:44.766Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:09:44.766Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:09:50.113Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:09:50.113Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:09:50.118Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:09:50.119Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:09:50.119Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:10:20.932Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:10:20.932Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:10:20.938Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:10:20.938Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:10:20.938Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:15:01.073Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:15:01.073Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:15:01.079Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:15:01.079Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:15:01.079Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:15:07.354Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:15:07.355Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:15:07.358Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:15:07.358Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:15:07.359Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:15:07.932Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:15:07.932Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:15:07.936Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:15:07.936Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:15:07.936Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:15:12.670Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:15:12.670Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:15:12.674Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:15:12.675Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:15:12.675Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:15:13.246Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:15:13.246Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:15:13.250Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:15:13.250Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:15:13.251Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:15:15.577Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:15:15.578Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:15:15.582Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:15:15.582Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:15:15.582Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:15:16.408Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:15:16.408Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:15:16.412Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:15:16.412Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:15:16.412Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:16:37.997Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:16:37.997Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:16:38.002Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:16:38.002Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:16:38.003Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:16:38.561Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:16:38.562Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:16:38.565Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:16:38.565Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:16:38.566Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:16:39.111Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:16:39.111Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:16:39.115Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:16:39.115Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:16:39.115Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:16:39.686Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:16:39.686Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:16:39.701Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:16:39.701Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:16:39.702Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:16:40.263Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:16:40.263Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:16:40.268Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:16:40.268Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:16:40.268Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:16:40.958Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:16:40.958Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:16:40.962Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:16:40.963Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:16:40.963Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:16:41.530Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:16:41.530Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:16:41.534Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:16:41.535Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:16:41.535Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:16:54.275Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:16:54.276Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:16:54.280Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:16:54.280Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:16:54.281Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:17:48.600Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:17:48.600Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:17:48.606Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:17:48.607Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:17:48.607Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:18:24.664Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:18:24.665Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:18:24.668Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:18:24.669Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:18:24.669Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:20:11.722Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:20:11.723Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:20:11.728Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:20:11.729Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:20:11.729Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:20:56.450Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:20:56.450Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:20:56.454Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:20:56.455Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:20:56.455Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:20:57.519Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:20:57.519Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:20:57.522Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:20:57.523Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:20:57.523Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:21:05.594Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:21:05.594Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:21:05.597Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:21:05.597Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:21:05.598Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:21:06.827Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:21:06.827Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:21:06.831Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:21:06.831Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:21:06.832Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:21:07.813Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:21:07.813Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:21:07.817Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:21:07.817Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:21:07.818Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:21:29.969Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:21:29.969Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:21:29.973Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:21:29.973Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:21:29.973Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:21:54.455Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:21:54.455Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:21:54.458Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:21:54.459Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:21:54.459Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:21:55.041Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:21:55.041Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:21:55.044Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:21:55.044Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:21:55.044Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-27T06:22:41.937Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:25:00.587Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:25:00.610Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:25:00.610Z"}
+{"level":"info","message":"User found","timestamp":"2013-08-27T06:25:00.611Z"}
+{"level":"info","message":"Update user collection","timestamp":"2013-08-27T06:25:00.611Z"}
+{"level":"info","message":"User data is updated","timestamp":"2013-08-27T06:25:00.612Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-27T06:25:00.640Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-27T06:25:00.641Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:25:00.641Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:25:00.679Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:25:00.679Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-27T06:25:00.680Z"}
+{"title":"London hightlight","description":"Visit london <br>","items":[{"id":"8316811624","owner":"33721835@N02","secret":"8246f3cc51","server":"8219","farm":9,"title":"Big Ben #bigben #london #travel #uk","ispublic":1,"isfriend":0,"isfamily":0,"tags":"travel london square big ben squareformat iphoneography instagramapp xproii uploaded:by=instagram","url_sq":"http://farm9.staticflickr.com/8219/8316811624_8246f3cc51_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm9.staticflickr.com/8219/8316811624_8246f3cc51_t.jpg","height_t":"100","width_t":"100","url_s":"http://farm9.staticflickr.com/8219/8316811624_8246f3cc51_m.jpg","height_s":"240","width_s":"240","url_m":"http://farm9.staticflickr.com/8219/8316811624_8246f3cc51.jpg","height_m":"500","width_m":"500","url_z":"http://farm9.staticflickr.com/8219/8316811624_8246f3cc51_z.jpg","height_z":"612","width_z":"612","description":{"_content":""},"pathalias":"solerito","ownername":"Solerito","datetaken":"2012-12-27 21:20:48","datetakengranularity":"0","dateupload":"1356661248"},{"id":"9584567850","owner":"7366969@N02","secret":"34a6df1642","server":"5459","farm":6,"title":"BigBen, London","ispublic":1,"isfriend":0,"isfamily":0,"tags":"7d canon city england greatbritain holiday london travel trip uk vacation unitedkingdom","url_sq":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_t.jpg","height_t":"100","width_t":"67","url_s":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_m.jpg","height_s":"240","width_s":"160","url_m":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642.jpg","height_m":"500","width_m":"333","url_z":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_z.jpg","height_z":"640","width_z":"427","url_l":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_b.jpg","height_l":"1024","width_l":"683","url_o":"http://farm6.staticflickr.com/5459/9584567850_8585c47df6_o.jpg","height_o":"5127","width_o":"3418","description":{"_content":"London - A short walk around after a meeting"},"pathalias":"myfrozenlife","ownername":"myfrozenlife","datetaken":"2013-05-17 12:34:32","datetakengranularity":"0","dateupload":"1377359940"},{"id":"5068757918","owner":"26820300@N04","secret":"a86c612476","server":"4132","farm":5,"title":"London Travel 2","ispublic":1,"isfriend":0,"isfamily":0,"tags":"bw trafficlights london traffic transport taxis bicycles embankment cycles blackcabs stmoritz1960","url_sq":"http://farm5.staticflickr.com/4132/5068757918_a86c612476_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm5.staticflickr.com/4132/5068757918_a86c612476_t.jpg","height_t":"72","width_t":"100","url_s":"http://farm5.staticflickr.com/4132/5068757918_a86c612476_m.jpg","height_s":"173","width_s":"240","url_m":"http://farm5.staticflickr.com/4132/5068757918_a86c612476.jpg","height_m":"360","width_m":"500","url_z":"http://farm5.staticflickr.com/4132/5068757918_a86c612476_z.jpg","height_z":"461","width_z":"640","url_l":"http://farm5.staticflickr.com/4132/5068757918_a86c612476_b.jpg","height_l":"737","width_l":"1024","url_o":"http://farm5.staticflickr.com/4132/5068757918_40080ea0ae_o.jpg","height_o":"2211","width_o":"3070","description":{"_content":"Shot on the Embankment, London"},"pathalias":"stmoritz1960","ownername":"stmoritz1960","datetaken":"2010-09-10 11:47:33","datetakengranularity":"0","dateupload":"1286735087"},{"id":"3197814964","owner":"34292117@N07","secret":"3f05c5d49b","server":"3132","farm":4,"title":"London Eye","ispublic":1,"isfriend":0,"isfamily":0,"tags":"london travels londoneye viajes londres londonist","url_sq":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_t.jpg","height_t":"76","width_t":"100","url_s":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_m.jpg","height_s":"183","width_s":"240","url_m":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b.jpg","height_m":"382","width_m":"500","url_z":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_z.jpg?zz=1","height_z":488,"width_z":"640","url_o":"http://farm4.staticflickr.com/3132/3197814964_6961a8bb82_o.jpg","height_o":"757","width_o":"992","description":{"_content":"Vista del Parlamento británico desde la noria London Eye       "},"pathalias":"sacre59","ownername":"sacre","datetaken":"2006-07-06 13:36:18","datetakengranularity":"0","dateupload":"1231969973"}],"tags":["travel","london","square","big","ben","squareformat","iphoneography","instagramapp","xproii","uploaded:by=instagram","7d","canon","city","england","greatbritain","holiday","trip","uk","vacation","unitedkingdom","bw","trafficlights","traffic","transport","taxis","bicycles","embankment","cycles","blackcabs","stmoritz1960","travels","londoneye","viajes","londres","londonist"],"url":"/storyView/dmitry-mogilko/london-hightlight","userName":"dmitry-mogilko","level":"info","message":"Insert new story","timestamp":"2013-08-27T06:25:00.701Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-27T06:25:51.539Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:25:51.539Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:25:51.543Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:25:51.543Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-27T06:25:51.544Z"}
+{"level":"info","message":"Story found.Update story","timestamp":"2013-08-27T06:25:51.545Z"}
+{"name":"MongoError","err":"Invalid modifier specified: title","code":10147,"n":0,"connectionId":254,"ok":1,"level":"info","message":"Error is:","timestamp":"2013-08-27T06:25:51.546Z"}
+{"level":"info","message":"Results is: undefined","timestamp":"2013-08-27T06:25:51.547Z"}
+{"level":"info","message":"Story is a updated","timestamp":"2013-08-27T06:25:51.547Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:26:04.774Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:26:04.778Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:26:04.778Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T06:26:04.779Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:26:09.057Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:26:09.057Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:26:09.061Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:26:09.062Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:26:09.062Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:26:34.710Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:26:34.710Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:26:34.714Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:26:34.715Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:26:34.715Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:26:35.735Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:26:35.735Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:26:35.738Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:26:35.739Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:26:35.739Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:26:47.510Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:26:47.510Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:26:47.514Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:26:47.514Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:26:47.514Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:26:48.040Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:26:48.041Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:26:48.044Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:26:48.044Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:26:48.044Z"}
+{"level":"info","message":"In latest stories","timestamp":"2013-08-27T06:26:48.575Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:26:48.575Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:26:48.578Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:26:48.579Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:26:48.579Z"}

@@ -172,7 +172,7 @@ exports.homeNew = function(req,res){
 }
 
 exports.latestStories = function(req, res){
-    MongoWrapper.getLatestStories(function(stories){
+    MongoWrapper.getLatestStories({lastStoryId:req.params.lastStoryId,storiesToShow:req.params.storiesToShow},function(stories){
             res.json(stories);
      });
 }

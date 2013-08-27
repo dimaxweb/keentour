@@ -148,11 +148,11 @@ var MongoWrapper = module.exports = {
     /*
         get latest stories by object creation number
     */
-    getLatestStories : function(callback){
-        logger.info('In latest stories');
+    getLatestStories : function(params,callback){
+        logger.info('In latest stories.Params',params);
         var query = function (err, db) {
             logger.info('In latest stories callback');
-            db.collection("story").find({}).sort({_id:-1}).toArray(function(err, results) {
+            db.collection("story").find({_id  : {$gt : params.lastStoryId}}).sort({_id:-1}).limit(params.storiesToShow).toArray(function(err, results) {
                 callback(results);
 
             });
