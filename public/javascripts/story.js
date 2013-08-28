@@ -38,6 +38,7 @@ require.config({
         twitter_grid:'/javascripts/twitter-grid',
         richEditorSource  : '/javascripts/lib/wysihtml5/wysihtml5-0.3.0.min',
         richEditor  : '/javascripts/lib/wysihtml5/wysihtml5-AMD',
+        tabs  :  '/javascripts/lib/bootstrap/bootstrap-tab',
         /*
             css resources
         */
@@ -109,7 +110,13 @@ require.config({
 
         "popover":{
             deps:["jquery","tooltip"]
+        },
+
+        "tabs":{
+            deps:["jquery"]
         }
+
+
 
     }
 
@@ -351,7 +358,7 @@ KEENTOUR.getLastQuery = function(){
     return $('#searchText').val();
 }
 
-require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
+require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI","tabs","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
@@ -370,6 +377,13 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
 //
 //
 //        }});
+
+        $('#storyTabs').tabs();
+        $('#storyTabs .tab').click(function(e) {
+            e.preventDefault();
+            $(this).tab('show');
+            console.log('show');
+        })
 
         $('#searchText').keypress(function(event){
 

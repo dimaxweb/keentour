@@ -34,22 +34,25 @@ html(lang='en')
         .span8
             ul#storyTabs.nav.nav-tabs
                 li.active
-                    a(href='#story') Story
+                    a.tab(href='#story') Story
                 li
-                    a(href='#profile') Settings
+                    a.tab(href='#settings') Settings
                 li
-                    a(href='#getcode') Get Code
+                    a.tab(href='#getcode') Get Code
 
-    .tab-content
-        .story#story.tab-pane.active
-            div(style='text-align:left')
-                    input(type='text',id='txtTitle',placeholder='Enter title',style='width:95%'")
-                    .storyText
-                    textarea#wysihtml5-editor(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter description ...')
+            .tab-content
+                .story#story.tab-pane.active
+                        div(style='text-align:left')
+                            input(type='text',id='txtTitle',placeholder='Enter title',style='width:95%'")
+                            .storyText
+                            textarea#wysihtml5-editor(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter description ...')
 
-                    ul.storyItems
-        #settings.tab-pane
-        #getcode.tab-pane
+                        ul.storyItems
+                #settings.tab-pane
+                        input(type="text",placeholder="Where it happens ?")
+                #getcode.tab-pane
+                        textarea#storyCode
+
 
 
 
