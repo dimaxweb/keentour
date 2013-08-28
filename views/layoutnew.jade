@@ -1,0 +1,78 @@
+include shared/mixins
+
+doctype 5
+html(lang='en')
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='description', content='')
+        meta(name='author', content='')
+        link(rel='stylesheet', href='/stylesheets/SiteNew.css')
+        link(rel='stylesheet', href='/stylesheets/colorbox.css')
+        link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap-responsive.css')
+        link(rel='icon',type='image/png',href='/images/favicon.ico')
+        script(type='text/javascript',src='/javascripts/console.js')
+
+    body
+
+
+        .container-fluid.header
+            .row-fluid
+                .span4
+                    div.logoCont.pull-left
+                        a(href='/', title='Keentour-Home')
+                            img(src='/images/logo.png')
+                .span8
+
+                    a.createStory(href="/story",title="Share you travel story with us") Share
+                    a.login(href="/login") Login
+                    a.userProfileButton   User Display Name
+                    #search
+                        input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
+
+
+
+
+
+       .container-fuild
+            block content
+
+
+        div.footerPanel#panelMain
+            .raw-fluid
+                .span5
+                    div.panelInternal
+                            span.companyInfo
+                                a(href="/AboutUs") About US
+                            span.companyInfo
+                                a(href="/Privacy") Privacy
+
+
+
+
+                .span7
+                    .advBlock
+                        script(type='text/javascript')
+                            google_ad_client = "ca-pub-4780158497290031";
+                            google_ad_slot = "3076361783";
+                            google_ad_width = 728;
+                            google_ad_height = 15;
+                        script(type='text/javascript', src='http://pagead2.googlesyndication.com/pagead/show_ads.js')
+
+            script(type='text/javascript')
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-10410520-2']);
+                _gaq.push(['_trackPageview']);
+                (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+
+
+
+
+
+

@@ -32,13 +32,26 @@ html(lang='en')
 
 
         .span8
-           .story
-                div(style='text-align:left')
+            ul#storyTabs.nav.nav-tabs
+                li.active
+                    a(href='#story') Story
+                li
+                    a(href='#profile') Settings
+                li
+                    a(href='#getcode') Get Code
+
+    .tab-content
+        .story#story.tab-pane.active
+            div(style='text-align:left')
                     input(type='text',id='txtTitle',placeholder='Enter title',style='width:95%'")
-               .storyText
+                    .storyText
                     textarea#wysihtml5-editor(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter description ...')
 
-               ul.storyItems
+                    ul.storyItems
+        #settings.tab-pane
+        #getcode.tab-pane
+
+
 
         .actionPanel
 

@@ -96,7 +96,7 @@ define(["jquery", "ajax-scroll",""], function ($) {
         },
 
         getBigImageUrl:function (photo) {
-            var photoUrl = photo.url_m || photo.url_l || photo.url_z || photo.url_t || photo.url_s;
+            var photoUrl = photo.url_z || photo.url_l || photo.url_m  || photo.url_t || photo.url_s;
             return photoUrl;
         }
 

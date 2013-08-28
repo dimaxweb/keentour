@@ -103,6 +103,7 @@ app.get('/Privacy',routes.privacy);
 app.post('/story/save',routes.storySave);
 app.post('/story/edit/:user/:title',routes.storyEdit);
 app.post('/profile/:user',routes.userProfile);
+app.post('/publish',routes.publish);
 app.get('/story',routes.story);
 app.get('/storyView/:username/:title',routes.storyView);
 app.get('/stories/preview/:username/:title',routes.storyPreview);

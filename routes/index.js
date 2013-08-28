@@ -137,7 +137,7 @@ exports.story = function(req,res){
     }
 
     console.log("Story is :",story);
-    res.render('story',{story:story});
+    res.render('story',{title:"New story",story:story});
 }
 
 
@@ -176,6 +176,25 @@ exports.latestStories = function(req, res){
             res.json(stories);
      });
 }
+
+exports.publish = function(req,res){
+    var story  =  req.body;
+    story.isPublished = true;
+    story.publishDate = new Date();
+    if(req.isAuthenticated()){
+
+        saveStory(story,req,function(response){
+            res.json(response);
+        });
+    }
+    else{
+        req.session.lastRequestedUrl ='/story/?loadLast=true';
+        req.session.submitedStory  = story;
+        res.json({"result" : false,redirect:'/login'});
+    }
+
+}
+
 exports.storySave = function (req, res) {
     var story  =  req.body;
 //    console.log(req.session.passport);

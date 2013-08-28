@@ -197,9 +197,16 @@ KEENTOUR.renderStory = function (story) {
 
 };
 
-KEENTOUR.addStoryItem   = function(photo){
+
+KEENTOUR.getBigImageUrl = function (photo) {
+    var photoUrl = photo.url_z || photo.url_l || photo.url_m  || photo.url_t || photo.url_s;
+    return photoUrl;
+}
+
+
+    KEENTOUR.addStoryItem   = function(photo){
        var storyContainer = $('.storyItems');
-       var item = $("<li class='storyItemLi'><div class='storyItemContainer'><a class='storyPhoto'><img class='imgStory' src='" + photo.url_m  +"'/></a></div></li>").appendTo(storyContainer);
+       var item = $("<li class='storyItemLi'><div class='storyItemContainer'><a class='storyPhoto'><img class='imgStory' src='" + KEENTOUR.getBigImageUrl(photo)  +"'/></a></div></li>").appendTo(storyContainer);
        $(item).data('item',photo);
        var storyItemContainer =  $(item).find('.storyItemContainer');
         $("<div><a class='storyItemDelete pull-right'>x</a></div>").prependTo(item).on('click',function(e){
@@ -417,6 +424,7 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
                     var story = KEENTOUR.getStory();
                     story.publishedVersion = KEENTOUR.getStory();
                     story.isPublished = true;
+                    story.isPublishedDate = new Date();
                     KEENTOUR.saveStory(story, function (data) {
                         KEENTOUR.storySavedHandle(data);
                         if (data && data.status === true) {

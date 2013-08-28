@@ -949,3 +949,526 @@
 {"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:26:48.578Z"}
 {"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:26:48.579Z"}
 {"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:26:48.579Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-27T06:47:57.977Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:48:10.653Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:48:10.660Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:48:10.660Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T06:48:10.662Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:48:12.665Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:48:12.665Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:48:12.672Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:48:12.672Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:48:12.684Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:48:22.918Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:48:22.918Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:48:22.922Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:48:22.922Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:48:22.923Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:48:23.498Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:48:23.498Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:48:23.503Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:48:23.503Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:48:23.503Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:48:28.585Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:48:28.585Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:48:28.588Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:48:28.588Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:48:28.589Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:48:29.566Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:48:29.566Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:48:29.569Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:48:29.569Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:48:29.570Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:48:34.963Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:48:34.963Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:48:34.966Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:48:34.966Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:48:34.967Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:48:35.483Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:48:35.484Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:48:35.488Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:48:35.488Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:48:35.488Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:48:39.805Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:48:39.805Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:48:39.808Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:48:39.809Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:48:39.809Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:48:40.773Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:48:40.773Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:48:40.777Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:48:40.777Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:48:40.777Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:49:43.315Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:49:43.319Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:49:43.320Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T06:49:43.320Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:49:45.374Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:49:45.374Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:49:45.378Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:49:45.378Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:49:45.380Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:50:00.790Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:50:00.790Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:50:00.793Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:50:00.796Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:50:00.796Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:51:43.412Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:51:43.417Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:51:43.417Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T06:51:43.418Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:51:44.919Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:51:44.919Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:51:44.923Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:51:44.924Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:51:44.924Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:52:08.475Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:52:08.476Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:52:08.479Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:52:08.479Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:52:08.479Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:52:14.672Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:52:14.677Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:52:14.677Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T06:52:14.678Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:52:16.475Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:52:16.476Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:52:16.480Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:52:16.480Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:52:16.480Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:52:17.710Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:52:17.711Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:52:17.715Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:52:17.715Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:52:17.715Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:52:23.628Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:52:23.631Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:52:23.632Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T06:52:23.632Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:52:25.292Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:52:25.292Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:52:25.296Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:52:25.296Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:52:25.297Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:52:36.300Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:52:36.300Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:52:36.305Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:52:36.305Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:52:36.305Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T06:52:37.274Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T06:52:37.275Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T06:52:37.279Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T06:52:37.279Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T06:52:37.279Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-27T07:46:14.907Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T07:46:14.912Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T07:46:14.925Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T07:46:14.926Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T07:46:14.929Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T07:46:21.272Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T07:46:21.282Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T07:46:21.283Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T07:46:21.285Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T07:46:23.238Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T07:46:23.239Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T07:46:23.251Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T07:46:23.253Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T07:46:23.254Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-27T07:46:33.793Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-27T07:47:23.655Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T07:47:23.655Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T07:47:23.664Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T07:47:23.665Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-27T07:47:23.666Z"}
+{"title":"dsadasdas","description":"dadsadasdsa dsdasddasd","items":[{"id":"3197814964","owner":"34292117@N07","secret":"3f05c5d49b","server":"3132","farm":4,"title":"London Eye","ispublic":1,"isfriend":0,"isfamily":0,"tags":"london travels londoneye viajes londres londonist","url_sq":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_t.jpg","height_t":"76","width_t":"100","url_s":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_m.jpg","height_s":"183","width_s":"240","url_m":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b.jpg","height_m":"382","width_m":"500","url_z":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_z.jpg?zz=1","height_z":488,"width_z":"640","url_o":"http://farm4.staticflickr.com/3132/3197814964_6961a8bb82_o.jpg","height_o":"757","width_o":"992","description":{"_content":"Vista del Parlamento británico desde la noria London Eye       "},"pathalias":"sacre59","ownername":"sacre","datetaken":"2006-07-06 13:36:18","datetakengranularity":"0","dateupload":"1231969973"},{"id":"8440934830","owner":"81653261@N00","secret":"08258d2b93","server":"8049","farm":9,"title":"London travel","ispublic":1,"isfriend":0,"isfamily":0,"tags":"city travel bridge england london tower clock westminster architecture river unitedkingdom parliament bigben","url_sq":"http://farm9.staticflickr.com/8049/8440934830_08258d2b93_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm9.staticflickr.com/8049/8440934830_08258d2b93_t.jpg","height_t":"100","width_t":"67","url_s":"http://farm9.staticflickr.com/8049/8440934830_08258d2b93_m.jpg","height_s":"240","width_s":"160","url_m":"http://farm9.staticflickr.com/8049/8440934830_08258d2b93.jpg","height_m":"500","width_m":"333","url_z":"http://farm9.staticflickr.com/8049/8440934830_08258d2b93_z.jpg","height_z":"640","width_z":"426","url_l":"http://farm9.staticflickr.com/8049/8440934830_08258d2b93_b.jpg","height_l":"1024","width_l":"681","url_o":"http://farm9.staticflickr.com/8049/8440934830_dee277ed07_o.jpg","height_o":"4510","width_o":"3001","description":{"_content":""},"pathalias":"elessar_82","ownername":"Jose M Vazquez","datetaken":"2012-08-09 20:28:45","datetakengranularity":"0","dateupload":"1359885968"},{"id":"9585166064","owner":"7366969@N02","secret":"d2f221588a","server":"3770","farm":4,"title":"Big Ben, London","ispublic":1,"isfriend":0,"isfamily":0,"tags":"7d canon city england greatbritain holiday london travel trip uk vacation","url_sq":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_t.jpg","height_t":"67","width_t":"100","url_s":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_m.jpg","height_s":"160","width_s":"240","url_m":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a.jpg","height_m":"333","width_m":"500","url_z":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_z.jpg","height_z":"427","width_z":"640","url_l":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_b.jpg","height_l":"683","width_l":"1024","url_o":"http://farm4.staticflickr.com/3770/9585166064_d3ae7cd3b7_o.jpg","height_o":"3456","width_o":"5184","description":{"_content":"London - A short walk around after a meeting"},"pathalias":"myfrozenlife","ownername":"myfrozenlife","datetaken":"2013-05-17 13:02:22","datetakengranularity":"0","dateupload":"1377365268"},{"id":"4057889511","owner":"21611052@N02","secret":"b5d62c2d57","server":"2558","farm":3,"title":"Travel London . 8105 LJ56VSX . Victoria Bus Station . 28th-October-2009","ispublic":1,"isfriend":0,"isfamily":0,"tags":"bus victoria londonbus travellondon alexanderdennis enviro200 routec1 lj56vsx e200dart","url_sq":"http://farm3.staticflickr.com/2558/4057889511_b5d62c2d57_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm3.staticflickr.com/2558/4057889511_b5d62c2d57_t.jpg","height_t":"75","width_t":"100","url_s":"http://farm3.staticflickr.com/2558/4057889511_b5d62c2d57_m.jpg","height_s":"180","width_s":"240","url_m":"http://farm3.staticflickr.com/2558/4057889511_b5d62c2d57.jpg","height_m":"375","width_m":"500","url_z":"http://farm3.staticflickr.com/2558/4057889511_b5d62c2d57_z.jpg","height_z":480,"width_z":"640","url_l":"http://farm3.staticflickr.com/2558/4057889511_b5d62c2d57_b.jpg","height_l":"768","width_l":"1024","url_o":"http://farm3.staticflickr.com/2558/4057889511_1cf874db1b_o.jpg","height_o":"2448","width_o":"3264","description":{"_content":"Travel London . 8105  LJ56VSX\n\nAlexander-Dennis E200 Dart 8.9m  -  Alexander-Dennis Enviro 200 B26F\n\nVictoria Bus Station . Wednesday 28th-October-2009\n\nThere are two schools of though re taking photographs of Buses with their doors open.\nI do prefer them closed , but in this shot ,which shows off the '' blue '' interior etc. It contrasts well ,and breaks up the over-all red of the bus ."},"pathalias":null,"ownername":"AndrewHA's","datetaken":"2009-10-28 12:18:48","datetakengranularity":"0","dateupload":"1256917297"}],"tags":["london","travels","londoneye","viajes","londres","londonist","city","travel","bridge","england","tower","clock","westminster","architecture","river","unitedkingdom","parliament","bigben","7d","canon","greatbritain","holiday","trip","uk","vacation","bus","victoria","londonbus","travellondon","alexanderdennis","enviro200","routec1","lj56vsx","e200dart"],"url":"/storyView/dmitry-mogilko/dsadasdas","userName":"dmitry-mogilko","level":"info","message":"Insert new story","timestamp":"2013-08-27T07:47:23.674Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T07:47:32.902Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T07:47:32.919Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T07:47:32.922Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T07:47:32.926Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T07:47:34.461Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T07:47:34.461Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T07:47:34.474Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T07:47:34.474Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T07:47:34.475Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-27T07:47:59.487Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-27T07:48:12.086Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T07:48:12.087Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T07:48:12.099Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T07:48:12.100Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-27T07:48:12.101Z"}
+{"title":"asasasasas dsadad","description":"","items":[{"id":"5068153015","owner":"26820300@N04","secret":"abb1918f28","server":"4108","farm":5,"title":"London Travel","ispublic":1,"isfriend":0,"isfamily":0,"tags":"trafficlights london traffic transport taxis bicycles embankment cycles blackcabs stmoritz1960","url_sq":"http://farm5.staticflickr.com/4108/5068153015_abb1918f28_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm5.staticflickr.com/4108/5068153015_abb1918f28_t.jpg","height_t":"68","width_t":"100","url_s":"http://farm5.staticflickr.com/4108/5068153015_abb1918f28_m.jpg","height_s":"163","width_s":"240","url_m":"http://farm5.staticflickr.com/4108/5068153015_abb1918f28.jpg","height_m":"340","width_m":"500","url_z":"http://farm5.staticflickr.com/4108/5068153015_abb1918f28_z.jpg","height_z":"436","width_z":"640","url_l":"http://farm5.staticflickr.com/4108/5068153015_abb1918f28_b.jpg","height_l":"697","width_l":"1024","url_o":"http://farm5.staticflickr.com/4108/5068153015_2a823977d3_o.jpg","height_o":"2122","width_o":"3118","description":{"_content":"Shot on the Embankment, London"},"pathalias":"stmoritz1960","ownername":"stmoritz1960","datetaken":"2010-09-10 11:47:32","datetakengranularity":"0","dateupload":"1286735157"}],"tags":["trafficlights","london","traffic","transport","taxis","bicycles","embankment","cycles","blackcabs","stmoritz1960"],"url":"/storyView/dmitry-mogilko/asasasasas-dsadad","userName":"dmitry-mogilko","level":"info","message":"Insert new story","timestamp":"2013-08-27T07:48:12.108Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T07:48:24.224Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T07:48:24.234Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T07:48:24.235Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T07:48:24.237Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T07:48:25.699Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T07:48:25.700Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T07:48:25.712Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T07:48:25.713Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T07:48:25.714Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T07:50:17.955Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T07:50:17.956Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T07:50:17.968Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T07:50:17.969Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T07:50:17.969Z"}
+{"level":"info","message":"Starting application","timestamp":"2013-08-27T14:23:36.556Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-27T14:23:45.488Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:23:45.489Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:23:45.496Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:23:45.496Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T14:23:45.497Z"}
+{"level":"info","message":"Accessing content page","timestamp":"2013-08-27T14:23:51.159Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-27T14:25:12.527Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:27:23.194Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:27:23.202Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:27:23.203Z"}
+{"level":"info","message":"User found","timestamp":"2013-08-27T14:27:23.207Z"}
+{"level":"info","message":"Update user collection","timestamp":"2013-08-27T14:27:23.207Z"}
+{"level":"info","message":"User data is updated","timestamp":"2013-08-27T14:27:23.209Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-27T14:27:23.213Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-27T14:27:23.213Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:27:23.214Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:27:23.234Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:27:23.235Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-27T14:27:23.235Z"}
+{"title":"europe travel","description":"fdsfsdfsdf fdsfsdfsdfsdf","items":[{"id":"7500389094","owner":"49459674@N07","secret":"194b3b221b","server":"8154","farm":9,"title":"Cap de Creus","ispublic":1,"isfriend":0,"isfamily":0,"tags":"travel sea españa landscape spain europe traveling catalan capdecreus cabodecreus santiagoalmada rememberthatmomentlevel1","url_sq":"http://farm9.staticflickr.com/8154/7500389094_194b3b221b_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm9.staticflickr.com/8154/7500389094_194b3b221b_t.jpg","height_t":"47","width_t":"100","url_s":"http://farm9.staticflickr.com/8154/7500389094_194b3b221b_m.jpg","height_s":"113","width_s":"240","url_m":"http://farm9.staticflickr.com/8154/7500389094_194b3b221b.jpg","height_m":"236","width_m":"500","url_z":"http://farm9.staticflickr.com/8154/7500389094_194b3b221b_z.jpg","height_z":"303","width_z":"640","url_l":"http://farm9.staticflickr.com/8154/7500389094_194b3b221b_b.jpg","height_l":"484","width_l":"1024","url_o":"http://farm9.staticflickr.com/8154/7500389094_f2a781beb0_o.jpg","height_o":"4016","width_o":"8491","description":{"_content":"El Cabo de Creus es el el punto más oriental de la Península Ibérica, situado al norte del golfo de Rosas."},"pathalias":"js_almada","ownername":"Santiago Almada","datetaken":"2012-06-27 10:03:10","datetakengranularity":"0","dateupload":"1341400225"},{"id":"4838325940","owner":"60218974@N00","secret":"3911bb0ca9","server":"4105","farm":5,"title":"Windmill","ispublic":1,"isfriend":0,"isfamily":0,"tags":"travel vacation holiday holland netherlands windmill amsterdam canon garden europe traveling keukenhof lisse 500d","url_sq":"http://farm5.staticflickr.com/4105/4838325940_3911bb0ca9_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm5.staticflickr.com/4105/4838325940_3911bb0ca9_t.jpg","height_t":"62","width_t":"100","url_s":"http://farm5.staticflickr.com/4105/4838325940_3911bb0ca9_m.jpg","height_s":"148","width_s":"240","url_m":"http://farm5.staticflickr.com/4105/4838325940_3911bb0ca9.jpg","height_m":"308","width_m":"500","url_z":"http://farm5.staticflickr.com/4105/4838325940_3911bb0ca9_z.jpg","height_z":"394","width_z":"640","url_l":"http://farm5.staticflickr.com/4105/4838325940_3911bb0ca9_b.jpg","height_l":"631","width_l":"1024","description":{"_content":"In Keukenhof garden, Lisse village, Netherlands."},"pathalias":"bambooland","ownername":"bambooland","datetaken":"2010-05-05 16:39:47","datetakengranularity":"0","dateupload":"1280337015"},{"id":"2313429704","owner":"24252665@N03","secret":"f4963309f9","server":"3033","farm":4,"title":"a backpacking travel to europe R009-025","ispublic":1,"isfriend":0,"isfamily":0,"tags":"travel europe budget backpacker individual","url_sq":"http://farm4.staticflickr.com/3033/2313429704_f4963309f9_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm4.staticflickr.com/3033/2313429704_f4963309f9_t.jpg","height_t":"67","width_t":"100","url_s":"http://farm4.staticflickr.com/3033/2313429704_f4963309f9_m.jpg","height_s":"160","width_s":"240","url_m":"http://farm4.staticflickr.com/3033/2313429704_f4963309f9.jpg","height_m":"333","width_m":"500","url_z":"http://farm4.staticflickr.com/3033/2313429704_f4963309f9_z.jpg","height_z":427,"width_z":"640","url_l":"http://farm4.staticflickr.com/3033/2313429704_f4963309f9_b.jpg","height_l":"683","width_l":"1024","url_o":"http://farm4.staticflickr.com/3033/2313429704_cbf9be6c4a_o.jpg","height_o":"1024","width_o":"1536","description":{"_content":"my individual budget travel to europe"},"pathalias":"kokorowa","ownername":"kokorowashinjin","datetaken":"2008-03-06 07:14:32","datetakengranularity":"0","dateupload":"1204755272"}],"tags":["travel","sea","españa","landscape","spain","europe","traveling","catalan","capdecreus","cabodecreus","santiagoalmada","rememberthatmomentlevel1","vacation","holiday","holland","netherlands","windmill","amsterdam","canon","garden","keukenhof","lisse","500d","budget","backpacker","individual"],"url":"/storyView/dmitry-mogilko/europe-travel","userName":"dmitry-mogilko","level":"info","message":"Insert new story","timestamp":"2013-08-27T14:27:23.240Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:27:49.719Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:27:49.735Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:27:49.735Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T14:27:49.739Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T14:27:51.535Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:27:51.536Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:27:51.549Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:27:51.549Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T14:27:51.550Z"}
+{"level":"info","message":"Accessing content page","timestamp":"2013-08-27T14:28:26.105Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T14:28:41.983Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:28:41.984Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:28:41.996Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:28:41.997Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T14:28:41.997Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:28:44.506Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:28:44.517Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:28:44.517Z"}
+{"level":"info","message":"Story is:","timestamp":"2013-08-27T14:28:44.520Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T14:28:50.013Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:28:50.013Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:28:50.027Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:28:50.027Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T14:28:50.027Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:28:51.843Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:28:51.856Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:28:51.857Z"}
+{"level":"info","message":"Story is:","timestamp":"2013-08-27T14:28:51.859Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-27T14:29:24.793Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-27T14:33:36.485Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:33:36.486Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:33:36.506Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:33:36.506Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-27T14:33:36.507Z"}
+{"title":"naharia","description":"","items":[{"id":"4867368692","owner":"25709836@N07","secret":"f0e3d0be12","server":"4136","farm":5,"title":"Nahariya Waves","ispublic":1,"isfriend":0,"isfamily":0,"tags":"waves nahariya","url_sq":"http://farm5.staticflickr.com/4136/4867368692_f0e3d0be12_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm5.staticflickr.com/4136/4867368692_f0e3d0be12_t.jpg","height_t":"67","width_t":"100","url_s":"http://farm5.staticflickr.com/4136/4867368692_f0e3d0be12_m.jpg","height_s":"161","width_s":"240","url_m":"http://farm5.staticflickr.com/4136/4867368692_f0e3d0be12.jpg","height_m":"335","width_m":"500","url_z":"http://farm5.staticflickr.com/4136/4867368692_f0e3d0be12_z.jpg","height_z":"429","width_z":"640","url_l":"http://farm5.staticflickr.com/4136/4867368692_f0e3d0be12_b.jpg","height_l":"686","width_l":"1024","description":{"_content":"Waves in Nahariya"},"pathalias":"jannordlund","ownername":"jan.nordlund","datetaken":"2008-09-28 14:53:08","datetakengranularity":"0","dateupload":"1281134143"},{"id":"3115765681","owner":"32805883@N00","secret":"a15b5cfe36","server":"3254","farm":4,"title":"Nahariya","ispublic":1,"isfriend":0,"isfamily":0,"tags":"nahariya","url_sq":"http://farm4.staticflickr.com/3254/3115765681_a15b5cfe36_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm4.staticflickr.com/3254/3115765681_a15b5cfe36_t.jpg","height_t":"58","width_t":"100","url_s":"http://farm4.staticflickr.com/3254/3115765681_a15b5cfe36_m.jpg","height_s":"140","width_s":"240","url_m":"http://farm4.staticflickr.com/3254/3115765681_a15b5cfe36.jpg","height_m":"292","width_m":"500","url_z":"http://farm4.staticflickr.com/3254/3115765681_a15b5cfe36_z.jpg","height_z":373,"width_z":"640","url_l":"http://farm4.staticflickr.com/3254/3115765681_a15b5cfe36_b.jpg","height_l":"597","width_l":"1024","description":{"_content":""},"pathalias":"jerusalemdiaries","ownername":"judyinjerusalem","datetaken":"2008-12-15 14:08:48","datetakengranularity":"0","dateupload":"1229541136"},{"id":"9055799303","owner":"48085309@N05","secret":"d58f747332","server":"7423","farm":8,"title":"Around Nahariya.","ispublic":1,"isfriend":0,"isfamily":0,"tags":"sea summer seascape israel scenery nahariya","url_sq":"http://farm8.staticflickr.com/7423/9055799303_d58f747332_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm8.staticflickr.com/7423/9055799303_d58f747332_t.jpg","height_t":"67","width_t":"100","url_s":"http://farm8.staticflickr.com/7423/9055799303_d58f747332_m.jpg","height_s":"160","width_s":"240","url_m":"http://farm8.staticflickr.com/7423/9055799303_d58f747332.jpg","height_m":"333","width_m":"500","url_z":"http://farm8.staticflickr.com/7423/9055799303_d58f747332_z.jpg","height_z":"427","width_z":"640","url_l":"http://farm8.staticflickr.com/7423/9055799303_d58f747332_b.jpg","height_l":"683","width_l":"1024","url_o":"http://farm8.staticflickr.com/7423/9055799303_68086114b8_o.jpg","height_o":"3744","width_o":"5616","description":{"_content":"A brief walk around the seaside town of Nahariya in northern Israel before we fly back to Blighty tomorrow."},"pathalias":"cabbydave","ownername":"cabby dave","datetaken":"2013-06-16 09:17:09","datetakengranularity":"0","dateupload":"1371386016"}],"tags":["waves","nahariya","sea","summer","seascape","israel","scenery"],"url":"/storyView/dmitry-mogilko/naharia","userName":"dmitry-mogilko","level":"info","message":"Insert new story","timestamp":"2013-08-27T14:33:36.511Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:33:43.863Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:33:43.873Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:33:43.873Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T14:33:43.875Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T14:33:45.788Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:33:45.789Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:33:45.803Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:33:45.804Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T14:33:45.805Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:34:19.382Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:34:19.394Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:34:19.394Z"}
+{"level":"info","message":"Story is:","timestamp":"2013-08-27T14:34:19.398Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-27T14:34:44.427Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:34:44.429Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:34:44.441Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:34:44.442Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T14:34:44.444Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-27T14:35:08.124Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-27T14:39:45.066Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:39:45.067Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:39:45.080Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:39:45.081Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-27T14:39:45.081Z"}
+{"title":"Bible israel","description":"We will show you the beauty of israel&nbsp;<br>More details &nbsp;: &nbsp;<a href=\"http://israellifetours.com/index.php?option=com_content&amp;view=article&amp;id=52:israel-tour-following-the-three-religions&amp;catid=34:israel-tours&amp;Itemid=60\">bible israel&nbsp;</a>","items":[{"id":"9139806652","owner":"63852576@N06","secret":"066b5beea2","server":"7407","farm":8,"title":"Israel Jerusalem, Damascus Gate 94","ispublic":1,"isfriend":0,"isfamily":0,"tags":"israel jerusalem damascusgate","url_sq":"http://farm8.staticflickr.com/7407/9139806652_066b5beea2_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm8.staticflickr.com/7407/9139806652_066b5beea2_t.jpg","height_t":"65","width_t":"100","url_s":"http://farm8.staticflickr.com/7407/9139806652_066b5beea2_m.jpg","height_s":"155","width_s":"240","url_m":"http://farm8.staticflickr.com/7407/9139806652_066b5beea2.jpg","height_m":"323","width_m":"500","url_z":"http://farm8.staticflickr.com/7407/9139806652_066b5beea2_z.jpg","height_z":"413","width_z":"640","url_l":"http://farm8.staticflickr.com/7407/9139806652_066b5beea2_b.jpg","height_l":"661","width_l":"1024","description":{"_content":""},"pathalias":null,"ownername":"israel as i see it","datetaken":"2013-03-21 16:39:41","datetakengranularity":"0","dateupload":"1372203320"},{"id":"5929653719","owner":"63852576@N06","secret":"1a5ccab037","server":"6138","farm":7,"title":"Israel Jerusalem, Prophets Street","ispublic":1,"isfriend":0,"isfamily":0,"tags":"israel jerusalem prophetsstreet","url_sq":"http://farm7.staticflickr.com/6138/5929653719_1a5ccab037_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm7.staticflickr.com/6138/5929653719_1a5ccab037_t.jpg","height_t":"100","width_t":"67","url_s":"http://farm7.staticflickr.com/6138/5929653719_1a5ccab037_m.jpg","height_s":"240","width_s":"160","url_m":"http://farm7.staticflickr.com/6138/5929653719_1a5ccab037.jpg","height_m":"500","width_m":"333","url_z":"http://farm7.staticflickr.com/6138/5929653719_1a5ccab037_z.jpg","height_z":"640","width_z":"426","url_l":"http://farm7.staticflickr.com/6138/5929653719_1a5ccab037_b.jpg","height_l":"1024","width_l":"682","description":{"_content":""},"pathalias":null,"ownername":"israel as i see it","datetaken":"1996-04-01 00:00:00","datetakengranularity":"4","dateupload":"1310476107"},{"id":"152485080","owner":"36507944@N00","secret":"655073d4a6","server":"53","farm":1,"title":"Tel Aviv","ispublic":1,"isfriend":0,"isfamily":0,"tags":"city skyscraper israel telaviv mark towers stan airview azrieli stanmark souraskymedicalcenter ichilovhospital","url_sq":"http://farm1.staticflickr.com/53/152485080_655073d4a6_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm1.staticflickr.com/53/152485080_655073d4a6_t.jpg","height_t":"75","width_t":"100","url_s":"http://farm1.staticflickr.com/53/152485080_655073d4a6_m.jpg","height_s":"180","width_s":"240","url_m":"http://farm1.staticflickr.com/53/152485080_655073d4a6.jpg","height_m":"375","width_m":"500","url_z":"http://farm1.staticflickr.com/53/152485080_655073d4a6_z.jpg?zz=1","height_z":480,"width_z":"640","description":{"_content":"Tel Aviv , Air view. Photo: Stan Mark.   11/04/2006"},"pathalias":"stan_mark","ownername":"Stan Mark","datetaken":"2006-04-11 09:52:42","datetakengranularity":"0","dateupload":"1148478962"},{"id":"3616499286","owner":"79289964@N00","secret":"9b8dd08db4","server":"2462","farm":3,"title":"view on Tel Aviv from Yaffo","ispublic":1,"isfriend":0,"isfamily":0,"tags":"israel telaviv","url_sq":"http://farm3.staticflickr.com/2462/3616499286_9b8dd08db4_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm3.staticflickr.com/2462/3616499286_9b8dd08db4_t.jpg","height_t":"75","width_t":"100","url_s":"http://farm3.staticflickr.com/2462/3616499286_9b8dd08db4_m.jpg","height_s":"180","width_s":"240","url_m":"http://farm3.staticflickr.com/2462/3616499286_9b8dd08db4.jpg","height_m":"375","width_m":"500","url_z":"http://farm3.staticflickr.com/2462/3616499286_9b8dd08db4_z.jpg","height_z":480,"width_z":"640","url_l":"http://farm3.staticflickr.com/2462/3616499286_9b8dd08db4_b.jpg","height_l":"768","width_l":"1024","url_o":"http://farm3.staticflickr.com/2462/3616499286_f44a169299_o.jpg","height_o":"1944","width_o":"2592","description":{"_content":"israel tel-aviv"},"pathalias":"drinktea","ownername":"Alinasta","datetaken":"2009-06-10 19:15:09","datetakengranularity":"0","dateupload":"1244710505"},{"id":"8416616438","owner":"91286002@N02","secret":"504a006649","server":"8215","farm":9,"title":"Israël- Eilat","ispublic":1,"isfriend":0,"isfamily":0,"tags":"israel eilat activitésnautiques couleursdisraël","url_sq":"http://farm9.staticflickr.com/8215/8416616438_504a006649_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm9.staticflickr.com/8215/8416616438_504a006649_t.jpg","height_t":"100","width_t":"100","url_s":"http://farm9.staticflickr.com/8215/8416616438_504a006649_m.jpg","height_s":"240","width_s":"240","url_m":"http://farm9.staticflickr.com/8215/8416616438_504a006649.jpg","height_m":"500","width_m":"500","url_z":"http://farm9.staticflickr.com/8215/8416616438_504a006649_z.jpg","height_z":"640","width_z":"640","url_l":"http://farm9.staticflickr.com/8215/8416616438_504a006649_b.jpg","height_l":"1024","width_l":"1024","url_o":"http://farm9.staticflickr.com/8215/8416616438_fe04d7993d_o.jpg","height_o":"1024","width_o":"1024","description":{"_content":"Rame, rame. Rameurs, ramez.\nOn avance à rien dans c'canoë..."},"pathalias":null,"ownername":"Pitchouscrap","datetaken":"2012-08-08 13:15:04","datetakengranularity":"0","dateupload":"1359193033"}],"tags":["israel","jerusalem","damascusgate","prophetsstreet","city","skyscraper","telaviv","mark","towers","stan","airview","azrieli","stanmark","souraskymedicalcenter","ichilovhospital","eilat","activitésnautiques","couleursdisraël"],"url":"/storyView/dmitry-mogilko/bible-israel","userName":"dmitry-mogilko","level":"info","message":"Insert new story","timestamp":"2013-08-27T14:39:45.089Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:39:54.721Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:39:54.733Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:39:54.733Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T14:39:54.735Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T14:39:56.380Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:39:56.381Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:39:56.398Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:39:56.399Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T14:39:56.399Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T14:39:58.452Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T14:39:58.462Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T14:39:58.463Z"}
+{"level":"info","message":"Story is:","timestamp":"2013-08-27T14:39:58.466Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-27T14:52:09.294Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-27T15:41:00.891Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T15:41:00.891Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T15:41:00.896Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T15:41:00.896Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T15:41:00.897Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-27T15:41:16.655Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-27T15:43:15.719Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T15:43:15.719Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T15:43:15.723Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T15:43:15.724Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-27T15:43:15.724Z"}
+{"title":"Israel heritage tour","description":"","items":[{"id":"9146593758","owner":"93795231@N02","secret":"1250d6c78f","server":"2811","farm":3,"title":"Ceasarea","ispublic":1,"isfriend":0,"isfamily":0,"tags":"ceasarea hippodrome","url_sq":"http://farm3.staticflickr.com/2811/9146593758_1250d6c78f_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm3.staticflickr.com/2811/9146593758_1250d6c78f_t.jpg","height_t":"75","width_t":"100","url_s":"http://farm3.staticflickr.com/2811/9146593758_1250d6c78f_m.jpg","height_s":"180","width_s":"240","url_m":"http://farm3.staticflickr.com/2811/9146593758_1250d6c78f.jpg","height_m":"375","width_m":"500","url_z":"http://farm3.staticflickr.com/2811/9146593758_1250d6c78f_z.jpg","height_z":"480","width_z":"640","url_l":"http://farm3.staticflickr.com/2811/9146593758_1250d6c78f_b.jpg","height_l":"768","width_l":"1024","description":{"_content":"Ceasarea hippodrome                               "},"pathalias":"rebeccasnyder","ownername":"RebeccaSnyder.com","datetaken":"2013-05-23 10:46:36","datetakengranularity":"0","dateupload":"1372277328"},{"id":"3403936673","owner":"34506979@N03","secret":"abf70d6fe7","server":"3446","farm":4,"title":"Mesada, Israel","ispublic":1,"isfriend":0,"isfamily":0,"tags":"","url_sq":"http://farm4.staticflickr.com/3446/3403936673_abf70d6fe7_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm4.staticflickr.com/3446/3403936673_abf70d6fe7_t.jpg","height_t":"100","width_t":"67","url_s":"http://farm4.staticflickr.com/3446/3403936673_abf70d6fe7_m.jpg","height_s":"240","width_s":"160","url_m":"http://farm4.staticflickr.com/3446/3403936673_abf70d6fe7.jpg","height_m":"500","width_m":"333","url_z":"http://farm4.staticflickr.com/3446/3403936673_abf70d6fe7_z.jpg","height_z":"640","width_z":427,"url_l":"http://farm4.staticflickr.com/3446/3403936673_abf70d6fe7_b.jpg","height_l":"1024","width_l":"683","url_o":"http://farm4.staticflickr.com/3446/3403936673_c4dd4d313a_o.jpg","height_o":"3888","width_o":"2592","description":{"_content":""},"pathalias":"tamartinsenphotography","ownername":"tamartinsenphotography","datetaken":"2008-05-27 09:57:07","datetakengranularity":"0","dateupload":"1238599556"}],"tags":["ceasarea","hippodrome",""],"url":"/storyView/dmitry-mogilko/israel-heritage-tour","userName":"dmitry-mogilko","level":"info","message":"Insert new story","timestamp":"2013-08-27T15:43:15.725Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T15:43:32.719Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T15:43:32.724Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T15:43:32.724Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-27T15:43:32.725Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-27T15:43:33.815Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T15:43:33.815Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T15:43:33.820Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T15:43:33.821Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-27T15:43:33.821Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-27T15:43:37.145Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-27T15:43:37.150Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-27T15:43:37.151Z"}
+{"level":"info","message":"Story is:","timestamp":"2013-08-27T15:43:37.151Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-27T15:44:20.497Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T05:23:53.431Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-28T05:30:35.785Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:30:35.785Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:30:35.790Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:30:35.790Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T05:30:35.791Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:30:45.762Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:30:45.765Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:30:45.765Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T05:30:45.766Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T05:30:46.271Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:30:46.272Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:30:46.276Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:30:46.277Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T05:30:46.277Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:31:12.021Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:31:12.026Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:31:12.026Z"}
+{"level":"info","message":"Story is:","timestamp":"2013-08-28T05:31:12.027Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:36:11.100Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:36:11.103Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:36:11.104Z"}
+{"level":"info","message":"Story is:","timestamp":"2013-08-28T05:36:11.105Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-28T05:36:27.464Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:36:27.465Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:36:27.472Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:36:27.473Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T05:36:27.473Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:36:35.775Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:36:35.779Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:36:35.779Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T05:36:35.780Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T05:36:36.629Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:36:36.630Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:36:36.633Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:36:36.634Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T05:36:36.634Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T05:36:55.284Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:36:55.284Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:36:55.289Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:36:55.289Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T05:36:55.289Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:38:36.041Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:38:36.044Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:38:36.045Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T05:38:36.046Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T05:38:37.741Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:38:37.741Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:38:37.746Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:38:37.746Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T05:38:37.746Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T05:46:08.641Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:46:08.641Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:46:08.646Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:46:08.646Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T05:46:08.646Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:46:29.982Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:46:29.985Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:46:29.985Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T05:46:29.986Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T05:46:33.511Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:46:33.512Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:46:33.515Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:46:33.515Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T05:46:33.515Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:48:08.175Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:48:08.181Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:48:08.181Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T05:48:08.183Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T05:48:10.198Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:48:10.198Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:48:10.202Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:48:10.202Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T05:48:10.202Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T05:48:28.587Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:48:28.587Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:48:28.592Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:48:28.593Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T05:48:28.593Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:55:33.361Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:55:33.365Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:55:33.366Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T05:55:33.366Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T05:55:34.287Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:55:34.288Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:55:34.291Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:55:34.291Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T05:55:34.291Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T05:55:55.137Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:57:12.633Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:57:12.637Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:57:12.637Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T05:57:12.638Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T05:57:13.030Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:57:13.030Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:57:13.033Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:57:13.034Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T05:57:13.034Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:58:01.871Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:58:01.876Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:58:01.877Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T05:58:01.877Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T05:58:06.940Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T05:58:06.940Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T05:58:06.943Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T05:58:06.943Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T05:58:06.943Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:01:19.524Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:01:19.528Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:01:19.528Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T06:01:19.528Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:02:13.943Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:02:13.948Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:02:13.948Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T06:02:13.949Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T06:02:17.740Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:02:17.740Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:02:17.744Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:02:17.744Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T06:02:17.744Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T06:02:23.513Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:02:23.513Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:02:23.518Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:02:23.518Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T06:02:23.519Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:03:05.678Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:03:05.682Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:03:05.682Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T06:03:05.683Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T06:03:07.387Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:03:07.387Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:03:07.392Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:03:07.392Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T06:03:07.392Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T06:03:13.965Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:03:13.965Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:03:13.970Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:03:13.970Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T06:03:13.971Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T06:03:19.746Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:03:19.746Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:03:19.750Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:03:19.750Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T06:03:19.750Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-28T06:17:01.695Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:17:01.696Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:17:01.700Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:17:01.700Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T06:17:01.700Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:17:13.578Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:18:30.075Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:21:28.226Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:22:01.870Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:22:01.874Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:22:01.874Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T06:22:01.875Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T06:22:02.243Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:22:02.243Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:22:02.246Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:22:02.246Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T06:22:02.247Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:23:03.715Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-28T06:24:14.297Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:24:14.297Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:24:14.301Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:24:14.301Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-28T06:24:14.301Z"}
+{"title":"dsaddsad","description":"dsadsadsada dsafsfdsf <a href=\"http://www.yahoo.com\">fdsfsf</a>","items":[{"id":"3197814964","owner":"34292117@N07","secret":"3f05c5d49b","server":"3132","farm":4,"title":"London Eye","ispublic":1,"isfriend":0,"isfamily":0,"tags":"london travels londoneye viajes londres londonist","url_sq":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_t.jpg","height_t":"76","width_t":"100","url_s":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_m.jpg","height_s":"183","width_s":"240","url_m":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b.jpg","height_m":"382","width_m":"500","url_z":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_z.jpg?zz=1","height_z":488,"width_z":"640","url_o":"http://farm4.staticflickr.com/3132/3197814964_6961a8bb82_o.jpg","height_o":"757","width_o":"992","description":{"_content":"Vista del Parlamento británico desde la noria London Eye       "},"pathalias":"sacre59","ownername":"sacre","datetaken":"2006-07-06 13:36:18","datetakengranularity":"0","dateupload":"1231969973"},{"id":"9584567850","owner":"7366969@N02","secret":"34a6df1642","server":"5459","farm":6,"title":"BigBen, London","ispublic":1,"isfriend":0,"isfamily":0,"tags":"7d canon city england greatbritain holiday london travel trip uk vacation unitedkingdom","url_sq":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_t.jpg","height_t":"100","width_t":"67","url_s":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_m.jpg","height_s":"240","width_s":"160","url_m":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642.jpg","height_m":"500","width_m":"333","url_z":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_z.jpg","height_z":"640","width_z":"427","url_l":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_b.jpg","height_l":"1024","width_l":"683","url_o":"http://farm6.staticflickr.com/5459/9584567850_8585c47df6_o.jpg","height_o":"5127","width_o":"3418","description":{"_content":"London - A short walk around after a meeting"},"pathalias":"myfrozenlife","ownername":"myfrozenlife","datetaken":"2013-05-17 12:34:32","datetakengranularity":"0","dateupload":"1377359940"}],"tags":["london","travels","londoneye","viajes","londres","londonist","7d","canon","city","england","greatbritain","holiday","travel","trip","uk","vacation","unitedkingdom"],"publishedVersion":{"title":"dsaddsad","description":"dsadsadsada dsafsfdsf <a href=\"http://www.yahoo.com\">fdsfsf</a>","items":[{"id":"3197814964","owner":"34292117@N07","secret":"3f05c5d49b","server":"3132","farm":4,"title":"London Eye","ispublic":1,"isfriend":0,"isfamily":0,"tags":"london travels londoneye viajes londres londonist","url_sq":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_t.jpg","height_t":"76","width_t":"100","url_s":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_m.jpg","height_s":"183","width_s":"240","url_m":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b.jpg","height_m":"382","width_m":"500","url_z":"http://farm4.staticflickr.com/3132/3197814964_3f05c5d49b_z.jpg?zz=1","height_z":488,"width_z":"640","url_o":"http://farm4.staticflickr.com/3132/3197814964_6961a8bb82_o.jpg","height_o":"757","width_o":"992","description":{"_content":"Vista del Parlamento británico desde la noria London Eye       "},"pathalias":"sacre59","ownername":"sacre","datetaken":"2006-07-06 13:36:18","datetakengranularity":"0","dateupload":"1231969973"},{"id":"9584567850","owner":"7366969@N02","secret":"34a6df1642","server":"5459","farm":6,"title":"BigBen, London","ispublic":1,"isfriend":0,"isfamily":0,"tags":"7d canon city england greatbritain holiday london travel trip uk vacation unitedkingdom","url_sq":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_t.jpg","height_t":"100","width_t":"67","url_s":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_m.jpg","height_s":"240","width_s":"160","url_m":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642.jpg","height_m":"500","width_m":"333","url_z":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_z.jpg","height_z":"640","width_z":"427","url_l":"http://farm6.staticflickr.com/5459/9584567850_34a6df1642_b.jpg","height_l":"1024","width_l":"683","url_o":"http://farm6.staticflickr.com/5459/9584567850_8585c47df6_o.jpg","height_o":"5127","width_o":"3418","description":{"_content":"London - A short walk around after a meeting"},"pathalias":"myfrozenlife","ownername":"myfrozenlife","datetaken":"2013-05-17 12:34:32","datetakengranularity":"0","dateupload":"1377359940"}],"tags":["london","travels","londoneye","viajes","londres","londonist","7d","canon","city","england","greatbritain","holiday","travel","trip","uk","vacation","unitedkingdom"]},"isPublished":true,"isPublishedDate":"2013-08-28T06:24:14.293Z","url":"/storyView/dmitry-mogilko/dsaddsad","userName":"dmitry-mogilko","level":"info","message":"Insert new story","timestamp":"2013-08-28T06:24:14.303Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-28T06:25:52.809Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:25:52.809Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:25:52.814Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:25:52.814Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-28T06:25:52.814Z"}
+{"level":"info","message":"Story found.Update story","timestamp":"2013-08-28T06:25:52.815Z"}
+{"name":"MongoError","err":"Invalid modifier specified: title","code":10147,"n":0,"connectionId":539,"ok":1,"level":"info","message":"Error is:","timestamp":"2013-08-28T06:25:52.817Z"}
+{"level":"info","message":"Results is: undefined","timestamp":"2013-08-28T06:25:52.817Z"}
+{"level":"info","message":"Story is a updated","timestamp":"2013-08-28T06:25:52.817Z"}
+{"level":"info","message":"Accessing homepage","timestamp":"2013-08-28T06:25:59.457Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:25:59.458Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:25:59.461Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:25:59.461Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T06:25:59.462Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:26:08.655Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:26:08.659Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:26:08.659Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T06:26:08.660Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T06:26:09.036Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:26:09.037Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:26:09.040Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:26:09.040Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T06:26:09.040Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:26:14.499Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:26:14.502Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:26:14.503Z"}
+{"level":"info","message":"User in index is : ","timestamp":"2013-08-28T06:26:14.503Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T06:26:18.023Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:26:18.024Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:26:18.028Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:26:18.028Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T06:26:18.029Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T06:26:29.089Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:26:29.090Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:26:29.095Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:26:29.095Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T06:26:29.095Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:27:28.519Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:27:28.523Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:27:28.523Z"}
+{"level":"info","message":"Story is:","timestamp":"2013-08-28T06:27:28.524Z"}
+{"level":"info","message":"In latest stories.Params","timestamp":"2013-08-28T06:27:39.341Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:27:39.342Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:27:39.347Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:27:39.347Z"}
+{"level":"info","message":"In latest stories callback","timestamp":"2013-08-28T06:27:39.347Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:27:44.274Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-28T06:29:13.893Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:29:13.894Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:29:13.898Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:29:13.898Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-28T06:29:13.899Z"}
+{"title":"vdxvxcvxvx","description":"","items":[{"id":"63208045","owner":"59722994@N00","secret":"e9ec5c8117","server":"28","farm":1,"title":"London","ispublic":1,"isfriend":0,"isfamily":0,"tags":"england london travel","url_sq":"http://farm1.staticflickr.com/28/63208045_e9ec5c8117_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm1.staticflickr.com/28/63208045_e9ec5c8117_t.jpg","height_t":"75","width_t":"100","url_s":"http://farm1.staticflickr.com/28/63208045_e9ec5c8117_m.jpg","height_s":"180","width_s":"240","url_m":"http://farm1.staticflickr.com/28/63208045_e9ec5c8117.jpg","height_m":"375","width_m":"500","url_z":"http://farm1.staticflickr.com/28/63208045_e9ec5c8117_z.jpg","height_z":480,"width_z":"640","url_l":"http://farm1.staticflickr.com/28/63208045_e9ec5c8117_b.jpg","height_l":"768","width_l":"1024","url_o":"http://farm1.staticflickr.com/28/63208045_e9ec5c8117_o.jpg","height_o":"1200","width_o":"1600","description":{"_content":""},"pathalias":"tokuriki","ownername":"Tokuriki","datetaken":"2005-11-09 21:12:13","datetakengranularity":"0","dateupload":"1131976157"},{"id":"9585166064","owner":"7366969@N02","secret":"d2f221588a","server":"3770","farm":4,"title":"Big Ben, London","ispublic":1,"isfriend":0,"isfamily":0,"tags":"7d canon city england greatbritain holiday london travel trip uk vacation","url_sq":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_t.jpg","height_t":"67","width_t":"100","url_s":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_m.jpg","height_s":"160","width_s":"240","url_m":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a.jpg","height_m":"333","width_m":"500","url_z":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_z.jpg","height_z":"427","width_z":"640","url_l":"http://farm4.staticflickr.com/3770/9585166064_d2f221588a_b.jpg","height_l":"683","width_l":"1024","url_o":"http://farm4.staticflickr.com/3770/9585166064_d3ae7cd3b7_o.jpg","height_o":"3456","width_o":"5184","description":{"_content":"London - A short walk around after a meeting"},"pathalias":"myfrozenlife","ownername":"myfrozenlife","datetaken":"2013-05-17 13:02:22","datetakengranularity":"0","dateupload":"1377365268"},{"id":"4951790112","owner":"90599436@N00","secret":"90c081625c","server":"4152","farm":5,"title":"nature in london","ispublic":1,"isfriend":0,"isfamily":0,"tags":"park uk blue summer sky flower tree green london nature beautiful grass spring europe picnic natural britain scenary","url_sq":"http://farm5.staticflickr.com/4152/4951790112_90c081625c_s.jpg","height_sq":75,"width_sq":75,"url_t":"http://farm5.staticflickr.com/4152/4951790112_90c081625c_t.jpg","height_t":"75","width_t":"100","url_s":"http://farm5.staticflickr.com/4152/4951790112_90c081625c_m.jpg","height_s":"180","width_s":"240","url_m":"http://farm5.staticflickr.com/4152/4951790112_90c081625c.jpg","height_m":"375","width_m":"500","url_z":"http://farm5.staticflickr.com/4152/4951790112_90c081625c_z.jpg","height_z":"480","width_z":"640","url_l":"http://farm5.staticflickr.com/4152/4951790112_90c081625c_b.jpg","height_l":"768","width_l":"1024","url_o":"http://farm5.staticflickr.com/4152/4951790112_fae9cecd40_o.jpg","height_o":"2136","width_o":"2848","description":{"_content":"London, April 2009"},"pathalias":"mike923","ownername":"Mikro studio","datetaken":"2009-04-25 11:01:41","datetakengranularity":"0","dateupload":"1283444393"}],"tags":["england","london","travel","7d","canon","city","greatbritain","holiday","trip","uk","vacation","park","blue","summer","sky","flower","tree","green","nature","beautiful","grass","spring","europe","picnic","natural","britain","scenary"],"url":"/storyView/dmitry-mogilko/vdxvxcvxvx","userName":"dmitry-mogilko","level":"info","message":"Insert new story","timestamp":"2013-08-28T06:29:13.900Z"}
+{"level":"info","message":"Request to save story","timestamp":"2013-08-28T06:29:15.673Z"}
+{"level":"info","message":"Executing MongoWrapper","timestamp":"2013-08-28T06:29:15.673Z"}
+{"level":"info","message":"Connected to db","timestamp":"2013-08-28T06:29:15.677Z"}
+{"level":"info","message":"MongoWrapper executing callback","timestamp":"2013-08-28T06:29:15.677Z"}
+{"level":"info","message":"In function save story","timestamp":"2013-08-28T06:29:15.677Z"}
+{"level":"info","message":"Story found.Update story","timestamp":"2013-08-28T06:29:15.678Z"}
+{"name":"MongoError","err":"Invalid modifier specified: title","code":10147,"n":0,"connectionId":599,"ok":1,"level":"info","message":"Error is:","timestamp":"2013-08-28T06:29:15.695Z"}
+{"level":"info","message":"Results is: undefined","timestamp":"2013-08-28T06:29:15.695Z"}
+{"level":"info","message":"Story is a updated","timestamp":"2013-08-28T06:29:15.695Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:33:40.067Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:34:18.752Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:35:47.310Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:37:02.338Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:38:06.367Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:39:07.408Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:39:28.751Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:42:27.788Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:42:49.980Z"}
+{"level":"info","message":"Request for new story","timestamp":"2013-08-28T06:56:06.078Z"}
