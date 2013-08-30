@@ -7,7 +7,6 @@ var MongoWrapper = module.exports = {
     connectionString:CONFIG.mongo.connectionString,
 
     executeQuery:function (func) {
-        //logger.log("info","Going to execute function",func.toString());
         logger.info("Executing MongoWrapper");
         MongoClient.connect(MongoWrapper.connectionString, function (err, db) {
             logger.info("Connected to db");
@@ -34,6 +33,7 @@ var MongoWrapper = module.exports = {
      */
     saveStory:function (story, callback) {
         logger.log("info", "Story is published:", story.isPublished);
+
         //        var saveQuery = function (err, db) {
 //            logger.log("info", "In function save story");
 //            db.collection("story").findOne({ $or:[
@@ -160,7 +160,16 @@ var MongoWrapper = module.exports = {
         logger.info('In latest stories.Params', params);
         var query = function (err, db) {
             logger.info('In latest stories callback');
-            db.collection("story").find({isPublished:true}).sort({_id:-1}).skip(params.rowToSkip).limit(params.storiesToShow).toArray(function (err, results) {
+            var lastPublishDate  = params.lastPublishDate  ? new Date(params.lastPublishDate)   : new Date('1978');
+            db.collection("story").find( {$and :[{isPublished:true},
+                                                 {publishDate : { $gt : lastPublishDate } }
+                                                ]})
+                                  .sort({publishDate:-1})
+                                  .limit(params.storiesToShow)
+                .toArray(function (err, results) {
+                            logger.info('Error is:',err);
+                            logger.info('Result is:',results);
+
                 callback(results);
 
             });

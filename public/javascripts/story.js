@@ -285,18 +285,11 @@ KEENTOUR.getStory = function () {
 
     story.tags = story.tags.getUnique();
     story = $.extend({}, KEENTOUR.currentStory, story);
-    return story;
-}
-
-KEENTOUR.saveStory = function (currentStory, callback) {
-
-    var story = currentStory || KEENTOUR.getStory();
-
     /*
 
-      Validations
+     Validations
 
-    */
+     */
     if(story.items.length == 0){
         //TODO  : add tooltip hint to widgets may be
         alert("Please add some content to story");
@@ -308,7 +301,43 @@ KEENTOUR.saveStory = function (currentStory, callback) {
         $('#txtTitle').focus();
         return;
     }
+    return story;
+}
 
+
+KEENTOUR.publishStory  = function(story,callback){
+    var story = story || KEENTOUR.getStory();
+    /*
+     Request to save the idea
+     */
+    var request = $.ajax('/story/publish', {
+        headers:{
+            'Content-type':'application/json'
+        },
+        data:JSON.stringify(story),
+        type:'POST',
+        dataType:'json',
+        cache:false
+
+    });
+
+    request.success(function (data) {
+        if (callback) {
+            callback(data);
+        }
+
+    });
+
+    request.error(function (data) {
+        if (callback) {
+            callback(data);
+        }
+    });
+}
+
+KEENTOUR.saveStory = function (currentStory, callback) {
+
+    var story = currentStory || KEENTOUR.getStory();
     /*
         Request to save the idea
     */
@@ -438,18 +467,11 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
                 if (action === "publish") {
 
                     var story = KEENTOUR.getStory();
-                    story.publishedVersion = KEENTOUR.getStory();
-                    story.isPublished = true;
-                    story.isPublishedDate = new Date();
-                    KEENTOUR.saveStory(story, function (data) {
-                        KEENTOUR.storySavedHandle(data);
-                        if (data && data.status === true) {
-                            //TODO : add notification here
-                            alert("Story published");
-                            ///window.location = '/stories/preview/' + data.story.url;
-                        }
-
+                    KEENTOUR.publishStory(story,function(data){
+                        KEENTOUR.currentStory = data.story;
+                        alert("Story published");
                     });
+
 
                 }
 

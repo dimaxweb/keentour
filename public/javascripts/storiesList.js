@@ -13,12 +13,13 @@ define(["jquery", "ajax-scroll",""], function ($) {
 
         rowsToSkip   : 0,
         storiesToShow  : 5,
+        lastPublishDate  : new Date('1978'),
 
-        getStories:function (element) {
+        getStories:function (element){
             var callback = function (stories) {
-//                if (stories && stories.length > 0) {
-//                    storiesList.lastStoryId = stories[stories.length - 1]._id;
-//                }
+                if (stories && stories.length > 0) {
+                    storiesList.lastPublishDate = stories[stories.length - 1].publishDate;
+                }
                 storiesList.render(stories, element);
 
             };
@@ -48,7 +49,8 @@ define(["jquery", "ajax-scroll",""], function ($) {
                 dataType:"json",
                 data :{
                     rowsToSkip : storiesList.rowsToSkip,
-                    storiesToShow : storiesList.storiesToShow
+                    storiesToShow : storiesList.storiesToShow,
+                    lastPublishDate : storiesList.lastPublishDate
                 },
                 cache : false
 
