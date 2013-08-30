@@ -34,61 +34,59 @@ var MongoWrapper = module.exports = {
      */
     saveStory:function (story, callback) {
         logger.log("info", "Story is published:", story.isPublished);
-        var saveQuery = function (err, db) {
-            logger.log("info", "In function save story");
-            db.collection("story").findOne({ $or:[
-                {_id:story._id},
-                {title:story.title}
-            ] }, function (err, dbStory) {
-                if (dbStory) {
-                    logger.info("Story found.Update story");
-                    //_.extend(dbStory,story);
-                    //logger.log("info","",dbStory.items.lenth);
-                    //TODO  : find way here to update all the story
-                    db.collection("story").update(
-                        { $or:[
-                            {_id:story._id},
-                            {title:story.title}
-                        ]
-                        },
-                        {
-                            $set:{
-                                items:story.items,
-                                title:story.title,
-                                description:story.description,
-                                isPublished:story.isPublished || false
-
-                            }
-
-                        },
-
-                        function (err, results) {
-                            logger.log("info", "Error is:", err);
-                            logger.log("info", "Results is:", results);
-                            logger.log("info", "Story is a updated");
-
-                            if (callback) {
-                                callback({"status":true, story:story});
-                            }
-
-
-                        });
+        //        var saveQuery = function (err, db) {
+//            logger.log("info", "In function save story");
+//            db.collection("story").findOne({ $or:[
+//                {_id:story._id},
+//                {title:story.title}
+//            ] }, function (err, dbStory) {
+//                if (dbStory) {
+//                    logger.info("Story found.Update story");
+//                    db.collection("story").update(
+//                        { $or:[
+//                            {_id:story._id},
+//                            {title:story.title}
+//                        ]
+//                        },
+//                        {
+//                            $set:story
+//
+//                        },
+//
+//                        function (err, results) {
+//                            logger.log("info", "Error is:", err);
+//                            logger.log("info", "Results is:", results);
+//                            if (callback) {
+//                                callback({"status":true, story:story});
+//                            }
+//
+//
+//                        });
+//                }
+//                else {
+//                    logger.log("info", "Insert new story", story);
+//                    db.collection("story").insert(story, function (err, results) {
+//
+//                        if (callback) {
+//                            callback({"status":true, story:story});
+//                        }
+//
+//
+//                    });
+//                }
+//
+//
+//            });
+//        }
+        var saveQuery   = function(err,db){
+            db.collection('story').save(story,function(err,story){
+                if (callback) {
+                     callback({"status":true, story:story});
                 }
-                else {
-                    logger.log("info", "Insert new story", story);
-                    db.collection("story").insert(story, function (err, results) {
-
-                        if (callback) {
-                            callback({"status":true, story:story});
-                        }
-
-
-                    });
-                }
-
-
             });
-        }
+        };
+
+
         MongoWrapper.executeQuery(saveQuery);
     },
 

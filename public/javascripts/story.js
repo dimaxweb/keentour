@@ -344,6 +344,7 @@ KEENTOUR.storySavedHandle = function (data) {
         if (data.status === true) {
             KEENTOUR.currentStory = data.story;
             //KEENTOUR.storage.setObject('currentStory',KEENTOUR.currentStory);
+            alert("Story saved");
             console.log("Story saved...",KEENTOUR.currentStory);
         }
         else {
