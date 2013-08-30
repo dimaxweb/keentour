@@ -369,14 +369,15 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
          /*
            bind this to another place,when editing geo loacation
          */
-//        KEENTOUR.search.bindAutoComplete({
-//            container:$('#searchText'),
-//            onItemSelected:function (options) {
-//                var query = $(options.searchText).val();
-//                KEENTOUR.flickrSearch(query);
-//
-//
-//        }});
+        KEENTOUR.search.bindAutoComplete({
+            container:$('#geoLocation'),
+            onItemSelected:function (options) {
+                var query = $(options.searchText).val();
+                 $('#geoLocation').data('geoItem',options.geoItem);
+                //KEENTOUR.flickrSearch(query);
+
+
+        }});
 
         $('#storyTabs').tabs();
         $('#storyTabs .tab').click(function(e) {

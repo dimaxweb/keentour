@@ -33,6 +33,7 @@ var MongoWrapper = module.exports = {
      save story to db
      */
     saveStory:function (story, callback) {
+        logger.log("info", "Story is published:", story.isPublished);
         var saveQuery = function (err, db) {
             logger.log("info", "In function save story");
             db.collection("story").findOne({ $or:[
@@ -44,12 +45,23 @@ var MongoWrapper = module.exports = {
                     //_.extend(dbStory,story);
                     //logger.log("info","",dbStory.items.lenth);
                     //TODO  : find way here to update all the story
-                    db.collection("story").update({ $or:[
+                    db.collection("story").update(
+                        { $or:[
                             {_id:story._id},
                             {title:story.title}
-                        ] }, {$set:{items:story.items},
-                              title:story.title,
-                              description:story.description},
+                        ]
+                        },
+                        {
+                            $set:{
+                                items:story.items,
+                                title:story.title,
+                                description:story.description,
+                                isPublished:story.isPublished || false
+
+                            }
+
+                        },
+
                         function (err, results) {
                             logger.log("info", "Error is:", err);
                             logger.log("info", "Results is:", results);
@@ -98,8 +110,6 @@ var MongoWrapper = module.exports = {
     },
 
 
-
-
     /*
      get story by url
      */
@@ -146,13 +156,13 @@ var MongoWrapper = module.exports = {
     },
 
     /*
-        get latest stories by object creation number
-    */
-    getLatestStories : function(params,callback){
-        logger.info('In latest stories.Params',params);
+     get latest stories by object creation number
+     */
+    getLatestStories:function (params, callback) {
+        logger.info('In latest stories.Params', params);
         var query = function (err, db) {
             logger.info('In latest stories callback');
-            db.collection("story").find({isPublished:true}).sort({_id:-1}).skip(params.rowToSkip).limit(params.storiesToShow).toArray(function(err, results) {
+            db.collection("story").find({isPublished:true}).sort({_id:-1}).skip(params.rowToSkip).limit(params.storiesToShow).toArray(function (err, results) {
                 callback(results);
 
             });
