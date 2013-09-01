@@ -39,6 +39,7 @@ require.config({
         richEditorSource  : '/javascripts/lib/wysihtml5/wysihtml5-0.3.0.min',
         richEditor  : '/javascripts/lib/wysihtml5/wysihtml5-AMD',
         tabs  :  '/javascripts/lib/bootstrap/bootstrap-tab',
+        moment : '/javascripts/lib/moment',
         /*
             css resources
         */
@@ -114,6 +115,10 @@ require.config({
 
         "tabs":{
             deps:["jquery"]
+        },
+
+        "moment"  : {
+            deps : ["jquery"]
         }
 
 

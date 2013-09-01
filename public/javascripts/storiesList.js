@@ -5,7 +5,7 @@
  * Time: 7:18 PM
  * To change this template use File | Settings | File Templates.
  */
-define(["jquery", "ajax-scroll",""], function ($) {
+define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
     var storiesList = {
         config:{
             LATEST_STORIES_URL:"/latestStories"
@@ -14,6 +14,7 @@ define(["jquery", "ajax-scroll",""], function ($) {
         rowsToSkip   : 0,
         storiesToShow  : 5,
         lastPublishDate  : new Date('1978'),
+        dateFormat : moment,
 
         getStories:function (element){
             var callback = function (stories) {
@@ -77,7 +78,8 @@ define(["jquery", "ajax-scroll",""], function ($) {
                 }
 
                 catch (e) {
-                    console.log("Error occured when rendering story",story);
+                     throw e;
+                    /// /console.log("Error occured when rendering story:%j.Error is  : %j",story,e);
                 }
 
             });
@@ -89,10 +91,17 @@ define(["jquery", "ajax-scroll",""], function ($) {
             var storyTags = story.tags;
             var mainItem = story.items[0];
             var storyUrl = story.url;
+            var publishDate = moment(story.publishDate).fromNow();
+            var tags = story.tags ?  story.tags.join(' ')  : '';
             var storyCont = $('<a class="storyContainer" href="' + storyUrl + '"><div class="storyCont"></div></a>').appendTo(element);
             var mainItemUrl = storiesList.getBigImageUrl(mainItem);
-            $('<h5>' + title + '</h5>').appendTo(storyCont);
+            var storyHeader = $("<div class='storyHeader'></div>").appendTo(storyCont);
+
+            $('<span>' + title + '</span>').appendTo(storyHeader);
+            $('<span>' + publishDate + '</span>').appendTo(storyHeader);
+
             $('<div class="storyImageCont"><img src="' + mainItemUrl + '"/></div>').appendTo(storyCont);
+            $('<div class="storyTags">' + tags +'</div>').appendTo(storyCont);
 
 
         },

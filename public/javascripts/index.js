@@ -36,6 +36,7 @@ require.config({
         carousel:'/javascripts/lib/bootstrap/bootstrap-carousel',
         twitter_grid:'/javascripts/twitter-grid',
         storiesList : '/javascripts/storiesList',
+        moment : '/javascripts/lib/moment',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
@@ -104,6 +105,9 @@ require.config({
         },
 
         "storiesList":{
+            deps : ["jquery"]
+        },
+        "moment":{
             deps : ["jquery"]
         }
 
