@@ -289,7 +289,9 @@ KEENTOUR.getStory = function () {
     });
 
     story.tags = story.tags.getUnique();
+    story.geoItem = $('#geoLocation').data('geoItem');
     story = $.extend({}, KEENTOUR.currentStory, story);
+
     /*
 
      Validations
@@ -306,6 +308,16 @@ KEENTOUR.getStory = function () {
         $('#txtTitle').focus();
         return;
     }
+
+    if(!story.geoItem){
+        alert("Please tell us where it happens");
+         var $tab = $('[data-toggle="tab"][href="#data"]');
+        $tab.tab('show');
+        $('#geoLocation').focus();
+        return;
+    }
+
+
     return story;
 }
 
@@ -418,8 +430,8 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
         $('#storyTabs .tab').click(function(e) {
             e.preventDefault();
             $(this).tab('show');
-            console.log('show');
-        })
+
+        });
 
         $('#searchText').keypress(function(event){
 

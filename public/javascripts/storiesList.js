@@ -102,6 +102,7 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
 
             $('<div class="storyImageCont"><img src="' + mainItemUrl + '"/></div>').appendTo(storyCont);
             $('<div class="storyTags">' + tags +'</div>').appendTo(storyCont);
+            console.log(story.geoItem);
 
 
         },
