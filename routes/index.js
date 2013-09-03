@@ -171,7 +171,7 @@ exports.homeNew = function(req,res){
 }
 
 exports.latestStories = function(req, res){
-    MongoWrapper.getLatestStories({lastStoryId:req.params.lastStoryId,storiesToShow:req.params.storiesToShow},function(stories){
+    MongoWrapper.getLatestStories({lastStoryId:req.query.lastStoryId,storiesToShow:req.query.storiesToShow,userName : req.query.userName},function(stories){
             res.json(stories);
      });
 }
@@ -209,6 +209,12 @@ exports.storySave = function (req, res) {
         res.json({"result" : false,redirect:'/login'});
     }
 
+}
+
+exports.userStories = function(req,res){
+    var title  = 'View all '  + req.params.userName + ' stories';
+    //TODO   :don't pass user here move user data to some global context
+    res.render('userStories', {title:title,userName : req.params.userName,user:{} } );
 }
 
 

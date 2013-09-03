@@ -17,6 +17,7 @@ var MongoWrapper = module.exports = {
             }
             try {
                 logger.info("MongoWrapper executing callback");
+                console.log(err);
                 func(err, db);
             }
             catch (e) {
@@ -157,15 +158,21 @@ var MongoWrapper = module.exports = {
      get latest stories by object creation number
      */
     getLatestStories:function (params, callback) {
+        console.log("Latest stories params",params);
         logger.info('In latest stories.Params', params);
         var query = function (err, db) {
             logger.info('In latest stories callback');
             var lastPublishDate  = params.lastPublishDate  ? new Date(params.lastPublishDate)   : new Date('1978');
-            db.collection("story").find( {$and :[{isPublished:true},
-                                                 {publishDate : { $gt : lastPublishDate } }
-                                                ]})
+            var query = {isPublished:true};
+//            var query  = {$and :[{isPublished:true}
+//
+//            ]};
+//            //                {publishDate : { $gt : lastPublishDate } }
+
+
+            db.collection("story").find(query)
                                   .sort({publishDate:-1})
-                                  .limit(params.storiesToShow)
+//                                  .limit(params.storiesToShow)
                 .toArray(function (err, results) {
                             logger.info('Error is:',err);
                             logger.info('Result is:',results);

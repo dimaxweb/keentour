@@ -352,9 +352,12 @@ KEENTOUR.publishStory  = function(story,callback){
     });
 }
 
-KEENTOUR.saveStory = function (currentStory, callback) {
+KEENTOUR.saveStory = function (story, callback) {
 
-    var story = currentStory || KEENTOUR.getStory();
+    if(!story){
+        console.log("No story provided.Exit function");
+        return;
+    }
     /*
         Request to save the idea
     */
@@ -394,7 +397,7 @@ KEENTOUR.storySavedHandle = function (data) {
             console.log("Story saved...",KEENTOUR.currentStory);
         }
         else {
-            window.location = data.redirect || '/';
+            alert("Error occured.Please try again");
         }
 
     }
@@ -457,7 +460,8 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
                     Save story
                 */
                 if (action === "save") {
-                    KEENTOUR.saveStory(null,function (data) {
+                    var story= KEENTOUR.getStory();
+                    KEENTOUR.saveStory(story,function (data) {
                         KEENTOUR.storySavedHandle(data);
                     });
 
@@ -466,8 +470,10 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
                 /*
                     Preview story
                 */
+
                 if (action === "preview") {
-                    KEENTOUR.saveStory(null,function (data) {
+                    var story= KEENTOUR.getStory();
+                    KEENTOUR.saveStory(story,function (data) {
                         KEENTOUR.storySavedHandle(data);
                         if (data && data.story && data.story.url) {
                             window.open(data.story.url);
