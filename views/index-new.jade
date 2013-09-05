@@ -1,14 +1,22 @@
 extends layoutnew
 
 block content
+    .filter Filter
+    .filterItems
+        ul
+          li  Tour
+          li Attractions
+          li Food
+
     .row-fluid
-        .span10.offset2
+        .span12
             .new_photos#newVideos(style="display:none")
                 .new_photos_title
                     span.homePageTitle Where do you want to travel ?
                     img(src="/images/kamera.png")
 
             .latestStories
+
 
 
 

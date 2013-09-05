@@ -422,9 +422,20 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
         KEENTOUR.search.bindAutoComplete({
             container:$('#geoLocation'),
             onItemSelected:function (options) {
+                var geoItem = options.geoItem;
                 var query = $(options.searchText).val();
-                 $('#geoLocation').data('geoItem',options.geoItem);
-                //KEENTOUR.flickrSearch(query);
+                $('.geoPath').empty();
+                 $('#geoLocation').data('geoItem',geoItem);
+                 var countryName = geoItem.countryName;
+                 var itemName  = geoItem.name;
+
+                 if(itemName!=countryName){
+                     var countrySpan = $('<span class="geoItemPath">' + countryName +'</span>  --> ').appendTo('.geoPath');
+                 }
+
+                var spanName = $('<span>' + itemName +'</span>').appendTo('.geoPath');
+
+
 
 
         }});

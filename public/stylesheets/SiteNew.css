@@ -3894,3 +3894,36 @@ ul {
 .login {
   margin  : 1% 1% 1% 1%;
 }
+
+.storyCont
+{
+    min-width: 50%;
+}
+
+.filter {
+
+    background-color: #0000ff;
+    cursor: pointer;
+    height: 108px;
+    left: 0;
+    position: fixed;
+    top:50%;
+    width: 34px;
+    z-index: 999;
+    writing-mode:lr-tb;
+    color: #ffffff;
+}
+
+.filterItems{
+    background-color: #0000ff;
+    cursor: pointer;
+    height: 108px;
+    left: 0;
+    position: fixed;
+    top:50%;
+    width: 34px;
+    z-index: 999;
+    writing-mode: tb-rl;
+    color: #ffffff;
+    display: none;
+}
