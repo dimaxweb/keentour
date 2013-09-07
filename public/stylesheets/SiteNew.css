@@ -3895,8 +3895,10 @@ ul {
     writing-mode: tb-rl;
     color: #ffffff;
     display: none;
+    min-height: 500px;
+    min-width: 300px;
 }
 
 .filterHeader{
-    margin : 1% 0 1% 0;
+    margin-bottom: 50px;
 }
