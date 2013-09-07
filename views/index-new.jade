@@ -2,6 +2,9 @@ extends layoutnew
 
 block content
 
+    #search
+        input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
+
     .filter Filter
 
     .filterItems
@@ -31,12 +34,6 @@ block content
                     img(src="/images/kamera.png")
 
             .latestStories
-
-
-
-
-
-
 
                         script(data-main="/#{locals.scriptPrefix}/index",src="/javascripts/lib/require.js",type="text/javascript")
                         script

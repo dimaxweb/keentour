@@ -37,6 +37,8 @@ require.config({
         twitter_grid:'/javascripts/twitter-grid',
         storiesList : '/javascripts/storiesList',
         moment : '/javascripts/lib/moment',
+        sharePlugin  : '/javascripts/lib/jquery.sharrre-1.3.4.min',
+        socialShare  : '/javascripts/socialShare',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
@@ -109,6 +111,13 @@ require.config({
         },
         "moment":{
             deps : ["jquery"]
+        },
+        "sharePlugin"  : {
+            deps : ["jquery"]
+        },
+
+        "socialShare" : {
+            deps  : ["jquery","sharePlugin"]
         }
 
     }
@@ -135,16 +144,20 @@ if (typeof (KEENTOUR) == 'undefined') {
 }
 
 
-require(["storage", "search", "geonames","storiesList","css!storiesListCss"], function (storage, search, geonames,storiesList) {
+require(["storage", "search", "geonames","storiesList","socialShare","css!storiesListCss"], function (storage, search, geonames,storiesList,socialShare) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
     KEENTOUR.geonames = geonames;
     KEENTOUR.storiesList = storiesList;
+    KEENTOUR.socialShare = socialShare;
+
 
 
 
     $(document).ready(function (e) {
+
+        KEENTOUR.socialShare.displayShare('.shareStory');
 
         KEENTOUR.search.bindAutoComplete({
             container:$('#searchtext'),

@@ -40,6 +40,8 @@ require.config({
         richEditor  : '/javascripts/lib/wysihtml5/wysihtml5-AMD',
         tabs  :  '/javascripts/lib/bootstrap/bootstrap-tab',
         moment : '/javascripts/lib/moment',
+        sharePlugin  : '/javascripts/lib/jquery.sharrre-1.3.4.min',
+        socialShare  : '/javascripts/socialShare',
         /*
             css resources
         */
@@ -119,6 +121,14 @@ require.config({
 
         "moment"  : {
             deps : ["jquery"]
+        },
+
+        "sharePlugin"  : {
+            deps : ["jquery"]
+        },
+
+        "socialShare" : {
+           deps  : ["jquery","sharePlugin"]
         }
 
 

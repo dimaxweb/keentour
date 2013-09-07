@@ -37,6 +37,10 @@ require.config({
         twitter_grid:'/javascripts/twitter-grid',
         richEditorSource  : '/javascripts/lib/wysihtml5/wysihtml5-0.3.0.min',
         richEditor  : '/javascripts/lib/wysihtml5/wysihtml5-AMD',
+        tabs  :  '/javascripts/lib/bootstrap/bootstrap-tab',
+        moment : '/javascripts/lib/moment',
+        sharePlugin  : '/javascripts/lib/jquery.sharrre-1.3.4.min',
+        socialShare  : '/javascripts/socialShare',
         /*
          css resources
          */
@@ -107,7 +111,25 @@ require.config({
 
         "popover":{
             deps:["jquery","tooltip"]
+        },
+
+        "tabs":{
+            deps:["jquery"]
+        },
+
+        "moment"  : {
+            deps : ["jquery"]
+        },
+
+        "sharePlugin"  : {
+            deps : ["jquery"]
+        },
+
+        "socialShare" : {
+            deps  : ["jquery","sharePlugin"]
         }
+
+
 
     }
 
@@ -131,9 +153,10 @@ KEENTOUR.renderStory = function (story) {
         KEENTOUR.addStoryItem(item);
         console.log("Story item", item);
     });
-    $.each(story.tags,function(i,item){
-        $('.storyTags').append('<li>'+ item +'</li>');
-    });
+
+    var strTags = story.tags.join(' ');
+    $('.storyTags').text(strTags);
+
 
 
 
@@ -154,9 +177,11 @@ KEENTOUR.addStoryItem   = function(photo){
 
 }
 
-require(["jQueryUI","css!storyViewCSS"], function () {
-     $(document).ready(function(e){
+require(["jQueryUI","socialShare","css!storyViewCSS"], function (undefined,socialShare) {
+    KEENTOUR.socialShare  = socialShare;
+    $(document).ready(function(e){
          KEENTOUR.renderStory(KEENTOUR.story);
+        KEENTOUR.socialShare.displayShare('.shareStory');
      });
 
 });

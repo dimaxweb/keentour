@@ -3899,6 +3899,14 @@ ul {
     min-width: 300px;
 }
 
+
 .filterHeader{
     margin-bottom: 50px;
+}
+
+
+.shareStory{
+    right: 0;
+    position: fixed;
+    top:30%;
 }

@@ -17,7 +17,7 @@ html(lang='en')
 
     body
 
-
+        .shareStory
         .container-fluid.header
             .row-fluid
                 .span4
@@ -36,8 +36,7 @@ html(lang='en')
 
 
        .container-fuild
-           #search
-               input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
+
            block content
 
 
@@ -62,6 +61,7 @@ html(lang='en')
                             google_ad_height = 15;
                         script(type='text/javascript', src='http://pagead2.googlesyndication.com/pagead/show_ads.js')
 
+
             script(type='text/javascript')
                 var _gaq = _gaq || [];
                 _gaq.push(['_setAccount', 'UA-10410520-2']);
@@ -71,6 +71,9 @@ html(lang='en')
                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
                 })();
+
+
+
 
 
 
