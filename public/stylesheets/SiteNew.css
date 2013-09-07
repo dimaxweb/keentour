@@ -3916,14 +3916,15 @@ ul {
 
 .filterItems{
     background-color: #0000ff;
-    cursor: pointer;
-    height: 108px;
     left: 0;
     position: fixed;
     top:50%;
-    width: 34px;
     z-index: 999;
     writing-mode: tb-rl;
     color: #ffffff;
     display: none;
+}
+
+.filterHeader{
+    margin : 1% 0 1% 0;
 }

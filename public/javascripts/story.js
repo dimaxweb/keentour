@@ -397,6 +397,12 @@ KEENTOUR.storySavedHandle = function (data) {
             console.log("Story saved...",KEENTOUR.currentStory);
         }
         else {
+            if(data.redirect){
+                window.location = data.redirect;
+                return;
+            }
+
+
             alert("Error occured.Please try again");
         }
 
@@ -430,10 +436,10 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
                  var itemName  = geoItem.name;
 
                  if(itemName!=countryName){
-                     var countrySpan = $('<span class="geoItemPath">' + countryName +'</span>  --> ').appendTo('.geoPath');
+                     var countrySpan = $('<span class="geoItemPath"><b>' + countryName +'</b></span>  --> ').appendTo('.geoPath');
                  }
 
-                var spanName = $('<span>' + itemName +'</span>').appendTo('.geoPath');
+                var spanName = $('<span><b>' + itemName +'</b></span>').appendTo('.geoPath');
 
 
 

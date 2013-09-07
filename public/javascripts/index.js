@@ -161,6 +161,20 @@ require(["storage", "search", "geonames","storiesList","css!storiesListCss"], fu
             }});
 
         KEENTOUR.storiesList.showLatest($('.latestStories'));
+
+
+        $('.filterClose').on('click',function(e){
+            $('.filterItems').hide();
+            $('.filter').show();
+        });
+
+        $('.filter').on('click',function(e){
+           $(this).hide();
+           $('.filterItems').show();
+        });
+
+        $()
+
         /*
             Add this widget
         */
