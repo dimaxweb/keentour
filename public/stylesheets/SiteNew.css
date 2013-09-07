@@ -1,5 +1,4 @@
 body {
-    background: url("../images/fon_top.jpg") repeat-x scroll center top transparent;
     color: #555555;
     font-family: Arial;
     font-size: 13px;
@@ -49,12 +48,7 @@ table.content a:hover {
 
 /**************************** top *******************************/
 
-.header
-{
 
-    background:url("../images/fonsfera.png");
-
-}
 
 .logoCont
 {
@@ -66,11 +60,12 @@ table.content a:hover {
 }
 
 #search{
-    margin: 50px 0px 0px 180px;
+    text-align: center;
+    margin :5% 5% 5% 5%;
 }
 
 #searchtext {
-    width: 230px;
+    width: 40% !important;
     height: 20px;
     padding: 2px 7px 6px 20px;
     color: #777;
@@ -2109,27 +2104,7 @@ table.content a:hover {
     background:url(../images/logo.png) no-repeat left top;
 }
 
-#search{
-    margin: 50px 0px 0px 180px;
-}
 
-#searchtext {
-    width: 230px;
-    height: 20px;
-    padding: 2px 7px 6px 20px;
-    color: #777;
-}
-
-#searchbtn {
-    background: url(../images/loopa.png) no-repeat center 2px;
-    border: none;
-    width: 28px;
-    height: 24px;
-    cursor: pointer;
-    left: -40px;
-    position: relative;
-    top: -4px;
-}
 
 .advancedOpen
 {
@@ -3895,10 +3870,7 @@ ul {
   margin  : 1% 1% 1% 1%;
 }
 
-.storyCont
-{
-    min-width: 50%;
-}
+
 
 .filter {
 

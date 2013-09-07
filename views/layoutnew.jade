@@ -29,15 +29,16 @@ html(lang='en')
                     a.createStory(href="/story",title="Share you travel story with us") Share
                     a.login(href="/login") Login
                     a.userProfileButton   User Display Name
-                    #search
-                        input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
+
 
 
 
 
 
        .container-fuild
-            block content
+           #search
+               input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
+           block content
 
 
         div.footerPanel#panelMain
