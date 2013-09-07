@@ -403,7 +403,7 @@ KEENTOUR.storySavedHandle = function (data) {
             }
 
 
-            alert("Error occured.Please try again");
+            alert("Error occurred.Please try again");
         }
 
     }

@@ -173,7 +173,7 @@ require(["storage", "search", "geonames","storiesList","css!storiesListCss"], fu
            $('.filterItems').show();
         });
 
-        $()
+
 
         /*
             Add this widget

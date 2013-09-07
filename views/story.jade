@@ -37,8 +37,7 @@ html(lang='en')
                     a.tab(href='#story',data-toggle="tab") Story
                 li
                     a.tab(href='#settings',data-toggle="tab") Settings
-                li
-                    a.tab(href='#getcode',data-toggle="tab") Get Code
+
 
             .tab-content
                 .story#story.tab-pane.active
@@ -47,12 +46,40 @@ html(lang='en')
                             .storyText
                             textarea#wysihtml5-editor(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter description ...')
 
-                        ul.storyItems
+                        .storyItemsCont
+                            ul.storyItems
                 #settings.tab-pane
-                        input(type="text",id="geoLocation",placeholder="Where it happens ?")
-                        .geoPath
-                #getcode.tab-pane
-                        textarea#storyCode
+                    h4 Geo Location
+                    input(type="text",id="geoLocation",placeholder="Where it happens ?")
+                    .geoPath
+
+                    .inrerestsCont
+                        h4 Point of interest
+                        ul.interests
+                            li
+                                .interest
+                                    input(type="checkbox",value="Family",name="Family")
+                                    label.checkbox.inline Family
+                            li
+                                .interest
+                                    input(type="checkbox",value="Nature",name="Nature")
+                                    label.checkbox.inline Nature
+                                .interest
+                                    input(type="checkbox",value="Nightlife",name="Nightlife")
+                                    label.checkbox.inline Nightlife
+                                .interest
+                                    input(type="checkbox",value="Adventure",name="Adventure")
+                                    label.checkbox.inline Adventure
+                                .interest
+                                    input(type="checkbox",value="History",name="History")
+                                    label.checkbox.inline History
+                                .interest
+                                    input(type="checkbox",value="Culture",name="Culture")
+                                    label.checkbox.inline Culture
+
+
+                        input(type='text',id='txtTags',placeholder='Add some tags',style='width:95%'")
+
 
 
 
