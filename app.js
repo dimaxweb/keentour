@@ -110,6 +110,7 @@ app.get('/stories/preview/:username/:title',routes.storyPreview);
 app.get('/stories/:userName',routes.userStories);
 app.get('/', routes.index);
 app.get('/login',routes.login);
+app.get('/profile',routes.profile);
 app.get('/users', user.list);
 app.get('/latestStories',routes.latestStories);
 

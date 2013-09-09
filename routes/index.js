@@ -89,6 +89,16 @@ exports.aboutUs = function (req, res) {
     res.render('aboutUs', { title:' About wwww.keentour.com' });
 };
 
+exports.profile = function(req,res){
+    if(req.isAuthenticated()){
+        res.render('profile', { title:'Edit profile' });
+    }
+    else{
+       res.redirect('/login');
+    }
+
+};
+
 exports.login = function (req, res) {
     res.render('login', { title:'Please login to keentour' });
 };
