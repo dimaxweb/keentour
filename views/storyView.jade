@@ -3,17 +3,21 @@ extends layoutnew
 block content
     .row-fluid
        .span2
-        .description
-        .authorLink
-        .ads
+            .description
+            .authorLink
+            .ads
+                script(async='async', src='http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+                ins.adsbygoogle(style='display: inline-block; width: 300px; height: 600px;', data-ad-client='ca-pub-4780158497290031', data-ad-slot='1729511784')
+                script
+                    (adsbygoogle = window.adsbygoogle || []).push({});
 
        .span8
-          .story
-            .webSiteUrl
-              a(href="webSite")  Web Site
-            .title
-            .storyTags
-            ul.storyItems
+            .story
+              .webSiteUrl
+                a(href="webSite")  Web Site
+              .title
+              .storyTags
+              ul.storyItems
 
 
 
