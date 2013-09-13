@@ -89,8 +89,8 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
                 }
 
                 catch (e) {
-                     throw e;
-                    /// /console.log("Error occured when _rendering story:%j.Error is  : %j",story,e);
+                     console.log("Error occured.",e);
+
                 }
 
             });
@@ -111,7 +111,9 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
             $('<a class="storyContainer" href="' + storyUrl + '">' + title + '<a/>').appendTo(storyHeader);
             $('<span>' + publishDate + '</span>').appendTo(storyHeader);
 
-            $('<div class="storyImageCont"><a class="storyContainer" href="' + storyUrl + '"><img src="' + mainItemUrl + '"/></a></div>').appendTo(storyCont);
+            var storyImgCont = $('<div class="storyImageCont"><a class="storyContainer" href="' + storyUrl + '"><img class="imgStory" src="' + mainItemUrl + '"/></a></div>').appendTo(storyCont);
+            $('.imgStory',storyCont).css({height:mainItem.height_z,width:mainItem.width_z});
+
             $('<div class="storyTags"><span><b>Tags: </b></span>' + tags +'</div>').appendTo(storyCont);
             $('<div class="userLink"><span><b>All user stories: </b><a href="/stories/' + story.userName +'">' + story.userName +'</a></div>').appendTo(storyCont);
             console.log(story.geoItem);
