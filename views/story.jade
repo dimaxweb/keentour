@@ -78,24 +78,16 @@ html(lang='en')
                                     label.checkbox.inline Culture
 
 
-                        h4 Tags
-                        input(type='text',id='txtTags',placeholder='Add some tags',style='width:95%'")
-                        button.button-mini Add
-                        ul.tagsEdit
 
-
-
-
-
+                        h4 Web Site
+                        input#webSiteUrl
 
         .actionPanel
 
-
-
-    script
-        var story = !{JSON.stringify(story)};
-        if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
-        KEENTOUR.currentStory= story;
-    script(data-main="/#{locals.scriptPrefix}/story",src="/javascripts/lib/require.js",type="text/javascript")
+       script
+            var story = !{JSON.stringify(story)};
+            if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
+            KEENTOUR.currentStory= story;
+       script(data-main="/#{locals.scriptPrefix}/story",src="/javascripts/lib/require.js",type="text/javascript")
 
 
