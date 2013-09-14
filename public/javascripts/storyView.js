@@ -164,7 +164,8 @@ KEENTOUR.renderStory = function (story) {
 
 KEENTOUR.addStoryItem   = function(photo){
     var storyContainer = $('.storyItems');
-    var item = $("<li class='storyItemLi'><div class='storyItemContainer'><a class='storyPhoto'><img class='imgStory' src='" + photo.url_m  +"'/></a></div></li>").appendTo(storyContainer);
+    var item = $("<li class='storyItemLi'><div class='storyItemContainer'><a class='storyPhoto'><img  class='imgStory' src='" + photo.url_z  +"'/></a></div></li>").appendTo(storyContainer);
+    $('.imgStory',item).css({height:photo.height_z,width:photo.width_z});
     $(item).data('item',photo);
     var storyItemContainer =  $(item).find('.storyItemContainer');
     $(storyItemContainer).append("<div class='storyItemTitle'>" + photo.title + "</div>");

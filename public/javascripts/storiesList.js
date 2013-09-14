@@ -103,7 +103,7 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
             var mainItem = story.items[0];
             var storyUrl = story.url;
             var publishDate = moment(story.publishDate).fromNow();
-            var tags = story.tags ?  story.tags.join(' ')  : '';
+            var tags = story.interests ?  story.interests.join(' ')  : '';
             var storyCont = $('<div class="storyCont"></div>').appendTo(element);
             var mainItemUrl = storiesList._getBigImageUrl(mainItem);
             var storyHeader = $("<div class='storyHeader'></div>").appendTo(storyCont);

@@ -3874,7 +3874,8 @@ ul {
 
 .filter {
 
-    background-color: #0000ff;
+    border-radius: 5px;
+    border: 1px solid #000000;
     cursor: pointer;
     height: 108px;
     left: 0;
@@ -3883,17 +3884,17 @@ ul {
     width: 34px;
     z-index: 999;
     writing-mode:lr-tb;
-    color: #ffffff;
+
 }
 
 .filterItems{
-    background-color: #0000ff;
+    border-radius: 5px;
+    border: 1px solid #000000;
     left: 0;
     position: fixed;
     top:20%;
     z-index: 999;
     writing-mode: tb-rl;
-    color: #ffffff;
     display: none;
     min-height: 500px;
     min-width: 300px;
