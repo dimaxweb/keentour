@@ -46,9 +46,9 @@ saveStory = function(story,req,callback) {
     Logger.info("Request to save story");
     story.title = stripScripts(story.title);
     story.description  = stripScripts(story.description);
-    var storyUrl =  sanitizeString(req.session.passport.user.profile.displayName) + "/" + sanitizeString(story.title);
+    var storyUrl =  sanitizeString(req.session.passport.user.profile.username) + "/" + sanitizeString(story.title);
     story.url = "/storyView/" + storyUrl;
-    story.userName =   sanitizeString(req.session.passport.user.profile.displayName);
+    story.userName =   sanitizeString(req.session.passport.user.profile.username);
     MongoWrapper.saveStory(story,callback);
 
 }
@@ -168,16 +168,8 @@ exports.storyView  = function(req,res){
 }
 
 exports.homeNew = function(req,res){
+    res.render('index-new', { title:' KeenTour - explore the beauty of the world!'});
 
-    if(req.session && req.session.passport && req.session.passport.user){
-        var userCallback = function(userData){
-            res.render('index-new', { title:' KeenTour - explore the beauty of the world!',user : userData || {} });
-        }
-        MongoWrapper.getUser(req.session.passport.user.profile.id,userCallback);
-    }
-    else{
-        res.render('index-new', { title:' KeenTour - explore the beauty of the world!',user : {} });
-    }
 }
 
 exports.latestStories = function(req, res){

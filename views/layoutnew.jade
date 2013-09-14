@@ -30,22 +30,27 @@ html(lang='en')
                     ul.nav.nav-pills
                         li.active
                             a(href='/story') Create
-                        li.active
-                            a(href='/login') Login
+                        if isAuthenticated
                             li.dropdown
                                 a#drop4.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
-                                    | dmitrym
+                                    | #{user.username}
                                     b.caret
                                 ul#menu1.dropdown-menu(role='menu', aria-labelledby='drop4')
                                     li(role='presentation')
                                         a(role='menuitem', tabindex='-1', href='#')
                                     li(role='presentation')
-                                        a(role='menuitem', tabindex='-1', href='/profile') Profile
+                                        a(role='menuitem', tabindex='-1', href='#{user.profileUrl}') Profile
                                     li(role='presentation')
-                                        a(role='menuitem', tabindex='-1', href='/mystories') My Stories
+                                        a(role='menuitem', tabindex='-1', href='#{user.storiesUrl}') My Stories
                                     li.divider(role='presentation')
                                     li(role='presentation')
                                         a(role='menuitem', tabindex='-1', href='/logout') Logout
+                        else
+                            li.active
+                                a(href='/login') Login
+
+
+
 
 
 
@@ -89,7 +94,12 @@ html(lang='en')
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
                 })();
 
-            script(type='text/javascript')
+
+            script
+                var user = !{JSON.stringify(user)};
+                if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
+                KEENTOUR.user = user;
+                console.log("User is",KEENTOUR.user);
                 $('.dropdown-toggle').dropdown();
 
 

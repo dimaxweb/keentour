@@ -18,6 +18,10 @@ var express = require('express')
    Logger = require('./logic/logging/logger')
 
 
+sanitizeString = function(str) {
+    return str.replace(/[^a-z0-9]/gi, '-').toLowerCase();
+}
+
 passport.use(new FacebookStrategy({
         clientID: '253212218150408',
         clientSecret: '842075e6c9603dd8ba127cd5f288f5bd',
@@ -56,11 +60,14 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.set('view options', { layout: false });
+
+
   app.use(express.logger('dev'));
   app.use(express.cookieParser());
+
   //app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({db:'keentour-new',auto_reconnect: true})}));
 //  app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({db:'keentour-new',auto_reconnect: true,stringify : true})}));
-    app.use(express.session({
+   app.use(express.session({
         secret:'sedhhh66h6hwww',
         store:new  MongoStore({url:CONFIG.mongo.connectionString, auto_reconnect:true, stringify:true})
         }));
@@ -70,6 +77,10 @@ app.configure(function(){
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
+
+
+
+
 
 });
 
@@ -92,6 +103,25 @@ app.configure('production', function(){
     app.locals({
         scriptPrefix : 'dist'
     });
+
+});
+
+app.all('*', function(req, res, next) {
+    console.log("check user status");
+    if(req.isAuthenticated()){
+        res.locals.isAuthenticated = true;
+        res.locals.user = {
+            username  : req.session.passport.user.profile.username,
+            profileUrl : '/profile/' + sanitizeString(req.session.passport.user.profile.username),
+            storiesUrl  : '/stories/' + sanitizeString(req.session.passport.user.profile.username)
+        }
+    }
+    else{
+            res.locals.isAuthenticated = false;
+            res.locals.user = req.session.passport.user;
+
+    }
+    next();
 
 });
 
@@ -158,6 +188,11 @@ app.get('/auth/facebook/callback',
             failureRedirect:'/login'
         }));
 
+
+
+/*
+  Create the server and ;isten on spesified port
+*/
 http.createServer(app).listen(app.get('port'), function(){
     Logger.log('info',"Starting application");
     console.log("Express server listening on port " + app.get('port'));
