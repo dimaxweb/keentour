@@ -210,7 +210,16 @@ KEENTOUR.renderStory = function (story) {
     }
 
     $('#txtTitle').val(story.title);
-    $('#txtDescription').html(story.description);
+    $('#wysihtml5-editor').val(story.description);
+    $('#webSiteUrl').val(story.webSiteUrl);
+    $('#geoLocation').data('photo',story.geoItem).val(story.geoItem  ? story.geoItem.name : '');
+
+    $.each(story.interests,function(i,item){
+        var inputSelector =  'input[value="'  + item + '"]'
+        console.log(inputSelector);
+        $(inputSelector).prop('checked',true);
+    });
+
     $.each(story.items, function (i, item) {
         KEENTOUR.addStoryItem(item);
         console.log("Story item", item);
@@ -286,7 +295,9 @@ KEENTOUR.getStory = function () {
         title: KEENTOUR.stripScripts($('#txtTitle').val()),
         description:KEENTOUR.stripScripts($('#wysihtml5-editor').val()),
         items:[],
-        tags  : []
+        tags  : [],
+        interests : [],
+        webSiteUrl  : ''
 
     };
 
@@ -295,12 +306,16 @@ KEENTOUR.getStory = function () {
         story.items.push(data);
         story.tags = story.tags.concat(data.tags.split(' '));
 
-
-    });
+        });
 
     story.tags = story.tags.getUnique();
     story.geoItem = $('#geoLocation').data('geoItem');
+    story.interests  = $.map($('input:checked ','.interests'),function(interest){
+        return $(interest).val();
+    });
+
     story = $.extend({}, KEENTOUR.currentStory, story);
+    story.webSiteUrl = $('#webSiteUrl').val();
 
     /*
 
