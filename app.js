@@ -107,7 +107,7 @@ app.configure('production', function(){
 });
 
 app.all('*', function(req, res, next) {
-    console.log("check user status");
+
     if(req.isAuthenticated()){
         res.locals.isAuthenticated = true;
         res.locals.user = {

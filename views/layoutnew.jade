@@ -19,7 +19,47 @@ html(lang='en')
 
     body
 
+        .loginDialog
+            a(href="/auth/facebook") Login with Facebook
+
+
+        .filter Filter
+
+        .filterItems
+            .filterHeader
+                a.filterClose.pull-right X
+            ul
+                li
+                    a Art & Culture
+                li
+                    a Romance
+                li
+                    a Food & Wine
+                li
+                    a Nightlife
+
+                li
+                    a Hotel
+                li
+                    a Events
+                li
+                    a History
+                li
+                    a Culture
+
+                li
+                    a Shopping
+                li
+                    a Skiing
+                li
+                    a Adventure
+                li
+                    a Spa
+
+
+
         .shareStory
+
         .container-fluid.header
             .row-fluid
                 .span4
@@ -47,7 +87,7 @@ html(lang='en')
                                         a(role='menuitem', tabindex='-1', href='/logout') Logout
                         else
                             li.active
-                                a(href='/login') Login
+                                a#loginBtn(href='/login') Login
 
 
 
@@ -100,7 +140,12 @@ html(lang='en')
                 if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
                 KEENTOUR.user = user;
                 console.log("User is",KEENTOUR.user);
+                $('#loginBtn').on('click',function(e){
+                   e.preventDefault();
+                   $('.loginDialog').dialog({title:'Login to KeenTour'});
+                });
                 $('.dropdown-toggle').dropdown();
+
 
 
 

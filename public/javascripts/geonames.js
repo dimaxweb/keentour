@@ -26,8 +26,24 @@
 
         }
     };
-   //geonames.servicePoint = 'http://ws.geonames.org/searchJSON';
+
+    geonames.ITEM_TYPE = {
+        CITY :  1,
+        COUNTRY  : 2,
+        CONTINENT  : 3
+    }
+
+
+   // /geonames.servicePoint = 'http://ws.geonames.org/searchJSON';
+
     geonames.serviceSearchPoint = '/SearchGeoNames';
+
+    geonames.getItemType = function(item){
+        var type =  {
+             type: geonames.ITEM_TYPE,
+             name  : "City"
+        }
+    }
 
     geonames.getItemFromUrl = function(url,callback){
         url = $.trim(url).replace(/-/g," ");

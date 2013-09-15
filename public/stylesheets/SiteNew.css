@@ -3915,3 +3915,9 @@ ul {
 .copyright{
     margin-left: 2%;
 }
+
+.loginDialog
+{
+    display : none
+
+}

@@ -22,13 +22,18 @@
                             style:"full",
                             maxRows:20,
                             name_startsWith:request.term
-//                            featureClass:'P',
-//                            featureClass: 'A'
+//                            featureCode:'PCL',
+//                            featureCode: 'PPL'
                         },
                         success:function (data) {
+//                            var arrGeonames  = $.grep(data.geonames,function(item,i){
+//                                return (item.population && (item.population > 0))
+//                            });
                             response($.map(data.geonames, function (item) {
+                                console.log("GEO item code:",item.fcode);
+                                console.log("GEO item",item);
                                 return {
-                                    label:geonames.getItemLabel(item),
+                                    label: geonames.getItemLabel(item) ,
                                     value:item.name,
                                     dataItem:item
 
@@ -40,6 +45,7 @@
                 //TODO  : if we can do something clever here
                 minLength:1,
                 select:function (event, ui) {
+
                     $(this).trigger('itemSelected', ui.item.dataItem);
                     //console.log('Item path' + path);
                     onItemSelected({geoItem:ui.item.dataItem,searchText:$(container).value});
@@ -56,7 +62,14 @@
                     itemFound = false;
                     $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
                 }
-            });
+            })
+            .data( "autocomplete" )._renderItem = function( ul, item ) {
+                var inner_html = '<a class="aucompleteOption" href="#">'  +  item.label +  '</a>';
+                return $( "<li></li>" )
+                    .data( "item.autocomplete", item )
+                    .append(inner_html)
+                    .appendTo( ul );
+            };
 
             var originalWidth = $(container).width();
             $(container).focusin(function (e) {

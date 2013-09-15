@@ -39,6 +39,7 @@ require.config({
         moment : '/javascripts/lib/moment',
         sharePlugin  : '/javascripts/lib/jquery.sharrre-1.3.4.min',
         socialShare  : '/javascripts/socialShare',
+        "jquery.ui.autocomplete.html" : '/javascripts/lib/jquery.ui.autocomplete.html',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
@@ -118,11 +119,17 @@ require.config({
 
         "socialShare" : {
             deps  : ["jquery","sharePlugin"]
-        }
+        },
+
+        "jquery.ui.autocomplete.html" :["jquery","jQueryUI"]
 
     }
 
 });
+
+if(typeof(KEENTOUR)==='undefined'){
+    KEENTOUR = {};
+}
 
 KEENTOUR.addAddThisWidget = function () {
     try {
@@ -138,12 +145,6 @@ KEENTOUR.addAddThisWidget = function () {
     }
 
 }
-
-if (typeof (KEENTOUR) == 'undefined') {
-    KEENTOUR = {};
-}
-
-
 require(["storage", "search", "geonames","storiesList","socialShare","css!storiesListCss"], function (storage, search, geonames,storiesList,socialShare) {
 
     KEENTOUR.storage = storage;
