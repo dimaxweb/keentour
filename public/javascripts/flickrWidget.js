@@ -7,6 +7,7 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                 itemsPerRow:4,
                 usePaging:false,
                 showTitle : true,
+                showTooltip : true,
                 itemCreated  :function(domItem,dataItem){}
 
             },
@@ -346,7 +347,7 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                                 /*
                                  Tooltip
                                  */
-                                //TODO  : use description
+                                if(that.options.showTooltip){
                                 var description = (dataItem.description && dataItem.description._content) ? '<p>' + dataItem.description._content + '</p>' : '';
 
                                 var tags = (dataItem.tags) ? '<p><h6>Tagged with:</h6>' + dataItem.tags.split(' ').slice(0, 3).join(',') + '</p>' : '';
@@ -354,13 +355,15 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                                 var publishedAt = (dataItem.published && dataItem.published.$t) ? '<p><b>Taken on:</b>' + dataItem.published.$t + '</p>' : '';
                                 var viewsCount = (dataItem.yt$statistics && dataItem.yt$statistics.viewCount) ? '<p><b>Views </b> :' + dataItem.yt$statistics.viewCount + '</p>' : '';
 
-                                //TODO : change style
-                                $(imgItem).popover({
-                                    title:dataItem.title,
-                                    placement:'right',
-                                    content:'<div>' + author + publishedAt + viewsCount + tags + '</div>'
 
-                                });
+                                    $(imgItem).popover({
+                                        title:dataItem.title,
+                                        placement:'right',
+                                        content:'<div>' + author + publishedAt + viewsCount + tags + '</div>'
+
+                                    });
+                                }
+
 
                             }
 

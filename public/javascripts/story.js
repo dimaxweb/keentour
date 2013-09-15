@@ -265,6 +265,7 @@ KEENTOUR.flickrSearch = function (query) {
         itemsPerRow:9,
         usePaging:false,
         showTitle : false,
+        showTooltip : false,
         itemCreated : function(domItem,dataItem){
            var aAppend = $("<a class='addItem'>+</a>").data('photo',dataItem).appendTo(domItem).on("click",function(e){
                e.preventDefault();
