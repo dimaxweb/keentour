@@ -2,8 +2,41 @@ extends layoutnew
 
 block content
 
-    .latestStories
-    script(data-main="/#{locals.scriptPrefix}/index",src="/javascripts/lib/require.js",type="text/javascript")
+        .filter Filter
+        .filterItems
+            .filterHeader
+                a.filterClose.pull-right X
+            ul
+                li
+                    a Art & Culture
+                li
+                    a Romance
+                li
+                    a Food & Wine
+                li
+                    a Nightlife
+
+                li
+                    a Hotel
+                li
+                    a Events
+                li
+                    a History
+                li
+                    a Culture
+
+                li
+                    a Shopping
+                li
+                    a Skiing
+                li
+                    a Adventure
+                li
+                    a Spa
+
+
+        .latestStories
+        script(data-main="/#{locals.scriptPrefix}/index",src="/javascripts/lib/require.js",type="text/javascript")
 
 
 
