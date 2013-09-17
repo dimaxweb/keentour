@@ -22,12 +22,27 @@
         privacy:'../javascripts/aboutUs',
         aboutUs:'../javascripts/homepage',
         story:'../javascripts/story',
+        storyView:'../javascripts/storyView',
+        index:'../javascripts/index',
+        userStories:'../javascripts/userStories',
+
         contentpage:'../javascripts/contentpage',
         tooltip  : '../javascripts/lib/bootstrap/bootstrap-tooltip',
         popover  : '../javascripts/lib/bootstrap/bootstrap-popover',
         carousel  : '../javascripts/lib/bootstrap/bootstrap-carousel',
         twitter_grid  :  '../javascripts/twitter-grid',
         'ajax-scroll' : '../javascripts/lib/jquery-paged-scroll.min',
+        sharePlugin  : '../javascripts/lib/jquery.sharrre-1.3.4.min',
+        socialShare  : '../javascripts/socialShare',
+        storiesList : '../javascripts/storiesList',
+        richEditorSource  : '../javascripts/lib/wysihtml5/wysihtml5-0.3.0.min',
+        richEditor  : '../javascripts/lib/wysihtml5/wysihtml5-AMD',
+        tabs  :  '../javascripts/lib/bootstrap/bootstrap-tab',
+        moment : '../javascripts/lib/moment',
+
+
+
+
         ///requirejs plugins
         css:'../javascripts/lib/css',
         text:'../javascripts/lib/text',
@@ -35,7 +50,10 @@
         paginationCSS :'css!../stylesheets/pagination',
         jQueryUICSS : 'css!../stylesheets/jquery-ui-1.8.20.custom',
         colorBoxCSS :  'css!../stylesheets/colorbox',
-        wikiCSS :  'css!../stylesheets/wiki2'
+        wikiCSS :  'css!../stylesheets/wiki2',
+        richEditorCSS : 'css!../stylesheets/wysihtml',
+        storyCSS:'css!../stylesheets/story',
+        storiesListCss : 'css../stylesheets/storiesList'
 
     },
 
@@ -55,7 +73,15 @@
         },
 
         {
-          name : "story"
+            name : "story"
+        },
+
+        {
+            name : "storyView"
+        },
+
+        {
+            name  : "userStories"
         },
 
         {
@@ -65,8 +91,13 @@
         {
             name:"privacy"
         },
+
         {
             name:"aboutUs"
+        },
+
+        {
+            name : "index"
         }
 
     ],

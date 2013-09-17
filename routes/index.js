@@ -58,15 +58,7 @@ exports.index = function (req, res) {
     Logger.log('info',"Accessing homepage");
     console.log("Home page if request authnticated",req.isAuthenticated());
     console.log("Request passport",req.session.passport);
-    if(req.session && req.session.passport && req.session.passport.user){
-        var userCallback = function(userData){
-            res.render('index-new', { title:' KeenTour - explore the beauty of the world!',user : userData || {} });
-        }
-        MongoWrapper.getUser(req.session.passport.user.profile.id,userCallback);
-    }
-    else{
-        res.render('index-new', { title:' KeenTour - explore the beauty of the world!',user : {} });
-    }
+    res.render('index', { title:' KeenTour - explore the beauty of the world!'});
 
 };
 
@@ -151,19 +143,14 @@ exports.story = function(req,res){
 
 
 exports.storyView  = function(req,res){
-    if(req.isAuthenticated()){
+
         var username =   req.params.username;
         var title = req.params.title;
         var url  = '/storyView/' +  username  + "/" + title;
         var storyCallback = function(results){
             res.render('storyView', {title : results.title,story : results});
         }
-
         MongoWrapper.renderStory(url,storyCallback);
-    }
-    else{
-        res.redirect('/login');
-    }
 
 }
 

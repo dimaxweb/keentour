@@ -135,10 +135,10 @@ if (typeof (KEENTOUR) == 'undefined') {
 }
 
 
-require(["storage", "search", "geonames","storiesList","css!storiesListCss"], function (storage, search, geonames,storiesList) {
+require(["storage", "geonames","storiesList","css!storiesListCss"], function (storage,geonames,storiesList) {
 
     KEENTOUR.storage = storage;
-    KEENTOUR.search = search;
+    //KEENTOUR.search = search;
     KEENTOUR.geonames = geonames;
     KEENTOUR.storiesList = storiesList;
 
@@ -146,6 +146,7 @@ require(["storage", "search", "geonames","storiesList","css!storiesListCss"], fu
 
     $(document).ready(function (e) {
 
+        /*
         KEENTOUR.search.bindAutoComplete({
             container:$('#searchtext'),
             submitControl:$('#searchbtn'),
@@ -159,6 +160,7 @@ require(["storage", "search", "geonames","storiesList","css!storiesListCss"], fu
                 }
 
             }});
+           */
 
         KEENTOUR.storiesList.showLatest($('.latestStories'),{userName : KEENTOUR.userName});
         /*

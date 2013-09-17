@@ -2,23 +2,8 @@ extends layoutnew
 
 block content
 
-    #search
-        input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
-
-
-
-
-
-    .row-fluid
-        .span12
-            .new_photos#newVideos(style="display:none")
-                .new_photos_title
-                    span.homePageTitle Where do you want to travel ?
-                    img(src="/images/kamera.png")
-
-            .latestStories
-
-                        script(data-main="/#{locals.scriptPrefix}/index",src="/javascripts/lib/require.js",type="text/javascript")
+    .latestStories
+    script(data-main="/#{locals.scriptPrefix}/index",src="/javascripts/lib/require.js",type="text/javascript")
 
 
 
