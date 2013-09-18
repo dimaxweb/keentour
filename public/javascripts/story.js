@@ -492,8 +492,7 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
          Create action buttons
         */
         $('<div>' +
-            '<button class="btn btn-primary" data-action="preview">Preview</button> ' +
-            '<button class="btn btn-primary" data-action="save">Save</button> ' +
+           '<button class="btn btn-primary" data-action="save">Save</button> ' +
             '<button class="btn btn-primary" data-action="publish">Publish</button> </div>')
             .appendTo('.actionPanel')
             .on('click', '.btn', function () {
