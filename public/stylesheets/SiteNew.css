@@ -3918,6 +3918,10 @@ ul {
 
 .loginDialog
 {
-    display : none
+    display : none;
+    min-width: 300px;
+    min-height: 300px;
+
 
 }
+

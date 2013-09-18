@@ -1,5 +1,3 @@
-alert('here');
-
 require.config({
     baseUrl:'/javascripts/lib',
     paths:{

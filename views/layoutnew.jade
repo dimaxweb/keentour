@@ -115,19 +115,12 @@ html(lang='en')
 
             script(type='text/javascript',src='/javascripts/console.js')
             script(type='text/javascript',src='/javascripts/lib/jquery1.7.2.min.js')
-            script(type='text/javascript',src='/javascripts/lib/bootstrap/bootstrap-dropdown.js')
             script(type='text/javascript',src='/javascripts/lib/bootstrap/bootstrap-modal.js')
             script
                 var user = !{JSON.stringify(user)};
                 if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
                 KEENTOUR.user = user;
                 console.log("User is",KEENTOUR.user);
-                $('#loginBtn').on('click',function(e){
-                   e.preventDefault();
-                   var loginDialog = $('.loginDialog');
-                   console.log(loginDialog);
-                   $(loginDialog).modal();
-                });
                 $('.dropdown-toggle').dropdown();
 
 

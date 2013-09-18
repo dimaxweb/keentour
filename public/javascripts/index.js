@@ -127,6 +127,8 @@ require.config({
 
 });
 
+
+
 if(typeof(KEENTOUR)==='undefined'){
     KEENTOUR = {};
 }
