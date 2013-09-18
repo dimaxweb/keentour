@@ -13,14 +13,23 @@ html(lang='en')
         link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
         link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap-responsive.css')
         link(rel='icon',type='image/png',href='/images/favicon.ico')
-        script(type='text/javascript',src='/javascripts/console.js')
-        script(type='text/javascript',src='/javascripts/lib/jquery1.7.2.min.js')
-        script(type='text/javascript',src='/javascripts/lib/bootstrap/bootstrap-dropdown.js')
+
 
     body
 
-        .loginDialog
-            a(href="/auth/facebook") Login with Facebook
+        .loginDialog.hide.fade
+            .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h3 Login to keentour
+            .modal-body
+                p
+                    a(href="/auth/facebook") Login with Facebook
+
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h3 Login to keentour
+            .modal-body
+                p
+                    a(href="/auth/facebook") Login with Facebook
 
 
 
@@ -103,6 +112,11 @@ html(lang='en')
                 })();
 
 
+
+            script(type='text/javascript',src='/javascripts/console.js')
+            script(type='text/javascript',src='/javascripts/lib/jquery1.7.2.min.js')
+            script(type='text/javascript',src='/javascripts/lib/bootstrap/bootstrap-dropdown.js')
+            script(type='text/javascript',src='/javascripts/lib/bootstrap/bootstrap-modal.js')
             script
                 var user = !{JSON.stringify(user)};
                 if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
@@ -110,7 +124,9 @@ html(lang='en')
                 console.log("User is",KEENTOUR.user);
                 $('#loginBtn').on('click',function(e){
                    e.preventDefault();
-                   $('.loginDialog').dialog({title:'Login to KeenTour'});
+                   var loginDialog = $('.loginDialog');
+                   console.log(loginDialog);
+                   $(loginDialog).modal();
                 });
                 $('.dropdown-toggle').dropdown();
 

@@ -118,7 +118,7 @@ app.all('*', function(req, res, next) {
     }
     else{
             res.locals.isAuthenticated = false;
-            res.locals.user = req.session.passport.user;
+            res.locals.user = {};
 
     }
     next();
