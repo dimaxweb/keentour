@@ -65,62 +65,30 @@ html(lang='en')
                             li.active
                                 a#loginBtn(href='/login') Login
 
+                        li.dropdown
+                            a#drop4.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
+                                | About
+                                b.caret
+                                ul#menu1.dropdown-menu(role='menu')
+                                    li(role='presentation')
+                                        a(role='menuitem', tabindex='-1', href='#')
+
+
+                                    li(role='presentation')
+                                      a(role='menuitem', tabindex='-1', href='/Privacy') Privacy
+                                    li.divider(role='presentation')
+                                    li(role='presentation')
+                                        a(role='menuitem', tabindex='-1', href='/AboutUs') About Us
+
+
 
 
 
 
 
        .container-fuild
+       block content
 
-           block content
-
-
-        div.footerPanel#panelMain
-            .raw-fluid
-                .span5
-                    div.panelInternal
-                            span.companyInfo
-                                a(href="/AboutUs") About US
-                            span.companyInfo
-                                a(href="/Privacy") Privacy
-
-                            span.copyright Copyright keentour.com @KeenTour.com
-
-
-
-
-
-                .span7
-                    .advBlock
-                        script(type='text/javascript')
-                            google_ad_client = "ca-pub-4780158497290031";
-                            google_ad_slot = "3076361783";
-                            google_ad_width = 728;
-                            google_ad_height = 15;
-                        script(type='text/javascript', src='http://pagead2.googlesyndication.com/pagead/show_ads.js')
-
-
-            script(type='text/javascript')
-                var _gaq = _gaq || [];
-                _gaq.push(['_setAccount', 'UA-10410520-2']);
-                _gaq.push(['_trackPageview']);
-                (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-                })();
-
-
-
-//            script(type='text/javascript',src='/javascripts/console.js')
-//            script(type='text/javascript',src='/javascripts/lib/jquery1.7.2.min.js')
-//            script(type='text/javascript',src='/javascripts/lib/bootstrap/bootstrap-modal.js')
-//            script
-//                var user = !{JSON.stringify(user)};
-//                if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
-//                KEENTOUR.user = user;
-//                console.log("User is",KEENTOUR.user);
-//                $('.dropdown-toggle').dropdown();
 
 
 
