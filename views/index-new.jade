@@ -1,5 +1,7 @@
 extends layoutnew
 
+include shared/mixins
+
 block content
 
         .filter Filter
@@ -36,7 +38,8 @@ block content
 
 
         .latestStories
-        script(data-main="/#{locals.scriptPrefix}/index",src="/javascripts/lib/require.js",type="text/javascript")
+        mixin mainInclude('index.js')
+
 
 
 
