@@ -1,4 +1,13 @@
 
+global.js
+----------------
+jquery.js
+sharePlugin.js
+socialShare.js
+dropdown.js
+modal.js
+global.js
+
 homepage.js
 ----------------
 storage.js
@@ -45,9 +54,6 @@ story.js
 storyView.js
 ----------------
 jQueryUI.js
-jquery.js
-sharePlugin.js
-socialShare.js
 css.js
 css!storyViewCSS
 storyView.js
@@ -56,15 +62,11 @@ userStories.js
 ----------------
 storage.js
 jquery.js
-jQueryUI.js
 geonames.js
-tooltip.js
-css.js
-css!jQueryUICSS
-search.js
 ajax-scroll.js
 moment.js
 storiesList.js
+css.js
 css!storiesListCss
 userStories.js
 
@@ -129,16 +131,10 @@ index.js
 ----------------
 storage.js
 jquery.js
-jQueryUI.js
 geonames.js
-tooltip.js
-css.js
-css!jQueryUICSS
-search.js
 ajax-scroll.js
 moment.js
 storiesList.js
-sharePlugin.js
-socialShare.js
+css.js
 css!storiesListCss
 index.js

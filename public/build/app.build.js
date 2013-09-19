@@ -25,6 +25,7 @@
         storyView:'../javascripts/storyView',
         index:'../javascripts/index',
         userStories:'../javascripts/userStories',
+        global :'../javascripts/global',
 
         contentpage:'../javascripts/contentpage',
         tooltip  : '../javascripts/lib/bootstrap/bootstrap-tooltip',
@@ -39,6 +40,8 @@
         richEditor  : '../javascripts/lib/wysihtml5/wysihtml5-AMD',
         tabs  :  '../javascripts/lib/bootstrap/bootstrap-tab',
         moment : '../javascripts/lib/moment',
+        dropdown  : '../javascripts/lib/bootstrap/bootstrap-dropdown',
+        modal : '../javascripts/lib/bootstrap/bootstrap-modal',
 
 
 
@@ -66,6 +69,11 @@
     //done. If that module or any of its dependencies includes i18n bundles,
     //only the root bundles will be included unless the locale: section is set above.
     modules:[
+
+        {
+            name : "global"
+        },
+
         {
             name:"homepage"
 
