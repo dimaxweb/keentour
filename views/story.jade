@@ -87,6 +87,7 @@ html(lang='en')
             var story = !{JSON.stringify(story)};
             if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
             KEENTOUR.currentStory= story;
-       script(data-main="/#{locals.scriptPrefix}/story",src="/javascripts/lib/require.js",type="text/javascript")
+
+       mixin mainInclude('story.js')
 
 

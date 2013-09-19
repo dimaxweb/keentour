@@ -146,6 +146,10 @@ require.config({
 
         dropdown : {
             deps : ["jquery"]
+        },
+
+        modal :{
+            deps : ["jquery"]
         }
 
 
