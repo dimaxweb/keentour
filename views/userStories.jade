@@ -1,5 +1,7 @@
 extends layoutnew
 
+include  shared/mixins
+
 block content
     .row-fluid
 
@@ -22,16 +24,6 @@ block content
                     img(src="/images/kamera.png")
 
             .latestStories
-
-                script(src='/javascripts/lib/require.js')
+                mixin mainInclude('userStories')
                 script
-                    //Load common code that includes config, then load the app
-                    //logic for this page. Do the require calls here instead of
-                    //a separate file so after a build there are only 2 HTTP
-                    //requests instead of three.
-                    require(['/javascripts/global.js'], function () {
-                        require(['userStories']);
-                    });
-                script
-                    if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
                     KEENTOUR.username = '!{username}';

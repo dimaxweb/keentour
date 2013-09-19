@@ -23,3 +23,18 @@ mixin gaBlackLinks
                 google_ad_width = 728;
                 google_ad_height = 15;
         script(type='text/javascript', src='http://pagead2.googlesyndication.com/pagead/show_ads.js')
+
+mixin mainInclude(pageScript)
+    script(src='/javascripts/lib/require.js')
+
+    script
+        if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
+         //Load global code that includes config, then load the app
+         //logic for this page. Do the require calls here instead of
+         //a separate file so after a build there are only 2 HTTP
+         //requests instead of three.
+         require(['/javascripts/global.js'], function () {
+             require(['#{pageScript}']);
+         });
+
+
