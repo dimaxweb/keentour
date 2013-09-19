@@ -29,6 +29,7 @@ block content
         if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
         KEENTOUR.story = story;
         console.log(KEENTOUR.story);
-    script(data-main="/#{locals.scriptPrefix}/storyView",src="/javascripts/lib/require.js",type="text/javascript")
+    mixin mainInclude('storyView.js')
+
 
 

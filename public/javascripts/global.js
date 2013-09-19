@@ -61,7 +61,8 @@ require.config({
         wikiCSS :  '/stylesheets/wiki2',
         richEditorCSS : '/stylesheets/wysihtml',
         storyCSS:'/stylesheets/story',
-        storiesListCss : '/stylesheets/storiesList'
+        storiesListCss : '/stylesheets/storiesList',
+        storyViewCSS : '/stylesheets/storyView'
 
     },
 
