@@ -202,8 +202,7 @@ exports.storySave = function (req, res) {
 
 exports.userStories = function(req,res){
     var title  = 'View all '  + req.params.userName + ' stories';
-    //TODO   :don't pass user here move user data to some global context
-    res.render('userStories', {title:title,userName : req.params.userName,user:{} } );
+    res.render('userStories', {title:title,username : req.params.username });
 }
 
 

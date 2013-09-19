@@ -4,9 +4,7 @@ block content
     .row-fluid
 
         .span2
-            .userTitle
-                span Stories by :
-                b dmitry.mogilko
+
             ads
                 script(async='async', src='http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
                 ins.adsbygoogle(style='display: inline-block; width: 300px; height: 600px;', data-ad-client='ca-pub-4780158497290031', data-ad-slot='1729511784')
@@ -15,6 +13,9 @@ block content
 
 
         .span8
+            .userTitle
+                h2 Stories by : #{username}
+
             .new_photos#newVideos(style="display:none")
                 .new_photos_title
                     span.homePageTitle Where do you want to travel ?
@@ -22,13 +23,15 @@ block content
 
             .latestStories
 
-
-
-
-
-
-                script(data-main="/#{locals.scriptPrefix}/userStories",src="/javascripts/lib/require.js",type="text/javascript")
+                script(src='/javascripts/lib/require.js')
                 script
-                    var user = !{JSON.stringify(user)};
-                            if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
-                    KEENTOUR.userName = '!{userName}';
+                    //Load common code that includes config, then load the app
+                    //logic for this page. Do the require calls here instead of
+                    //a separate file so after a build there are only 2 HTTP
+                    //requests instead of three.
+                    require(['/javascripts/global.js'], function () {
+                        require(['userStories']);
+                    });
+                script
+                    if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
+                    KEENTOUR.username = '!{username}';

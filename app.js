@@ -137,7 +137,7 @@ app.post('/profile/:user',routes.userProfile);
 app.get('/story',routes.story);
 app.get('/storyView/:username/:title',routes.storyView);
 app.get('/stories/preview/:username/:title',routes.storyPreview);
-app.get('/stories/:userName',routes.userStories);
+app.get('/stories/:username',routes.userStories);
 app.get('/', routes.index);
 app.get('/login',routes.login);
 app.get('/profile',routes.profile);
