@@ -12,7 +12,9 @@ require(["storage","geonames","storiesList","css!storiesListCss"], function (sto
 
     $(document).ready(function (e) {
 
-        KEENTOUR.storiesList.showLatest($('.latestStories'));
+        var newStoriesParams = {isPublished: true};
+        console.log("New stories params:",newStoriesParams);
+        KEENTOUR.storiesList.showLatest($('.latestStories'),newStoriesParams);
 
 
         $('.filterClose').on('click',function(e){

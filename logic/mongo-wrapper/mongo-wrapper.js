@@ -117,9 +117,23 @@ var MongoWrapper = module.exports = {
         var query = function (err, db) {
             var lastPublishDate  = params.lastPublishDate  ? new Date(params.lastPublishDate)   : new Date('1978');
             var filter = {};
-            if(params.userName){
+
+            if(params.userName && params.userName !=='null'){
                 filter.userName = params.userName;
             }
+
+            if(params.isPublished){
+                filter.isPublished = true;
+            }
+
+            if(params.showDeleted){
+                filter.isDeleted = true;
+            }
+            else{
+                filter.isDeleted = false;
+            }
+
+            console.log("Filter is :",filter);
 
             db.collection("story").find(filter)
                                   .sort({publishDate:-1})
