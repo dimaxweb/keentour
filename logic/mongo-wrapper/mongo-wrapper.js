@@ -34,51 +34,6 @@ var MongoWrapper = module.exports = {
      */
     saveStory:function (story, callback) {
         logger.log("info", "Story is published:", story.isPublished);
-
-        //        var saveQuery = function (err, db) {
-//            logger.log("info", "In function save story");
-//            db.collection("story").findOne({ $or:[
-//                {_id:story._id},
-//                {title:story.title}
-//            ] }, function (err, dbStory) {
-//                if (dbStory) {
-//                    logger.info("Story found.Update story");
-//                    db.collection("story").update(
-//                        { $or:[
-//                            {_id:story._id},
-//                            {title:story.title}
-//                        ]
-//                        },
-//                        {
-//                            $set:story
-//
-//                        },
-//
-//                        function (err, results) {
-//                            logger.log("info", "Error is:", err);
-//                            logger.log("info", "Results is:", results);
-//                            if (callback) {
-//                                callback({"status":true, story:story});
-//                            }
-//
-//
-//                        });
-//                }
-//                else {
-//                    logger.log("info", "Insert new story", story);
-//                    db.collection("story").insert(story, function (err, results) {
-//
-//                        if (callback) {
-//                            callback({"status":true, story:story});
-//                        }
-//
-//
-//                    });
-//                }
-//
-//
-//            });
-//        }
         var saveQuery   = function(err,db){
             db.collection('story').save(story,function(err,story){
                 if (callback) {
@@ -158,19 +113,15 @@ var MongoWrapper = module.exports = {
      get latest stories by object creation number
      */
     getLatestStories:function (params, callback) {
-        console.log("Latest stories params",params);
-        logger.info('In latest stories.Params', params);
+        console.log('In latest stories.Params:', params);
         var query = function (err, db) {
-            logger.info('In latest stories callback');
             var lastPublishDate  = params.lastPublishDate  ? new Date(params.lastPublishDate)   : new Date('1978');
-            var query = {isPublished:true};
-//            var query  = {$and :[{isPublished:true}
-//
-//            ]};
-//            //                {publishDate : { $gt : lastPublishDate } }
+            var filter = {};
+            if(params.userName){
+                filter.userName = params.userName;
+            }
 
-
-            db.collection("story").find(query)
+            db.collection("story").find(filter)
                                   .sort({publishDate:-1})
 //                                  .limit(params.storiesToShow)
                 .toArray(function (err, results) {

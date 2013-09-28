@@ -10,7 +10,7 @@ require(["storage", "geonames", "storiesList", "css!storiesListCss"], function (
 
 
     $(document).ready(function (e) {
-        KEENTOUR.storiesList.showLatest($('.latestStories'), {userName:KEENTOUR.userName});
+        KEENTOUR.storiesList.showLatest($('.latestStories'), {userName:KEENTOUR.username,editMode:KEENTOUR.editMode});
     });
 
 

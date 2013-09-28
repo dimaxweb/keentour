@@ -15,8 +15,13 @@ KEENTOUR.renderStory = function (story) {
         console.log("Story item", item);
     });
 
-    var strTags = story.tags.join(' ');
-    $('.storyTags').text(strTags);
+    var strTags = (story.interests && story.interests.length > 0)  ? story.interests.join(' ') : '';
+    if(strTags.length > 0){
+        $('.tagItems').text(strTags);
+        $('.titleTags').text("Interested for :");
+    }
+
+
 
 
 

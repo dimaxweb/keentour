@@ -19,7 +19,8 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
             storiesToShow  : 5,
             lastPublishDate  : new Date('1978'),
             dateFormat : moment,
-            userName : null
+            userName : null,
+            editMode : false
         },
 
 
@@ -89,7 +90,7 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
                 }
 
                 catch (e) {
-                     console.log("Error occured.",e);
+                     console.log("Error occurred:",e);
 
                 }
 
@@ -106,6 +107,19 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
             var tags = story.interests ?  story.interests.join(' ')  : '';
             var storyCont = $('<div class="storyCont"></div>').appendTo(element);
             var mainItemUrl = storiesList._getBigImageUrl(mainItem);
+
+            if(storiesList.storiesRequestParams.editMode){
+                var isPublished = story.isPublished;
+                var editLinksCont = $('<div class="editLinks"><a class="editStory" href="' + story.editUrl +  '">Edit</a><a class="deleteStory">Delete<a></div>').appendTo(storyCont);
+                if(isPublished){
+                    $("<span>Published</span>").appendTo(editLinksCont);
+                }
+                else{
+                    $("<span>Draft</span>").appendTo(editLinksCont);
+                }
+
+            }
+
             var storyHeader = $("<div class='storyHeader'></div>").appendTo(storyCont);
 
             $('<a class="storyContainer" href="' + storyUrl + '">' + title + '<a/>').appendTo(storyHeader);
@@ -114,8 +128,11 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
             var storyImgCont = $('<div class="storyImageCont"><a class="storyContainer" href="' + storyUrl + '"><img class="imgStory" src="' + mainItemUrl + '"/></a></div>').appendTo(storyCont);
             $('.imgStory',storyCont).css({height:mainItem.height_z,width:mainItem.width_z});
 
-            $('<div class="storyTags"><span><b>Tags: </b></span>' + tags +'</div>').appendTo(storyCont);
+            $('<div class="storyTags"><span><b>Interested for : </b></span>' + tags +'</div>').appendTo(storyCont);
             $('<div class="userLink"><span><b>All user stories: </b><a href="/stories/' + story.userName +'">' + story.userName +'</a></div>').appendTo(storyCont);
+
+
+
             console.log(story.geoItem);
 
 

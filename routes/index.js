@@ -34,6 +34,8 @@ getJSON = function (options, onResult) {
     req.end();
 };
 
+
+
 sanitizeString = function(str) {
     return str.replace(/[^a-z0-9]/gi, '-').toLowerCase();
 }
@@ -48,7 +50,12 @@ saveStory = function(story,req,callback) {
     story.description  = stripScripts(story.description);
     var storyUrl =  sanitizeString(req.session.passport.user.profile.username) + "/" + sanitizeString(story.title);
     story.url = "/storyView/" + storyUrl;
+    story.editUrl= "/story/" + storyUrl;
+    story.deleteUrl = "/story/delete/"  +storyUrl;
+    story.user = req.session.passport.user;
     story.userName =   sanitizeString(req.session.passport.user.profile.username);
+    story.isPublished = story.isPublished || false;
+    story.isDeleted =false;
     MongoWrapper.saveStory(story,callback);
 
 }
@@ -125,6 +132,43 @@ exports.userProfile = function(req,res){
 exports.story = function(req,res){
     Logger.log("info","Request for new story");
     var story  = {};
+
+    /*
+        edit story
+     */
+    if(req.params.username && req.params.title){
+        var username =   req.params.username;
+        var title = req.params.title;
+        var url  =  '/storyView/' + username  + "/" + title;
+        var storyCallback = function(results){
+            console.log("Story get by params",results);
+            if(req.session && req.session.passport && req.session.passport.user){
+                console.log("User in requets",results.userName);
+                console.log("Passport user is",req.session.passport.user.profile.username);
+                /*
+                  check if username in session is equals to story user
+                */
+                if(req.session.passport.user.profile.username === results.user.profile.username){
+                    res.render('story', {title : results.title,story : results});
+                }
+                else{
+                    res.redirect(url);
+                }
+            }
+            else{
+                res.redirect(url);
+            }
+
+        }
+
+        MongoWrapper.renderStory(url,storyCallback);
+        return;
+    }
+
+
+    /*
+        try load last story if exists
+    */
     if(req.query.loadLast){
         story = req.session.submitedStory;
 
@@ -137,7 +181,7 @@ exports.story = function(req,res){
 
     }
 
-    console.log("Story is :",story);
+
     res.render('story',{title:"New story",story:story});
 }
 
@@ -160,9 +204,9 @@ exports.homeNew = function(req,res){
 }
 
 exports.latestStories = function(req, res){
-    MongoWrapper.getLatestStories({lastStoryId:req.query.lastStoryId,storiesToShow:req.query.storiesToShow,userName : req.query.userName},function(stories){
+    MongoWrapper.getLatestStories(req.query,function(stories){
             res.json(stories);
-     });
+    });
 }
 
 exports.publish = function(req,res){
@@ -202,7 +246,11 @@ exports.storySave = function (req, res) {
 
 exports.userStories = function(req,res){
     var title  = 'View all '  + req.params.userName + ' stories';
-    res.render('userStories', {title:title,username : req.params.username });
+    var editMode = false;
+    if(req.session && req.session.passport && req.session.passport.user && req.session.passport.user.profile.username === req.params.userName){
+        editMode  = true;
+    }
+    res.render('userStories', {title:title,editMode:editMode,username : req.params.username });
 }
 
 
