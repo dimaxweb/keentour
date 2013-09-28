@@ -99,6 +99,7 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
         },
 
         _renderStory:function (story, element) {
+            console.log("Story is :",story);
             var title = story.title;
             var storyTags = story.tags;
             var mainItem = story.items[0];
@@ -110,13 +111,23 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
 
             if(storiesList.storiesRequestParams.editMode){
                 var isPublished = story.isPublished;
-                var editLinksCont = $('<div class="editLinks"><a class="editStory" href="' + story.editUrl +  '">Edit</a><a class="deleteStory">Delete<a></div>').appendTo(storyCont);
+                var editLinksCont = $('<div class="editLinks"><a class="editStory" href="' + story.editUrl +  '">Edit</a><a class="deleteStory" href="' + story.deleteUrl +'">Delete<a></div>').appendTo(storyCont);
                 if(isPublished){
                     $("<span>Published</span>").appendTo(editLinksCont);
                 }
                 else{
                     $("<span>Draft</span>").appendTo(editLinksCont);
                 }
+
+                $('.deleteStory',editLinksCont).on('click',function(e){
+                    e.preventDefault();
+                    var res = confirm("Are you really want to delete this story?");
+                    var deleteUrl = $(this).attr('href');
+                    if(res){
+                       storiesList._deleteStory(deleteUrl,storyCont);
+                    }
+
+                });
 
             }
 
@@ -136,6 +147,27 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
             console.log(story.geoItem);
 
 
+        },
+
+        _deleteStory : function(deleteUrl,storyCont){
+            var request = $.ajax({
+                url:deleteUrl,
+                dataType:"json",
+                cache : false
+
+
+            });
+
+            request.success(function (data) {
+               if(data.status ==="ok"){
+                   $(storyCont).remove();
+               }
+
+            });
+
+            request.error(function (data) {
+              alert("Error occured deleting story.Please try again later");
+            });
         },
 
         _getBigImageUrl:function (photo) {

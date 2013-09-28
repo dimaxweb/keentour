@@ -55,7 +55,7 @@ saveStory = function(story,req,callback) {
     story.user = req.session.passport.user;
     story.userName =   sanitizeString(req.session.passport.user.profile.username);
     story.isPublished = story.isPublished || false;
-    story.isDeleted =false;
+    story.isDeleted = story.isDeleted || false;
     MongoWrapper.saveStory(story,callback);
 
 }
@@ -123,6 +123,48 @@ exports.storyEdit = function(req,res){
       res.redirect("/login");
   }
 };
+
+exports.storyDelete = function(req,res){
+    /*
+     delete story
+    */
+    console.log("In function delete story.");
+    if(req.params.user && req.params.title){
+        var username =   req.params.user;
+        var title = req.params.title;
+        var url  =  '/storyView/' + username  + "/" + title;
+        console.log("In function delete story.Story url is : ",url);
+        var storyCallback = function(results){
+            console.log("Story get by params",results);
+            if(req.session && req.session.passport && req.session.passport.user){
+                console.log("Story user is:",results.user);
+                console.log("Passport user is",req.session.passport.user.profile.username);
+                /*
+                 check if username in session is equals to story user
+                */
+                if(req.session.passport.user.profile.username === results.user.profile.username){
+                    console.log("Story to be deleted is :",results._id);
+                    MongoWrapper.deleteStory(results,function(){
+                        console.log("Story deleted");
+                        res.json({status:"ok"});
+                    });
+
+                }
+                else{
+                    res.redirect("login");
+                }
+            }
+            else{
+                res.redirect("login");
+            }
+
+        }
+
+        MongoWrapper.renderStory(url,storyCallback);
+        return;
+    }
+
+}
 
 exports.userProfile = function(req,res){
     var userStories = [];

@@ -33,7 +33,6 @@ var MongoWrapper = module.exports = {
      save story to db
      */
     saveStory:function (story, callback) {
-        logger.log("info", "Story is published:", story.isPublished);
         var saveQuery   = function(err,db){
             db.collection('story').save(story,function(err,story){
                 if (callback) {
@@ -126,12 +125,7 @@ var MongoWrapper = module.exports = {
                 filter.isPublished = true;
             }
 
-            if(params.showDeleted){
-                filter.isDeleted = true;
-            }
-            else{
-                filter.isDeleted = false;
-            }
+            filter.isDeleted = false;
 
             console.log("Filter is :",filter);
 
@@ -148,7 +142,17 @@ var MongoWrapper = module.exports = {
         };
 
         MongoWrapper.executeQuery(query);
+    },
+
+    /*
+        delete story ,mark as deleted
+    */
+    deleteStory : function(story,callback){
+          console.log("Going to mark story as deleted:",story._id);
+          story.isDeleted = true;
+          MongoWrapper.saveStory(story,callback);
     }
+
 
 
 };
