@@ -33,10 +33,13 @@ var MongoWrapper = module.exports = {
      save story to db
      */
     saveStory:function (story, callback) {
+        console.log("Story before saving:",story);
+
         var saveQuery   = function(err,db){
-            db.collection('story').save(story,function(err,story){
-                if (callback) {
-                     callback({"status":true, story:story});
+            db.collection('story').update({_id:story._id},{$set:story},{upsert:true,safe:true},function(err,newStory){
+                console.log("Story in MongoWrapper is : ",newStory);
+                    if (callback) {
+                     callback({"status":true, story:newStory});
                 }
             });
         };
@@ -67,7 +70,7 @@ var MongoWrapper = module.exports = {
      get story by url
      */
 
-    renderStory:function (storyUrl, callback) {
+    getStory:function (storyUrl, callback) {
         var storyQuery = function (err, db) {
             db.collection("story").findOne({url:storyUrl}, function (err, results) {
                 //TODO : check for errors

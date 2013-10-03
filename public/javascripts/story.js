@@ -168,13 +168,14 @@ KEENTOUR.getStory = function () {
         });
 
     story.tags = story.tags.getUnique();
-    story.geoItem = $('#geoLocation').data('geoItem');
+    story.geoItem = $('#geoLocation').val();
     story.interests  = $.map($('input:checked ','.interests'),function(interest){
         return $(interest).val();
     });
 
     story = $.extend({}, KEENTOUR.currentStory, story);
     story.webSiteUrl = $('#webSiteUrl').val();
+    //TODO  : move validations from here
 
     /*
 
@@ -207,10 +208,15 @@ KEENTOUR.getStory = function () {
 
 
 KEENTOUR.publishStory  = function(story,callback){
+
     var story = story || KEENTOUR.getStory();
     /*
      Request to save the idea
      */
+    if(!story){
+        console.log("No story provided.Exit function");
+        return;
+    }
     var request = $.ajax('/story/publish', {
         headers:{
             'Content-type':'application/json'
@@ -309,26 +315,26 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
          /*
            bind this to another place,when editing geo loacation
          */
-        KEENTOUR.search.bindAutoComplete({
-            container:$('#geoLocation'),
-            onItemSelected:function (options) {
-                var geoItem = options.geoItem;
-                var query = $(options.searchText).val();
-                $('.geoPath').empty();
-                 $('#geoLocation').data('geoItem',geoItem);
-                 var countryName = geoItem.countryName;
-                 var itemName  = geoItem.name;
-
-                 if(itemName!=countryName){
-                     var countrySpan = $('<span class="geoItemPath"><b>' + countryName +'</b></span>  --> ').appendTo('.geoPath');
-                 }
-
-                var spanName = $('<span><b>' + itemName +'</b></span>').appendTo('.geoPath');
-
-
-
-
-        }});
+//        KEENTOUR.search.bindAutoComplete({
+//            container:$('#geoLocation'),
+//            onItemSelected:function (options) {
+//                var geoItem = options.geoItem;
+//                var query = $(options.searchText).val();
+//                $('.geoPath').empty();
+//                 $('#geoLocation').data('geoItem',geoItem);
+//                 var countryName = geoItem.countryName;
+//                 var itemName  = geoItem.name;
+//
+//                 if(itemName!=countryName){
+//                     var countrySpan = $('<span class="geoItemPath"><b>' + countryName +'</b></span>  --> ').appendTo('.geoPath');
+//                 }
+//
+//                var spanName = $('<span><b>' + itemName +'</b></span>').appendTo('.geoPath');
+//
+//
+//
+//
+//        }});
 
         $('#storyTabs').tabs();
         $('#storyTabs .tab').click(function(e) {
@@ -367,22 +373,7 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
 
                 }
 
-                /*
-                    Preview story
-                */
 
-                if (action === "preview") {
-                    var story= KEENTOUR.getStory();
-                    KEENTOUR.saveStory(story,function (data) {
-                        KEENTOUR.storySavedHandle(data);
-                        if (data && data.story && data.story.url) {
-                            window.open(data.story.url);
-
-                        }
-
-                    });
-
-                }
 
                 /*
                  Publish story

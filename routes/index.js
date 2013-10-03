@@ -116,7 +116,7 @@ exports.storyEdit = function(req,res){
         res.render('story', {title : "Edit story :" + results.title,story : results});
     }
 
-    MongoWrapper.renderStory(url,storyCallback);
+    MongoWrapper.getStory(url,storyCallback);
 
   }
   else{
@@ -160,7 +160,7 @@ exports.storyDelete = function(req,res){
 
         }
 
-        MongoWrapper.renderStory(url,storyCallback);
+        MongoWrapper.getStory(url,storyCallback);
         return;
     }
 
@@ -203,7 +203,7 @@ exports.story = function(req,res){
 
         }
 
-        MongoWrapper.renderStory(url,storyCallback);
+        MongoWrapper.getStory(url,storyCallback);
         return;
     }
 
@@ -236,7 +236,7 @@ exports.storyView  = function(req,res){
         var storyCallback = function(results){
             res.render('storyView', {title : results.title,story : results});
         }
-        MongoWrapper.renderStory(url,storyCallback);
+        MongoWrapper.getStory(url,storyCallback);
 
 }
 
@@ -258,6 +258,7 @@ exports.publish = function(req,res){
     if(req.isAuthenticated()){
 
         saveStory(story,req,function(response){
+            console.log("Published story",response);
             res.json(response);
         });
     }
