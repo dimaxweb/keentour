@@ -36,6 +36,18 @@
     width: 90%;
 }
 
+.storyEdit {
+     margin: 1%;
+}
+
+.storyItemEdit{
+    margin: 5px;
+}
+
+.storyItemDelete{
+     margin:5px;
+}
+
 .actionPanel
 {
     position: fixed;

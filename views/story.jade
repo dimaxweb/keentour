@@ -22,12 +22,13 @@ block content
 
             .tab-content
                 .story#story.tab-pane.active
-                        div(style='text-align:left')
-                            input(type='text',id='txtTitle',placeholder='Enter title',style='width:95%')
-                            .storyText
-                                textarea#description(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter description ...')
+                    .storyText
+                    div(style='text-align:left')
+                        input(type='text',id='txtTitle',placeholder='Enter title',style='width:95%')
+                    .storyDescription
+                        textarea#description(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter description ...')
 
-                        .storyItemsCont
+                    .storyItemsCont
                             ul.storyItems
                 #settings.tab-pane
                     h4 Geo Location
@@ -69,7 +70,7 @@ block content
                     .modal-body
                             p
                                 .editorText
-                                    textarea#wysihtml5-editor(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter description ...')
+                                    textarea#itemTextEditor(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter description ...')
                     .modal-footer
                             button.btn(data-dismiss='modal', aria-hidden='true') Close
                             button.btn.btn-primary Save changes

@@ -226,6 +226,7 @@ header {
     width: 810px;
     text-align: center;
     top: 45px;
+    margin-top:2% ;
 }
 
 [data-wysihtml5-dialog] input {
