@@ -423,7 +423,7 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
             check for server version and if empty  ,disable for now
         */
 
-//        if($.isEmptyObject(KEENTOUR.currentStory)){
+        //        if($.isEmptyObject(KEENTOUR.currentStory)){
 //            KEENTOUR.currentStory =  KEENTOUR.storage.getObject('currentStory');
 //        }
 
