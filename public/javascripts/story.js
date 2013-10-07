@@ -25,10 +25,7 @@ KEENTOUR.bindEditor  = function(textareaId) {
         toolbar: "wysihtml5-editor-toolbar",
         parserRules: wysihtml5ParserRules
     });
-
-
-
-//    var log = document.getElementById("log");
+    //    var log = document.getElementById("log");
 //
 //    editor
 //        .on("load", function() {
@@ -55,6 +52,7 @@ KEENTOUR.bindEditor  = function(textareaId) {
 //        .on("redo:composer", function() {
 //            log.innerHTML += "<div>redo:composer</div>";
 //        });
+
 };
 
 

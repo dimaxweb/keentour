@@ -34,6 +34,8 @@ require.config({
         richEditor  : '../javascripts/lib/wysihtml5/wysihtml5-AMD',
         tabs  :  '../javascripts/lib/bootstrap/bootstrap-tab',
         moment : '../javascripts/lib/moment',
+        scrollUp: '../javascripts/lib/jquery.scrollUp',
+
 
         /*
             ================= bootstrap
@@ -136,6 +138,10 @@ require.config({
             deps : ["jquery"]
         },
 
+        "scrollUp"  : {
+            deps : ["jquery"]
+        },
+
         "sharePlugin"  : {
             deps : ["jquery"]
         },
@@ -159,21 +165,25 @@ require.config({
 
 
 });
-require(["jquery","socialShare","dropdown","modal"], function ($,socialShare) {
+require(["jquery","socialShare","dropdown","modal","scrollUp"], function ($,socialShare) {
 
     KEENTOUR.socialShare  = socialShare;
     $(document).ready(function(e){
       KEENTOUR.socialShare.displayShare('.shareStory');
       $('.dropdown-toggle').dropdown();
-//      $('#loginBtn').on('click',function(e){
-//          e.preventDefault();
-//          var modalLogin  = $('#loginModal');
-//          if(modalLogin.length == 0){
-//              modalLogin  = $('<div id="loginModal" class="modal" style="position: relative; top: auto; left: auto; right: auto; margin: 0 auto 20px; z-index: 1; max-width: 100%;"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> <h3>Modal header</h3> </div> <div class="modal-body"> <p><a href="/login">Login with Facebook</a></p> </div> <div class="modal-footer"> <a href="#" class="btn">Close</a> <a href="#" class="btn btn-primary">Save changes</a> </div> </div>')
-//                            .appendTo('body');
-//          }
-//          $(modalLogin).modal();
-//      });
+      $('#loginBtn').on('click',function(e){
+          e.preventDefault();
+          var modalLogin  = $('#loginModal');
+          if(modalLogin.length == 0){
+              modalLogin  = $('<div id="loginModal" class="modal" style="position: relative; top: auto; left: auto; right: auto; margin: 0 auto 20px; z-index: 1; max-width: 100%;"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> <h3>Modal header</h3> </div> <div class="modal-body"> <p><a href="/login">Login with Facebook</a></p> </div> <div class="modal-footer"> <a href="#" class="btn">Close</a> <a href="#" class="btn btn-primary">Save changes</a> </div> </div>')
+                            .appendTo('body');
+          }
+          $(modalLogin).modal();
+      });
+
+        $(function () {
+            $.scrollUp();
+        });
 
     });
 
