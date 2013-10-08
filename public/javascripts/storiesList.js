@@ -131,6 +131,10 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
 
             }
 
+            if(story.storyUserText){
+                var storyUserText  = $("<div class='storyUserText'>" + story.storyUserText  +"</div>").appendTo(storyCont);
+            }
+
             var storyHeader = $("<div class='storyHeader'></div>").appendTo(storyCont);
 
             $('<a class="storyContainer" href="' + storyUrl + '">' + title + '<a/>').appendTo(storyHeader);

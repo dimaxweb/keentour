@@ -98,7 +98,7 @@ KEENTOUR.addStoryItem   = function(photo){
        var item = $("<li class='storyItemLi'><div class='storyItemContainer'><a class='storyPhoto'><img class='imgStory' src='" + KEENTOUR.getBigImageUrl(photo)  +"'/></a></div></li>").appendTo(storyContainer);
        $(item).data('item',photo);
        var storyItemContainer =  $(item).find('.storyItemContainer');
-        $("<div><div class='storyEdit pull-right'><a class='storyItemEdit'>Edit</a><a class='storyItemDelete'>x</a></div></div>").prependTo(item);
+        $("<div><div class='storyEdit pull-right'><a class='storyItemEdit'>Add text</a><a class='storyItemDelete'>x</a></div></div>").prependTo(item);
 //       .on('click',function(e){
 //            $(this).closest('li').remove();
 //       });
@@ -156,7 +156,7 @@ KEENTOUR.stripScripts   = function(s){
 KEENTOUR.getStory = function () {
     var story = {
         title: KEENTOUR.stripScripts($('#txtTitle').val()),
-        description:KEENTOUR.stripScripts($('#wysihtml5-editor').val()),
+        description:KEENTOUR.stripScripts($('#description').val()),
         items:[],
         tags  : [],
         interests : [],
@@ -165,11 +165,15 @@ KEENTOUR.getStory = function () {
     };
 
     $('.storyItemLi', '.storyItems').each(function (i, item) {
-        var data = $(item).data('item');
+
+        var data  =  $(item).data('item');
+        var textAreaUserText = $(this).find('.storyItemUserTextArea');
+        data.storyUserText =  (textAreaUserText.length !== 0) ? $(textAreaUserText).val() : '';
         story.items.push(data);
         story.tags = story.tags.concat(data.tags.split(' '));
 
-        });
+
+    });
 
     story.tags = story.tags.getUnique();
     story.geoItem = $('#geoLocation').val();
@@ -200,7 +204,7 @@ KEENTOUR.getStory = function () {
 
     if(!story.geoItem){
         alert("Please tell us where it happens");
-         var $tab = $('[data-toggle="tab"][href="#data"]');
+         var $tab = $('[data-toggle="tab"][href="#settings"]');
         $tab.tab('show');
         $('#geoLocation').focus();
         return;
@@ -445,8 +449,9 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
             var storyItemDescription  = $(storyItemLi).find('.storyItemUserText');
             if(storyItemDescription.length === 0){
                 var storyItemId =  "storyItemUserText_" +  KEENTOUR.getUniqueId();
-                storyItemDescription = $('<div class="storyItemUserText"><textarea id="' + storyItemId + '" placeholder="Enter text here ..."></textarea></div>').prependTo(storyItemLi);
+                storyItemDescription = $('<div class="storyItemUserText"><textarea class="storyItemUserTextArea" id="' + storyItemId + '" placeholder="Enter text here ..."></textarea></div>').prependTo(storyItemLi);
                 $(storyItemDescription).attr("id",storyItemId);
+                $(storyItemId).focus();
                 KEENTOUR.bindEditor(storyItemId) ;
 
             }

@@ -26,6 +26,7 @@
         index:'../javascripts/index',
         userStories:'../javascripts/userStories',
         global :'../javascripts/global',
+        scrollUp: '../javascripts/lib/jquery.scrollUp',
 
         contentpage:'../javascripts/contentpage',
         tooltip  : '../javascripts/lib/bootstrap/bootstrap-tooltip',
