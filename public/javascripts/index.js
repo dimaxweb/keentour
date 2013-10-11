@@ -25,7 +25,7 @@ require(["storage","geonames","storiesList","css!storiesListCss"], function (sto
         $('.filter').on('click',function(e){
            $(this).hide();
            $('.filterItems').show();
-    });
+       });
 
     });
 

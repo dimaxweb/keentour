@@ -17,19 +17,20 @@ html(lang='en')
 
     body
 
-        .loginDialog.hide.fade
-            .modal-header
-                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-            h3 Login to keentour
-            .modal-body
-                p
-                    a(href="/auth/facebook") Login with Facebook
+        .modal.hide.fade
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                        h4.modal-title Modal title
+                        .modal-body
+                            p
+                                a(href="/auth/facebook") Login with Facebook
+                        .modal-footer
+                            button.btn.btn-default(type='button', data-dismiss='modal') Close
 
-            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-            h3 Login to keentour
-            .modal-body
-                p
-                    a(href="/auth/facebook") Login with Facebook
+
+
 
 
 
