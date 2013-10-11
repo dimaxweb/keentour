@@ -16,6 +16,15 @@ require(["storage","geonames","storiesList","css!storiesListCss"], function (sto
         console.log("New stories params:",newStoriesParams);
         KEENTOUR.storiesList.showLatest($('.latestStories'),newStoriesParams);
 
+        /*
+          bind click on interests
+        */
+        $('a','.interests').on('click',function(e){
+            var interests = $(this).text();
+            KEENTOUR.storiesList.showLatest($('.latestStories'),{isPublished: true,interests :interests});
+            $(document).scrollTop(0);
+        });
+
 
         $('.filterClose').on('click',function(e){
             $('.filterItems').hide();
