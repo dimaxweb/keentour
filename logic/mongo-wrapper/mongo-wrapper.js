@@ -72,6 +72,7 @@ var MongoWrapper = module.exports = {
 
     getStory:function (storyUrl, callback) {
         var storyQuery = function (err, db) {
+            console.log("find story with url:",storyUrl);
             db.collection("story").findOne({url:storyUrl}, function (err, results) {
                 //TODO : check for errors
                 logger.info("Story is:", results);
@@ -128,10 +129,19 @@ var MongoWrapper = module.exports = {
                 filter.isPublished = true;
             }
 
-            filter.isDeleted = false;
+            if(params.tags){
+                console.log("set tags",params.tags);
+                var arrTags = [];
+                arrTags.push(params.tags);
+                filter.interests = {$in : arrTags } ;
+            }
+
+            //TODO  : look here why breaks queries
+            //filter.isDeleted = false;
 
             console.log("Filter is :",filter);
 
+            //TODO : must look here
             db.collection("story").find(filter)
                                   .sort({publishDate:-1})
 //                                  .limit(params.storiesToShow)

@@ -84,6 +84,9 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
             if (!stories) {
                 return;
             }
+
+            $(element).empty();
+
             $.each(stories, function (i, story) {
                 try {
                     storiesList._renderStory(story, element);

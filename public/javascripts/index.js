@@ -21,7 +21,7 @@ require(["storage","geonames","storiesList","css!storiesListCss"], function (sto
         */
         $('a','.interests').on('click',function(e){
             var interests = $(this).text();
-            KEENTOUR.storiesList.showLatest($('.latestStories'),{isPublished: true,interests :interests});
+            KEENTOUR.storiesList.showLatest($('.latestStories'),{isPublished: true,tags :interests});
             $(document).scrollTop(0);
         });
 
