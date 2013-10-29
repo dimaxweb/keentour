@@ -111,6 +111,8 @@
 
     ],
 
+    preserveLicenseComments: true,
+
     wrap:
     {
         startFile: "start.frag",
