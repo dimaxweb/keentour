@@ -10,6 +10,7 @@ require(["storage", "geonames", "storiesList", "css!storiesListCss"], function (
 
 
     $(document).ready(function (e) {
+        console.log("Getting user stories.User name is : %s",KEENTOUR.username);
         KEENTOUR.storiesList.showLatest($('.latestStories'), {userName:KEENTOUR.username,editMode:KEENTOUR.editMode});
     });
 
