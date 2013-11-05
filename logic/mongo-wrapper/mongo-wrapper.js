@@ -117,7 +117,7 @@ var MongoWrapper = module.exports = {
     getLatestStories:function (params, callback) {
         console.log('In latest stories.Params:', params);
         var query = function (err, db) {
-            var lastPublishDate  = params.lastPublishDate  ? new Date(params.lastPublishDate)   : new Date('1978');
+
             var filter = {};
 
             if(params.userName && params.userName !=='null'){
@@ -135,15 +135,19 @@ var MongoWrapper = module.exports = {
                 filter.interests = {$in : arrTags } ;
             }
 
+
+
             //TODO  : look here why breaks queries
             //filter.isDeleted = false;
 
             console.log("Filter is :",filter);
 
+
             //TODO : must look here
             db.collection("story").find(filter)
                                   .sort({publishDate:-1})
-                                  .limit(5)
+                                  .skip(parseInt(params.rowsToSkip))
+                                  .limit(parseInt(params.storiesToShow))
                 .toArray(function (err, results) {
                             logger.info('Error is:',err);
                             logger.info('Result is:',results);

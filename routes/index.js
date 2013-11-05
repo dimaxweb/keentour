@@ -247,6 +247,7 @@ exports.homeNew = function(req,res){
 }
 
 exports.latestStories = function(req, res){
+    console.log("Query params are:",req.query);
     MongoWrapper.getLatestStories(req.query,function(stories){
             res.json(stories);
     });

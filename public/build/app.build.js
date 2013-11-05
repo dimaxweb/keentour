@@ -111,7 +111,7 @@
 
     ],
 
-    preserveLicenseComments: true,
+    preserveLicenseComments: false,
 
     wrap:
     {

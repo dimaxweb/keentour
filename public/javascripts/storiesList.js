@@ -17,10 +17,10 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
         storiesRequestParams :{
             rowsToSkip   : 0,
             storiesToShow  : 5,
-            lastPublishDate  : new Date('1978'),
             dateFormat : moment,
             userName : null,
-            editMode : false
+            editMode : false,
+            lastStoryId : null
         },
 
 
@@ -40,9 +40,10 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
                 },
                 startPage:1,
                 targetElement:$(element),
-                step:'20%',
-                debug:false,
+                step:'50%',
+                debug:true,
                 monitorTargetChange:false
+
 
             });
 
@@ -50,11 +51,7 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
 
         _getStories:function (element){
             var callback = function (stories) {
-                if (stories && stories.length > 0) {
-                    storiesList.storiesRequestParams.lastPublishDate = stories[stories.length - 1].publishDate;
-                }
                 storiesList._render(stories, element);
-
             };
             storiesList._getLatestStories(callback);
         },
@@ -84,9 +81,6 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
             if (!stories) {
                 return;
             }
-
-            $(element).empty();
-
             $.each(stories, function (i, story) {
                 try {
                     storiesList._renderStory(story, element);
@@ -102,7 +96,7 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
         },
 
         _renderStory:function (story, element) {
-            console.log("Story is :",story);
+
             var title = story.title;
             var storyTags = story.tags;
             var mainItem = story.items[0];
@@ -151,7 +145,7 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
 
 
 
-            console.log(story.geoItem);
+
 
 
         },

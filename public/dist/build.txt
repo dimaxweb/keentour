@@ -6,6 +6,7 @@ sharePlugin.js
 socialShare.js
 dropdown.js
 modal.js
+scrollUp.js
 global.js
 
 homepage.js
@@ -48,6 +49,7 @@ richEditorSource.js
 css!richEditorCSS
 richEditor.js
 tabs.js
+modal.js
 css!storyCSS
 story.js
 
