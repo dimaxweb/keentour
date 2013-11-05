@@ -143,7 +143,7 @@ var MongoWrapper = module.exports = {
             //TODO : must look here
             db.collection("story").find(filter)
                                   .sort({publishDate:-1})
-//                                  .limit(params.storiesToShow)
+                                  .limit(5)
                 .toArray(function (err, results) {
                             logger.info('Error is:',err);
                             logger.info('Result is:',results);
