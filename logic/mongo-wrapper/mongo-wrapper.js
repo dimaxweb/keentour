@@ -72,11 +72,10 @@ var MongoWrapper = module.exports = {
 
     getStory:function (storyUrl, callback) {
         var storyQuery = function (err, db) {
-            console.log("find story with url:",storyUrl);
-            db.collection("story").findOne({url:storyUrl}, function (err, results) {
-                //TODO : check for errors
-                logger.info("Story is:", results);
-                callback(results);
+            logger.info("find story with url:" + storyUrl);
+            db.collection("story").findOne({url:storyUrl},function (err, results) {
+               console.dir("Stories are : ",results);
+               callback(results);
 
             });
         };

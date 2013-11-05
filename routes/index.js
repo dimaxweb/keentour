@@ -234,7 +234,8 @@ exports.storyView  = function(req,res){
         var title = req.params.title;
         var url  = '/storyView/' +  username  + "/" + title;
         var storyCallback = function(results){
-            res.render('storyView', {title : results.title,story : results});
+
+            res.render('storyView', {title : (results && results.title) ? results.title : '',story : results});
         }
         MongoWrapper.getStory(url,storyCallback);
 
