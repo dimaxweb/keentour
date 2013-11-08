@@ -128,7 +128,7 @@ var MongoWrapper = module.exports = {
                 filter.isPublished = true;
             }
 
-            if(params.tags){
+            if(params.tags && params.tags!='null'){
                 console.log("set tags",params.tags);
                 var arrTags = [];
                 arrTags.push(params.tags);

@@ -168,7 +168,7 @@ require.config({
 if (typeof (KEENTOUR) == 'undefined') {
     KEENTOUR = {};
 }
-KEENTOUR.interests = ["Art & Culture","Romance","Food & Wine","Nightlife","Hotel","Event","History","Culture","Shopping","Skiing","Adventure","Spa"].sort();
+KEENTOUR.interests = ["Art & Culture","Family","Romance","Food & Wine","Nightlife","Hotel","Event","History","Shopping","Skiing","Adventure","Spa"].sort();
 
 require(["jquery","socialShare","dropdown","modal","scrollUp"], function ($,socialShare) {
 

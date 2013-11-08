@@ -41,7 +41,7 @@ define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
                 startPage:1,
                 targetElement:$(element),
                 step:'50%',
-                debug:true,
+                debug:false,
                 monitorTargetChange:false
 
 
