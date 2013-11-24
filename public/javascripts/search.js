@@ -16,14 +16,13 @@
             $(container).autocomplete({
                 source:function (request, response) {
                     $.ajax({
-                        url:"http://ws.geonames.org/searchJSON",
+                        url:"http://ws.geonames.org/searchJSON?featureClass=A&featureClass=P",
                         dataType:"jsonp",
                         data:{
                             style:"full",
                             maxRows:20,
                             name_startsWith:request.term
-//                            featureCode:'PCL',
-//                            featureCode: 'PPL'
+
                         },
                         success:function (data) {
 //                            var arrGeonames  = $.grep(data.geonames,function(item,i){
