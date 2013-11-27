@@ -184,7 +184,7 @@ KEENTOUR.getStory = function () {
     });
 
     story.tags = story.tags.getUnique();
-    story.geoItem = $('#geoLocation').val();
+    story.geoItem = $('#geoLocation').data('geoItem');
     story.interests  = $.map($('input:checked ','.interests'),function(interest){
         return $(interest).val();
     });
@@ -211,7 +211,7 @@ KEENTOUR.getStory = function () {
     }
 
     if(!story.geoItem){
-        alert("Please tell us where it happens");
+        alert("Please tell us where it happens...");
          var $tab = $('[data-toggle="tab"][href="#settings"]');
         $tab.tab('show');
         $('#geoLocation').focus();
@@ -328,29 +328,26 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
 
     $(document).ready(function (e) {
 
-         /*
-           bind this to another place,when editing geo loacation
-         */
-//        KEENTOUR.search.bindAutoComplete({
-//            container:$('#geoLocation'),
-//            onItemSelected:function (options) {
-//                var geoItem = options.geoItem;
-//                var query = $(options.searchText).val();
-//                $('.geoPath').empty();
-//                 $('#geoLocation').data('geoItem',geoItem);
-//                 var countryName = geoItem.countryName;
-//                 var itemName  = geoItem.name;
-//
-//                 if(itemName!=countryName){
-//                     var countrySpan = $('<span class="geoItemPath"><b>' + countryName +'</b></span>  --> ').appendTo('.geoPath');
-//                 }
-//
-//                var spanName = $('<span><b>' + itemName +'</b></span>').appendTo('.geoPath');
-//
-//
-//
-//
-//        }});
+        KEENTOUR.search.bindAutoComplete({
+            container:$('#geoLocation'),
+            onItemSelected:function (options) {
+                var geoItem = options.geoItem;
+                var query = $(options.searchText).val();
+                $('.geoPath').empty();
+                 $('#geoLocation').data('geoItem',geoItem);
+                 var countryName = geoItem.countryName;
+                 var itemName  = geoItem.name;
+
+                 if(itemName!=countryName){
+                     var countrySpan = $('<span class="geoItemPath"><b>' + countryName +'</b></span>  --> ').appendTo('.geoPath');
+                 }
+
+                var spanName = $('<span><b>' + itemName +'</b></span>').appendTo('.geoPath');
+
+
+
+
+        }});
 
         $('#storyTabs').tabs();
 

@@ -3,14 +3,23 @@ if(typeof(KEENTOUR)==='undefined'){
 }
 
 
-require(["storage","geonames","storiesList","css!storiesListCss"], function (storage,geonames,storiesList) {
+require(["storage","geonames","storiesList","search","css!storiesListCss"], function (storage,geonames,storiesList,search) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.geonames = geonames;
     KEENTOUR.storiesList = storiesList;
-
+    KEENTOUR.search = search;
 
     $(document).ready(function (e) {
+
+
+        KEENTOUR.search.bindAutoComplete({
+            container:$('#searchtext'),
+            submitControl:$('#searchbtn'),
+            onItemSelected:function (options) {
+               console.log("Search done:",options);
+
+        }});
 
         var newStoriesParams = {isPublished: true};
         console.log("New stories params:",newStoriesParams);
