@@ -35,12 +35,15 @@
         popover  : '/javascripts/lib/bootstrap/bootstrap-popover',
         carousel  : '/javascripts/lib/bootstrap/bootstrap-carousel',
         twitter_grid  :  '/javascripts/twitter-grid',
+        storiesList : '/javascripts/storiesList',
         ///css resources
         paginationCSS:'/stylesheets/pagination',
         jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
         colorBoxCSS :  '/stylesheets//colorBox',
         wikiCSS :  '/stylesheets/wiki2',
-        css : '/javascripts/lib/css'
+        storiesListCss : '/stylesheets/storiesList',
+        css : '/javascripts/lib/css',
+
 
 
     },

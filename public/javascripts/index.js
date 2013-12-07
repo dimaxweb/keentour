@@ -3,7 +3,7 @@ if(typeof(KEENTOUR)==='undefined'){
 }
 
 
-require(["storage","geonames","storiesList","search","css!storiesListCss"], function (storage,geonames,storiesList,search) {
+require(["storage","geonames","storiesList","search"], function (storage,geonames,storiesList,search) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.geonames = geonames;

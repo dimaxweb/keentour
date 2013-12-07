@@ -136,6 +136,9 @@ var MongoWrapper = module.exports = {
             }
 
 
+            if(params.geoItemId && params.geoItemId!='null'){
+                filter.geoItem = {geonameId : params.geoItemId};
+            }
 
             //TODO  : look here why breaks queries
             //filter.isDeleted = false;

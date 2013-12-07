@@ -5,7 +5,7 @@
  * Time: 7:18 PM
  * To change this template use File | Settings | File Templates.
  */
-define(["jquery", "ajax-scroll","moment"], function ($,undefined,moment){
+define(["jquery", "ajax-scroll","moment","css!storiesListCss"], function ($,undefined,moment){
 
 
     var storiesList = {

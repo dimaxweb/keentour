@@ -16,7 +16,12 @@ block content
 
     .tabs
 
-                 span.widgetTitle.selected(rel="videos")
+                 span.widgetTitle.selected(rel="stories")
+                    a(rel="stories")
+                        img(src="/images/stories.jpg")
+                    a.tabTitle(rel="stories") Stories
+
+                 span.widgetTitle(rel="videos")
                     a(rel="videos")
                         img(src="/images/kamera.png")
                     a.tabTitle(rel="videos") Videos
@@ -30,6 +35,7 @@ block content
                     a(rel="article")
                         img(src="/images/wikipedia.png")
                     a.tabTitle(rel="article") Wikipedia
+
 
 
     #widgetsDisplay
