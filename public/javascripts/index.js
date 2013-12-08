@@ -3,11 +3,11 @@ if(typeof(KEENTOUR)==='undefined'){
 }
 
 
-require(["storage","geonames","storiesList","search"], function (storage,geonames,storiesList,search) {
+require(["storage","geonames","search","contentWidget"], function (storage,geonames,search,contentWidget) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.geonames = geonames;
-    KEENTOUR.storiesList = storiesList;
+    KEENTOUR.contentWidget = contentWidget;
     KEENTOUR.search = search;
 
     $(document).ready(function (e) {
@@ -23,11 +23,7 @@ require(["storage","geonames","storiesList","search"], function (storage,geoname
 
         var newStoriesParams = {isPublished: true};
         console.log("New stories params:",newStoriesParams);
-        KEENTOUR.storiesList.showLatest($('.latestStories'),newStoriesParams);
-
-
-
-
+        KEENTOUR.contentWidget.displayCurrentWidget();
 
         var filterOptions = $('.interests');
         $.each(KEENTOUR.interests,function(i,item){
