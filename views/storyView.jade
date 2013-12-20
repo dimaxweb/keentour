@@ -5,21 +5,11 @@ include shared/mixins
 block content
 
             .authorLink
-            .ads
-                script(async='async', src='http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
-                ins.adsbygoogle(style='display: inline-block; width: 300px; height: 600px;', data-ad-client='ca-pub-4780158497290031', data-ad-slot='1729511784')
-                script
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-
-       .span8
             .story
 
               .storyHeader
-                  span.title
-
-
-
-              .storyTags
+              span.title
+                .storyTags
                 span.titleTags
                 span.tagItems
                 span.webSiteUrl.pull-right
@@ -30,12 +20,13 @@ block content
 
 
 
-    script
-        var story = !{JSON.stringify(story)};
-        if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
-        KEENTOUR.story = story;
-        console.log(KEENTOUR.story);
-    mixin mainInclude('storyView.js')
+            script
+                var story = !{JSON.stringify(story)};
+                if(typeof(KEENTOUR)==="undefined"){KEENTOUR={};}
+                KEENTOUR.story = story;
+                console.log(KEENTOUR.story);
+
+            mixin mainInclude('storyView.js')
 
 
 

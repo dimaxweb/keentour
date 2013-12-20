@@ -73,9 +73,9 @@ var MongoWrapper = module.exports = {
     getStory:function (storyUrl, callback) {
         var storyQuery = function (err, db) {
             logger.info("find story with url:" + storyUrl);
-            db.collection("story").findOne({url:storyUrl},function (err, results) {
-               console.dir("Stories are : ",results);
-               callback(results);
+            db.collection("story").find({url:storyUrl}).toArray(function (err, results) {
+                console.log("Stories are : ",results);
+                callback(results[0]);
 
             });
         };
@@ -145,8 +145,6 @@ var MongoWrapper = module.exports = {
 
             console.log("Filter is :",filter);
 
-
-            //TODO : must look here
             db.collection("story").find(filter)
                                   .sort({publishDate:-1})
                                   .skip(parseInt(params.rowsToSkip))
