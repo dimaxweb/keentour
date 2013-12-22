@@ -220,7 +220,9 @@ require(["jquery","jQueryUI","css!wikiCSS","css!jQueryUICSS"], function() {
 
             },
             // the constructor
-            _create: function () {
+            _init: function () {
+                this.breadCrumb  = [];
+                this.element.find('#divBreadCrumb').empty();
                 this.wikiContainer = this.element.find('.articles');
                 this._processWikiPage(this.options.page, this.options.page);
             },

@@ -15,27 +15,8 @@ block content
 
         .search
             input#searchtext(type='text',placeholder="Enter you travel destination")
-        .tabs
-            span.widgetTitle.selected(rel="stories")
-                a(rel="stories")
-                    img(src="/images/stories.jpg")
-                a.tabTitle(rel="stories") Stories
 
-            span.widgetTitle(rel="videos")
-                a(rel="videos")
-                    img(src="/images/kamera.png")
-                a.tabTitle(rel="videos") Videos
 
-            span.widgetTitle(rel="photos")
-                a(rel="photos")
-                    img(src="/images/photokamera.png")
-                a.tabTitle(rel="photos") Photos
-
-            span.widgetTitle(rel="article")
-                a(rel="article")
-                    img(src="/images/wikipedia.png")
-                a.tabTitle(rel="article") Wikipedia
-        #widgetsDisplay
         mixin mainInclude('index.js')
 
 

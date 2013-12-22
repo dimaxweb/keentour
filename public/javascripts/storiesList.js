@@ -24,6 +24,12 @@ define(["jquery", "ajax-scroll","moment","css!storiesListCss"], function ($,unde
         },
 
 
+        searchStories : function(element,storiesRequestParams){
+            $(element).empty();
+            storiesList.showLatest(element,storiesRequestParams);
+        },
+
+
         showLatest:function (element,storiesRequestParams) {
             storiesList.storiesRequestParams = $.extend(true,  storiesList.storiesRequestParams, storiesRequestParams);
             storiesList._bindInfiniteScroll(element);

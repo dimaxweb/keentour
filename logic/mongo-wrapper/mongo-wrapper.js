@@ -136,9 +136,15 @@ var MongoWrapper = module.exports = {
             }
 
 
-            if(params.geoItemId && params.geoItemId!='null'){
-                filter.geoItem = {geonameId : params.geoItemId};
+            try{
+                if(params.geoItemId && params.geoItemId!='null'){
+                    filter['geoItem.geonameId'] = parseInt(params.geoItemId);
+                }
             }
+            catch(e){
+                 console.log("Error occurred when assigning geoitem param.Error is",e);
+            }
+
 
             //TODO  : look here why breaks queries
             //filter.isDeleted = false;

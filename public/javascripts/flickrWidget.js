@@ -1,7 +1,7 @@
 //TODO  : get config parameters also for dependent modules (twiter_grid,etc..)
 require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "jquery.colorbox-min", "tooltip", "popover", "ajax-scroll", "css!paginationCSS", "css!jQueryUICSS"], function (undefined, undefined, undefined, undefined, twitter_grid, undefined) {
     (function ($) {
-        $.widget("custom.flickrFy", {
+            $.widget("custom.flickrFy", {
             options:{
                 defaultImageThumb:'t',
                 itemsPerRow:4,
@@ -104,6 +104,7 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                 }
 
             },
+
             createTitle:function (photo) {
                 var flickrUrl = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
 //                var photoInfo = $('#photoInfo').empty();
@@ -152,6 +153,7 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                 });
 
             },
+
             getBigImageUrl:function (photo) {
                 var photoUrl = photo.url_l || photo.url_m || photo.url_z || photo.url_t || photo.url_s;
                 return photoUrl;
@@ -201,7 +203,6 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                 //            }
 
             },
-
 
             //TODO : refactor to use templates and behaviours instead
             createPaging:function (data) {

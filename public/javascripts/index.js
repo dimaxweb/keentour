@@ -3,11 +3,10 @@ if(typeof(KEENTOUR)==='undefined'){
 }
 
 
-require(["storage","geonames","search","contentWidget"], function (storage,geonames,search,contentWidget) {
+require(["storage","geonames","search","contentWidget"], function (storage,geonames,search) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.geonames = geonames;
-    KEENTOUR.contentWidget = contentWidget;
     KEENTOUR.search = search;
 
     $(document).ready(function (e) {
@@ -18,12 +17,22 @@ require(["storage","geonames","search","contentWidget"], function (storage,geona
             submitControl:$('#searchbtn'),
             onItemSelected:function (options) {
                console.log("Search done:",options);
+               window.contentData.flickrText = options.geoItem.name + " travel";
+               window.contentData.wikiPage  = options.geoItem.name;
+               window.contentData.youTubeQuery =  options.geoItem.name +  " travel";
+               window.contentData.geoItem = options.geoItem;
+               $('#mainCont').contentify();
 
         }});
 
         var newStoriesParams = {isPublished: true};
-        console.log("New stories params:",newStoriesParams);
-        KEENTOUR.contentWidget.displayCurrentWidget();
+        /*
+
+        */
+
+        $('#mainCont').contentify();
+
+
 
         var filterOptions = $('.interests');
         $.each(KEENTOUR.interests,function(i,item){

@@ -1,5 +1,7 @@
 //TODO  : wrap as  jQueryUI widget
 define('contentWidget',["jquery","storiesList","inheritance","flickrWidget","wikiPediaWidget","youtubeWidget"], function($,storiesList) {
+
+
     var contentWidget =  {};
     contentWidget.parts = [];
 
@@ -71,6 +73,7 @@ define('contentWidget',["jquery","storiesList","inheritance","flickrWidget","wik
         {
             displayContent:function () {
 
+                //TODO  : pass parameters inside
                 this.storiesList.showLatest($(this.container),{isPublished: true,rowsToSkip:0});
                 this.instance  =  storiesList;
             },
