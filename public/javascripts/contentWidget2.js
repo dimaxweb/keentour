@@ -20,18 +20,6 @@ require(["jquery","storiesList","inheritance","flickrWidget","wikiPediaWidget","
     },
 
     displayCurrentWidget : function(options) {
-        if (!window.contentData) {
-            //default data
-            window.contentData = {};
-            window.contentData.wikiPage = 'Austria';
-            window.contentData.flickrText = 'Austria travel';
-            window.contentData.youTubeQuery = 'Austria,travel';
-            window.contentData.geoItem = {
-                geonameId:null
-            }
-
-       }
-
 
         var widget = contentWidget.getCurrentWidget();
 
@@ -137,7 +125,7 @@ require(["jquery","storiesList","inheritance","flickrWidget","wikiPediaWidget","
     var storiesWidget = widgetBase.extend(
         {
             displayContent:function () {
-                this.storiesList.searchStories($(this.container),{isPublished: true,rowsToSkip:0,geoItemId:window.contentData.geoItem.geonameId});
+                this.storiesList.searchStories($(this.container),{isPublished: true,rowsToSkip:0,geoItemId:window.contentData.geoItem.geonameId,tags:window.contentData.tags});
                 this.instance  =  storiesList;
             },
             getIcon: function () {

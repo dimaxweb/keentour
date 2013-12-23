@@ -3,6 +3,71 @@ if(typeof(KEENTOUR)==='undefined'){
 }
 
 
+if (!window.contentData) {
+    /*
+        default data
+    */
+    window.contentData = {};
+    window.contentData.wikiPage = 'Austria';
+    window.contentData.flickrText = 'Austria travel';
+    window.contentData.youTubeQuery = 'Austria,travel';
+    window.contentData.geoItem = {
+        geonameId:null
+    }
+    window.contentData.tags = null;
+
+}
+
+KEENTOUR.filterState = {
+    geoItem  : {
+        geonameId:null,
+        name  : 'Austria'
+    },
+    tags : null
+}
+
+KEENTOUR.setTags = function(tags){
+    if(tags){
+        window.contentData.flickrText = KEENTOUR.filterState.geoItem.name + " " +  tags;
+        window.contentData.wikiPage  =  KEENTOUR.filterState.geoItem.name + " " +  tags;
+        window.contentData.youTubeQuery =   KEENTOUR.filterState.geoItem.name + " " +  tags;
+    }
+    else{
+        window.contentData.flickrText = KEENTOUR.filterState.geoItem.name + " travel";
+        window.contentData.wikiPage  =  KEENTOUR.filterState.geoItem.name;
+        window.contentData.youTubeQuery =   KEENTOUR.filterState.geoItem.name + " travel";
+    }
+
+    KEENTOUR.filterState.tags =  window.contentData.tags =  tags;
+    console.log("Setting content data from tags", window.contentData);
+    $('#mainCont').contentify();
+
+}
+
+KEENTOUR.setGeoItem  = function(geoItem){
+    if(!geoItem){
+        return;
+    }
+    if( KEENTOUR.filterState.tags){
+        window.contentData.flickrText =   geoItem.name + " " +  KEENTOUR.filterState.tags;
+        window.contentData.wikiPage  =    geoItem.name + " " +  KEENTOUR.filterState.tags;
+        window.contentData.youTubeQuery = geoItem.name + " " +  KEENTOUR.filterState.tags;
+    }
+    else{
+        window.contentData.flickrText =   geoItem.name + " travel";
+        window.contentData.wikiPage  =    geoItem.name;
+        window.contentData.youTubeQuery = geoItem.name + " travel";
+    }
+
+    KEENTOUR.filterState.geoItem = window.contentData.geoItem = geoItem;
+    console.log("Setting content data from geoItem", window.contentData);
+    $('#mainCont').contentify();
+}
+
+
+
+
+
 require(["storage","geonames","search","contentWidget"], function (storage,geonames,search) {
 
     KEENTOUR.storage = storage;
@@ -17,22 +82,14 @@ require(["storage","geonames","search","contentWidget"], function (storage,geona
             submitControl:$('#searchbtn'),
             onItemSelected:function (options) {
                console.log("Search done:",options);
-               window.contentData.flickrText = options.geoItem.name + " travel";
-               window.contentData.wikiPage  = options.geoItem.name;
-               window.contentData.youTubeQuery =  options.geoItem.name +  " travel";
-               window.contentData.geoItem = options.geoItem;
-               $('#mainCont').contentify();
+               KEENTOUR.setGeoItem(options.geoItem);
+            }});
 
-        }});
 
-        var newStoriesParams = {isPublished: true};
         /*
-
+          call the content widget
         */
-
         $('#mainCont').contentify();
-
-
 
         var filterOptions = $('.interests');
         $.each(KEENTOUR.interests,function(i,item){
@@ -46,6 +103,7 @@ require(["storage","geonames","search","contentWidget"], function (storage,geona
 
 
             var tags  = null;
+
             if($(this).data('checked')===true){
                 $(this).data('checked',false);
 
@@ -54,15 +112,17 @@ require(["storage","geonames","search","contentWidget"], function (storage,geona
 
                 $('.filterOptionSelected').attr('class','filterOption');
                 $(this).data('checked',true);
-                var interests = $(this).text();
-                tags = interests;
+                tags = $(this).text();
+
 
             }
 
 
             $(this).toggleClass('filterOption filterOptionSelected');
-            $('.latestStories').empty();
-            KEENTOUR.storiesList.showLatest($('.latestStories'),{isPublished: true,tags :tags,rowsToSkip:0});
+
+           KEENTOUR.setTags(tags);
+
+
             $(document).scrollTop(0);
         });
 
