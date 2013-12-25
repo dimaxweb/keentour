@@ -72,10 +72,10 @@ var MongoWrapper = module.exports = {
 
     getStory:function (storyUrl, callback) {
         var storyQuery = function (err, db) {
-            db.collection("story").findOne({url:storyUrl}, function (err, results) {
-                //TODO : check for errors
-                logger.info("Story is:", results);
-                callback(results);
+            logger.info("find story with url:" + storyUrl);
+            db.collection("story").find({url:storyUrl}).toArray(function (err, results) {
+                console.log("Stories are : ",results);
+                callback(results[0]);
 
             });
         };
@@ -117,7 +117,7 @@ var MongoWrapper = module.exports = {
     getLatestStories:function (params, callback) {
         console.log('In latest stories.Params:', params);
         var query = function (err, db) {
-            var lastPublishDate  = params.lastPublishDate  ? new Date(params.lastPublishDate)   : new Date('1978');
+
             var filter = {};
 
             if(params.userName && params.userName !=='null'){
@@ -128,13 +128,33 @@ var MongoWrapper = module.exports = {
                 filter.isPublished = true;
             }
 
-            filter.isDeleted = false;
+            if(params.tags && params.tags!='null'){
+                console.log("set tags",params.tags);
+                var arrTags = [];
+                arrTags.push(params.tags);
+                filter.interests = {$in : arrTags } ;
+            }
+
+
+            try{
+                if(params.geoItemId && params.geoItemId!='null'){
+                    filter['geoItem.geonameId'] = parseInt(params.geoItemId);
+                }
+            }
+            catch(e){
+                 console.log("Error occurred when assigning geoitem param.Error is",e);
+            }
+
+
+            //TODO  : look here why breaks queries
+            //filter.isDeleted = false;
 
             console.log("Filter is :",filter);
 
             db.collection("story").find(filter)
                                   .sort({publishDate:-1})
-//                                  .limit(params.storiesToShow)
+                                  .skip(parseInt(params.rowsToSkip))
+                                  .limit(parseInt(params.storiesToShow))
                 .toArray(function (err, results) {
                             logger.info('Error is:',err);
                             logger.info('Result is:',results);

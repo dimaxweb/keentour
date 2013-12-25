@@ -15,15 +15,15 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
             videosContainer:null,
             initialQuery:null,
 
-            // Set up the widget
-            _create:function () {
+            _init : function(){
                 try {
+                    this.element.find('#videos').empty();
                     this.initialQuery = this.options.query;
                     this.runWidget();
                 }
                 catch (e) {
-                    if (console && console.log) {
-                        console.log(e);
+                    if (console && console.error) {
+                        console.error("Youtube widget.Error occurred:",e);
                     }
                 }
 
@@ -55,9 +55,7 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
 
 
             runWidget:function () {
-//                $('#videos').empty();
                 this.imagesCache = {};
-                this.initilaising = true;
                 this.youTubeLib = new YouTubeLib(this.options);
                 var that = this;
                 that.videosContainer = this.element.find('#videos');
@@ -177,7 +175,7 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
                         twitter_grid.gridify({
                             element: $(mainVideos),
                             data:entries,
-                            itemsPerRow: 4,
+                            itemsPerRow: 3,
                             getItemContent:function(dataItem,gridCell,grid){
                                 var item = dataItem;
                                 var url = item.media$group.media$thumbnail[0].url;

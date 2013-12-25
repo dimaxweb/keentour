@@ -3,7 +3,7 @@ if (typeof (KEENTOUR) == 'undefined') {
 }
 
 
-require(["storage", "geonames", "storiesList", "css!storiesListCss"], function (storage, geonames, storiesList) {
+require(["storage", "geonames", "storiesList"], function (storage, geonames, storiesList) {
     KEENTOUR.storage = storage;
     KEENTOUR.geonames = geonames;
     KEENTOUR.storiesList = storiesList;

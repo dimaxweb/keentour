@@ -67,9 +67,9 @@ KEENTOUR.renderStory = function (story) {
     }
 
     $('#txtTitle').val(story.title);
-    $('#wysihtml5-editor').val(story.description);
+    $('#description').val(story.description);
     $('#webSiteUrl').val(story.webSiteUrl);
-    $('#geoLocation').data('photo',story.geoItem).val(story.geoItem  ? story.geoItem.name : '');
+    $('#geoLocation').data('geoItem',story.geoItem).val(story.geoItem  ? story.geoItem.name : '');
 
     $.each(story.interests,function(i,item){
         var inputSelector =  'input[value="'  + item + '"]'
@@ -184,13 +184,14 @@ KEENTOUR.getStory = function () {
     });
 
     story.tags = story.tags.getUnique();
-    story.geoItem = $('#geoLocation').val();
+    story.geoItem = $('#geoLocation').data('geoItem');
     story.interests  = $.map($('input:checked ','.interests'),function(interest){
         return $(interest).val();
     });
 
     story = $.extend({}, KEENTOUR.currentStory, story);
     story.webSiteUrl = $('#webSiteUrl').val();
+
     //TODO  : move validations from here
 
     /*
@@ -211,7 +212,7 @@ KEENTOUR.getStory = function () {
     }
 
     if(!story.geoItem){
-        alert("Please tell us where it happens");
+        alert("Please tell us where it happens...");
          var $tab = $('[data-toggle="tab"][href="#settings"]');
         $tab.tab('show');
         $('#geoLocation').focus();
@@ -223,14 +224,14 @@ KEENTOUR.getStory = function () {
 }
 
 
-KEENTOUR.publishStory  = function(story,callback){
+KEENTOUR.publishStory  = function(callback){
 
-    var story = story || KEENTOUR.getStory();
+    var story =  KEENTOUR.getStory();
     /*
      Request to save the idea
      */
     if(!story){
-        console.log("No story provided.Exit function");
+        console.log("No story provided.");
         return;
     }
     var request = $.ajax('/story/publish', {
@@ -328,29 +329,26 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
 
     $(document).ready(function (e) {
 
-         /*
-           bind this to another place,when editing geo loacation
-         */
-//        KEENTOUR.search.bindAutoComplete({
-//            container:$('#geoLocation'),
-//            onItemSelected:function (options) {
-//                var geoItem = options.geoItem;
-//                var query = $(options.searchText).val();
-//                $('.geoPath').empty();
-//                 $('#geoLocation').data('geoItem',geoItem);
-//                 var countryName = geoItem.countryName;
-//                 var itemName  = geoItem.name;
-//
-//                 if(itemName!=countryName){
-//                     var countrySpan = $('<span class="geoItemPath"><b>' + countryName +'</b></span>  --> ').appendTo('.geoPath');
-//                 }
-//
-//                var spanName = $('<span><b>' + itemName +'</b></span>').appendTo('.geoPath');
-//
-//
-//
-//
-//        }});
+        KEENTOUR.search.bindAutoComplete({
+            container:$('#geoLocation'),
+            onItemSelected:function (options) {
+                var geoItem = options.geoItem;
+                var query = $(options.searchText).val();
+                $('.geoPath').empty();
+                 $('#geoLocation').data('geoItem',geoItem);
+                 var countryName = geoItem.countryName;
+                 var itemName  = geoItem.name;
+
+                 if(itemName!=countryName){
+                     var countrySpan = $('<span class="geoItemPath"><b>' + countryName +'</b></span>  --> ').appendTo('.geoPath');
+                 }
+
+                var spanName = $('<span><b>' + itemName +'</b></span>').appendTo('.geoPath');
+
+
+
+
+        }});
 
         $('#storyTabs').tabs();
 
@@ -397,8 +395,8 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
                 */
                 if (action === "publish") {
 
-                    var story = KEENTOUR.getStory();
-                    KEENTOUR.publishStory(story,function(data){
+
+                    KEENTOUR.publishStory(function(data){
                         KEENTOUR.currentStory = data.story;
                         alert("Story published");
                     });
@@ -438,6 +436,15 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
 //            KEENTOUR.currentStory =  KEENTOUR.storage.getObject('currentStory');
 //        }
 
+        var interestsCont = $('.interests');
+        $.each(KEENTOUR.interests,function(i,item){
+            $("<li><div class='interest'>" +
+                "<input type='checkbox' value='"
+                + item  + "' name=" + item  + "><label class='checkbox inline'>" + item + "</label> </div> </li>").appendTo(interestsCont);
+        });
+
+
+
         if (!$.isEmptyObject(KEENTOUR.currentStory)) {
             //TODO  : change to notification
             console.log("story saved!");
@@ -452,12 +459,7 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
             $(this).closest('li').remove();
         });
 
-        var interestsCont = $('.interests');
-        $.each(KEENTOUR.interests,function(i,item){
-           $("<li><div class='interest'>" +
-             "<input type='checkbox' value='"
-             + item  + "' name=" + item  + "><label class='checkbox inline'>" + item + "</label> </div> </li>").appendTo(interestsCont);
-        });
+
 
         $('.storyItems').delegate('.storyItemEdit','click',function(e){
 

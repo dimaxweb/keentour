@@ -25,33 +25,55 @@
 
                         },
                         success:function (data) {
-//                            var arrGeonames  = $.grep(data.geonames,function(item,i){
-//                                return (item.population && (item.population > 0))
-//                            });
-                            response($.map(data.geonames, function (item) {
-                                console.log("GEO item code:",item.fcode);
-                                console.log("GEO item",item);
-                                return {
-                                    label: geonames.getItemLabel(item) ,
+
+
+                            var suggestArray = $.map(data.geonames, function (item) {
+                               return {
+                                    label: geonames.getItemLabel(item),
                                     value:item.name,
                                     dataItem:item
 
                                 }
-                            }));
+                            });
+
+                            var uniqueItems = {};
+                            $.each(suggestArray, function(i, item){
+                                if(uniqueItems[item.label]){
+                                  var existingItem =uniqueItems[item.label];
+                                  if(existingItem.population < item.population){
+                                      uniqueItems[item.label] = item;
+                                  }
+                                }
+                                else{
+                                    uniqueItems[item.label] = item;
+                                }
+
+                            });
+
+
+                            var arrUniqueItems = [];
+                            for(var i in uniqueItems ){
+                                arrUniqueItems.push(uniqueItems[i]);
+                            }
+
+                            console.log("Items  before sort",arrUniqueItems);
+                            arrUniqueItems.sort(function(a,b){
+                                var aPopulation = a.dataItem.population  || 0;
+                                var bPopulation = b.dataItem.population  || 0;
+                                return bPopulation - aPopulation;
+                            });
+
+                            response(arrUniqueItems);
                         }
                     });
                 },
-                //TODO  : if we can do something clever here
+
                 minLength:1,
                 select:function (event, ui) {
-
                     $(this).trigger('itemSelected', ui.item.dataItem);
-                    //console.log('Item path' + path);
                     onItemSelected({geoItem:ui.item.dataItem,searchText:$(container).value});
 
                 },
-
-
 
                 open:function () {
                     itemFound = true;

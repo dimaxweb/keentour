@@ -6,6 +6,7 @@ sharePlugin.js
 socialShare.js
 dropdown.js
 modal.js
+scrollUp.js
 global.js
 
 homepage.js
@@ -48,6 +49,7 @@ richEditorSource.js
 css!richEditorCSS
 richEditor.js
 tabs.js
+modal.js
 css!storyCSS
 story.js
 
@@ -65,9 +67,9 @@ jquery.js
 geonames.js
 ajax-scroll.js
 moment.js
-storiesList.js
 css.js
 css!storiesListCss
+storiesList.js
 userStories.js
 
 contentpage.js
@@ -80,13 +82,16 @@ tooltip.js
 css.js
 css!jQueryUICSS
 search.js
+ajax-scroll.js
+moment.js
+css!storiesListCss
+storiesList.js
 inheritance.js
 flickrLib.js
 jquery/paginate.js
 twitter_grid.js
 jquery/colorbox-min.js
 popover.js
-ajax-scroll.js
 css!paginationCSS
 flickrWidget.js
 css!wikiCSS
@@ -132,9 +137,27 @@ index.js
 storage.js
 jquery.js
 geonames.js
+jQueryUI.js
+tooltip.js
+css.js
+css!jQueryUICSS
+search.js
 ajax-scroll.js
 moment.js
-storiesList.js
-css.js
 css!storiesListCss
+storiesList.js
+inheritance.js
+flickrLib.js
+jquery/paginate.js
+twitter_grid.js
+jquery/colorbox-min.js
+popover.js
+css!paginationCSS
+flickrWidget.js
+css!wikiCSS
+wikiPediaWidget.js
+youTubeLib.js
+swfObject.js
+youtubeWidget.js
+contentWidget.js
 index.js

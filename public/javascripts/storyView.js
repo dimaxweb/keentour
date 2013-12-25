@@ -3,10 +3,14 @@ if (typeof(KEENTOUR) === "undefined") {
 }
 
 KEENTOUR.renderStory = function (story) {
+
+
     if ($.isEmptyObject(story)) {
         console.log("The story object is empty");
         return;
     }
+
+    console.log("The story is : ",story);
 
     $('.title').text("Title:" + story.title);
 
@@ -56,7 +60,8 @@ KEENTOUR.addStoryItem   = function(photo){
 
 require(["jQueryUI","css!storyViewCSS"], function () {
     $(document).ready(function(e){
-         KEENTOUR.renderStory(KEENTOUR.story);
+        console.log("render story");
+        KEENTOUR.renderStory(KEENTOUR.story);
 
      });
 

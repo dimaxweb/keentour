@@ -1134,20 +1134,31 @@ div.popular_places li:hover {
 
 .filterOption {
     background-color: #B0C2D5;
-    margin: 10px;
     color: White !important;
     cursor: pointer;
-    width: 40px;
     height: 25px;
-    -moz-border-radius: 25px 10px / 10px 25px;
     border-radius: 25px 10px / 10px 25px;
-    padding: 5px;
+    margin-top : 10px ;
+    display:block;
+    width: 80%;
+    text-align: center;
 
 }
 
 .filterOptionSelected {
     background-color: #738CB7 !important;
+    color: White !important;
+    cursor: pointer;
+    height: 25px;
+    border-radius: 25px 10px / 10px 25px;
+    margin-top : 10px ;
+    display:block;
+    width: 80%;
+    text-align: center;
+
 }
+
+
 
 #menuFilter {
 
@@ -2970,22 +2981,7 @@ div.popular_places li:hover {
     text-align: right;
 }
 
-.filterOption {
-    background-color: #B0C2D5;
-    margin: 10px;
-    color: White !important;
-    cursor: pointer;
-    width: 40px;
-    height: 25px;
-    -moz-border-radius: 25px 10px / 10px 25px;
-    border-radius: 25px 10px / 10px 25px;
-    padding: 5px;
 
-}
-
-.filterOptionSelected {
-    background-color: #738CB7 !important;
-}
 
 #menuFilter {
 
@@ -3880,10 +3876,10 @@ ul {
     height: 108px;
     left: 0;
     position: fixed;
-    top:30%;
+    top:35%;
     width: 34px;
     z-index: 999;
-    writing-mode:lr-tb;
+
 
 }
 
@@ -3937,4 +3933,12 @@ ul {
     background: #555;
     color: #fff;
 }
+
+.search{
+    text-align: center;
+    margin:0 auto;
+}
+
+
+
 

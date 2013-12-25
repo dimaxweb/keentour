@@ -1,5 +1,7 @@
 //TODO  : wrap as  jQueryUI widget
-define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget","youtubeWidget"], function($) {
+define('contentWidget',["jquery","storiesList","inheritance","flickrWidget","wikiPediaWidget","youtubeWidget"], function($,storiesList) {
+
+
     var contentWidget =  {};
     contentWidget.parts = [];
 
@@ -61,8 +63,32 @@ define('contentWidget',["jquery","inheritance","flickrWidget","wikiPediaWidget",
 
 
     youtubeWidget.prototype.container = $("<div id='youTubeMain'  class='widgetInternal'><div id='videos'></div><div id='videoPaging' class='paging'></div></div>");
-    var contentWidgets = { 'article': new wikiWidget(), 'photos': new flickrWidget(), 'videos': new youtubeWidget() };
 
+
+
+    /*
+      stories widget
+    */
+    var storiesWidget = widgetBase.extend(
+        {
+            displayContent:function () {
+
+                //TODO  : pass parameters inside
+                this.storiesList.showLatest($(this.container),{isPublished: true,rowsToSkip:0});
+                this.instance  =  storiesList;
+            },
+            getIcon: function () {
+                return "/images/stories.jpg";
+            }
+        });
+
+    storiesWidget.prototype.storiesList = storiesList;
+    storiesWidget.prototype.container = $("<div id='divContent' class='widgetInternal'></div>");
+    contentWidget.parts[contentWidget.parts.length] = storiesWidget;
+
+
+
+    var contentWidgets = { 'article': new wikiWidget(), 'photos': new flickrWidget(), 'videos': new youtubeWidget(),'stories'  : new storiesWidget()};
 
     contentWidget.getWidgetKey = function() {
         var selectedTab = $('.tabs').find('.selected').first().attr('rel');
