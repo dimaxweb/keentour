@@ -25,12 +25,44 @@ html(lang='en')
                         a(href='/', title='Keentour-Home')
                            img(src='/images/logo.png')
                     .span8
-
-
-                        #search
                             input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
-                            //i.icon-chevron-down.advancedOpen
-                            input#searchbtn(type='button', value='')
+                                //i.icon-chevron-down.advancedOpen
+                                input#searchbtn(type='button', value='')
+                            ul.nav.nav-pills
+                                li.active
+                                    a(href='/story') Create
+                                if isAuthenticated
+                                    li.dropdown
+                                        a#drop4.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
+                                            | #{user.username}
+                                            b.caret
+                                        ul#menu1.dropdown-menu(role='menu', aria-labelledby='drop4')
+                                            li(role='presentation')
+                                                a(role='menuitem', tabindex='-1', href='#')
+
+                                            li(role='presentation')
+                                                a(role='menuitem', tabindex='-1', href='#{user.storiesUrl}') My Stories
+                                            li.divider(role='presentation')
+                                            li(role='presentation')
+                                                a(role='menuitem', tabindex='-1', href='/logout') Logout
+                                else
+                                    li.active
+                                        a#loginBtn(href='/login') Login
+
+                                li.dropdown
+                                    a#drop4.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
+                                    | About
+                                    b.caret
+                                    ul#menu1.dropdown-menu(role='menu')
+                                        li(role='presentation')
+                                            a(role='menuitem', tabindex='-1', href='#')
+
+
+                                        li(role='presentation')
+                                            a(role='menuitem', tabindex='-1', href='/Privacy') Privacy
+                                        li.divider(role='presentation')
+                                        li(role='presentation')
+                                            a(role='menuitem', tabindex='-1', href='/AboutUs') About Us
 
 
 

@@ -8,8 +8,8 @@ block content
                span.homePageTitle Where do you want to travel ?
                img(src="/images/kamera.png")
 
-        .homeVideos
-            img.videoLoading(src="/images/ajax-loader-big.gif",style="margin:0px auto;")
+        #mainCont
+
 
    .span3
        .popular_countries
@@ -102,18 +102,7 @@ block content
 
 
 
-
-                   script(data-main="/#{locals.scriptPrefix}/homepage",src="/javascripts/lib/require.js",type="text/javascript")
-                   script
-
-                       var user = !{JSON.stringify(user)};
-                       window.KeenTourData = user;
-
-
-
-
-
-
+                   mixin mainInclude('index.js')
                    mixin ga120-240
 
 
