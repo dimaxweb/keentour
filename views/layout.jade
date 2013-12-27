@@ -17,18 +17,18 @@ html(lang='en')
 
    body
 
-
            .container-fluid.header
                    .row-fluid
-                    .span4
+                    .span3
                        div.logoCont.pull-left
                         a(href='/', title='Keentour-Home')
-                           img(src='/images/logo.png')
-                    .span8
-                            input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
-                                //i.icon-chevron-down.advancedOpen
-                                input#searchbtn(type='button', value='')
+                           img(src='/images/logo_new.png')
+                    .span9
+                        .headerNav.pull-right
                             ul.nav.nav-pills
+                                li
+                                    input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
+                                    input#searchbtn(type='button', value='')
                                 li.active
                                     a(href='/story') Create
                                 if isAuthenticated
@@ -51,51 +51,18 @@ html(lang='en')
 
                                 li.dropdown
                                     a#drop4.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
-                                    | About
-                                    b.caret
-                                    ul#menu1.dropdown-menu(role='menu')
-                                        li(role='presentation')
-                                            a(role='menuitem', tabindex='-1', href='#')
+                                        | About
+                                        b.caret
+                                        ul#menu1.dropdown-menu(role='menu')
+                                            li(role='presentation')
+                                                a(role='menuitem', tabindex='-1', href='#')
 
 
-                                        li(role='presentation')
-                                            a(role='menuitem', tabindex='-1', href='/Privacy') Privacy
-                                        li.divider(role='presentation')
-                                        li(role='presentation')
-                                            a(role='menuitem', tabindex='-1', href='/AboutUs') About Us
-
-
-
-
-
-           .container-fluid.menuCont
-               .menu
-                   table.top_menu
-                       tr
-                           td
-                               .top_menu1(rel='EU')
-                                  div
-                                    a(href='/content/Europe') Europe
-                           td
-                               .top_menu1(rel='SA')
-                                   div
-                                        a(href='/content/South-America') South America
-                           td
-                               .top_menu1(rel='NA')
-                                   div
-                                       a(href='/content/North-America') North America
-                           td
-                               .top_menu1(rel='AS')
-                                   div
-                                       a(href='/content/Asia') Asia
-                           td
-                               .top_menu1(rel='OC')
-                                   div
-                                       a(href='/content/Oceania') Oceania
-                           td
-                               .top_menu1right(rel='AF',style='border-right:none !important;')
-                                   div(style='border-right:none !important;')
-                                       a(href='/content/Africa') Africa
+                                            li(role='presentation')
+                                                a(role='menuitem', tabindex='-1', href='/Privacy') Privacy
+                                            li.divider(role='presentation')
+                                            li(role='presentation')
+                                                a(role='menuitem', tabindex='-1', href='/AboutUs') About Us
 
            .container-fuild
 
@@ -140,7 +107,18 @@ html(lang='en')
                 })();
 
 
-
+           .modal.hide.fade
+               .modal-dialog
+                   .modal-content
+                       .modal-header
+                           button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                           h4.modal-title Login to Keentour
+                           .modal-body
+                               .container
+                                   a(href="/auth/facebook")
+                                       img(src="/images/facebook-login.jpg")
+                           .modal-footer
+                               button.btn.btn-default(type='button', data-dismiss='modal') Close
 
 
 

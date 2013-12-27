@@ -96,7 +96,7 @@
             $(container).focusin(function (e) {
                 $(this).tooltip('hide');
                 $(this).animate({
-                    width: "40%"
+                    width: "350px"
                 },350 );
             });
 
