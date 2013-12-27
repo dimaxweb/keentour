@@ -3,6 +3,9 @@ if(typeof(KEENTOUR)==='undefined'){
 }
 
 
+
+
+
 if (!window.contentData) {
     /*
         default data
@@ -62,6 +65,13 @@ KEENTOUR.setGeoItem  = function(geoItem){
     KEENTOUR.filterState.geoItem = window.contentData.geoItem = geoItem;
     console.log("Setting content data from geoItem", window.contentData);
     $('#mainCont').contentify();
+}
+
+KEENTOUR.getLastGeoItem = function(){
+   var lastItem =  KEENTOUR.storage.getItem('lastGeoItem');
+   if(!item){
+       lastItem = KEENTOUR.DEFAULT_GEO_ITEM;
+   }
 }
 
 

@@ -359,7 +359,7 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
 
                                     $(imgItem).popover({
                                         title:dataItem.title,
-                                        placement:'right',
+                                        placement:'top',
                                         content:'<div>' + author + publishedAt + viewsCount + tags + '</div>'
 
                                     });

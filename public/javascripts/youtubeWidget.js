@@ -175,7 +175,7 @@ require(["jquery","twitter_grid","jQueryUI","youTubeLib","jquery.paginate","jque
                         twitter_grid.gridify({
                             element: $(mainVideos),
                             data:entries,
-                            itemsPerRow: 3,
+                            itemsPerRow: 4,
                             getItemContent:function(dataItem,gridCell,grid){
                                 var item = dataItem;
                                 var url = item.media$group.media$thumbnail[0].url;

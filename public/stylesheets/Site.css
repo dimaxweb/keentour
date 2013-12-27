@@ -178,11 +178,13 @@ div.history_link {
 
 
 .headerNav{
-    margin: 15px 150px 0px 0px;
+    margin: 15px 150px 0px 100px;
 
 }
 
-
+.createStory{
+    background-color: #008F00 !important;
+}
 
 div.history_block ol {
     margin: 0;
@@ -1030,7 +1032,7 @@ ul {
 
 #widgetsDisplay {
     margin-bottom: 5%;
-    margin-left: 5%;
+
 }
 
 .widgetInternal
@@ -1110,7 +1112,7 @@ div.popular_places li:hover {
     background-color: #DAEBF2\9;
     text-align: left;
     bottom: 0px;
-    height: 50px;
+    height: 35px;
     left: 0px;
     margin: 0px;
     position: fixed;
@@ -1124,6 +1126,7 @@ div.popular_places li:hover {
     background: -moz-linear-gradient(top, #DAEBF2, #94ACC6);
     /*background: -ms-linear-gradient(top, #DAEBF2, #94ACC6);*/
     background: -o-linear-gradient(top, #DAEBF2, #94ACC6);
+    padding-left: 5%;
 
 }
 
@@ -1141,6 +1144,11 @@ div.popular_places li:hover {
     margin-left: 175px;
     width: 485px;
     text-align: right;
+}
+
+.filter
+{
+    margin-left: 100px;
 }
 
 .filterOption {
@@ -1787,10 +1795,8 @@ td.footer a{
 td.footer a:hover{
     text-decoration:underline;
 }
-div.copyr{
-    margin-top:7px;
-    font-style:italic;
-}
+
+
 div.wm_info{
     float:right;
 }
@@ -2036,15 +2042,6 @@ ul {
     text-align: center;
     margin-bottom: 50px;
 }
-
-#divContent
-{
-    text-align: center;
-    margin-left: 5%;
-
-}
-
-
 
 #bigPhoto
 {
@@ -2478,10 +2475,7 @@ table.new_photos_photo a:hover div.play {
     background: url(../images/play.png) no-repeat 68px -280px;
 }
 
-/*** TABS ***/
-div.tabs1 {
 
-}
 
 div.tabs1_title {
     min-height: 45px;
@@ -3461,7 +3455,7 @@ table.new_photos_photo a:hover div.play{
 /*** TABS ***/
 .tabs
 {
-    text-align: center;
+
     margin-bottom: 50px;
 }
 div.tabs1_title{
@@ -3890,6 +3884,42 @@ ul {
 .advBlock
 {
     margin-top : 15%;
+}
+
+.filterOption {
+    background-color: #B0C2D5;
+    color: White !important;
+    cursor: pointer;
+    height: 25px;
+    border-radius: 25px 10px / 10px 25px;
+    margin-top : 10px ;
+    display:block;
+    width: 80%;
+    text-align: center;
+
+}
+
+.filterOptionSelected {
+    background-color: #738CB7 !important;
+    color: White !important;
+    cursor: pointer;
+    height: 25px;
+    border-radius: 25px 10px / 10px 25px;
+    margin-top : 10px ;
+    display:block;
+    width: 80%;
+    text-align: center;
+
+}
+
+.copyr{
+    font-style: italic;
+    color: #0088CC;
+    margin-left: 25px ;
+}
+
+.resultBlock{
+    margin-bottom: 25px;
 }
 
 

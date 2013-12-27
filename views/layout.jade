@@ -24,17 +24,17 @@ html(lang='en')
                         a(href='/', title='Keentour-Home')
                            img(src='/images/logo_new.png')
                     .span9
-                        .headerNav.pull-right
+                        .headerNav
                             ul.nav.nav-pills
                                 li
                                     input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
                                     input#searchbtn(type='button', value='')
                                 li.active
-                                    a(href='/story') Create
+                                    a.createStory(href='/story') Create
                                 if isAuthenticated
                                     li.dropdown
                                         a#drop4.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
-                                            | #{user.username}
+                                            |  #{user.username}
                                             b.caret
                                         ul#menu1.dropdown-menu(role='menu', aria-labelledby='drop4')
                                             li(role='presentation')
@@ -49,20 +49,8 @@ html(lang='en')
                                     li.active
                                         a#loginBtn(href='/login') Login
 
-                                li.dropdown
-                                    a#drop4.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
-                                        | About
-                                        b.caret
-                                        ul#menu1.dropdown-menu(role='menu')
-                                            li(role='presentation')
-                                                a(role='menuitem', tabindex='-1', href='#')
 
 
-                                            li(role='presentation')
-                                                a(role='menuitem', tabindex='-1', href='/Privacy') Privacy
-                                            li.divider(role='presentation')
-                                            li(role='presentation')
-                                                a(role='menuitem', tabindex='-1', href='/AboutUs') About Us
 
            .container-fuild
 
@@ -70,31 +58,13 @@ html(lang='en')
 
 
            div.footerPanel#panelMain
-                .raw-fluid
-                    .span5
-                        div.panelInternal
-                            div.addthis_toolbox.addthis_default_style.addthis_32x32_style
-                                a(class="addthis_button_preferred_1")
-                                a(class="addthis_button_preferred_2")
-                                a(class="addthis_button_preferred_3")
-                                a(class="addthis_button_compact")
-                                a(class="addthis_counter addthis_bubble_style")
-                                span.companyInfo
-                                    a(href="/AboutUs") About US
-                                span.companyInfo
-                                    a(href="/Privacy") Privacy
+                span.companyInfo
+                    a(href="/AboutUs") About US
+                span.companyInfo
+                   a(href="/Privacy") Privacy
 
+                span.copyr Copyright © 2013, Keentour.com
 
-
-
-                    .span7
-                        .advBlock
-                            script(type='text/javascript')
-                                google_ad_client = "ca-pub-4780158497290031";
-                                google_ad_slot = "3076361783";
-                                google_ad_width = 728;
-                                google_ad_height = 15;
-                            script(type='text/javascript', src='http://pagead2.googlesyndication.com/pagead/show_ads.js')
 
                script(type='text/javascript')
                 var _gaq = _gaq || [];
