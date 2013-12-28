@@ -83,7 +83,7 @@ require(["jquery","storiesList","inheritance","flickrWidget","wikiPediaWidget","
 
         });
 
-    flickrWidget.prototype.container = $("<div id='divContent'  class='widgetInternal'><div class='photoFeed'></div><div class='paging' id='photoPaging'></div></div>");
+    flickrWidget.prototype.container = $("<div id='divContent'><div class='photoFeed'></div><div class='paging' id='photoPaging'></div></div>");
 
     contentWidget.parts[contentWidget.parts.length] = flickrWidget;
 
@@ -99,7 +99,7 @@ require(["jquery","storiesList","inheritance","flickrWidget","wikiPediaWidget","
             }
         });
 
-    wikiWidget.prototype.container = $("<div id='wikiMain' class='widgetInternal'><div id='divBreadCrumb'></div><div class ='articles'></div></div>");
+    wikiWidget.prototype.container = $("<div id='wikiMain' ><div id='divBreadCrumb'></div><div class ='articles'></div></div>");
     contentWidget.parts[ contentWidget.parts.length] = wikiWidget;
 
 
@@ -115,7 +115,7 @@ require(["jquery","storiesList","inheritance","flickrWidget","wikiPediaWidget","
         });
 
 
-    youtubeWidget.prototype.container = $("<div id='youTubeMain'  class='widgetInternal'><div id='videos'></div><div id='videoPaging' class='paging'></div></div>");
+    youtubeWidget.prototype.container = $("<div id='youTubeMain'><div id='videos'></div><div id='videoPaging' class='paging'></div></div>");
 
 
 
@@ -129,12 +129,12 @@ require(["jquery","storiesList","inheritance","flickrWidget","wikiPediaWidget","
                 this.instance  =  storiesList;
             },
             getIcon: function () {
-                return "/images/stories.jpg";
+                return "/images/idea.jpg";
             }
         });
 
     storiesWidget.prototype.storiesList = storiesList;
-    storiesWidget.prototype.container = $("<div id='divContent' class='widgetInternal'></div>");
+    storiesWidget.prototype.container = $("<div id='divContent'></div>");
     contentWidget.parts[contentWidget.parts.length] = storiesWidget;
 
 
@@ -152,7 +152,7 @@ require(["jquery","storiesList","inheritance","flickrWidget","wikiPediaWidget","
 
             },
             _create : function(){
-               var $tabs  =  $('<div class="tabs"><span class="widgetTitle selected" rel="stories"><a rel="stories"><img src="/images/stories.jpg"></a><a class="tabTitle" rel="stories">Stories</a></span><span class="widgetTitle" rel="videos"><a rel="videos"><img src="/images/kamera.png"></a><a class="tabTitle" rel="videos">Videos</a></span><span class="widgetTitle" rel="photos"><a rel="photos"><img src="/images/photokamera.png"></a><a class="tabTitle" rel="photos">Photos</a></span><span class="widgetTitle" rel="article"><a rel="article"><img src="/images/wikipedia.png"></a><a class="tabTitle" rel="article">Wikipedia</a></span></div><div id="widgetsDisplay"></div>')
+               var $tabs  =  $('<div class="tabs"><span class="widgetTitle selected" rel="stories"><a rel="stories"><img style="width:80px;" src="/images/idea.jpg"></a><a class="tabTitle" rel="stories">Ideas</a></span><span class="widgetTitle" rel="videos"><a rel="videos"><img src="/images/kamera.png"></a><a class="tabTitle" rel="videos">Videos</a></span><span class="widgetTitle" rel="photos"><a rel="photos"><img src="/images/photokamera.png"></a><a class="tabTitle" rel="photos">Photos</a></span><span class="widgetTitle" rel="article"><a rel="article"><img src="/images/wikipedia.png"></a><a class="tabTitle" rel="article">Wikipedia</a></span></div><div id="widgetsDisplay"></div>')
                             .appendTo(this.element);
 
                 var widgetTabs = $($tabs).find('.widgetTitle');

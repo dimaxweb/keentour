@@ -30,7 +30,7 @@ define('contentWidget',["jquery","storiesList","inheritance","flickrWidget","wik
 
         });
 
-    flickrWidget.prototype.container = $("<div id='divContent'  class='widgetInternal'><div class='photoFeed'></div><div class='paging' id='photoPaging'></div></div>");
+    flickrWidget.prototype.container = $("<div id='divContent'><div class='photoFeed'></div><div class='paging' id='photoPaging'></div></div>");
 
     contentWidget.parts[contentWidget.parts.length] = flickrWidget;
 
@@ -62,7 +62,7 @@ define('contentWidget',["jquery","storiesList","inheritance","flickrWidget","wik
         });
 
 
-    youtubeWidget.prototype.container = $("<div id='youTubeMain'  class='widgetInternal'><div id='videos'></div><div id='videoPaging' class='paging'></div></div>");
+    youtubeWidget.prototype.container = $("<div id='youTubeMain'><div id='videos'></div><div id='videoPaging' class='paging'></div></div>");
 
 
 
