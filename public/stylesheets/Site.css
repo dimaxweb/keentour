@@ -54,7 +54,9 @@ table.content a:hover {
 {
 
     background:url("../images/fonsfera.png");
-    border-bottom: solid 3px #95ADC7;
+    border-bottom: thin 3px #95ADC7;
+    margin: 0px 0px 25px 0px;
+    height: 105px;
 
 }
 
