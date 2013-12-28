@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Документ без названия</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+window.onload= function() {
+	document.getElementById('toggler').onclick = function() {
+		openbox('box', this);
+		return false;
+	};
+};
+function openbox(id, toggler) {
+	var div = document.getElementById(id);
+	if(div.style.display == 'block') {
+		div.style.display = 'none';
+		toggler.innerHTML = '<div class="history"><img style="float:right;" src="image/arrow_r.png"/><span>open</span>User history viewed items</div>';
+	}
+	else {
+		div.style.display = 'block';
+		toggler.innerHTML = '<div class="history2"><img style="float:right;" src="image/arrow_b.png"/><span>close</span>User history viewed items</div>';
+	}
+}
+
+</script>
+</head>
+
+<body>
+<table align="0" cellspacing="0" class="body_table">
+   <tr>
+   <td rowspan="2" class="body_left">.
+   </td>
+   <td class="body_center">
+
+
+<table width="983" border="0" cellspacing="0" cellpadding="0" class="shapka">
+  <tr>
+    <td class="logo"><a href="index.html" title="Главная"><div></div></a></td>
+    <td class="shapka1">&nbsp;</td>
+    <td class="shapka2">
+<div class="search">
+<form id="Index" method="post" action="/Content/SearchWmid">
+<input id="searchtext" type="text" name="wmid" maxlength="12" onFocus="if(this.value=='search...') this.value='';" onBlur="if(!this.value) this.value='search...';" value='search...'>
+<input id="searchbtn" type="submit" value="">
+</form>
+</div>
+
+<a id="toggler" class="history_link" href="#"><div class="history"><img style="float:right;" src="image/arrow_r.png"/><span>open</span>User history viewed items</div></a>
+<div id="box" style="display: none;" class="history_block">
+<ol>
+<li><a href="#">United kingdom</a></li>
+<li><a href="#">London</a></li>
+<li><a href="#">UK - London National Museum</a></li>
+</ol>
+<p><a href="#">Save</a>       <a href="#">Email</a>       <a href="#">Clear</a></p>
+</div>
+    </td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="0" class="top_menu">
+  <tr>
+    <td><a href="#"><div class="top_menu1"><div>Europe & Asia</div></div></a></td>
+    <td><a href="#"><div class="top_menu1"><div>South America</div></div></a></td>
+    <td><a href="#"><div class="top_menu1"><div>North America</div></div></a></td>
+    <td><a href="#"><div class="top_menu1"><div>Africa</div></div></a></td>
+    <td class="top_menu_r"><a href="#"><div class="top_menu1"><div>Australia</div></div></a></td>
+  </tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" class="content">
+  <tr>
+    <td class="center">
+<div class="new_photos">
+<div class="new_photos_title">
+<img src="image/photokamera.png"/>
+<h3>New Photos</h3>
+</div>
+<table class="new_photos_photo"><tr>
+<td><a href="#"><p><img src="image/Main1.jpg"/></p></a><b>Picture Title</b><br><a href="#">France</a> | <a href="#">Paris</a></td>
+<td><a href="#"><p><img src="image/Main2.jpg"/></p></a><b>Picture Title 2</b><br><a href="#">France</a> | <a href="#">Paris 2</a></td>
+<td><a href="#"><p><img src="image/Main3.jpg"/></p></a><b>Picture Title 3</b><br><a href="#">France</a> | <a href="#">Paris 3</a></td>
+<td><a href="#"><p><img src="image/Main3.jpg"/></p></a><b>Picture Title 3</b><br><a href="#">France</a> | <a href="#">Paris 3</a></td>
+</tr><tr>
+<td><a href="#"><p><img src="image/Main4.jpg"/></p></a><b>Picture Title 4</b><br><a href="#">France</a> | <a href="#">Paris 4</a></td>
+<td><a href="#"><p><img src="image/Main5.jpg"/></p></a><b>Picture Title 5</b><br><a href="#">France</a> | <a href="#">Paris 5</a></td>
+<td><a href="#"><p><img src="image/Main6.jpg"/></p></a><b>Picture Title 6</b><br><a href="#">France</a> | <a href="#">Paris 6</a></td>
+<td><a href="#"><p><img src="image/Main6.jpg"/></p></a><b>Picture Title 6</b><br><a href="#">France</a> | <a href="#">Paris 6</a></td>
+</tr></table>
+</div>
+
+<div class="new_photos">
+<div class="new_photos_title">
+<h3>New Videos</h3>
+<img src="image/kamera.png"/>
+</div>
+<table class="new_photos_photo"><tr>
+<td><a href="#"><div class="play"></div><p><img src="image/Main1.jpg"/></p></a><b>Picture Title</b><br><a href="#">France</a> | <a href="#">Paris</a></td>
+<td><a href="#"><div class="play"></div><p><img src="image/Main2.jpg"/></p></a><b>Picture Title 2</b><br><a href="#">France</a> | <a href="#">Paris 2</a></td>
+<td><a href="#"><div class="play"></div><p><img src="image/Main3.jpg"/></p></a><b>Picture Title 3</b><br><a href="#">France</a> | <a href="#">Paris 3</a></td>
+<td><a href="#"><div class="play"></div><p><img src="image/Main3.jpg"/></p></a><b>Picture Title 3</b><br><a href="#">France</a> | <a href="#">Paris 3</a></td>
+</tr><tr>
+<td><a href="#"><div class="play"></div><p><img src="image/Main4.jpg"/></p></a><b>Picture Title 4</b><br><a href="#">France</a> | <a href="#">Paris 4</a></td>
+<td><a href="#"><div class="play"></div><p><img src="image/Main5.jpg"/></p></a><b>Picture Title 5</b><br><a href="#">France</a> | <a href="#">Paris 5</a></td>
+<td><a href="#"><div class="play"></div><p><img src="image/Main6.jpg"/></p></a><b>Picture Title 6</b><br><a href="#">France</a> | <a href="#">Paris 6</a></td>
+<td><a href="#"><div class="play"></div><p><img src="image/Main6.jpg"/></p></a><b>Picture Title 6</b><br><a href="#">France</a> | <a href="#">Paris 6</a></td>
+</tr></table>
+</div>
+    </td>
+    <td class="sidbar">
+<div class="popular_countries">
+<div class="popular_countries_title">
+<h3>Popular Countries</h3>
+<img src="image/planet.png"/>
+</div>
+<table class="popular_countries_flag"><tr>
+<td><a href="#"><img src="image/france.png"/></a><br>France</td>
+<td><a href="#"><img src="image/greece.png"/></a><br>Greece</td>
+</tr><tr>
+<td><a href="#"><img src="image/portugal.png"/></a><br>Greece</td>
+<td><a href="#"><img src="image/netherlands.png"/></a><br>Netherlands</td>
+</tr><tr>
+<td><a href="#"><img src="image/russian.png"/></a><br>Russian<br/>Federation</td>
+<td><a href="#"><img src="image/sweden.png"/></a><br>Sweden</td>
+</tr><tr>
+<td><a href="#"><img src="image/spain.png"/></a><br>Spain</td>
+<td><a href="#"><img src="image/sanmarino.png"/></a><br>San Marino</td>
+</tr></table>
+</div>
+
+<div class="popular_cities">
+<div class="popular_cities_title">
+<h3>Popular Cities</h3>
+<img src="image/citys.png"/>
+</div>
+<ul>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;London</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Paris</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Budapest</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Prague</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Rio De Janeiro</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Kiev</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;New York</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Liverpool</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;London</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Paris</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Budapest</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Prague</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;London</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Paris</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Budapest</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Prague</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Rio De Janeiro</li></a>
+<a href="#"><li>&#8226;&nbsp;&nbsp;&nbsp;Kiev</li></a>
+</ul>
+</div>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+   </td>
+   <td rowspan="2" class="body_right">.
+   </td>
+   </tr>
+   <tr><td class="footer"><center>
+<a href="#">About US</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Terms of Use</a>
+<div class="copyr">
+Copyright &copy; 2011, <a href="#">Keentour.com</a>
+</div>
+   </center></td></tr>
+</table>
+</body>
+</html>

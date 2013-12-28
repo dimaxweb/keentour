@@ -1,9 +1,10 @@
 body {
     background: url("../images/fon_top.jpg") repeat-x scroll center top transparent;
-    color: #555555;
+    color: #555;
     font-family: Arial;
     font-size: 13px;
     margin: 0;
+
 }
 
 img {
@@ -53,6 +54,7 @@ table.content a:hover {
 {
 
     background:url("../images/fonsfera.png");
+    border-bottom: solid 3px #95ADC7;
 
 }
 
@@ -178,7 +180,7 @@ div.history_link {
 
 
 .headerNav{
-    margin: 15px 150px 0px 100px;
+    margin: 15px 150px 0px 0px;
 
 }
 
@@ -1127,6 +1129,7 @@ div.popular_places li:hover {
     /*background: -ms-linear-gradient(top, #DAEBF2, #94ACC6);*/
     background: -o-linear-gradient(top, #DAEBF2, #94ACC6);
     padding-left: 5%;
+    border-top: solid 3px #95ADC7;
 
 }
 
@@ -1134,11 +1137,6 @@ div.popular_places li:hover {
     margin-left: 20px;
 }
 
-.panelInternal {
-    position: relative;
-    top: 12px;
-    margin-left: 5%;
-}
 
 #menuResultsPaging {
     margin-left: 175px;
@@ -2097,11 +2095,7 @@ table.content a:hover {
 
 /**************************** top *******************************/
 
-.header
-{
-    margin-top: 10px;
 
-}
 
 .logoCont
 {
