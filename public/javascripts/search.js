@@ -111,10 +111,10 @@
 
                     }).tooltip('show');
 
-                 setTimeout(function(){$(container).tooltip('hide');},3000);
+                 setTimeout(function(){$(container).tooltip('hide');},5000);
                  storage.setObject('toolTipShown',true);
 
-                },500);
+                },1000);
             }
 
 
