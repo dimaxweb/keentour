@@ -127,7 +127,7 @@ require(["storage","geonames","search","contentWidget"], function (storage,geona
                 }
 
                 $(this).data('checked',true);
-                tags = $(this).text();
+                tags = $(this).data('tag');
 
 
             }
