@@ -101,10 +101,7 @@ require(["storage","geonames","search","contentWidget"], function (storage,geona
         */
         $('#mainCont').contentify();
 
-        var filterOptions = $('.interests');
-        $.each(KEENTOUR.interests,function(i,item){
-           $("<li><a class='filterOption'>" + item +"</a></li>").appendTo(filterOptions);
-        });
+
 
         /*
          bind click on interests
@@ -120,7 +117,15 @@ require(["storage","geonames","search","contentWidget"], function (storage,geona
 
             } else{
 
-                $('.filterOptionSelected').attr('class','filterOption');
+                /*
+                   workaround to jquery remove class not working
+                 */
+                var selectedTag =$('.filterOptionSelected');
+                if(selectedTag.length > 0){
+                    var prevClass = $(selectedTag).attr('class').split(' ')[0];
+                    $('.filterOptionSelected').attr('class',prevClass + ' filterOption');
+                }
+
                 $(this).data('checked',true);
                 tags = $(this).text();
 
@@ -130,21 +135,13 @@ require(["storage","geonames","search","contentWidget"], function (storage,geona
 
             $(this).toggleClass('filterOption filterOptionSelected');
 
-           KEENTOUR.setTags(tags);
+            KEENTOUR.setTags(tags);
 
 
             $(document).scrollTop(0);
         });
 
-        $('.filterClose').on('click',function(e){
-            $('.filterItems').hide();
-            $('.filter').show();
-        });
 
-        $('.filter').on('click',function(e){
-           $(this).hide();
-           $('.filterItems').show();
-       });
 
 
 

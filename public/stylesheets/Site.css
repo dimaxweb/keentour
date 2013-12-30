@@ -129,56 +129,6 @@ p.notice {
     font-size: 12px;
 }
 
-/*** history ***/
-div.history {
-    background: url(../images/history_link_1.jpg) repeat-x top;
-    border: 1px #eee solid;
-    border-radius: 8px;
-    -moz-border-radius: 8px;
-    width: 236px;
-    height: 22px;
-    margin-top: 10px;
-    padding: 2px 5px 0px 5px;
-}
-
-div.history img {
-    margin-top: 4px;
-    margin-right: 3px;
-}
-
-div.history span {
-    margin-right: 24px;
-    color: #777;
-    text-decoration: none;
-    border-bottom: 1px #888 dashed;
-}
-
-div.history2 {
-    background: url(../images/history_link_2a.jpg) repeat-x top;
-    width: 236px;
-    height: 22px;
-    margin-top: 10px;
-    padding: 2px 5px 0px 5px;
-    border: 1px #ddd solid;
-    border-bottom: none;
-    border-radius: 8px 8px 0px 0px;
-    -moz-border-radius: 8px 8px 0px 0px;
-}
-
-div.history2 img {
-    margin-top: 7px;
-    margin-right: 2px;
-}
-
-div.history2 span {
-    margin-right: 21px;
-    color: #777;
-    text-decoration: none;
-    border-bottom: 1px #888 dashed;
-}
-
-div.history_link {
-}
 
 
 .headerNav{
@@ -189,69 +139,6 @@ div.history_link {
 .createStory{
     background-color: #008F00 !important;
 }
-
-div.history_block ol {
-    margin: 0;
-}
-
-div.history_block li {
-    margin-bottom: 2px;
-}
-
-div.history_block ol a {
-    color: #333;
-}
-
-div.history_block p a {
-    margin-left: 21px;
-    margin-right: 10px;
-    text-decoration: underline;
-    color: #444;
-}
-
-div.history_block p a:hover {
-    text-decoration: none;
-}
-
-/************************ ������� ���� ****************************/
-table.top_menu {
-
-    height: 38px;
-    position: relative;
-
-}
-
-table.top_menu td {
-    text-align: center;
-    width: 16.5%;
-}
-
-div.top_menu1 {
-    height: 16px;
-    margin-top: -1px;
-    padding-top: 9px;
-    padding-bottom: 11px;
-    cursor:pointer;
-}
-
-a:hover div.top_menu1 {
-    background: url(../images/arrowred.png) no-repeat center -140px;
-}
-
-table.top_menu div div {
-    border-right: 1px #ddd dotted;
-}
-
-td.top_menu_r div div {
-    border: none;
-}
-
-table.top_menu a {
-    color: #fff;
-    font-size: 16px;
-    letter-spacing: 1px;
-}
-
 /**************************** sidbar ******************************/
 td.sidbar {
     width: 21%;
@@ -1146,27 +1033,101 @@ div.popular_places li:hover {
     text-align: right;
 }
 
+/*
+  Menu filter
+*/
+
 .filter
 {
     margin-left: 100px;
 }
 
-.filterOption {
-    background-color: #B0C2D5;
-    margin: 10px;
-    color: White !important;
+.filterOption{
+    background-image: url('../images/filter.png');
+    height: 37px;
+    width: 150px;
+    margin  : 5px 0px;
+    /*border: 2px solid #000000;*/
     cursor: pointer;
-    width: 40px;
-    height: 25px;
-    -moz-border-radius: 25px 10px / 10px 25px;
-    border-radius: 25px 10px / 10px 25px;
-    padding: 5px;
-
 }
 
 .filterOptionSelected {
-    background-color: #738CB7 !important;
+    opacity: 0.5;
+    background-image: url('../images/filter.png');
+    height: 37px;
+    width: 150px;
+    margin  : 5px 0px;
+    /*border: 2px solid #000000;*/
+    cursor: pointer;
 }
+
+.filterOption:hover{
+    opacity: 0.5;
+}
+
+.artculture{
+    background-position: center -55px;
+
+}
+.romance{
+    background-position: center -90px;
+
+}
+
+.foodwine
+{
+    background-position: center -128px;
+
+}
+.nightlife{
+    background-position: center -169px;
+
+}
+
+.hotel{
+    background-position: center -207px;
+}
+
+.events{
+    background-position: center -244px;
+
+
+}
+
+.history{
+    background-position: center -287px;
+
+}
+
+.culture{
+    background-position: center -329px;
+
+
+}
+
+.shopping{
+    background-position: center -366px;
+
+
+
+}
+
+.skiing{
+    background-position: center -408px;
+
+}
+
+.adventure{
+    background-position: center -450px;
+
+
+}
+
+.spa{
+    background-position: center -489px;
+}
+
+
 
 #menuFilter {
 
@@ -1302,112 +1263,10 @@ p.notice{
     font-size:12px;
 }
 
-/*** history ***/
-div.history{
-    background:url(../images/history_link_1.jpg) repeat-x top;
-    border:1px #eee solid;
-    border-radius:8px;
-    -moz-border-radius:8px;
-    width:236px;
-    height:22px;
-    margin-top:10px;
-    padding:2px 5px 0px 5px;
-}
-div.history img{
-    margin-top:4px;
-    margin-right:3px;
-}
-div.history span{
-    margin-right:24px;
-    color:#777;
-    text-decoration:none;
-    border-bottom:1px #888 dashed;
-}
-div.history2{
-    background:url(../images/history_link_2a.jpg) repeat-x top;
-    width:236px;
-    height:22px;
-    margin-top:10px;
-    padding:2px 5px 0px 5px;
-    border:1px #ddd solid;
-    border-bottom:none;
-    border-radius:8px 8px 0px 0px;
-    -moz-border-radius:8px 8px 0px 0px;
-}
-div.history2 img{
-    margin-top:7px;
-    margin-right:2px;
-}
-div.history2 span{
-    margin-right:21px;
-    color:#777;
-    text-decoration:none;
-    border-bottom:1px #888 dashed;
-}
-div.history_link{}
-div.history_block{
-    position:absolute;
-    width:236px;
-    min-height:50px;
-    padding:5px;
-    background:#fff url(../images/history_link_2b.jpg) repeat-x top;
-    border:1px #ddd solid;
-    border-top:none;
-    border-radius:0px 0px 8px 8px;
-    -moz-border-radius:0px 0px 8px 8px;
-}
-div.history_block ol{
-    margin:0;
-}
-div.history_block li{
-    margin-bottom:2px;
-}
-div.history_block ol a{
-    color:#333;
-}
-div.history_block p a{
-    margin-left:21px;
-    margin-right:10px;
-    text-decoration:underline;
-    color:#444;
-}
 
-/********************** Table styles ****************************/
-table.top_menu{
-    width:100%;
-    height:38px;
-}
-
-
-div.top_menu1{
-    height:16px;
-    margin-top:-1px;
-    padding-top:9px;
-    padding-bottom:11px;
-    background:url(../images/arrowred.png) no-repeat center top;
-    text-shadow: 1px 1px 0px #95ADC7;
-
-}
-a:hover div.top_menu1{
-    background:url(../images/arrowred.png) no-repeat center -140px;
-}
-table.top_menu div div{
-    border-right:1px #ddd dotted;
-}
-td.top_menu_r div div{
-    border:none;
-}
-table.top_menu a{
-    color:#fff;
-    font-size:16px;
-    letter-spacing:1px;
-}
 
 /**************************** sidbar ******************************/
-td.sidbar{
-    width:200px;
-    padding-top:12px;
-}
+
 
 /*** Popular Countries ***/
 div.popular_countries{
@@ -2151,129 +2010,6 @@ p.notice {
     font-size: 12px;
 }
 
-/*** history ***/
-div.history {
-    background: url(../images/history_link_1.jpg) repeat-x top;
-    border: 1px #eee solid;
-    border-radius: 8px;
-    -moz-border-radius: 8px;
-    width: 236px;
-    height: 22px;
-    margin-top: 10px;
-    padding: 2px 5px 0px 5px;
-}
-
-div.history img {
-    margin-top: 4px;
-    margin-right: 3px;
-}
-
-div.history span {
-    margin-right: 24px;
-    color: #777;
-    text-decoration: none;
-    border-bottom: 1px #888 dashed;
-}
-
-div.history2 {
-    background: url(../images/history_link_2a.jpg) repeat-x top;
-    width: 236px;
-    height: 22px;
-    margin-top: 10px;
-    padding: 2px 5px 0px 5px;
-    border: 1px #ddd solid;
-    border-bottom: none;
-    border-radius: 8px 8px 0px 0px;
-    -moz-border-radius: 8px 8px 0px 0px;
-}
-
-div.history2 img {
-    margin-top: 7px;
-    margin-right: 2px;
-}
-
-div.history2 span {
-    margin-right: 21px;
-    color: #777;
-    text-decoration: none;
-    border-bottom: 1px #888 dashed;
-}
-
-div.history_link {
-}
-
-
-
-div.history_block ol {
-    margin: 0;
-}
-
-div.history_block li {
-    margin-bottom: 2px;
-}
-
-div.history_block ol a {
-    color: #333;
-}
-
-div.history_block p a {
-    margin-left: 21px;
-    margin-right: 10px;
-    text-decoration: underline;
-    color: #444;
-}
-
-div.history_block p a:hover {
-    text-decoration: none;
-}
-
-/************************ ������� ���� ****************************/
-table.top_menu {
-
-    height: 38px;
-    position: relative;
-
-
-}
-
-table.top_menu td {
-    text-align: center;
-    width: 16.5%;
-}
-
-div.top_menu1 {
-    height: 16px;
-    margin-top: -1px;
-    padding-top: 9px;
-    padding-bottom: 11px;
-    cursor:pointer;
-}
-
-div.top_menu1right {
-    height: 16px;
-    margin-top: -1px;
-    padding-top: 9px;
-    padding-bottom: 11px;
-    cursor:pointer;
-}
-
-a:hover div.top_menu1 {
-    background: url(../images/arrowred.png) no-repeat center -140px;
-}
-
-table.top_menu div div {
-    border-right: 1px #ddd dotted;
-}
-
-td.top_menu_r div div {
-    border: none;
-}
-
-table.top_menu a {
-    color: #fff;
-    font-size: 16px;
-    letter-spacing: 1px;
-}
 
 /**************************** sidbar ******************************/
 td.sidbar {
@@ -2991,22 +2727,8 @@ div.popular_places li:hover {
     text-align: right;
 }
 
-.filterOption {
-    background-color: #B0C2D5;
-    margin: 10px;
-    color: White !important;
-    cursor: pointer;
-    width: 40px;
-    height: 25px;
-    -moz-border-radius: 25px 10px / 10px 25px;
-    border-radius: 25px 10px / 10px 25px;
-    padding: 5px;
 
-}
 
-.filterOptionSelected {
-    background-color: #738CB7 !important;
-}
 
 #menuFilter {
 
@@ -3141,112 +2863,7 @@ div.popular_places li:hover {
 p.notice{
     font-size:12px;
 }
-
-/*** history ***/
-div.history{
-    background:url(../images/history_link_1.jpg) repeat-x top;
-    border:1px #eee solid;
-    border-radius:8px;
-    -moz-border-radius:8px;
-    width:236px;
-    height:22px;
-    margin-top:10px;
-    padding:2px 5px 0px 5px;
-}
-div.history img{
-    margin-top:4px;
-    margin-right:3px;
-}
-div.history span{
-    margin-right:24px;
-    color:#777;
-    text-decoration:none;
-    border-bottom:1px #888 dashed;
-}
-div.history2{
-    background:url(../images/history_link_2a.jpg) repeat-x top;
-    width:236px;
-    height:22px;
-    margin-top:10px;
-    padding:2px 5px 0px 5px;
-    border:1px #ddd solid;
-    border-bottom:none;
-    border-radius:8px 8px 0px 0px;
-    -moz-border-radius:8px 8px 0px 0px;
-}
-div.history2 img{
-    margin-top:7px;
-    margin-right:2px;
-}
-div.history2 span{
-    margin-right:21px;
-    color:#777;
-    text-decoration:none;
-    border-bottom:1px #888 dashed;
-}
-div.history_link{}
-div.history_block{
-    position:absolute;
-    width:236px;
-    min-height:50px;
-    padding:5px;
-    background:#fff url(../images/history_link_2b.jpg) repeat-x top;
-    border:1px #ddd solid;
-    border-top:none;
-    border-radius:0px 0px 8px 8px;
-    -moz-border-radius:0px 0px 8px 8px;
-}
-div.history_block ol{
-    margin:0;
-}
-div.history_block li{
-    margin-bottom:2px;
-}
-div.history_block ol a{
-    color:#333;
-}
-div.history_block p a{
-    margin-left:21px;
-    margin-right:10px;
-    text-decoration:underline;
-    color:#444;
-}
-
-/********************** Table styles ****************************/
-table.top_menu{
-    width:100%;
-    height:38px;
-}
-
-
-div.top_menu1{
-    height:16px;
-    margin-top:-1px;
-    padding-top:9px;
-    padding-bottom:11px;
-    background:url(../images/arrowred.png) no-repeat center top;
-}
-a:hover div.top_menu1{
-    background:url(../images/arrowred.png) no-repeat center -140px;
-}
-table.top_menu div div{
-    border-right:1px #ddd dotted;
-}
-td.top_menu_r div div{
-    border:none;
-}
-table.top_menu a{
-    color:#fff;
-    font-size:16px;
-    letter-spacing:1px;
-}
-
 /**************************** sidbar ******************************/
-td.sidbar{
-    width:200px;
-    padding-top:12px;
-}
-
 /*** Popular Countries ***/
 div.popular_countries{
     margin-bottom:10px;
@@ -3882,31 +3499,9 @@ ul {
     margin-top : 15%;
 }
 
-.filterOption {
-    background-color: #B0C2D5;
-    color: White !important;
-    cursor: pointer;
-    height: 25px;
-    border-radius: 25px 10px / 10px 25px;
-    margin-top : 10px ;
-    display:block;
-    width: 80%;
-    text-align: center;
 
-}
 
-.filterOptionSelected {
-    background-color: #738CB7 !important;
-    color: White !important;
-    cursor: pointer;
-    height: 25px;
-    border-radius: 25px 10px / 10px 25px;
-    margin-top : 10px ;
-    display:block;
-    width: 80%;
-    text-align: center;
 
-}
 
 .copyr{
     font-style: italic;

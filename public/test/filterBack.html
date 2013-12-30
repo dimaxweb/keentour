@@ -5,33 +5,120 @@
 </head>
 <body>
 <style>
+
+
     .filterOption{
-        width: 100px;
-        height: 100px;
+        background-image: url('../images/filter.png');
+        height: 37px;
+        width: 150px;
+        margin  : 5px 0px;
+        /*border: 2px solid #000000;*/
+        cursor: pointer;
+    }
+
+    .filterOption:hover{
+        opacity: 0.5;
     }
 
     .artculture{
-        background-image:url('../images/filter.png');
+        background-position: center -55px;
+
+    }
+    .romance{
+        background-position: center -90px;
+
+    }
+
+    .foodwine
+    {
+        background-position: center -128px;
+
+    }
+    .nightlife{
+        background-position: center -169px;
+
+    }
+
+    .hotel{
+        background-position: center -207px;
+    }
+
+    .events{
+        background-position: center -244px;
+
+
+    }
+
+    .history{
+        background-position: center -287px;
+
+    }
+
+    .culture{
+        background-position: center -329px;
+
+
+    }
+
+    .shopping{
+        background-position: center -366px;
+
+
+
+    }
+
+    .skiing{
+        background-position: center -408px;
+
+    }
+
+    .adventure{
+        background-position: center -450px;
+
+
+    }
+
+    .spa{
+        background-position: center -489px;
+    }
+
+
+
+
+
+    .wholeImage{
+        background-image: url('../images/filter.png');
         background-repeat:no-repeat;
-        background-attachment:fixed;
-        background-position:0px 150px;
+        height:600px;
+        max-width: 100%;
+        margin-top: 100px;
     }
 
 </style>
-<ul class="interests">
-    <li><a class="filterOption">Adventure</a></li>
-    <li><a class="filterOption artculture">Art &amp; Culture</a></li>
-    <li><a class="filterOption">Event</a></li>
-    <li><a class="filterOption">Family</a></li>
-    <li><a class="filterOption">Food &amp; Wine</a></li>
-    <li><a class="filterOption">History</a></li>
-    <li><a class="filterOption">Hotel</a></li>
-    <li><a class="filterOption">Nightlife</a></li>
-    <li><a class="filterOption">Romance</a></li>
-    <li><a class="filterOption">Shopping</a></li>
-    <li><a class="filterOption">Skiing</a></li>
-    <li><a class="filterOption">Spa</a></li>
-</ul>
+
+<div class="filter">
+    <div class="filterTitle">FILTER</div>
+    <div class="artculture filterOption"></div>
+    <div class="romance filterOption"></div>
+    <div class="foodwine filterOption"></div>
+    <div class="nightlife filterOption"></div>
+    <div class="hotel filterOption"></div>
+    <div class="events filterOption"></div>
+    <div class="history filterOption"></div>
+    <div class="culture filterOption"></div>
+    <div class="shopping filterOption"></div>
+    <div class="skiing filterOption"></div>
+    <div class="adventure filterOption"></div>
+    <div class="spa filterOption"></div>
+</div>
+
+
+
+
+
+<div class="wholeImage">
+
+</div>
 
 </body>
 </html>
