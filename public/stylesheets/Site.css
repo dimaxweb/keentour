@@ -1067,6 +1067,23 @@ div.popular_places li:hover {
     cursor: pointer;
 }
 
+.facebook{
+    background-color: #55719d;
+    color: white;
+    font-weight: bold;
+    display: block;
+    width:150px;
+    height: 30px;
+    padding:10px 10px 5px 10px;
+    margin: auto;
+
+
+}
+
+.facebook span{
+   text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+}
+
 .resultTitle{
     color:#95ADC7;
     font-size: 130%;
