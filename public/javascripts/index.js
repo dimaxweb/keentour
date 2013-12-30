@@ -64,6 +64,8 @@ KEENTOUR.setGeoItem  = function(geoItem){
 
     KEENTOUR.filterState.geoItem = window.contentData.geoItem = geoItem;
     console.log("Setting content data from geoItem", window.contentData);
+
+    $('.resultTitleName').text(geoItem.name);
     $('#mainCont').contentify();
 }
 

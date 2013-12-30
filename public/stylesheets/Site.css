@@ -54,9 +54,7 @@ table.content a:hover {
 {
 
     background:url("../images/fonsfera.png");
-    border-bottom: thin 3px #95ADC7;
-    margin: 0px 0px 25px 0px;
-    height: 105px;
+    height: 102px;
 
 }
 
@@ -1039,7 +1037,15 @@ div.popular_places li:hover {
 
 .filter
 {
-    margin-left: 100px;
+    margin-left: 90px;
+}
+
+.filterTitle{
+     margin:0px 0px 20px 0px;
+     color:#95ADC7;
+     font-weight: bold;
+    margin-left: 5px;
+    font-size: 130%;
 }
 
 .filterOption{
@@ -1060,6 +1066,19 @@ div.popular_places li:hover {
     /*border: 2px solid #000000;*/
     cursor: pointer;
 }
+
+.resultTitle{
+    color:#95ADC7;
+    font-size: 130%;
+}
+
+.resultTitleName{
+    color:#95ADC7;
+    font-weight: bold;
+    font-size: 150%;
+    margin-left:5px;
+}
+
 
 .filterOption:hover{
     opacity: 0.5;
