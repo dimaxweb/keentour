@@ -105,8 +105,8 @@
                setTimeout(function(){
                     ///bind tooltip
                     $(container).tooltip({
-                        title:'Let us impress you !  Type country,city,street name,"Berlin nightlife",...anything interesting you about travel',
-                        placement:'left',
+                        title:'Let us impress you !  Type you destination here...',
+                        placement:'bottom',
                         trigger:'manual'
 
                     }).tooltip('show');
@@ -114,7 +114,7 @@
                  setTimeout(function(){$(container).tooltip('hide');},3000);
                  storage.setObject('toolTipShown',true);
 
-                },2000);
+                },500);
             }
 
 
