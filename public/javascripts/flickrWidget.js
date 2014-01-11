@@ -341,7 +341,7 @@ require(["jquery", "jQueryUI", "flickrLib", "jquery.paginate", "twitter_grid", "
                                 */
                                 if(that.options.showTitle){
                                     var title = dataItem.title;
-                                    $('<div class="widgetItemName pull-left"><a>' + title + '</a></div>').appendTo(itemContainer);
+                                    $('<div class="widgetItemName pull-left"><a class="flickrPhotoTitle">' + title + '</a></div>').appendTo(itemContainer);
                                 }
 
 

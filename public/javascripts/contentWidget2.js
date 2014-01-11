@@ -1,4 +1,4 @@
-require(["jquery","storiesList","inheritance","flickrWidget","wikiPediaWidget","youtubeWidget"], function($,storiesList) {
+require(["jquery","storiesList","jQueryUI","inheritance","flickrWidget","wikiPediaWidget","youtubeWidget"], function($,storiesList) {
 
     var contentWidget =  {
         getWidgetKey  : function() {

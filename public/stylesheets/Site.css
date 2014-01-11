@@ -18,35 +18,7 @@ td {
     vertical-align: top;
 }
 
-/* originaly had background - background:url(../Content/image/fon_bottom.jpg) repeat-x bottom;*/
-table.body_table {
-    width: 100%;
-    height: 800px;
-    margin: 0px;
-}
 
-td.body_left, td.body_right {
-    width: 50%;
-    vertical-align: middle;
-    color: #fff;
-}
-
-td.body_center {
-    width: 983px;
-}
-
-table.content {
-    width: 100%;
-}
-
-table.content2 {
-    width: 875px;
-    margin-left: 50px;
-}
-
-table.content a:hover {
-    z-index: 1005
-}
 
 /**************************** top *******************************/
 
@@ -136,6 +108,8 @@ p.notice {
 
 .createStory{
     background-color: #008F00 !important;
+    width: 250px;
+    height: 75px;
 }
 /**************************** sidbar ******************************/
 td.sidbar {
@@ -299,31 +273,6 @@ div.books2_title h3 {
     border-bottom: 1px #ccc solid;
 }
 
-table.books2_photo {
-    width: 200px;
-}
-
-table.books2_photo td {
-    text-align: center;
-    font-size: 13px;
-}
-
-table.books2_photo td img {
-    width: 90px;
-}
-
-table.books2_photo td a {
-    color: #6889af;
-    text-decoration: underline;
-}
-
-table.books2_photo td a:hover {
-    text-decoration: none;
-}
-
-table.books2_photo td p {
-    margin: 0 0 10px 0;
-}
 
 /*********************  ************************/
 td.center {
@@ -924,6 +873,7 @@ ul {
 
 }
 
+
 .widgetInternal
 {
 
@@ -1055,6 +1005,8 @@ div.popular_places li:hover {
     margin  : 5px 0px;
     /*border: 2px solid #000000;*/
     cursor: pointer;
+
+
 }
 
 .filterOptionSelected {
@@ -1065,9 +1017,11 @@ div.popular_places li:hover {
     margin  : 5px 0px;
     /*border: 2px solid #000000;*/
     cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #95ADC7 ;
 }
 
-.facebook{
+.facebookAuth{
     background-color: #55719d;
     color: white;
     font-weight: bold;
@@ -1080,14 +1034,13 @@ div.popular_places li:hover {
 
 }
 
-.facebook span{
+.facebookAuth span{
    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
 }
 
 .resultTitle{
     color:#95ADC7;
-    font-size: 130%;
-}
+    font-size: 130%;}
 
 .resultTitleName{
     color:#95ADC7;
@@ -1892,7 +1845,7 @@ ul {
 {
     transition: all 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
     -webkit-transition: all 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
-    max-width: 115px;
+    max-width: 200px;
     margin-right: 12px;
     white-space: nowrap;
     font-size: 12px;
@@ -1904,7 +1857,7 @@ ul {
 
 .widgetItemName a:hover
 {
-    max-width: 280px;
+    max-width:300px;
     background: rgba(255, 255, 255, 0.9);
     padding-right: 1em;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
@@ -3233,63 +3186,11 @@ ul.pagination li.selekted a{
     text-decoration:none;
 }
 
-/*** Place ***/
-table.place{
-    width:100%;
-    margin-bottom:10px;
-}
-table.place a{
-    text-decoration:underline;
-}
-table.place a:hover{
-    text-decoration:none;
-}
-td.place1 h2{
-    font-weight:normal;
-    margin:0;
-}
-td.place2a{
-    text-align:center;
-}
-td.place2a img{
-    margin-bottom:7px;
-}
-td.place2a a{
-    color:#31A5CD;
-}
-td.place2b{
-}
-td.place2c{
-    text-align:justify;
-}
-td.place2c p{
-    text-align:right;
-    font-size:14px;
-}
-td.place2c p a{
-    color:#31A5CD;
-}
-td.place3{
-    text-align:right;
-    background:#DFEEF5;
-    height:27px;
-    vertical-align:middle;
-    padding-bottom:3px;
-}
 
 
 
-td.footer{
-    height:72px;
-    color:#395572;
-    padding-top:15px;
-}
-td.footer a{
-    color:#395572;
-}
-td.footer a:hover{
-    text-decoration:underline;
-}
+
+
 div.copyr{
     margin-top:7px;
     font-style:italic;
@@ -3556,5 +3457,16 @@ ul {
     background: #555;
     color: #fff;
 }
+
+
+.shareStory{
+    right: 0;
+    position: fixed;
+    top:30%;
+    display: block;
+}
+
+
+
 
 

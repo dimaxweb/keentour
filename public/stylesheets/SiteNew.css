@@ -3868,6 +3868,9 @@ ul {
 
 
 
+
+
+
 .filter {
 
     border-radius: 5px;
@@ -3906,6 +3909,7 @@ ul {
     right: 0;
     position: fixed;
     top:30%;
+    margin-left: 5px;
 }
 
 .copyright{

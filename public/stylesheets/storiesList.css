@@ -8,10 +8,12 @@
     margin: 1%;
 }
 
-.storyCont
-{
-    margin:2% 0%;
-    border-bottom: 1px solid #3baae3;
+.storyCont{
+    height: 350px;
+    padding: 10px;
+    background-color: #DFE5EA;
+    text-align: center;
+
 
 }
 

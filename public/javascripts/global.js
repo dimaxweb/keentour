@@ -156,6 +156,11 @@ require.config({
 
         modal :{
             deps : ["jquery"]
+        },
+
+        contentWidget:{
+          deps : ["jquery","jQueryUI"]
+
         }
 
 

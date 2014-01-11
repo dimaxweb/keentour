@@ -30,7 +30,7 @@ html(lang='en')
                                     input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
                                     input#searchbtn(type='button', value='')
                                 li.active
-                                    a.createStory(href='/story') Create
+                                    a.createStory(href='/story') Share Journey
                                 if isAuthenticated
                                     li.dropdown
                                         a#drop4.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
@@ -84,7 +84,7 @@ html(lang='en')
                            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
                            h4.modal-title Login to Keentour
                            .modal-body
-                               a.facebook(href='/auth/facebook')
+                               a.facebookAuth(href='/auth/facebook')
                                     span Login with Facebook
 
 

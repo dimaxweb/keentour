@@ -5,7 +5,7 @@
  * Time: 7:18 PM
  * To change this template use File | Settings | File Templates.
  */
-define(["jquery", "ajax-scroll","moment","css!storiesListCss"], function ($,undefined,moment){
+define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], function ($,undefined,moment,twitter_grid){
 
 
     var storiesList = {
@@ -16,11 +16,12 @@ define(["jquery", "ajax-scroll","moment","css!storiesListCss"], function ($,unde
 
         storiesRequestParams :{
             rowsToSkip   : 0,
-            storiesToShow  : 5,
+            storiesToShow  : 12,
             dateFormat : moment,
             userName : null,
             editMode : false,
-            lastStoryId : null
+            lastStoryId : null,
+            itemsPerRow:3
         },
 
 
@@ -87,21 +88,37 @@ define(["jquery", "ajax-scroll","moment","css!storiesListCss"], function ($,unde
             if (!stories) {
                 return;
             }
-            $.each(stories, function (i, story) {
-                try {
-                    storiesList._renderStory(story, element);
-                }
 
-                catch (e) {
-                     console.log("Error occurred:",e);
+            twitter_grid.gridify({
+                element:element,
+                data:stories,
+                itemsPerRow:storiesList.storiesRequestParams.itemsPerRow,
+                getItemContent:function (story, cell, grid) {
+                    if (story) {
+                        var itemContainer = $('<div class="storyCont" data-content="contentItem" />').appendTo(cell);
+                        storiesList._renderStory(story,itemContainer);
 
-                }
 
-            });
+
+                    }
+
+
+            }});
+//            $.each(stories, function (i, story) {
+//                try {
+//                    storiesList._renderStory(story, element);
+//                }
+//
+//                catch (e) {
+//                     console.log("Error occurred:",e);
+//
+//                }
+//
+//            });
 
         },
 
-        _renderStory:function (story, element) {
+        _renderStory:function (story, storyCont) {
 
             var title = story.title;
             var storyTags = story.tags;
@@ -109,7 +126,7 @@ define(["jquery", "ajax-scroll","moment","css!storiesListCss"], function ($,unde
             var storyUrl = story.url;
             var publishDate = moment(story.publishDate).fromNow();
             var tags = story.interests ?  story.interests.join(' ')  : '';
-            var storyCont = $('<div class="storyCont"></div>').appendTo(element);
+
             var mainItemUrl = storiesList._getBigImageUrl(mainItem);
 
             if(storiesList.storiesRequestParams.editMode){
@@ -144,7 +161,7 @@ define(["jquery", "ajax-scroll","moment","css!storiesListCss"], function ($,unde
             $('<span>' + publishDate + '</span>').appendTo(storyHeader);
 
             var storyImgCont = $('<div class="storyImageCont"><a class="storyContainer" href="' + storyUrl + '"><img class="imgStory" src="' + mainItemUrl + '"/></a></div>').appendTo(storyCont);
-            $('.imgStory',storyCont).css({height:mainItem.height_z,width:mainItem.width_z});
+            $('.imgStory',storyCont).css({height:mainItem.height_s,width:mainItem.width_s});
 
             $('<div class="storyTags"><span><b>Interested for : </b></span>' + tags +'</div>').appendTo(storyCont);
             $('<div class="userLink"><span><b>All user stories: </b><a href="/stories/' + story.userName +'">' + story.userName +'</a></div>').appendTo(storyCont);
