@@ -108,8 +108,7 @@ p.notice {
 
 .createStory{
     background-color: #008F00 !important;
-    width: 250px;
-    height: 75px;
+
 }
 /**************************** sidbar ******************************/
 td.sidbar {
@@ -1040,7 +1039,9 @@ div.popular_places li:hover {
 
 .resultTitle{
     color:#95ADC7;
-    font-size: 130%;}
+    font-size: 130%;
+    text-transform: uppercase;
+}
 
 .resultTitleName{
     color:#95ADC7;
@@ -1179,11 +1180,7 @@ div.popular_places li:hover {
 
 }
 
-.tagsTitle {
-    font-size: 110%;
-    text-align: left;
-    padding-left: 200px;
-}
+
 
 #photoTags {
     margin-top: 15px;
@@ -2780,11 +2777,7 @@ div.popular_places li:hover {
 
 }
 
-.tagsTitle {
-    font-size: 110%;
-    text-align: left;
-    padding-left: 200px;
-}
+
 
 #photoTags {
     margin-top: 15px;
@@ -3464,6 +3457,14 @@ ul {
     position: fixed;
     top:30%;
     display: block;
+}
+
+.userTitle{
+    margin: 0px 0px 15px 25px;
+}
+
+.userLink{
+    text-align: center;
 }
 
 

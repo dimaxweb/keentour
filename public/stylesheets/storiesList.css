@@ -3,18 +3,36 @@
     margin-bottom:10%;
 }
 
+.storyHeader{
+    margin:5px;
+}
+
 .storyContainer
 {
     margin: 1%;
 }
 
 .storyCont{
-    height: 350px;
+    height: 250px;
     padding: 10px;
-    background-color: #DFE5EA;
+}
+
+.storyCont .storyTitle{
+   font-size: 90%;
+   margin: 5px 0px;
+}
+
+.storyCont .tags{
+    margin: 5px 0px;
     text-align: center;
+}
 
+.storyCont .tagsTitle{
+    font-size: 120%;
 
+}
+.storyCont .tagsText{
+   font-size:75%;
 }
 
 .editStory{
@@ -24,3 +42,8 @@
 .deleteStory{
     margin: 0.5%;
 }
+
+.publishDate{
+
+}
+
