@@ -27,12 +27,13 @@ td {
 
     background:url("../images/fonsfera.png");
     height: 102px;
+    margin-top: 15px;
 
 }
 
 .logoCont
 {
-    margin-left: 50px;
+    margin-left: 60px;
 }
 
 .logo{
@@ -614,9 +615,8 @@ div.wm_info {
 
 .video-block
 {
-    margin-left: 15px;
-    cursor: pointer;
-
+   cursor: pointer;
+    margin-right: 40px;
 }
 
 
@@ -1838,6 +1838,10 @@ ul {
     margin: 0 0 20px 70px;
 }
 
+.widgetItemName{
+    position: relative;
+}
+
 .widgetItemName a
 {
     transition: all 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -1850,6 +1854,9 @@ ul {
     overflow: hidden;
     text-overflow: ellipsis;
     height: 27px;
+    position:absolute;
+
+
 }
 
 .widgetItemName a:hover
@@ -1860,6 +1867,7 @@ ul {
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     z-index: 1000;
+
 
 }
 
@@ -1944,14 +1952,7 @@ table.content a:hover {
 
 
 
-.logoCont
-{
-    margin-left: 50px;
-}
 
-.logo{
-    background:url(../images/logo.png) no-repeat left top;
-}
 
 #search{
     margin: 50px 0px 0px 180px;
@@ -3391,9 +3392,7 @@ ul {
 
 #youTubeMain
 {
-    text-align: center;
     min-height: 500px;
-
 }
 
 .selected
