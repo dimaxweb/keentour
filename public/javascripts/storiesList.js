@@ -133,7 +133,7 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], f
                 var isPublished = story.isPublished;
                 var editLinksCont = $('<div class="editLinks"><a class="editStory" href="' + story.editUrl +  '">Edit</a><a class="deleteStory" href="' + story.deleteUrl +'">Delete<a></div>').appendTo(storyCont);
                 if(isPublished){
-                    $("<span>Published</span>").appendTo(editLinksCont);
+                    $("<span class='isPublished'>Published</span>").appendTo(editLinksCont);
                 }
                 else{
                     $("<span>Draft</span>").appendTo(editLinksCont);
@@ -157,14 +157,16 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], f
 
             var storyHeader = $("<div class='storyHeader'></div>").appendTo(storyCont);
 
-            $('<a class="storyContainer" href="' + storyUrl + '">' + title + '<a/>').appendTo(storyHeader);
-            $('<span class="publishDate pull-right muted">' + publishDate + '</span>').appendTo(storyHeader);
+            var divWidgetName = $('<div class="widgetItemName" />').appendTo(storyHeader);
+            $('<a class="storyContainer" href="' + storyUrl + '">' + title + '<a/>').appendTo(divWidgetName);
+
 
             var storyImgCont = $('<div class="storyImageCont"><a class="storyContainer" href="' + storyUrl + '"><img class="imgStory" src="' + mainItemUrl + '"/></a></div>').appendTo(storyCont);
-            $('.imgStory',storyCont).css({height:mainItem.height_s,width:mainItem.width_s});
+            $('.imgStory',storyCont).css({height:mainItem.height_m,width:mainItem.width_m});
 
             $('<div class="tags"><div class="tagsTitle">Tags</div><div class="tagsText"> ' + tags +'</div></div>').appendTo(storyCont);
-            $('<div class="userLink"><span>By : </span><a href="/stories/' + story.userName +'">' + story.userName +'</a></div>').appendTo(storyCont);
+            $('<div class="userLink"><span>By : </span><a href="/stories/' + story.userName +'">' + story.userName +'</a></div>').appendTo();
+            $('<span class="publishDate  muted">' + publishDate + '</span>').appendTo(storyCont);
 
 
 
@@ -195,7 +197,7 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], f
         },
 
         _getBigImageUrl:function (photo) {
-            var photoUrl = photo.url_z || photo.url_l || photo.url_m  || photo.url_t || photo.url_s;
+            var photoUrl =  photo.url_m  || photo.url_s || photo.url_t;
             return photoUrl;
         }
 

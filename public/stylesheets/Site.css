@@ -3466,6 +3466,13 @@ ul {
     text-align: center;
 }
 
+.isPublished{
+    margin-left: 10px;
+    font-size: 90%;
+    color: green;
+
+}
+
 
 
 
