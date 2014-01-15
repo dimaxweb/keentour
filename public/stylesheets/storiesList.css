@@ -6,6 +6,7 @@
 .storyHeader{
     position: relative;
     top: -30px;
+    margin-top: 10px;
 
 }
 
@@ -47,6 +48,9 @@
 
 .publishDate{
   font-size: 90%;
+}
+.editLinks{
+    margin: 10px 0px;
 }
 
 
