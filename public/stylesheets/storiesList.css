@@ -4,7 +4,9 @@
 }
 
 .storyHeader{
-    margin:5px;
+    position: relative;
+    top: -30px;
+
 }
 
 .storyContainer
@@ -44,6 +46,8 @@
 }
 
 .publishDate{
-
+  font-size: 90%;
 }
+
+
 

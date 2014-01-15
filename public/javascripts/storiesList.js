@@ -162,11 +162,11 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], f
 
 
             var storyImgCont = $('<div class="storyImageCont"><a class="storyContainer" href="' + storyUrl + '"><img class="imgStory" src="' + mainItemUrl + '"/></a></div>').appendTo(storyCont);
-            $('.imgStory',storyCont).css({height:mainItem.height_m,width:mainItem.width_m});
+            $('.imgStory',storyCont).css({height:mainItem.height_s,width:mainItem.width_s});
 
             $('<div class="tags"><div class="tagsTitle">Tags</div><div class="tagsText"> ' + tags +'</div></div>').appendTo(storyCont);
-            $('<div class="userLink"><span>By : </span><a href="/stories/' + story.userName +'">' + story.userName +'</a></div>').appendTo();
-            $('<span class="publishDate  muted">' + publishDate + '</span>').appendTo(storyCont);
+            $('<div class="userLink"><span>By : </span><a href="/stories/' + story.userName +'">' + story.userName +'</a></div>').appendTo(storyCont);
+            $('<div class="text-center"><span class="publishDate  muted">' + publishDate + '</span></div>').appendTo(storyCont);
 
 
 
@@ -197,7 +197,7 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], f
         },
 
         _getBigImageUrl:function (photo) {
-            var photoUrl =  photo.url_m  || photo.url_s || photo.url_t;
+            var photoUrl =   photo.url_s;
             return photoUrl;
         }
 
