@@ -67,6 +67,7 @@ jquery.js
 geonames.js
 ajax-scroll.js
 moment.js
+twitter_grid.js
 css.js
 css!storiesListCss
 storiesList.js
@@ -84,12 +85,12 @@ css!jQueryUICSS
 search.js
 ajax-scroll.js
 moment.js
+twitter_grid.js
 css!storiesListCss
 storiesList.js
 inheritance.js
 flickrLib.js
 jquery/paginate.js
-twitter_grid.js
 jquery/colorbox-min.js
 popover.js
 css!paginationCSS
@@ -144,12 +145,12 @@ css!jQueryUICSS
 search.js
 ajax-scroll.js
 moment.js
+twitter_grid.js
 css!storiesListCss
 storiesList.js
 inheritance.js
 flickrLib.js
 jquery/paginate.js
-twitter_grid.js
 jquery/colorbox-min.js
 popover.js
 css!paginationCSS
