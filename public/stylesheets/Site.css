@@ -3459,18 +3459,12 @@ ul {
 }
 
 .userTitle{
-    margin: 0px 0px 15px 25px;
+    margin: 0px 0px 25px 13px;
 }
 
-.userLink{
-    text-align: center;
-}
-
-.isPublished{
-    margin-left: 10px;
-    font-size: 90%;
-    color: green;
-
+#mainCont{
+    width: 100%;
+    overflow: hidden;
 }
 
 

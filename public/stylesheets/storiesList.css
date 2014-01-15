@@ -16,8 +16,12 @@
 }
 
 .storyCont{
-    height: 250px;
+    /*height: 250px;*/
     padding: 10px;
+    overflow: hidden;
+    text-align: left;
+
+    
 }
 
 .storyCont .storyTitle{
@@ -27,11 +31,12 @@
 
 .storyCont .tags{
     margin: 5px 0px;
-    text-align: center;
+
 }
 
 .storyCont .tagsTitle{
     font-size: 120%;
+    margin: 5px 0px 0px 0px;
 
 }
 .storyCont .tagsText{
@@ -53,7 +58,12 @@
     margin: 10px 0px;
 }
 
+.isPublished{
+    margin-left: 10px;
+    font-size: 90%;
+    color: green;
 
+}
 
 
 
