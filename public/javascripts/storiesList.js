@@ -131,23 +131,9 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], f
 
             if(storiesList.storiesRequestParams.editMode){
                 var isPublished = story.isPublished;
-                var editLinksCont = $('<div class="editLinks"><a class="editStory" href="' + story.editUrl +  '">Edit</a><a class="deleteStory" href="' + story.deleteUrl +'">Delete<a></div>').appendTo(storyCont);
-                if(isPublished){
-                    $("<span class='isPublished'>Published</span>").appendTo(editLinksCont);
-                }
-                else{
-                    $("<span>Draft</span>").appendTo(editLinksCont);
-                }
 
-                $('.deleteStory',editLinksCont).on('click',function(e){
-                    e.preventDefault();
-                    var res = confirm("Are you really want to delete this story?");
-                    var deleteUrl = $(this).attr('href');
-                    if(res){
-                       storiesList._deleteStory(deleteUrl,storyCont);
-                    }
 
-                });
+
 
             }
 
@@ -166,7 +152,25 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], f
 
             $('<div class="tags"><div class="tagsTitle">Tags</div><div class="tagsText"> ' + tags +'</div></div>').appendTo(storyCont);
             $('<div class="userLink"><span>By : </span><a href="/stories/' + story.userName +'">' + story.userName +'</a></div>').appendTo(storyCont);
-            $('<div class="text-center"><span class="publishDate  muted">' + publishDate + '</span></div>').appendTo(storyCont);
+//            $('<div class="text-center"><span class="publishDate  muted">' + publishDate + '</span></div>').appendTo(storyCont);
+
+            var editLinksCont = $('<div class="editLinks"><a class="editStory" href="' + story.editUrl +  '">Edit</a><a class="deleteStory" href="' + story.deleteUrl +'">Delete<a></div>').appendTo(storyCont);
+            if(isPublished){
+                $("<span class='isPublished'>Published</span>").appendTo(editLinksCont);
+            }
+            else{
+                $("<span class='draft'>Draft</span>").appendTo(editLinksCont);
+            }
+
+            $('.deleteStory',editLinksCont).on('click',function(e){
+                e.preventDefault();
+                var res = confirm("Are you really want to delete this story?");
+                var deleteUrl = $(this).attr('href');
+                if(res){
+                    storiesList._deleteStory(deleteUrl,storyCont);
+                }
+
+            });
 
 
 

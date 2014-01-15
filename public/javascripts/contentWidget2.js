@@ -152,7 +152,7 @@ require(["jquery","storiesList","jQueryUI","inheritance","flickrWidget","wikiPed
 
             },
             _create : function(){
-               var $tabs  =  $('<div class="tabs"><span class="widgetTitle selected" rel="stories"><a rel="stories"><img style="width:80px;" src="/images/idea.jpg"></a><a class="tabTitle" rel="stories">Ideas</a></span><span class="widgetTitle" rel="videos"><a rel="videos"><img src="/images/kamera.png"></a><a class="tabTitle" rel="videos">Videos</a></span><span class="widgetTitle" rel="photos"><a rel="photos"><img src="/images/photokamera.png"></a><a class="tabTitle" rel="photos">Photos</a></span><span class="widgetTitle" rel="article"><a rel="article"><img src="/images/wikipedia.png"></a><a class="tabTitle" rel="article">Wikipedia</a></span></div><div id="widgetsDisplay"></div>')
+               var $tabs  =  $('<div class="tabs"><span class="widgetTitle selected" rel="stories"><a rel="stories"><img style="width:80px;" src="/images/idea.jpg"></a><a class="tabTitle" rel="stories">Things To Do</a></span><span class="widgetTitle" rel="videos"><a rel="videos"><img src="/images/kamera.png"></a><a class="tabTitle" rel="videos">Videos</a></span><span class="widgetTitle" rel="photos"><a rel="photos"><img src="/images/photokamera.png"></a><a class="tabTitle" rel="photos">Photos</a></span><span class="widgetTitle" rel="article"><a rel="article"><img src="/images/wikipedia.png"></a><a class="tabTitle" rel="article">Wikipedia</a></span></div><div id="widgetsDisplay"></div>')
                             .appendTo(this.element);
 
                 var widgetTabs = $($tabs).find('.widgetTitle');
