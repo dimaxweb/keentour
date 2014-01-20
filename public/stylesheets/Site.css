@@ -33,7 +33,7 @@ td {
 
 .logoCont
 {
-    margin-left: 60px;
+    margin: 15px 0px 0px 60px;
 }
 
 .logo{
@@ -1873,8 +1873,8 @@ ul {
 
 .widgetTitle{
     cursor: pointer;
-    margin-right: 25px;
-    padding-bottom: 30px;
+    margin-right:50px;
+
 }
 
 

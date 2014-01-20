@@ -14,9 +14,11 @@ block content
         .span8
             ul#storyTabs.nav.nav-tabs
                 li.active
-                    a.tab(href='#story',data-toggle="tab") Story
+                    a.tab(href='#story',data-toggle="tab")
+                        img(src="../images/story_btn.png")
                 li
-                    a.tab(href='#settings',data-toggle="tab") Settings
+                    a.tab(href='#settings',data-toggle="tab")
+                        img(src="../images/settings_btn.png")
 
 
 
@@ -41,17 +43,7 @@ block content
                         h4 Web Site
                         input#webSiteUrl
 
-                .textDialog.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-                    .modal-header
-                        button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-                        h3#myModalLabel Modal header
-                    .modal-body
-                            p
-                                .editorText
-                                    textarea#itemTextEditor(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter description ...')
-                    .modal-footer
-                            button.btn(data-dismiss='modal', aria-hidden='true') Close
-                            button.btn.btn-primary Save changes
+
 
 
 

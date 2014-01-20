@@ -57,8 +57,7 @@
 }
 
 .addItem{
-    background-color:#0000ff;
-    color: #D3E7F0;
+
 }
 
 .storyItemContainer
@@ -90,3 +89,12 @@
     padding: 5%;
 }
 
+
+.itemContainer{
+    text-align: center;
+}
+
+
+.contentSearch{
+     margin: 0px 0px 0px 63px;
+}
