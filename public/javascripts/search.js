@@ -16,7 +16,7 @@
             $(container).autocomplete({
                 source:function (request, response) {
                     $.ajax({
-                        url:"http://ws.geonames.org/searchJSON?featureClass=A&featureClass=P",
+                        url:"http://ws.geonames.org/searchJSON?featureClass=A&featureClass=P&username=dmitrym1978",
                         dataType:"jsonp",
                         data:{
                             style:"full",
