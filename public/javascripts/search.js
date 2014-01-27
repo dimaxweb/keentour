@@ -93,11 +93,17 @@
             };
 
             var originalWidth = $(container).width();
+            if(!options.preserveBoxWidth){
+                $(container).focusin(function (e) {
+                    $(this).tooltip('hide');
+                    $(this).animate({
+                        width: "350px"
+                    },350 );
+                });
+            }
             $(container).focusin(function (e) {
                 $(this).tooltip('hide');
-                $(this).animate({
-                    width: "350px"
-                },350 );
+
             });
 
             //bind tooltip if already not bound

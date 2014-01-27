@@ -321,7 +321,7 @@ KEENTOUR.getLastQuery = function(){
     return $('#searchText').val();
 }
 
-require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI","tabs","modal","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
+require(["storage", "search", "geonames", "flickrWidget","jQueryUI","tabs","modal","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
@@ -329,8 +329,12 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
 
     $(document).ready(function (e) {
 
+        $('#searchtext').hide();
+        $('#searchbtn').hide();
+
         KEENTOUR.search.bindAutoComplete({
             container:$('#geoLocation'),
+            preserveBoxWidth  : true,
             onItemSelected:function (options) {
                 var geoItem = options.geoItem;
                 var query = $(options.searchText).val();
@@ -371,8 +375,8 @@ require(["storage", "search", "geonames", "flickrWidget","richEditor","jQueryUI"
          Create action buttons
         */
         $('<div>' +
-           '<button class="btn btn-primary" data-action="save">Save</button> ' +
-            '<button class="btn btn-primary" data-action="publish">Publish</button> </div>')
+           '<button class="btn-save"  data-action="save">Save</button> ' +
+            '<button class="btn-publish"  data-action="publish">Publish</button> </div>')
             .appendTo('.actionPanel')
             .on('click', '.btn', function () {
                 //TODO :refactor to smaller functions here

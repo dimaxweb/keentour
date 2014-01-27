@@ -19,14 +19,15 @@ block content
                 li
                     a.tab(href='#settings',data-toggle="tab")
                         img(src="../images/settings_btn.png")
-
+                li
+                    .actionPanel
 
 
             .tab-content
                 .story#story.tab-pane.active
                     .storyText
                     div(style='text-align:left')
-                        input(type='text',id='txtTitle',placeholder='Enter title',style='width:95%')
+                        input(type='text',id='txtTitle',placeholder='Enter title')
                     .storyDescription
                         textarea#description(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter description ...')
 
@@ -41,7 +42,7 @@ block content
                         h4 Point of interest
                         ul.interests
                         h4 Web Site
-                        input#webSiteUrl
+                        input#webSiteUrl(type='text',placeholder='web site url')
 
 
 

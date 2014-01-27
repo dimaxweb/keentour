@@ -1,3 +1,5 @@
+
+
 .story
  {
      text-align: center;
@@ -30,12 +32,6 @@
     min-width: 80%;
 }
 
-.storyDescription
-{
-    border: 1px solid #EEEEEE;
-    width: 90%;
-}
-
 .storyEdit {
      margin: 1%;
 }
@@ -48,11 +44,7 @@
      margin:5px;
 }
 
-.actionPanel
-{
 
-
-}
 
 .addItem{
 
@@ -95,4 +87,59 @@
 
 .contentSearch{
      margin: 0px 0px 0px 63px;
+}
+
+textarea {
+    width: 100%;
+    background: transparent;
+    height: 100%;
+    white-space: pre;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 10px;
+    word-wrap: normal;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.contentSearch input[type=text] {
+    width: 100%;
+    background: transparent;
+    height: 100%;
+    white-space: pre;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 10px;
+    word-wrap: normal;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+.actionPanel
+{
+    margin: 5% 5%;
+
+}
+
+.actionPanel button{
+    width:100px;
+    height: 25px;
+    color:#FFF;
+    border-radius: 10px;
+
+}
+
+.btn-save{
+    background-color: #3876B2;
+    
+}
+
+.btn-publish{
+    background-color:#008F00;
 }
