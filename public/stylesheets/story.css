@@ -123,13 +123,14 @@ textarea {
 
 .actionPanel
 {
-    margin: 5% 5%;
+    margin: 4% 5%;
+    width:  250px;
 
 }
 
 .actionPanel button{
     width:100px;
-    height: 25px;
+    height: 50px;
     color:#FFF;
     border-radius: 10px;
 

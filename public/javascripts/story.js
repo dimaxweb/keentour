@@ -378,7 +378,7 @@ require(["storage", "search", "geonames", "flickrWidget","jQueryUI","tabs","moda
            '<button class="btn-save"  data-action="save">Save</button> ' +
             '<button class="btn-publish"  data-action="publish">Publish</button> </div>')
             .appendTo('.actionPanel')
-            .on('click', '.btn', function () {
+            .on('click', 'button', function () {
                 //TODO :refactor to smaller functions here
                 var action = $(this).data('action');
                 /*
