@@ -69,7 +69,8 @@
 }
 
 .geoItemPath{
-    margin: 0 1% 0 1%;
+    margin: 0 0 0 0;
+    color : #3876B2;
 }
 
 .storyItemsCont{
@@ -143,4 +144,13 @@ textarea {
 
 .btn-publish{
     background-color:#008F00;
+}
+
+.geoPath{
+    margin:15px 0px;
+    font-size:150%;
+}
+
+.geoItemPath{
+    color : #3876B2;
 }

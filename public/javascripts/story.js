@@ -344,10 +344,10 @@ require(["storage", "search", "geonames", "flickrWidget","jQueryUI","tabs","moda
                  var itemName  = geoItem.name;
 
                  if(itemName!=countryName){
-                     var countrySpan = $('<span class="geoItemPath"><b>' + countryName +'</b></span>  --> ').appendTo('.geoPath');
+                     var countrySpan = $('<span class="geoItemPath">' + countryName  + '</span><span class="separator">-</span> ').appendTo('.geoPath');
                  }
 
-                var spanName = $('<span><b>' + itemName +'</b></span>').appendTo('.geoPath');
+                var spanName = $('<span class="geoItemPath">' + itemName +'</span>').appendTo('.geoPath');
 
 
 
