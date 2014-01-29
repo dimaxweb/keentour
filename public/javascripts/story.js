@@ -112,8 +112,12 @@ KEENTOUR.addStoryItem   = function(photo){
            $(storyItemContainer).append("<div class='storyItemDescription'>" + photo.description._content + "</div>");
        }
 
+        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+
+
 
         var $tab = $('[data-toggle="tab"][href="#story"]');
+
         $tab.tab('show');
 
 
@@ -305,7 +309,7 @@ KEENTOUR.storySavedHandle = function (data) {
         }
         else {
             if(data.redirect){
-                window.location = data.redirect;
+                $('.modal').modal();
                 return;
             }
 
