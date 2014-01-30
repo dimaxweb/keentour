@@ -303,9 +303,8 @@ KEENTOUR.storySavedHandle = function (data) {
     if (data) {
         if (data.status === true) {
             KEENTOUR.currentStory = data.story;
-            //KEENTOUR.storage.setObject('currentStory',KEENTOUR.currentStory);
-            alert("Story saved");
-            console.log("Story saved...",KEENTOUR.currentStory);
+            KEENTOUR.notif("Story saved");
+
         }
         else {
             if(data.redirect){
@@ -314,7 +313,7 @@ KEENTOUR.storySavedHandle = function (data) {
             }
 
 
-            alert("Error occurred.Please try again");
+            KEENTOUR.notif("Error occurred.Please try again");
         }
 
     }
@@ -325,11 +324,13 @@ KEENTOUR.getLastQuery = function(){
     return $('#searchText').val();
 }
 
-require(["storage", "search", "geonames", "flickrWidget","jQueryUI","tabs","modal","css!storyCSS"], function (storage, search, geonames, flickrWidget) {
+require(["storage", "search", "geonames", "flickrWidget","notification","jQueryUI","tabs","modal","css!storyCSS"], function (storage, search, geonames, flickrWidget,notif) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
     KEENTOUR.geonames = geonames;
+    KEENTOUR.notif = notif;
+
 
     $(document).ready(function (e) {
 
@@ -406,7 +407,7 @@ require(["storage", "search", "geonames", "flickrWidget","jQueryUI","tabs","moda
 
                     KEENTOUR.publishStory(function(data){
                         KEENTOUR.currentStory = data.story;
-                        alert("Story published");
+                         KEENTOUR.notif("Story published");
                     });
 
 
@@ -454,8 +455,7 @@ require(["storage", "search", "geonames", "flickrWidget","jQueryUI","tabs","moda
 
 
         if (!$.isEmptyObject(KEENTOUR.currentStory)) {
-            //TODO  : change to notification
-            console.log("story saved!");
+            notif("Story saved");
             KEENTOUR.renderStory(KEENTOUR.currentStory);
 
         }

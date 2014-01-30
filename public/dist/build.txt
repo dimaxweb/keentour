@@ -45,9 +45,6 @@ popover.js
 ajax-scroll.js
 css!paginationCSS
 flickrWidget.js
-richEditorSource.js
-css!richEditorCSS
-richEditor.js
 tabs.js
 modal.js
 css!storyCSS

@@ -35,6 +35,9 @@ require.config({
         tabs  :  '../javascripts/lib/bootstrap/bootstrap-tab',
         moment : '../javascripts/lib/moment',
         scrollUp: '../javascripts/lib/jquery.scrollUp',
+        'jquery.humane' : '../javascripts/lib/humane/humane.min',
+        notification : '../javascripts/lib/notification',
+
 
 
         /*
@@ -64,7 +67,9 @@ require.config({
         richEditorCSS : '/stylesheets/wysihtml',
         storyCSS:'/stylesheets/story',
         storiesListCss : '/stylesheets/storiesList',
-        storyViewCSS : '/stylesheets/storyView'
+        storyViewCSS : '/stylesheets/storyView',
+        humaneCSS : '../javascripts/lib/humane/themes/bigbox'
+
 
     },
 
@@ -161,7 +166,11 @@ require.config({
         contentWidget:{
           deps : ["jquery","jQueryUI"]
 
+        },
+        "jquery.humane" : {
+            deps : ["jquery"]
         }
+
 
 
 
