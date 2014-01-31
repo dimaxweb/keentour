@@ -91,6 +91,7 @@ KEENTOUR.getUniqueId  =function() {
 }
 
 
+
 KEENTOUR.getBigImageUrl = function (photo) {
     var photoUrl = photo.url_z || photo.url_l || photo.url_m  || photo.url_t || photo.url_s;
     return photoUrl;
@@ -102,7 +103,7 @@ KEENTOUR.addStoryItem   = function(photo){
        var item = $("<li class='storyItemLi'><div class='storyItemContainer'><a class='storyPhoto'><img class='imgStory' src='" + KEENTOUR.getBigImageUrl(photo)  +"'/></a></div></li>").appendTo(storyContainer);
        $(item).data('item',photo);
        var storyItemContainer =  $(item).find('.storyItemContainer');
-        $("<div><div class='storyEdit pull-right'><a class='storyItemEdit'>Add text</a><a class='storyItemDelete'>x</a></div></div>").prependTo(item);
+        $("<div><div class='storyEdit pull-right'><a class='storyItemEdit'>Add text</a><a class='storyItemDelete'>X</a></div></div>").prependTo(item);
 //       .on('click',function(e){
 //            $(this).closest('li').remove();
 //       });
@@ -112,7 +113,7 @@ KEENTOUR.addStoryItem   = function(photo){
            $(storyItemContainer).append("<div class='storyItemDescription'>" + photo.description._content + "</div>");
        }
 
-        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+        $("html, body").animate({ scrollTop: $('.storyItemsCont').height() - 100 }, "slow");
 
 
 

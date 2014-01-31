@@ -37,7 +37,7 @@
 }
 
 .storyItemEdit{
-    margin: 5px;
+    margin-right:15px;
 }
 
 .storyItemDelete{
@@ -61,6 +61,7 @@
     position: relative;
     top:1%;
     right: 1%;
+    font-weight: bold;
 }
 
 .geoItemPath{
@@ -148,4 +149,8 @@ textarea {
 
 .geoItemPath{
     color : #3876B2;
+}
+
+.storyItemEdit{
+    margin : 0px 10px 0px 0px;
 }
