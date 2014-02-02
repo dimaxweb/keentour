@@ -129,11 +129,8 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], f
 
             var mainItemUrl = storiesList._getBigImageUrl(mainItem);
 
-            if(storiesList.storiesRequestParams.editMode){
+            if(storiesList.storiesRequestParams.editMode === true){
                 var isPublished = story.isPublished;
-
-
-
 
             }
 
@@ -154,7 +151,7 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], f
             $('<div class="userLink"><span>By : </span><a href="/stories/' + story.userName +'">' + story.userName +'</a></div>').appendTo(storyCont);
 //            $('<div class="text-center"><span class="publishDate  muted">' + publishDate + '</span></div>').appendTo(storyCont);
 
-            if(storiesList.storiesRequestParams.editMode){
+            if(storiesList.storiesRequestParams.editMode === true){
                 var editLinksCont = $('<div class="editLinks"><a class="editStory" href="' + story.editUrl +  '">Edit</a><a class="deleteStory" href="' + story.deleteUrl +'">Delete<a></div>').appendTo(storyCont);
                 if(isPublished){
                     $("<span class='isPublished'>Published</span>").appendTo(editLinksCont);

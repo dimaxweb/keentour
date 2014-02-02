@@ -170,11 +170,20 @@ var MongoWrapper = module.exports = {
     /*
         delete story ,mark as deleted
     */
-    deleteStory : function(story,callback){
-          console.log("Going to mark story as deleted:",story._id);
-          story.isDeleted = true;
-          MongoWrapper.saveStory(story,callback);
+    deleteStory : function(url,callback){
+        var deleteQuery   = function(err,db){
+            db.collection('story').remove({url:url},function(err,results){
+                if (callback) {
+                    callback({"status":true});
+                }
+            });
+        };
+
+
+        MongoWrapper.executeQuery(deleteQuery);
     }
+
+
 
 
 

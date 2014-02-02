@@ -51,7 +51,7 @@ saveStory = function(story,req,callback) {
     var storyUrl =  sanitizeString(req.session.passport.user.profile.username) + "/" + sanitizeString(story.title);
     story.url = "/storyView/" + storyUrl;
     story.editUrl= "/story/edit/" + storyUrl;
-    story.deleteUrl = "/story/delete/"  +storyUrl;
+    story.deleteUrl = "/story/delete/"  + storyUrl;
     story.user = req.session.passport.user;
     story.userName =   sanitizeString(req.session.passport.user.profile.username);
     story.isPublished = story.isPublished || false;
@@ -133,42 +133,48 @@ exports.storyEdit = function(req,res){
 };
 
 exports.storyDelete = function(req,res){
+
     /*
      delete story
     */
-    console.log("In function delete story.");
+
+
+
     if(req.params.user && req.params.title){
         var username =   req.params.user;
         var title = req.params.title;
         var url  =  '/storyView/' + username  + "/" + title;
         console.log("In function delete story.Story url is : ",url);
-        var storyCallback = function(results){
-            console.log("Story get by params",results);
+        MongoWrapper.getStory(url,function(story){
+
             if(req.session && req.session.passport && req.session.passport.user){
-                console.log("Story user is:",results.user);
-                console.log("Passport user is",req.session.passport.user.profile.username);
+                Logger.log("info","Passport user is :" + req.session.passport.user.profile.username);
                 /*
                  check if username in session is equals to story user
-                */
-                if(req.session.passport.user.profile.username === results.user.profile.username){
-                    console.log("Story to be deleted is :",results._id);
-                    MongoWrapper.deleteStory(results,function(){
-                        console.log("Story deleted");
+                 */
+                if(req.session.passport.user.profile.username === story.user.profile.username){
+                    MongoWrapper.deleteStory(url,function(){
+                        Logger.log("info","Story deleted.Story json:"  + JSON.stringify(story));
                         res.json({status:"ok"});
                     });
 
                 }
                 else{
-                    res.redirect("login");
+                    Logger.log("warning","User tried to delete story not belonging to him.User profile name"  + req.session.passport.user.profile.username + ".User of the story  " + story.user.profile.username );
                 }
             }
             else{
-                res.redirect("login");
+                res.json({status:'login'});
             }
 
-        }
+            if(req.session.passport.user.profile.username === story.user.profile.username){
 
-        MongoWrapper.getStory(url,storyCallback);
+            }
+        });
+
+
+
+
         return;
     }
 
@@ -299,8 +305,9 @@ exports.storySave = function (req, res) {
 
 exports.userStories = function(req,res){
     var title  = 'View all '  + req.params.username + ' stories';
+    console.log()
     var editMode = false;
-    if(req.session && req.session.passport && req.session.passport.user && req.session.passport.user.profile.username === req.params.userName){
+    if(req.session && req.session.passport && req.session.passport.user && req.session.passport.user.profile.username === req.params.username){
         editMode  = true;
     }
     res.render('userStories', {title:title,editMode:editMode,username : req.params.username });
