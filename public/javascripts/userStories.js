@@ -8,7 +8,6 @@ require(["storage", "geonames", "storiesList"], function (storage, geonames, sto
     KEENTOUR.geonames = geonames;
     KEENTOUR.storiesList = storiesList;
 
-
     $(document).ready(function (e) {
         console.log("Getting user stories.User name is : %s",KEENTOUR.username);
         KEENTOUR.storiesList.showLatest($('.latestStories'), {userName:KEENTOUR.username,editMode:KEENTOUR.editMode});

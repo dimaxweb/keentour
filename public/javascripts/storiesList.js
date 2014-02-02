@@ -5,7 +5,7 @@
  * Time: 7:18 PM
  * To change this template use File | Settings | File Templates.
  */
-define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], function ($,undefined,moment,twitter_grid){
+define(["jquery", "ajax-scroll","moment","twitter_grid","notification","css!storiesListCss"], function ($,undefined,moment,twitter_grid,notif){
 
 
     var storiesList = {
@@ -13,6 +13,8 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], f
        config:{
             LATEST_STORIES_URL:"/latestStories"
         },
+
+        notif : notif,
 
         storiesRequestParams :{
             rowsToSkip   : 0,
@@ -162,10 +164,11 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","css!storiesListCss"], f
 
                 $('.deleteStory',editLinksCont).on('click',function(e){
                     e.preventDefault();
-                    var res = confirm("Are you really want to delete this story?");
+                    var res = confirm("Are you really want to delete this story? You can't undo this action");
                     var deleteUrl = $(this).attr('href');
                     if(res){
                         storiesList._deleteStory(deleteUrl,storyCont);
+                        notif("Story deleted");
                     }
 
                 });

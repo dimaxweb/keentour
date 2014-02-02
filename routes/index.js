@@ -305,9 +305,9 @@ exports.storySave = function (req, res) {
 
 exports.userStories = function(req,res){
     var title  = 'View all '  + req.params.username + ' stories';
-    console.log()
     var editMode = false;
-    if(req.session && req.session.passport && req.session.passport.user && req.session.passport.user.profile.username === req.params.username){
+    if(req.session && req.session.passport && req.session.passport.user && req.session.passport.user.profile && sanitizeString(req.session.passport.user.profile.username)=== req.params.username){
+        console.log("Set edit mode to true");
         editMode  = true;
     }
     res.render('userStories', {title:title,editMode:editMode,username : req.params.username });
