@@ -1840,6 +1840,7 @@ ul {
 
 .widgetItemName{
     position: relative;
+    padding: 5px 0px 0px 0px;
 }
 
 .widgetItemName a
