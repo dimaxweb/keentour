@@ -37,6 +37,8 @@ require.config({
         scrollUp: '../javascripts/lib/jquery.scrollUp',
         'jquery.humane' : '../javascripts/lib/humane/humane.min',
         notification : '../javascripts/lib/notification',
+        'autosize' : '../javascripts/lib/autosize-master/jquery.autosize.min',
+        'jquery.readmore' : '../javascripts/lib/jquery.readmore',
 
 
 
@@ -169,7 +171,16 @@ require.config({
         },
         "jquery.humane" : {
             deps : ["jquery"]
-        }
+        },
+
+        'autosize': {
+          deps   : ['jquery']
+        },
+
+        'jquery.readmore':  {
+         deps : ['jquery']
+       }
+
 
 
 

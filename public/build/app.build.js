@@ -43,6 +43,8 @@
         moment : '../javascripts/lib/moment',
         dropdown  : '../javascripts/lib/bootstrap/bootstrap-dropdown',
         modal : '../javascripts/lib/bootstrap/bootstrap-modal',
+        'autosize' : '../javascripts/lib/autosize-master/jquery.autosize.min',
+        'jquery.readmore' : '../javascripts/lib/jquery.readmore',
 
 
 

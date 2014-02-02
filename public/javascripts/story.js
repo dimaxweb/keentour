@@ -325,7 +325,7 @@ KEENTOUR.getLastQuery = function(){
     return $('#searchText').val();
 }
 
-require(["storage", "search", "geonames", "flickrWidget","notification","jQueryUI","tabs","modal","css!storyCSS"], function (storage, search, geonames, flickrWidget,notif) {
+require(["storage", "search", "geonames", "flickrWidget","notification","autosize","jQueryUI","tabs","modal","css!storyCSS"], function (storage, search, geonames, flickrWidget,notif) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
@@ -485,6 +485,7 @@ require(["storage", "search", "geonames", "flickrWidget","notification","jQueryU
 
         });
 
+        $('#description').autosize();
 
     });
 });
