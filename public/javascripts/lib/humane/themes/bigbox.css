@@ -17,7 +17,7 @@ body {
 .humane-bigbox {
   font-family: Ubuntu, Verdana, sans-serif;
   line-height: 40px;
-  font-size: 35px;
+  font-size:120%;
   top: 25%;
   left: 35%;
   opacity: 0;
