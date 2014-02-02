@@ -132,7 +132,7 @@ app.get('/AboutUs',routes.aboutUs);
 app.get('/Privacy',routes.privacy);
 app.post('/story/save',routes.storySave);
 app.post('/story/publish',routes.publish);
-app.post('/story/edit/:user/:title',routes.storyEdit);
+app.get('/story/edit/:user/:title',routes.storyEdit);
 app.get('/story/delete/:user/:title',routes.storyDelete);
 app.post('/profile/:user',routes.userProfile);
 app.get('/story',routes.story);

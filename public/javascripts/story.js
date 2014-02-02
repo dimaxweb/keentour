@@ -142,7 +142,7 @@ KEENTOUR.flickrSearch = function (query) {
         showTitle : false,
         showTooltip : false,
         itemCreated : function(domItem,dataItem){
-           var aAppend = $("<a class='addItem'><img src='../images/plus_btn.png' /></a>").data('photo',dataItem).appendTo(domItem).on("click",function(e){
+           var aAppend = $("<a class='addItem'><img src='/images/plus_btn.png' /></a>").data('photo',dataItem).appendTo(domItem).on("click",function(e){
                e.preventDefault();
                var photo = $(this).data('photo');
                KEENTOUR.addStoryItem(photo);

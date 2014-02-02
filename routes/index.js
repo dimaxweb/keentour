@@ -50,7 +50,7 @@ saveStory = function(story,req,callback) {
     story.description  = stripScripts(story.description);
     var storyUrl =  sanitizeString(req.session.passport.user.profile.username) + "/" + sanitizeString(story.title);
     story.url = "/storyView/" + storyUrl;
-    story.editUrl= "/story/" + storyUrl;
+    story.editUrl= "/story/edit/" + storyUrl;
     story.deleteUrl = "/story/delete/"  +storyUrl;
     story.user = req.session.passport.user;
     story.userName =   sanitizeString(req.session.passport.user.profile.username);
@@ -110,10 +110,18 @@ exports.storyEdit = function(req,res){
   if(req.isAuthenticated()){
     var user = req.params.user;
     var title = req.params.title;
-    var url = user + "/"  + title;
+    var url = "/storyView/" + user + "/"  + title;
+    console.log("Url of story to edit",url);
 
     var storyCallback = function(results){
-        res.render('story', {title : "Edit story :" + results.title,story : results});
+        if(results){
+            res.render('story', {title : "Edit story :" + results.title,story : results});
+        }
+        else{
+            res.render('story', {title : "Error occurred when editing story",story : {}});
+        }
+
+
     }
 
     MongoWrapper.getStory(url,storyCallback);
@@ -290,7 +298,7 @@ exports.storySave = function (req, res) {
 }
 
 exports.userStories = function(req,res){
-    var title  = 'View all '  + req.params.userName + ' stories';
+    var title  = 'View all '  + req.params.username + ' stories';
     var editMode = false;
     if(req.session && req.session.passport && req.session.passport.user && req.session.passport.user.profile.username === req.params.userName){
         editMode  = true;
