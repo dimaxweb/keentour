@@ -456,9 +456,7 @@ require(["storage", "search", "geonames", "flickrWidget","notification","autosiz
 
 
         if (!$.isEmptyObject(KEENTOUR.currentStory)) {
-            notif("Story saved");
             KEENTOUR.renderStory(KEENTOUR.currentStory);
-
         }
 
 

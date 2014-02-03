@@ -3,22 +3,16 @@
     text-align: center;
 }
 
-.story > div{
-   margin: 2% 0 2% 0;
+.description{
+    width: 50% !important;
+    margin:auto;
 }
 
-.storyPhotos
-{
-    width:95%;
-    min-height: 500px;
-    border: 1px solid #CCCCCC;
-    margin-bottom: 5%;
-    text-align: center;
+.title{
+    margin : 10px 0px 0px 0px;
 }
 
-
-
-.storyItemContainer
-{
-
+.storyItemContainer{
+    margin: 10px 0px 0px 0px;
 }
+

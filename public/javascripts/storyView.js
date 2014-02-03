@@ -12,11 +12,23 @@ KEENTOUR.renderStory = function (story) {
 
     console.log("The story is : ",story);
 
-    $('.title').text("Title:" + story.title);
+    $('.title').text(story.title);
 
+    var description = $('.description');
     if(story.description && story.description!='undefined'){
-        $('.description').html(story.description);
+        $(description).html(story.description);
     }
+
+    setTimeout(function(e){
+
+        $(description).fadeIn('slow').readmore({
+            speed: 100,
+            maxHeight: 83,
+            moreLink: '<a href="#" class="descriptionToggle">more..</a>',
+            lessLink: '<a href="#" class="descriptionToggle">less</a>'
+        });
+    },200);
+
 
     if(story.webSiteUrl){
         $('.webSiteUrl').append("<a target='_blank' href='" + story.webSiteUrl +"'>Web Site</a>");
@@ -38,7 +50,6 @@ KEENTOUR.renderStory = function (story) {
 };
 
 KEENTOUR.addStoryItem   = function(photo){
-    console.log("Photo is :",photo);
     var storyContainer = $('.storyItems');
     var item = $("<li class='storyItemLi'><div class='storyItemContainer'><a class='storyPhoto'><img  class='imgStory' src='" + photo.url_z  +"'/></a></div></li>").appendTo(storyContainer);
     $('.imgStory',item).css({height:photo.height_z,width:photo.width_z});
@@ -52,14 +63,9 @@ KEENTOUR.addStoryItem   = function(photo){
     if( photo.description &&  photo.description._content && photo.description._content !=="undefined"){
         $(storyItemContainer).append("<div class='storyItemDescription'>" + photo.description._content + "</div>");
     }
-
-
-
-
-
 }
 
-require(["jQueryUI","css!storyViewCSS"], function () {
+require(["jQueryUI","css!storyViewCSS","jquery.readmore"], function () {
     $(document).ready(function(e){
         console.log("render story");
         KEENTOUR.renderStory(KEENTOUR.story);
