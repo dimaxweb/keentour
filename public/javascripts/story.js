@@ -19,34 +19,30 @@ Array.prototype.getUnique = function(){
 
 
 
-KEENTOUR.bindEditor  = function(textareaId) {
-    // This property tells CKEditor to not activate every element with contenteditable=true element.
-    CKEDITOR.disableAutoInline = true;
+KEENTOUR.bindEditor  = function(id) {
+    try{
+        // This property tells CKEditor to not activate every element with contenteditable=true element.
+        CKEDITOR.disableAutoInline = true;
 
-    var editor = CKEDITOR.inline( document.getElementById( 'description' ) );
+        CKEDITOR.inline( document.getElementById(id) );
+        // This code is generally not necessary, but it is here to demonstrate
+        // how to customize specific editor instances on the fly. This fits well
+        // this demo because we have editable elements (like headers) that
+        // require less features.
 
-    var editor2 = CKEDITOR.inline( document.getElementById( 'editable' ) );
-
-    // This code is generally not necessary, but it is here to demonstrate
-    // how to customize specific editor instances on the fly. This fits well
-    // this demo because we have editable elements (like headers) that
-    // require less features.
-
-    // The "instanceCreated" event is fired for every editor instance created.
+//    // The "instanceCreated" event is fired for every editor instance created.
 //    CKEDITOR.on( 'instanceCreated', function( event ) {
 //        var editor = event.editor,
 //            element = editor.element;
 //
 //        // Customize editors for headers and tag list.
 //        // These editors don't need features like smileys, templates, iframes etc.
-//        if ( element.is( 'h1', 'h2', 'h3' ) || element.getAttribute( 'id' ) == 'taglist' ) {
-//            // Customize the editor configurations on "configLoaded" event,
-//            // which is fired after the configuration file loading and
-//            // execution. This makes it possible to change the
-//            // configurations before the editor initialization takes place.
-//            editor.on( 'configLoaded', function() {
-//
-//                // Remove unnecessary plugins to make the editor simpler.
+//        // Customize the editor configurations on "configLoaded" event,
+//        // which is fired after the configuration file loading and
+//        // execution. This makes it possible to change the
+//        // configurations before the editor initialization takes place.
+//        editor.on( 'configLoaded', function() {
+//        // Remove unnecessary plugins to make the editor simpler.
 //                editor.config.removePlugins = 'colorbutton,find,flash,font,' +
 //                    'forms,iframe,image,newpage,removeformat,' +
 //                    'smiley,specialchar,stylescombo,templates';
@@ -59,8 +55,14 @@ KEENTOUR.bindEditor  = function(textareaId) {
 //                    { name: 'about' }
 //                ];
 //            });
-//        }
+//
 //    });
+
+    }
+    catch(ex){
+       console.log("Error occurred when rendering story");
+    }
+
 
 };
 
@@ -72,8 +74,13 @@ KEENTOUR.renderStory = function (story) {
     }
 
     $('#txtTitle').val(story.title);
-    $('#description').val(story.description);
+
+    KEENTOUR.bindEditor('description');
+    CKEDITOR.instances.description.setData(story.description);
+
     $('#webSiteUrl').val(story.webSiteUrl);
+
+    KEENTOUR.displayGeoItemData(story.geoItem);
     $('#geoLocation').data('geoItem',story.geoItem).val(story.geoItem  ? story.geoItem.name : '');
 
     $.each(story.interests,function(i,item){
@@ -107,6 +114,11 @@ KEENTOUR.addStoryItem   = function(photo){
        var storyContainer = $('.storyItems');
        var item = $("<li class='storyItemLi'><div class='storyItemContainer'><a class='storyPhoto'><img class='imgStory' src='" + KEENTOUR.getBigImageUrl(photo)  +"'/></a></div></li>").appendTo(storyContainer);
        $(item).data('item',photo);
+       if(photo.storyUserText){
+           var storyItemId =  "storyItemUserText_" +  KEENTOUR.getUniqueId();
+           $('<div><textarea class="storyItemUserTextArea" id="' + storyItemId  + '"' + '></textarea></div>').prependTo(item);
+           $('#' + storyItemId).val(photo.storyUserText);
+       }
        var storyItemContainer =  $(item).find('.storyItemContainer');
         $("<div><div class='storyEdit pull-right'><a class='storyItemEdit'>Add text</a><a class='storyItemDelete'>X</a></div></div>").prependTo(item);
 //       .on('click',function(e){
@@ -174,7 +186,7 @@ KEENTOUR.stripScripts   = function(s){
 KEENTOUR.getStory = function () {
     var story = {
         title: KEENTOUR.stripScripts($('#txtTitle').val()),
-        description:KEENTOUR.stripScripts($('#description').val()),
+        description:KEENTOUR.stripScripts(CKEDITOR.instances.description.getData()),
         items:[],
         tags  : [],
         interests : [],
@@ -330,7 +342,20 @@ KEENTOUR.getLastQuery = function(){
     return $('#searchText').val();
 }
 
-require(["storage", "search", "geonames", "flickrWidget","notification","autosize","richEditor","jQueryUI","tabs","modal","css!storyCSS"], function (storage, search, geonames, flickrWidget,notif) {
+KEENTOUR.displayGeoItemData = function(geoItem){
+    $('.geoPath').empty();
+    $('#geoLocation').data('geoItem',geoItem);
+    var countryName = geoItem.countryName;
+    var itemName  = geoItem.name;
+
+    if(itemName!=countryName){
+        var countrySpan = $('<span class="geoItemPath">' + countryName  + '</span><span class="separator">-</span> ').appendTo('.geoPath');
+    }
+
+    var spanName = $('<span class="geoItemPath">' + itemName +'</span>').appendTo('.geoPath');
+}
+
+require(["storage", "search", "geonames", "flickrWidget","notification","richEditor","jQueryUI","tabs","modal","css!storyCSS"], function (storage, search, geonames, flickrWidget,notif) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
@@ -348,20 +373,7 @@ require(["storage", "search", "geonames", "flickrWidget","notification","autosiz
             preserveBoxWidth  : true,
             onItemSelected:function (options) {
                 var geoItem = options.geoItem;
-                var query = $(options.searchText).val();
-                $('.geoPath').empty();
-                 $('#geoLocation').data('geoItem',geoItem);
-                 var countryName = geoItem.countryName;
-                 var itemName  = geoItem.name;
-
-                 if(itemName!=countryName){
-                     var countrySpan = $('<span class="geoItemPath">' + countryName  + '</span><span class="separator">-</span> ').appendTo('.geoPath');
-                 }
-
-                var spanName = $('<span class="geoItemPath">' + itemName +'</span>').appendTo('.geoPath');
-
-
-
+                KEENTOUR.displayGeoItemData(geoItem) ;
 
         }});
 
@@ -426,15 +438,6 @@ require(["storage", "search", "geonames", "flickrWidget","notification","autosiz
 
 
 
-//        var toolbarTemplate = $('<div id="wysihtml5-editor-toolbar"><header><ul class="commands"><li data-wysihtml5-command="bold" title="Make text bold (CTRL + B)" class="command"></li><li data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" class="command"></li><li data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" class="command"></li><li data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" class="command"></li><li data-wysihtml5-command="createLink" title="Insert a link" class="command"></li><li data-wysihtml5-command="insertImage" title="Insert an image" class="command"></li><li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" class="command"></li><li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" class="command"></li><li data-wysihtml5-command-group="foreColor" class="fore-color" title="Color the selected text" class="command"><ul> <li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="silver"></li>               <li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="gray"></li><li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="maroon"></li><li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red"></li><li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="purple"></li>               <li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green"></li>               <li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="olive"></li>               <li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="navy"></li>               <li data-wysihtml5-command="foreColor" data-wysihtml5-command-value="blue"></li>             </ul>           </li>           <li data-wysihtml5-command="insertSpeech" title="Insert speech" class="command"></li><li data-wysihtml5-action="change_view" title="Show HTML" class="action"></li></ul></header><div data-wysihtml5-dialog="createLink" style="display: none;"><label>Link:<input data-wysihtml5-dialog-field="href" value="http://">         </label>         <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a></div><div data-wysihtml5-dialog="insertImage" style="display: none;">Image:<input data-wysihtml5-dialog-field="src" value="http://"> </label><a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a></div></div>')
-//            .prependTo('.storyText');
-
-
-
-//        KEENTOUR.bindEditor('description');
-        KEENTOUR.bindEditor();
-
-
         /*
          Load story data ,which can be provided from
           login flow
@@ -467,6 +470,7 @@ require(["storage", "search", "geonames", "flickrWidget","notification","autosiz
 
         $('.storyItems').sortable();
 
+
         $('.storyItems').delegate('.storyItemDelete','click',function(e){
             $(this).closest('li').remove();
         });
@@ -479,16 +483,14 @@ require(["storage", "search", "geonames", "flickrWidget","notification","autosiz
             var storyItemDescription  = $(storyItemLi).find('.storyItemUserText');
             if(storyItemDescription.length === 0){
                 var storyItemId =  "storyItemUserText_" +  KEENTOUR.getUniqueId();
-                storyItemDescription = $('<div class="storyItemUserText"><textarea class="storyItemUserTextArea" id="' + storyItemId + '" placeholder="Enter text here ..."></textarea></div>').prependTo(storyItemLi);
-                $(storyItemDescription).attr("id",storyItemId);
+                storyItemDescription = $('<div><textarea class="storyItemUserTextArea" id="' + storyItemId  + '"' + '></textarea></div>').prependTo(storyItemLi);
                 $(storyItemId).focus();
-                KEENTOUR.bindEditor(storyItemId) ;
 
             }
 
         });
 
-        $('#description').autosize();
+
 
     });
 });

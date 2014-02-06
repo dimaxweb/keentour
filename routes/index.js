@@ -48,6 +48,7 @@ saveStory = function(story,req,callback) {
     Logger.info("Request to save story");
     story.title = stripScripts(story.title);
     story.description  = stripScripts(story.description);
+    console.log(story.description);
     var storyUrl =  sanitizeString(req.session.passport.user.profile.username) + "/" + sanitizeString(story.title);
     story.url = "/storyView/" + storyUrl;
     story.editUrl= "/story/edit/" + storyUrl;
