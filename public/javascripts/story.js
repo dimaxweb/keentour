@@ -20,42 +20,47 @@ Array.prototype.getUnique = function(){
 
 
 KEENTOUR.bindEditor  = function(textareaId) {
+    // This property tells CKEditor to not activate every element with contenteditable=true element.
+    CKEDITOR.disableAutoInline = true;
 
-//    /*
-//        Toolbar template
-//    */
+    var editor = CKEDITOR.inline( document.getElementById( 'description' ) );
+
+    var editor2 = CKEDITOR.inline( document.getElementById( 'editable' ) );
+
+    // This code is generally not necessary, but it is here to demonstrate
+    // how to customize specific editor instances on the fly. This fits well
+    // this demo because we have editable elements (like headers) that
+    // require less features.
+
+    // The "instanceCreated" event is fired for every editor instance created.
+//    CKEDITOR.on( 'instanceCreated', function( event ) {
+//        var editor = event.editor,
+//            element = editor.element;
 //
-//    var editor = new wysihtml5.Editor(textareaId, {
-//        toolbar: "wysihtml5-editor-toolbar",
-//        parserRules: wysihtml5ParserRules
+//        // Customize editors for headers and tag list.
+//        // These editors don't need features like smileys, templates, iframes etc.
+//        if ( element.is( 'h1', 'h2', 'h3' ) || element.getAttribute( 'id' ) == 'taglist' ) {
+//            // Customize the editor configurations on "configLoaded" event,
+//            // which is fired after the configuration file loading and
+//            // execution. This makes it possible to change the
+//            // configurations before the editor initialization takes place.
+//            editor.on( 'configLoaded', function() {
+//
+//                // Remove unnecessary plugins to make the editor simpler.
+//                editor.config.removePlugins = 'colorbutton,find,flash,font,' +
+//                    'forms,iframe,image,newpage,removeformat,' +
+//                    'smiley,specialchar,stylescombo,templates';
+//
+//                // Rearrange the layout of the toolbar.
+//                editor.config.toolbarGroups = [
+//                    { name: 'editing',		groups: [ 'basicstyles', 'links' ] },
+//                    { name: 'undo' },
+//                    { name: 'clipboard',	groups: [ 'selection', 'clipboard' ] },
+//                    { name: 'about' }
+//                ];
+//            });
+//        }
 //    });
-//    //    var log = document.getElementById("log");
-////
-////    editor
-////        .on("load", function() {
-////            log.innerHTML += "<div>load</div>";
-////        })
-////        .on("focus", function() {
-////            log.innerHTML += "<div>focus</div>";
-////        })
-////        .on("blur", function() {
-////            log.innerHTML += "<div>blur</div>";
-////        })
-////        .on("change", function() {
-////            log.innerHTML += "<div>change</div>";
-////        })
-////        .on("paste", function() {
-////            log.innerHTML += "<div>paste</div>";
-////        })
-////        .on("newword:composer", function() {
-////            log.innerHTML += "<div>newword:composer</div>";
-////        })
-////        .on("undo:composer", function() {
-////            log.innerHTML += "<div>undo:composer</div>";
-////        })
-////        .on("redo:composer", function() {
-////            log.innerHTML += "<div>redo:composer</div>";
-////        });
 
 };
 
@@ -325,7 +330,7 @@ KEENTOUR.getLastQuery = function(){
     return $('#searchText').val();
 }
 
-require(["storage", "search", "geonames", "flickrWidget","notification","autosize","jQueryUI","tabs","modal","css!storyCSS"], function (storage, search, geonames, flickrWidget,notif) {
+require(["storage", "search", "geonames", "flickrWidget","notification","autosize","richEditor","jQueryUI","tabs","modal","css!storyCSS"], function (storage, search, geonames, flickrWidget,notif) {
 
     KEENTOUR.storage = storage;
     KEENTOUR.search = search;
@@ -427,7 +432,7 @@ require(["storage", "search", "geonames", "flickrWidget","notification","autosiz
 
 
 //        KEENTOUR.bindEditor('description');
-//        KEENTOUR.bindEditor('itemTextEditor');
+        KEENTOUR.bindEditor();
 
 
         /*

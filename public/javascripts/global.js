@@ -31,7 +31,7 @@ require.config({
         socialShare  : '../javascripts/socialShare',
         storiesList : '../javascripts/storiesList',
         richEditorSource  : '../javascripts/lib/wysihtml5/wysihtml5-0.3.0.min',
-        richEditor  : '../javascripts/lib/wysihtml5/wysihtml5-AMD',
+        richEditor  : '../javascripts/lib/ckeditor/ckeditor',
         tabs  :  '../javascripts/lib/bootstrap/bootstrap-tab',
         moment : '../javascripts/lib/moment',
         scrollUp: '../javascripts/lib/jquery.scrollUp',

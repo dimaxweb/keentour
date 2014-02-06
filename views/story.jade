@@ -29,7 +29,9 @@ block content
                     div(style='text-align:left')
                         input(type='text',id='txtTitle',placeholder='Enter title')
                     .storyDescription
-                        textarea#description(spellcheck='false', wrap='off', autofocus='autofocus', placeholder='Enter description ...')
+                        textarea#description(spellcheck='false', wrap='off', autofocus='autofocus',contenteditable="true",placeholder='Enter description ...')
+
+                    div#editable(style="width:200px,height=300",contenteditable="true") fdgdfgfg
 
                     .storyItemsCont
                             ul.storyItems
