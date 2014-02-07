@@ -22,8 +22,8 @@ KEENTOUR.renderStory = function (story) {
     setTimeout(function(e){
 
         $(description).fadeIn('slow').readmore({
-            speed: 100,
-            maxHeight: 83,
+            speed: 300,
+            maxHeight: 250,
             moreLink: '<a href="#" class="descriptionToggle">more..</a>',
             lessLink: '<a href="#" class="descriptionToggle">less</a>'
         });
@@ -31,7 +31,11 @@ KEENTOUR.renderStory = function (story) {
 
 
     if(story.webSiteUrl){
-        $('.webSiteUrl').append("<a target='_blank' href='" + story.webSiteUrl +"'>Web Site</a>");
+        var websiteUrl  = story.webSiteUrl;
+        if(websiteUrl.indexOf("http:") === -1){
+            websiteUrl = "http://" + websiteUrl;
+        }
+        $('.webSiteUrl').append("<a target='_blank' href='" + websiteUrl +"'><img src='/images/website_btn.png'/></a>");
     }
 
     $.each(story.items, function (i, item) {
@@ -41,8 +45,7 @@ KEENTOUR.renderStory = function (story) {
 
     var strTags = (story.interests && story.interests.length > 0)  ? story.interests.join(' ') : '';
     if(strTags.length > 0){
-        $('.tagItems').text(strTags);
-        $('.titleTags').text("Interested for :");
+        $('.titleTags').text(strTags);
     }
 
 
