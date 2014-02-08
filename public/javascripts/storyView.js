@@ -24,8 +24,8 @@ KEENTOUR.renderStory = function (story) {
         $(description).fadeIn('slow').readmore({
             speed: 300,
             maxHeight: 250,
-            moreLink: '<a href="#" class="descriptionToggle">more..</a>',
-            lessLink: '<a href="#" class="descriptionToggle">less</a>'
+            moreLink: '<a href="#" class="descriptionToggle pull-left">more..</a>',
+            lessLink: '<a href="#" class="descriptionToggle pull-left">less</a>'
         });
     },200);
 

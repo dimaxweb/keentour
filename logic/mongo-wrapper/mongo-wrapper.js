@@ -21,7 +21,7 @@ var MongoWrapper = module.exports = {
                 func(err, db);
             }
             catch (e) {
-                logger.log("error", "Error occured wehn executing function:" + func.toString() + ".Error:", e);
+                logger.log("error", "Error occurred when executing function:" + func.toString() + ".Error:" + e);
             }
 
         });
@@ -33,8 +33,8 @@ var MongoWrapper = module.exports = {
      save story to db
      */
     saveStory:function (story, callback) {
-        console.log("Story before saving:",story);
 
+        console.log("Story id before saving:",story._id);
         var saveQuery   = function(err,db){
             db.collection('story').update({_id:story._id},{$set:story},{upsert:true,safe:true},function(err,newStory){
                 console.log("Story in MongoWrapper is : ",newStory);
