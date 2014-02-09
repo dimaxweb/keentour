@@ -4,19 +4,19 @@ include shared/mixins
 
 block content
 
-            .authorLink
-            .story
-
-             .storyHeader
-                  .title.resultTitleName
-                  .storyTags
-                  .titleTags
-                  .webSiteUrl
-
-                  .description
-
-              ul.storyItems
-              .shareStory
+            .row-fluid
+                .span2
+                    .storyTags
+                        .titleTags
+                        .tagItems
+                    .webSiteUrl.pull-right
+                .span10
+                    .story
+                        .storyHeader
+                              span.title.resultTitleName
+                             .description
+                        ul.storyItems
+            .shareStory
 
 
 

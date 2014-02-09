@@ -1,11 +1,13 @@
 .story
 {
-    text-align: center;
+    text-align: left;
+    margin : 0px 0px 0px 10%;
 }
 
 .description{
-    width: 50% !important;
-    margin:auto;
+    text-align: left;
+    margin:2% 0 2% 0;
+    width : 70% !important;
 }
 
 .title{
@@ -16,9 +18,11 @@
     margin: 10px 0px 0px 0px;
 }
 
-.descriptionToggle{
-    font-size: 120%;
-    font-weight: bold;
-    color:#95ADC7;
+.storyTags{
+    text-align: center;
+}
+
+.storyItems{
+     margin:2% 0 2% 0;
 }
 
