@@ -6,12 +6,17 @@
 
 .description{
     text-align: left;
-    margin:2% 0 2% 0;
+    margin: 2% 0 0 0;
     width : 70% !important;
+    display : none;;
 }
 
 .title{
     margin : 10px 0px 0px 0px;
+}
+
+.titleTags {
+    margin: 15px 0 5px 45px;
 }
 
 .storyItemContainer{
@@ -20,9 +25,40 @@
 
 .storyTags{
     text-align: center;
+
 }
 
 .storyItems{
      margin:2% 0 2% 0;
 }
+
+.webSiteUrl{
+    margin: 0 0 2% 38%;
+}
+
+.tag{
+    font-size: 90%;
+    color:#95ADC7;
+    font-weight: bold;
+    margin: 15px 0 5px 45px;
+}
+
+
+.geoData{
+    margin: 15px 0 5px 45px;
+    text-align: center;
+}
+
+
+
+.geoPath{
+    margin:15px 0px;
+    font-size:150%;
+}
+
+.geoItemPath{
+    color : #3876B2;
+}
+
+
 

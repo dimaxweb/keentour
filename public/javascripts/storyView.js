@@ -2,6 +2,22 @@ if (typeof(KEENTOUR) === "undefined") {
     KEENTOUR = {};
 }
 
+KEENTOUR.displayGeoItemData = function(geoItem){
+    if(geoItem){
+        $('.geoPath').empty();
+        $('.geoLocation').text("Location");
+        var countryName = geoItem.countryName;
+        var itemName  = geoItem.name;
+
+        if(itemName!=countryName){
+            $('<span class="geoItemPath">' + countryName  + '</span><span class="separator">-</span> ').appendTo('.geoPath');
+        }
+
+        $('<span class="geoItemPath">' + itemName +'</span>').appendTo('.geoPath');
+    }
+
+}
+
 KEENTOUR.renderStory = function (story) {
 
 
@@ -24,8 +40,8 @@ KEENTOUR.renderStory = function (story) {
         $(description).fadeIn('slow').readmore({
             speed: 300,
             maxHeight: 250,
-            moreLink: '<a href="#" class="descriptionToggle pull-left">more..</a>',
-            lessLink: '<a href="#" class="descriptionToggle pull-left">less</a>'
+            moreLink: '<a href="#" class="descriptionToggle pull-left">more...</a>',
+            lessLink: '<a href="#" class="descriptionToggle pull-left">less...</a>'
         });
     },200);
 
@@ -43,12 +59,17 @@ KEENTOUR.renderStory = function (story) {
         console.log("Story item", item);
     });
 
-    var strTags = (story.interests && story.interests.length > 0)  ? story.interests.join(' ') : '';
-    if(strTags.length > 0){
-        $('.titleTags').text(strTags);
+
+    if(story.interests.length > 0){
+     $('.titleTags').text("Tags");
+     $.each(story.interests,function(i,item){
+       $('<div class="tag">' + item + '</div>').appendTo('.tagItems');
+     });
     }
 
-
+    if(story.geoItem){
+        KEENTOUR.displayGeoItemData(story.geoItem);
+    }
 
 };
 
