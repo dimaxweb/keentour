@@ -6,13 +6,18 @@
 
 .description{
     text-align: left;
-    margin: 2% 0 0 0;
+    margin: 2.5% 0 0% 0;
     width : 70% !important;
     display : none;;
 }
 
-.title{
-    margin : 10px 0px 0px 0px;
+.storyTitle{
+    margin : 10px 0px 10px 0px;
+    color:#95ADC7;
+    font-weight: bold;
+    font-size: 150%;
+    text-transform: uppercase;
+
 }
 
 .titleTags {
@@ -38,7 +43,7 @@
 
 .tag{
     font-size: 90%;
-    color:#95ADC7;
+    color: #3876B2;
     font-weight: bold;
     margin: 15px 0 5px 45px;
 }
@@ -53,12 +58,27 @@
 
 .geoPath{
     margin:15px 0px;
-    font-size:150%;
+    font-size:90%;
 }
 
 .geoItemPath{
-    color : #3876B2;
+    color: #3876B2;
+    font-weight: bold;
 }
+
+.descriptionToggle{
+    font-size: 80%;
+    font-weight: bold;
+    margin: 10px 0px;
+    color: #3876B2;
+
+}
+
+.
+
+
+
+
 
 
 

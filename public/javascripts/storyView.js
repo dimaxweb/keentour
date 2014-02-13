@@ -28,7 +28,7 @@ KEENTOUR.renderStory = function (story) {
 
     console.log("The story is : ",story);
 
-    $('.title').text(story.title);
+    $('.storyTitle').text(story.title);
 
     var description = $('.description');
     if(story.description && story.description!='undefined'){
@@ -38,8 +38,8 @@ KEENTOUR.renderStory = function (story) {
     setTimeout(function(e){
 
         $(description).fadeIn('slow').readmore({
-            speed: 300,
-            maxHeight: 250,
+            speed: 500,
+            maxHeight: 150,
             moreLink: '<a href="#" class="descriptionToggle pull-left">more...</a>',
             lessLink: '<a href="#" class="descriptionToggle pull-left">less...</a>'
         });
