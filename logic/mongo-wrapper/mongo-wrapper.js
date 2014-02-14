@@ -34,10 +34,14 @@ var MongoWrapper = module.exports = {
      */
     saveStory:function (story, callback) {
 
-        console.log("Story id before saving:",story._id);
+        logger.info("Story id before saving:" + story.id);
         var saveQuery   = function(err,db){
-            db.collection('story').update({_id:story._id},{$set:story},{upsert:true,safe:true},function(err,newStory){
-                console.log("Story in MongoWrapper is : ",newStory);
+            db.collection('story').update({id:story.id},{$set:story},{upsert:true,safe:false},function(err,newStory){
+                if(err!==null){
+                   console.log("Error occurred when saving story",err);
+                }
+//                logger.info("Story in MongoWrapper is : ",newStory);
+                  console.log("Story in MongoWrapper is : ",newStory);
                     if (callback) {
                      callback({"status":true, story:newStory});
                 }

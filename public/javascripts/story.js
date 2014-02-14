@@ -287,9 +287,15 @@ KEENTOUR.saveStory = function (story, callback) {
         console.log("No story provided.Exit function");
         return;
     }
+
+    if(!story.id){
+        story.id = KEENTOUR.getUniqueId();
+
+    }
     /*
-        Request to save the idea
+        Request to save the story
     */
+
     var request = $.ajax('/story/save', {
             headers:{
                 'Content-type':'application/json'
