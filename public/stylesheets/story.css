@@ -82,10 +82,6 @@
 }
 
 
-.contentSearch{
-     margin: 0px 0px 0px 63px;
-}
-
 textarea {
     width: 100%;
     background: transparent;
@@ -180,4 +176,6 @@ textarea {
     border: 1px solid gray;
     -webkit-appearance: textfield;
 }
+
+
 

@@ -35,15 +35,15 @@ KEENTOUR.renderStory = function (story) {
         $(description).html(story.description);
     }
 
-    setTimeout(function(e){
-
-        $(description).fadeIn('slow').readmore({
-            speed: 500,
-            maxHeight: 150,
-            moreLink: '<a href="#" class="descriptionToggle pull-left">more...</a>',
-            lessLink: '<a href="#" class="descriptionToggle pull-left">less...</a>'
-        });
-    },200);
+//    setTimeout(function(e){
+//
+//        $(description).fadeIn('slow').readmore({
+//            speed: 500,
+//            maxHeight: 150,
+//            moreLink: '<a href="#" class="descriptionToggle pull-left">more...</a>',
+//            lessLink: '<a href="#" class="descriptionToggle pull-left">less...</a>'
+//        });
+//    },200);
 
 
     if(story.webSiteUrl){
