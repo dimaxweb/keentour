@@ -60,6 +60,7 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","notification","css!stor
 
         _getStories:function (element){
             var callback = function (stories) {
+                console.log("User stories are :",stories);
                 storiesList._render(stories, element);
             };
             storiesList._getLatestStories(callback);

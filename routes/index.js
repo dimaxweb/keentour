@@ -45,10 +45,9 @@ stripScripts=function(s) {
 }
 
 saveStory = function(story,req,callback) {
-    Logger.info("Request to save story");
+    Logger.info("Request to save story with id ",story.id);
     story.title = stripScripts(story.title);
     story.description  = stripScripts(story.description);
-    console.log(story.description);
     var storyUrl =  sanitizeString(req.session.passport.user.profile.username) + "/" + sanitizeString(story.title);
     story.url = "/storyView/" + storyUrl;
     story.editUrl= "/story/edit/" + storyUrl;
@@ -271,12 +270,16 @@ exports.latestStories = function(req, res){
 
 exports.publish = function(req,res){
     var story  =  req.body;
+
     story.isPublished = true;
     story.publishDate = new Date();
+
+    console.log("Story ID in publish is:",story.id);
     if(req.isAuthenticated()){
 
+        console.log("Saving story.Story published is :  ",story.isPublished);
         saveStory(story,req,function(response){
-            console.log("Published story",response);
+            console.log("Published story :",response);
             res.json(response);
         });
     }

@@ -35,21 +35,32 @@ var MongoWrapper = module.exports = {
     saveStory:function (story, callback) {
 
         logger.info("Story id before saving:" + story.id);
-        var saveQuery   = function(err,db){
-            db.collection('story').update({id:story.id},{$set:story},{upsert:true,safe:false},function(err,newStory){
-                if(err!==null){
-                   console.log("Error occurred when saving story",err);
-                }
+
+        MongoWrapper.getStoryById(story.id,function(foundStory){
+
+            console.log("STORY IN UPDATE IS:",foundStory);
+
+            var saveQuery   = function(err,db){
+                db.collection('story').update({id:story.id},{$set:story},{upsert:true,safe:false},function(err,newStory){
+                    if(err){
+                        console.log("Error occurred when saving story",err);
+                    }
 //                logger.info("Story in MongoWrapper is : ",newStory);
-                  console.log("Story in MongoWrapper is : ",newStory);
+                    console.log("Story in MongoWrapper is : ",newStory);
                     if (callback) {
-                     callback({"status":true, story:newStory});
-                }
-            });
-        };
+                        callback({"status":true, story:newStory});
+                    }
+                });
+            };
 
 
-        MongoWrapper.executeQuery(saveQuery);
+            MongoWrapper.executeQuery(saveQuery);
+
+
+
+        });
+
+
     },
 
     /*
@@ -78,6 +89,23 @@ var MongoWrapper = module.exports = {
         var storyQuery = function (err, db) {
             logger.info("find story with url:" + storyUrl);
             db.collection("story").find({url:storyUrl}).toArray(function (err, results) {
+                console.log("Stories are : ",results);
+                callback(results[0]);
+
+            });
+        };
+
+        MongoWrapper.executeQuery(storyQuery);
+    },
+
+    /*
+     get story by url
+     */
+
+    getStoryById:function (storyId, callback) {
+        var storyQuery = function (err, db) {
+            logger.info("find story with id:" + storyId);
+            db.collection("story").find({id:storyId}).toArray(function (err, results) {
                 console.log("Stories are : ",results);
                 callback(results[0]);
 

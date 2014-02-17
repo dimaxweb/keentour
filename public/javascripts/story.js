@@ -289,7 +289,9 @@ KEENTOUR.saveStory = function (story, callback) {
     }
 
     if(!story.id){
+
         story.id = KEENTOUR.getUniqueId();
+        console.log("Setting new id to story",story.id);
 
     }
     /*
@@ -430,8 +432,8 @@ require(["storage", "search", "geonames", "flickrWidget","notification","richEdi
 
 
                     KEENTOUR.publishStory(function(data){
-                        KEENTOUR.currentStory = data.story;
-                         KEENTOUR.notif("Story published");
+//                        KEENTOUR.currentStory = data.story;
+                        KEENTOUR.notif("Story published");
                     });
 
 
