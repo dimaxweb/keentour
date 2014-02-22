@@ -211,8 +211,19 @@ KEENTOUR.getStory = function () {
         return $(interest).val();
     });
 
-    story = $.extend({}, KEENTOUR.currentStory, story);
     story.webSiteUrl = $('#webSiteUrl').val();
+
+
+    story = $.extend({}, KEENTOUR.currentStory, story);
+
+    if(!story.id){
+
+        story.id = KEENTOUR.getUniqueId();
+        console.log("Setting new id to story",story.id);
+
+    }
+
+
 
     //TODO  : move validations from here
 
@@ -240,6 +251,8 @@ KEENTOUR.getStory = function () {
         $('#geoLocation').focus();
         return;
     }
+
+    KEENTOUR.currentStory = story;
 
 
     return story;
@@ -288,12 +301,7 @@ KEENTOUR.saveStory = function (story, callback) {
         return;
     }
 
-    if(!story.id){
 
-        story.id = KEENTOUR.getUniqueId();
-        console.log("Setting new id to story",story.id);
-
-    }
     /*
         Request to save the story
     */
@@ -328,7 +336,7 @@ KEENTOUR.saveStory = function (story, callback) {
 KEENTOUR.storySavedHandle = function (data) {
     if (data) {
         if (data.status === true) {
-            KEENTOUR.currentStory = data.story;
+//            KEENTOUR.currentStory = data.story;
             KEENTOUR.notif("Story saved");
 
         }
@@ -432,7 +440,7 @@ require(["storage", "search", "geonames", "flickrWidget","notification","richEdi
 
 
                     KEENTOUR.publishStory(function(data){
-//                        KEENTOUR.currentStory = data.story;
+
                         KEENTOUR.notif("Story published");
                     });
 

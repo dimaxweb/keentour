@@ -40,19 +40,43 @@ var MongoWrapper = module.exports = {
 
             console.log("STORY IN UPDATE IS:",foundStory);
 
-            var saveQuery   = function(err,db){
-                db.collection('story').update({id:story.id},{$set:story},{upsert:true,safe:false},function(err,newStory){
-                    if(err){
-                        console.log("Error occurred when saving story",err);
-                    }
-//                logger.info("Story in MongoWrapper is : ",newStory);
-                    console.log("Story in MongoWrapper is : ",newStory);
-                    if (callback) {
-                        callback({"status":true, story:newStory});
-                    }
-                });
-            };
+            /*
+                if found  - than update
+             */
+            if(foundStory){
 
+                console.log("Updating story with id",story.id);
+                delete story._id;
+                var saveQuery   = function(err,db){
+                    db.collection('story').update({id:story.id},{$set:story},{upsert:false,safe:true},function(err,newStory){
+                        if(err){
+                            console.log("Error occurred when updating story",err);
+                        }
+
+                        if (callback) {
+                            callback({"status":true, story:newStory});
+                        }
+                    });
+                };
+            }
+
+            /*
+                if not  - insert
+             */
+            else{
+                console.log("inserting story with id",story.id);
+                var saveQuery   = function(err,db){
+                    db.collection('story').insert(story,function(err,newStory){
+                        if(err){
+                            console.log("Error occurred when inserting story",err);
+                        }
+
+                        if (callback) {
+                            callback({"status":true, story:newStory});
+                        }
+                    });
+                };
+            }
 
             MongoWrapper.executeQuery(saveQuery);
 
