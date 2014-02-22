@@ -45,6 +45,10 @@ popover.js
 ajax-scroll.js
 css!paginationCSS
 flickrWidget.js
+jquery/humane.js
+css!humaneCSS
+notification.js
+richEditor.js
 tabs.js
 modal.js
 css!storyCSS
@@ -55,6 +59,7 @@ storyView.js
 jQueryUI.js
 css.js
 css!storyViewCSS
+jquery/readmore.js
 storyView.js
 
 userStories.js
@@ -65,7 +70,10 @@ geonames.js
 ajax-scroll.js
 moment.js
 twitter_grid.js
+jquery/humane.js
 css.js
+css!humaneCSS
+notification.js
 css!storiesListCss
 storiesList.js
 userStories.js
@@ -83,6 +91,9 @@ search.js
 ajax-scroll.js
 moment.js
 twitter_grid.js
+jquery/humane.js
+css!humaneCSS
+notification.js
 css!storiesListCss
 storiesList.js
 inheritance.js
@@ -143,6 +154,9 @@ search.js
 ajax-scroll.js
 moment.js
 twitter_grid.js
+jquery/humane.js
+css!humaneCSS
+notification.js
 css!storiesListCss
 storiesList.js
 inheritance.js

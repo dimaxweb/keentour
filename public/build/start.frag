@@ -6,7 +6,8 @@ require.config({
          storyCSS : '/stylesheets/story',
          jQueryUICSS:'/stylesheets/jquery-ui-1.8.20.custom',
          colorBoxCSS:'/stylesheets/colorBox',
-         wikiCSS:'/stylesheets/wiki2'
+         wikiCSS:'/stylesheets/wiki2',
+         humaneCSS : '/javascripts/lib/humane/themes/bigbox'
     }
 
 });

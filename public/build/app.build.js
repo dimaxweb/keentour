@@ -27,7 +27,6 @@
         userStories:'../javascripts/userStories',
         global :'../javascripts/global',
         scrollUp: '../javascripts/lib/jquery.scrollUp',
-
         contentpage:'../javascripts/contentpage',
         tooltip  : '../javascripts/lib/bootstrap/bootstrap-tooltip',
         popover  : '../javascripts/lib/bootstrap/bootstrap-popover',
@@ -37,14 +36,16 @@
         sharePlugin  : '../javascripts/lib/jquery.sharrre-1.3.4.min',
         socialShare  : '../javascripts/socialShare',
         storiesList : '../javascripts/storiesList',
-        richEditorSource  : '../javascripts/lib/wysihtml5/wysihtml5-0.3.0.min',
-        richEditor  : '../javascripts/lib/wysihtml5/wysihtml5-AMD',
         tabs  :  '../javascripts/lib/bootstrap/bootstrap-tab',
+        richEditor  : '../javascripts/lib/ckeditor/ckeditor',
         moment : '../javascripts/lib/moment',
         dropdown  : '../javascripts/lib/bootstrap/bootstrap-dropdown',
         modal : '../javascripts/lib/bootstrap/bootstrap-modal',
         'autosize' : '../javascripts/lib/autosize-master/jquery.autosize.min',
         'jquery.readmore' : '../javascripts/lib/jquery.readmore',
+        'jquery.humane' : '../javascripts/lib/humane/humane.min',
+        notification : '../javascripts/lib/notification',
+
 
 
 

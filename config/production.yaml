@@ -1,5 +1,5 @@
 mongo:
-  connectionString   : 'mongodb://nodejitsu:4c561790ec3d4b1346c9830388a2aa6d@alex.mongohq.com:10056/nodejitsudb56760335096'
+  connectionString   : 'mongodb://localhost:27017/keentour_new'
 host : 'http://www.keentour.com'
 logging:
     File :
