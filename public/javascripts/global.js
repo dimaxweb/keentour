@@ -10,7 +10,7 @@ require.config({
         storage:'../javascripts/storage',
         search:'../javascripts/search',
         geonames:'../javascripts/geonames',
-        contentWidget:'../javascripts/contentWidget2',
+        contentWidget:'../javascripts/contentWidget',
         flickrWidget:'../javascripts/flickrWidget',
         wikiPediaWidget:'../javascripts/wikiPediaWidget',
         flickrLib:'../javascripts/flickrLib',

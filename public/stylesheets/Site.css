@@ -107,8 +107,23 @@ p.notice {
 
 }
 
+.headerMenu{
+    width: 100%;
+}
+
+.storyLi{
+    width: 65%;
+    text-align: right;
+
+
+}
+
 .createStory{
     background-color: #008F00 !important;
+    text-align: center;
+    float:right;
+    margin-right: 5px;
+    
 
 }
 /**************************** sidbar ******************************/

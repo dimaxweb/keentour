@@ -25,14 +25,14 @@ html(lang='en')
                            img(src='/images/logo_new.png')
                     .span10
                         .headerNav
-                            ul.nav.nav-pills
-                                li
-                                    input#searchtext(type='text', onfocus='if(this.value==\'Start explore...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
+                            ul.nav.nav-pills.headerMenu
+                                li.textSearchLi
+                                    input#searchtext(type='text', onfocus='if(this.value==\'Start Search ...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
                                     input#searchbtn(type='button', value='')
-                                li.active
+                                li.active.storyLi
                                     a.createStory(href='/story') Create Story
                                 if isAuthenticated
-                                    li.dropdown
+                                    li.dropdown.userStatusLi
                                         a#drop4.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
                                             |  #{user.username}
                                             b.caret
@@ -46,7 +46,7 @@ html(lang='en')
                                             li(role='presentation')
                                                 a(role='menuitem', tabindex='-1', href='/logout') Logout
                                 else
-                                    li.active
+                                    li.active.userStatusLi
                                         a#loginBtn(href='/login') Login
 
 
