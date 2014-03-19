@@ -112,7 +112,7 @@ p.notice {
 }
 
 .storyLi{
-    width: 62%;
+    width:50%;
     text-align: right;
 
 
@@ -3444,10 +3444,6 @@ ul {
     margin-top : 15%;
 }
 
-
-
-
-
 .copyr{
     font-style: italic;
     color: #0088CC;
@@ -3481,6 +3477,10 @@ ul {
 #mainCont{
     width: 100%;
     overflow: hidden;
+}
+
+.userStatusLi{
+    width: 20%;
 }
 
 
