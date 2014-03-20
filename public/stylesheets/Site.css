@@ -49,6 +49,8 @@ td {
     height: 20px;
     padding: 2px 7px 6px 20px;
     color: #777;
+    position :absolute !important;
+    top:34px;
 }
 
 #searchbtn {
@@ -102,21 +104,9 @@ p.notice {
 
 
 
-.headerNav{
-    margin: 15px 150px 0px 0px;
-
-}
-
-.headerMenu{
-    width: 100%;
-}
-
-.storyLi{
-    width:50%;
-    text-align: right;
 
 
-}
+
 
 .createStory{
     background-color: #008F00 !important;
@@ -1970,27 +1960,7 @@ table.content a:hover {
 
 
 
-#search{
-    margin: 50px 0px 0px 180px;
-}
 
-#searchtext {
-    width: 230px;
-    height: 20px;
-    padding: 2px 7px 6px 20px;
-    color: #777;
-}
-
-#searchbtn {
-    background: url(../images/loopa.png) no-repeat center 2px;
-    border: none;
-    width: 28px;
-    height: 24px;
-    cursor: pointer;
-    left: -40px;
-    position: relative;
-    top: -4px;
-}
 
 .advancedOpen
 {
@@ -3479,8 +3449,32 @@ ul {
     overflow: hidden;
 }
 
+
+
+.storyLi{
+    width:85%;
+    text-align: right;
+    padding-top: 4px;
+}
+
 .userStatusLi{
-    width: 20%;
+    padding-top: 4px;
+}
+
+
+
+.headerNav{
+    margin: 15px 0px 0px 0px;
+
+}
+
+.headerMenu{
+    width: 100%;
+}
+
+#loginBtn{
+    height: 14px;
+    width: 50px;
 }
 
 

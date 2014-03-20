@@ -27,8 +27,8 @@ html(lang='en')
                         .headerNav
                             ul.nav.nav-pills.headerMenu
                                 li.textSearchLi
-                                    input#searchtext(type='text', onfocus='if(this.value==\'Start Search ...\') this.value=\'\';', onblur='if(!this.value) this.value=\'Start explore...\';', value='Start explore...')
-                                    input#searchbtn(type='button', value='')
+                                    input#searchtext(type='text',placeholder='Gimme Your Search')
+
                                 li.active.storyLi
                                     a.createStory(href='/story') Create Story
                                 if isAuthenticated
