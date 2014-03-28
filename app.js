@@ -15,7 +15,8 @@ var express = require('express')
    //TODO  : recheck that session is stored in db
    MongoStore = require('connect-mongo')(express),
    CONFIG   =  require('config'),
-   Logger = require('./logic/logging/logger')
+   Logger = require('./logic/logging/logger'),
+   gzippo = require('gzippo');
 
 
 sanitizeString = function(str) {
@@ -64,18 +65,17 @@ app.configure(function(){
 
   app.use(express.logger('dev'));
   app.use(express.cookieParser());
-
-  //app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({db:'keentour-new',auto_reconnect: true})}));
-//  app.use(express.session({secret: 'sedhhh66h6hwww', store: MongoStore({db:'keentour-new',auto_reconnect: true,stringify : true})}));
-   app.use(express.session({
+  app.use(express.session({
         secret:'sedhhh66h6hwww',
         store:new  MongoStore({url:CONFIG.mongo.connectionString, auto_reconnect:true, stringify:true})
-        }));
+  }));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.static(path.join(__dirname, 'public')));
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use(gzippo.staticGzip(__dirname + '/public'));
+  app.use(gzippo.compress());
+
   app.use(app.router);
 
 
