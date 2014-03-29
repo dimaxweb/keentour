@@ -199,7 +199,7 @@ require(["jquery","socialShare","dropdown","modal","scrollUp"], function ($,soci
 
     KEENTOUR.socialShare  = socialShare;
     $(document).ready(function(e){
-      KEENTOUR.socialShare.displayShare('.shareStory');
+//      KEENTOUR.socialShare.displayShare('.shareStory');
       $('.dropdown-toggle').dropdown();
       $('#loginBtn').on('click',function(e){
           e.preventDefault();
