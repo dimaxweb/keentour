@@ -1,1 +1,0 @@
-define(["jquery.humane","css!humaneCSS"],function(e){e.timeout=1500;var t=function(){e.log(Array.prototype.slice.call(arguments))};return t})

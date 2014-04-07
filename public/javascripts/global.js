@@ -22,11 +22,7 @@
 
 require.config({
     baseUrl:'/javascripts',
-    map: {
-        '*': {
-            css: '../javascripts/lib/css'
-        }
-    },
+
 
     paths:{
         jquery:'../javascripts/lib/jquery1.7.2.min',
