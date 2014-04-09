@@ -20,71 +20,74 @@ html(lang='en')
 
        script(src='/javascripts/lib/pace.min.js')
        script
-           Pace.stop = function(){
-             alert("uraaaaaaa")
-           }
-       .container-fluid.header
-                   .row-fluid
-                    .span2
-                       div.logoCont
-                        a(href='/', title='Keentour-Home')
-                           img(src='/images/logo_new.png')
-                    .span10
-                        .headerNav
-                            ul.nav.nav-pills.headerMenu
-                                li.textSearchLi
-                                    input#searchtext(type='text',placeholder='Gimme Your Search')
-
-                                li.active.storyLi
-                                    a.createStory(href='/story') Create Story
-                                if isAuthenticated
-                                    li.dropdown.userStatusLi
-                                        a#drop4.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
-                                            |  #{user.username}
-                                            b.caret
-                                        ul#menu1.dropdown-menu(role='menu', aria-labelledby='drop4')
-                                            li(role='presentation')
-                                                a(role='menuitem', tabindex='-1', href='#')
-
-                                            li(role='presentation')
-                                                a(role='menuitem', tabindex='-1', href='#{user.storiesUrl}') My Stories
-                                            li.divider(role='presentation')
-                                            li(role='presentation')
-                                                a(role='menuitem', tabindex='-1', href='/logout') Logout
-                                else
-                                    li.active.userStatusLi
-                                        a#loginBtn(href='/login') Login
+           Pace.on('hide',function(){
+               $('#siteContainer').fadeIn('slow').children().fadeIn('slow');
+           });
 
 
+       .mainContainer#siteContainer
+           .container-fluid.header
+                       .row-fluid
+                        .span2
+                           div.logoCont
+                            a(href='/', title='Keentour-Home')
+                               img(src='/images/logo_new.png')
+                        .span10
+                            .headerNav
+                                ul.nav.nav-pills.headerMenu
+                                    li.textSearchLi
+                                        input#searchtext(type='text',placeholder='Gimme Your Search')
 
+                                    li.active.storyLi
+                                        a.createStory(href='/story') Create Story
+                                    if isAuthenticated
+                                        li.dropdown.userStatusLi
+                                            a#drop4.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
+                                                |  #{user.username}
+                                                b.caret
+                                            ul#menu1.dropdown-menu(role='menu', aria-labelledby='drop4')
+                                                li(role='presentation')
+                                                    a(role='menuitem', tabindex='-1', href='#')
 
-           .container-fuild
-
-               block content
-
-
-           div.footerPanel#panelMain
-                span.companyInfo
-                    a(href="/AboutUs") About US
-                span.companyInfo
-                   a(href="/Privacy") Privacy
-
-                span.copyr Copyright © 2013, Keentour.com
+                                                li(role='presentation')
+                                                    a(role='menuitem', tabindex='-1', href='#{user.storiesUrl}') My Stories
+                                                li.divider(role='presentation')
+                                                li(role='presentation')
+                                                    a(role='menuitem', tabindex='-1', href='/logout') Logout
+                                    else
+                                        li.active.userStatusLi
+                                            a#loginBtn(href='/login') Login
 
 
 
 
+               .container-fuild
+
+                   block content
 
 
-           .modal.hide.fade
-               .modal-dialog
-                   .modal-content
-                       .modal-header
-                           button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-                           h4.modal-title Login to Keentour
-                           .modal-body
-                               a.facebookAuth(href='/auth/facebook')
-                                    span Login with Facebook
+               div.footerPanel#panelMain
+                    span.companyInfo
+                        a(href="/AboutUs") About US
+                    span.companyInfo
+                       a(href="/Privacy") Privacy
+
+                    span.copyr Copyright © 2013, Keentour.com
+
+
+
+
+
+
+               .modal.hide.fade
+                   .modal-dialog
+                       .modal-content
+                           .modal-header
+                               button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                               h4.modal-title Login to Keentour
+                               .modal-body
+                                   a.facebookAuth(href='/auth/facebook')
+                                        span Login with Facebook
 
 
 
