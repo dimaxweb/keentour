@@ -18,6 +18,15 @@ KEENTOUR.displayGeoItemData = function(geoItem){
 
 }
 
+KEENTOUR.renderItems=function(story,page){
+
+
+    var items = story.items.slice(page,1 + page);
+    $.each(items, function (i, item) {
+        KEENTOUR.addStoryItem(item);
+        console.log("Story item", item);
+    });
+}
 KEENTOUR.renderStory = function (story) {
 
 
@@ -54,11 +63,8 @@ KEENTOUR.renderStory = function (story) {
         $('.webSiteUrl').append("<a target='_blank' href='" + websiteUrl +"'><img src='/images/website_btn.png'/></a>");
     }
 
-    $.each(story.items, function (i, item) {
-        KEENTOUR.addStoryItem(item);
-        console.log("Story item", item);
-    });
 
+    KEENTOUR.renderItems(story,0);
 
     if(story.interests.length > 0){
      $('.titleTags').text("Tags");
@@ -75,9 +81,22 @@ KEENTOUR.renderStory = function (story) {
 
 KEENTOUR.addStoryItem   = function(photo){
     var storyContainer = $('.storyItems');
-    var item = $("<li class='storyItemLi'><div class='storyItemContainer'><a class='storyPhoto'><img  class='imgStory' src='" + photo.url_z  +"'/></a></div></li>").appendTo(storyContainer);
-    $('.imgStory',item).css({height:photo.height_z,width:photo.width_z});
+    var photoSrc  = photo.url_z;
+    var photo_h = photo.height_z;
+    var photo_w =  photo.width_z;
+    if(window.matchMedia){
+        //target the phones
+        if(window.matchMedia("max-width: 767px)")){
+            photoSrc = photo.url_m;
+            photo_h = photo.height_m;
+            photo_w = photo.width_m;
+        }
+    }
+
+    var item = $("<li class='storyItemLi'><div class='storyItemContainer'><a class='storyPhoto'><img  class='imgStory' src='" + photoSrc  +"'/></a></div></li>").appendTo(storyContainer);
+    $('.imgStory',item).css({height:photo_h,width:photo_w});
     $(item).data('item',photo);
+
     var storyItemContainer =  $(item).find('.storyItemContainer');
     if(photo.storyUserText){
         var storyUserText  = $("<div class='storyUserText'>"  + photo.storyUserText  + "</div>").prependTo(storyItemContainer);
@@ -89,10 +108,24 @@ KEENTOUR.addStoryItem   = function(photo){
     }
 }
 
-require(["jQueryUI","css!storyViewCSS","jquery.readmore"], function () {
+require(["ajax-scroll","jQueryUI","css!storyViewCSS","jquery.readmore"], function () {
     $(document).ready(function(e){
         console.log("render story");
         KEENTOUR.renderStory(KEENTOUR.story);
+        $(window).paged_scroll({
+            handleScroll:function (page,container,done) {
+                KEENTOUR.renderItems(KEENTOUR.story,page);
+                done();
+            },
+            targetElement:$('.story'),
+            step:'20px',
+            pagesToScroll:KEENTOUR.story.items.length,
+            monitorTargetChange : false,
+            startPage : 0,
+            binderElement  :$('.story'),
+            debug : true
+
+        });
 
      });
 

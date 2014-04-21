@@ -29,19 +29,19 @@ html(lang='en')
            .container-fluid.header
                        .row-fluid
                         .span2
-                           div.logoCont
+                           div.logoCont.hidden-phone
                             a(href='/', title='Keentour-Home')
                                img(src='/images/logo_new.png')
                         .span10
                             .headerNav
                                 ul.nav.nav-pills.headerMenu
                                     li.textSearchLi
-                                        input#searchtext(type='text',placeholder='Gimme Your Search')
+                                        input#searchtext(type='text',placeholder='SEARCH KEENTOUR')
 
-                                    li.active.storyLi
+                                    li.active.storyLi.hidden-phone
                                         a.createStory(href='/story') Create Story
                                     if isAuthenticated
-                                        li.dropdown.userStatusLi
+                                        li.dropdown.userStatusLi.hidden-phone
                                             a#drop4.dropdown-toggle(role='button', data-toggle='dropdown', href='#')
                                                 |  #{user.username}
                                                 b.caret
@@ -55,7 +55,7 @@ html(lang='en')
                                                 li(role='presentation')
                                                     a(role='menuitem', tabindex='-1', href='/logout') Logout
                                     else
-                                        li.active.userStatusLi
+                                        li.active.userStatusLi.hidden-phone
                                             a#loginBtn(href='/login') Login
 
 

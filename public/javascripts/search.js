@@ -97,7 +97,7 @@
                 $(container).focusin(function (e) {
                     $(this).tooltip('hide');
                     $(this).animate({
-                        width: "350px"
+                        width: "35vw"
                     },350 );
                 });
             }
