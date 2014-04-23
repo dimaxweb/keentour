@@ -110,7 +110,7 @@ KEENTOUR.addStoryItem   = function(photo){
 
 require(["ajax-scroll","jQueryUI","css!storyViewCSS","jquery.readmore"], function () {
     $(document).ready(function(e){
-        console.log("render story");
+        $('#searchtext').hide();
         KEENTOUR.renderStory(KEENTOUR.story);
         $(window).paged_scroll({
             handleScroll:function (page,container,done) {
