@@ -754,7 +754,7 @@ div.popular_places li:hover {
 .filterOption{
     background-image: url('../images/filter.png');
     height: 37px;
-    width: 150px;
+    width: 146px;
     margin  : 5px 0px;
     /*border: 2px solid #000000;*/
     cursor: pointer;
