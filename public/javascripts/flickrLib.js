@@ -37,7 +37,7 @@ FlickrLib.prototype.searchPhotos = function (callback) {
     var result = {};
     result.errorMessage = '';
     result.status = 'fail';
-    var url = "http://api.flickr.com/services/rest/?method=flickr.photos.search"
+    var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search"
         + "&api_key=" + this.options.api_key
         + "&page=" + this.options.page
         + "&sort=" + this.options.sort
