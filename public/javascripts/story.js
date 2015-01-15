@@ -130,7 +130,7 @@ KEENTOUR.addStoryItem   = function(photo){
            $(storyItemContainer).append("<div class='storyItemDescription'>" + photo.description._content + "</div>");
        }
 
-        $("html, body").animate({ scrollTop: $('.storyItemsCont').height() - 100 }, "slow");
+        $("html, body").animate({ scrollTop: $('.storyItemsCont').height() - 50 }, "slow");
 
 
 

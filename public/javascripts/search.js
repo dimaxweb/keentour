@@ -92,15 +92,16 @@
                     .appendTo( ul );
             };
 
-            var originalWidth = $(container).width();
-            if(!options.preserveBoxWidth){
-                $(container).focusin(function (e) {
-                    $(this).tooltip('hide');
-                    $(this).animate({
-                        width: "85vw"
-                    },350 );
-                });
-            }
+//            var originalWidth = $(container).width();
+//            if(!options.preserveBoxWidth){
+//                $(container).focusin(function (e) {
+//                    $(this).tooltip('hide');
+//                    $(this).animate({
+//                        width: "85vw"
+//                    },350 );
+//                });
+//            }
+
             $(container).focusin(function (e) {
                 $(this).tooltip('hide');
 
@@ -114,6 +115,7 @@
                         title:'Let us impress you !  Type you destination here...',
                         placement:'bottom',
                         trigger:'manual'
+
 
                     }).tooltip('show');
 
