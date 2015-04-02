@@ -21,7 +21,8 @@ KEENTOUR.displayGeoItemData = function(geoItem){
 KEENTOUR.renderItems=function(story,page){
 
 
-    var items = story.items.slice(page,1 + page);
+    //var items = story.items.slice(page,1 + page);
+    var items = story.items;
     $.each(items, function (i, item) {
         KEENTOUR.addStoryItem(item);
         console.log("Story item", item);
@@ -112,20 +113,20 @@ require(["ajax-scroll","jQueryUI","css!storyViewCSS","jquery.readmore"], functio
     $(document).ready(function(e){
         $('#searchtext').hide();
         KEENTOUR.renderStory(KEENTOUR.story);
-        $(window).paged_scroll({
-            handleScroll:function (page,container,done) {
-                KEENTOUR.renderItems(KEENTOUR.story,page);
-                done();
-            },
-            targetElement:$('.story'),
-            step:'20px',
-            pagesToScroll:KEENTOUR.story.items.length,
-            monitorTargetChange : false,
-            startPage : 0,
-            binderElement  :$('.story'),
-            debug : true
-
-        });
+        //$(window).paged_scroll({
+        //    handleScroll:function (page,container,done) {
+        //        KEENTOUR.renderItems(KEENTOUR.story,page);
+        //        done();
+        //    },
+        //    targetElement:$('.story'),
+        //    step:'20px',
+        //    pagesToScroll:KEENTOUR.story.items.length,
+        //    monitorTargetChange : false,
+        //    startPage : 0,
+        //    binderElement  :$('.story'),
+        //    debug : true
+        //
+        //});
 
      });
 

@@ -107,23 +107,23 @@
 
             });
 
-            //bind tooltip if already not bound
-            if(!storage.getObject('toolTipShown')){
-               setTimeout(function(){
-                    ///bind tooltip
-                    $(container).tooltip({
-                        title:'Let us impress you !  Type you destination here...',
-                        placement:'bottom',
-                        trigger:'manual'
-
-
-                    }).tooltip('show');
-
-                 setTimeout(function(){$(container).tooltip('hide');},5000);
-                 storage.setObject('toolTipShown',true);
-
-                },1000);
-            }
+            ////bind tooltip if already not bound
+            //if(!storage.getObject('toolTipShown')){
+            //   setTimeout(function(){
+            //        ///bind tooltip
+            //        $(container).tooltip({
+            //            title:'Let us impress you !  Type you destination here...',
+            //            placement:'bottom',
+            //            trigger:'manual'
+            //
+            //
+            //        }).tooltip('show');
+            //
+            //     setTimeout(function(){$(container).tooltip('hide');},5000);
+            //     storage.setObject('toolTipShown',true);
+            //
+            //    },1000);
+            //}
 
 
 

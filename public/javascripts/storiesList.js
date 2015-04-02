@@ -150,7 +150,7 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","notification","css!stor
             var storyImgCont = $('<div class="storyImageCont"><a class="storyContainer" href="' + storyUrl + '"><img class="imgStory" src="' + mainItemUrl + '"/></a></div>').appendTo(storyCont);
             $('.imgStory',storyCont).css({height:mainItem.height_s,width:mainItem.width_s});
 
-            $('<div class="tags"><div class="tagsTitle">Tags</div><div class="tagsText"> ' + tags +'</div></div>').appendTo(storyCont);
+            $('<div class="tags"><div class="tagsText"> ' + tags +'</div></div>').appendTo(storyCont);
             $('<div class="userLink"><span>By : </span><a href="/stories/' + story.userName +'">' + story.userName +'</a></div>').appendTo(storyCont);
 //            $('<div class="text-center"><span class="publishDate  muted">' + publishDate + '</span></div>').appendTo(storyCont);
 
