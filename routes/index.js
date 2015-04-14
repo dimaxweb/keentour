@@ -245,7 +245,7 @@ exports.story = function(req,res){
 
 exports.storyView  = function(req,res){
 
-        var username =   req.params.username;
+        var username =   (req.params.username === "keentour" ) ?  "dmitry-mogilko"  : req.params.username;
         var title = req.params.title;
         var url  = '/storyView/' +  username  + "/" + title;
         var storyCallback = function(results){

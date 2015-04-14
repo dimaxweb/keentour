@@ -127,8 +127,14 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","notification","css!stor
             var storyTags = story.tags;
             var mainItem = story.items[0];
             var storyUrl = story.url;
+            storyUrl = storyUrl.replace('dmitry-mogilko','keentour');
+
+            console.log("Story url is  : " ,storyUrl);
+
             var publishDate = moment(story.publishDate).fromNow();
             var tags = story.interests ?  story.interests.join(' ')  : '';
+            var storyTitle = story.userName ==="dmitry-mogilko"  ? "@keentour"  : story.userName;
+            var storyUserName = story.userName ==="dmitry-mogilko"  ? "keentour"  : story.userName;
 
             var mainItemUrl = storiesList._getBigImageUrl(mainItem);
 
@@ -151,7 +157,7 @@ define(["jquery", "ajax-scroll","moment","twitter_grid","notification","css!stor
             $('.imgStory',storyCont).css({height:mainItem.height_s,width:mainItem.width_s});
 
             $('<div class="tags"><div class="tagsText"> ' + tags +'</div></div>').appendTo(storyCont);
-            $('<div class="userLink"><span>By : </span><a href="/stories/' + story.userName +'">' + story.userName +'</a></div>').appendTo(storyCont);
+            $('<div class="userLink"><span>By : </span><a href="/stories/' + storyUserName +'">' + storyTitle +'</a></div>').appendTo(storyCont);
 //            $('<div class="text-center"><span class="publishDate  muted">' + publishDate + '</span></div>').appendTo(storyCont);
 
             if(storiesList.storiesRequestParams.editMode === true){

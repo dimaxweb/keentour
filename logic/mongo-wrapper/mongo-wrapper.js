@@ -177,7 +177,7 @@ var MongoWrapper = module.exports = {
             var filter = {};
 
             if(params.userName && params.userName !=='null'){
-                filter.userName = params.userName;
+                filter.userName = (params.userName == "keentour") ? "dmitry-mogilko" : params.userName;
             }
 
             if(params.isPublished){
